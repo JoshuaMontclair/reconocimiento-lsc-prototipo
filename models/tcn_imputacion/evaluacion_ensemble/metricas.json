@@ -1,0 +1,17 @@
+{
+ "sistema": "ensemble de 5 semillas (promedio de softmax)",
+ "n_test": 100,
+ "top1": 0.96,
+ "top3": 0.99,
+ "precision_macro": 0.97,
+ "recall_macro": 0.96,
+ "f1_macro": 0.958,
+ "n_errores": 4,
+ "archivos": {
+  "metricas.json": "models/tcn_imputacion/evaluacion_ensemble/metricas.json",
+  "classification_report.json": "models/tcn_imputacion/evaluacion_ensemble/classification_report.json",
+  "matriz_confusion.json": "models/tcn_imputacion/evaluacion_ensemble/matriz_confusion.json",
+  "matriz_confusion.png": "models/tcn_imputacion/evaluacion_ensemble/matriz_confusion.png",
+  "predicciones.json": "models/tcn_imputacion/evaluacion_ensemble/predicciones.json"
+ }
+}

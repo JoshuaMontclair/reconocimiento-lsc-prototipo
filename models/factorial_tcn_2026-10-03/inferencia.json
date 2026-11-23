@@ -1,0 +1,403 @@
+{
+ "fecha": "2026-10-03T02:20:21",
+ "metodo": "model.predict(verbose=0) con lote de 1, como translator.py, y llamada directa model(x, training=False); 10 llamadas de calentamiento y 100 medidas por modelo; mediana y p90. Solo la red (sin MediaPipe). CPU. Modelos de la semilla 2026 (pliegues 0-2), en orden intercalado R0, T0..T5. Entrada: processed -> regla -> 30 pasos -> velocidades, mediana de 100 repeticiones por video, 5 videos.",
+ "procesos_de_entrenamiento_activos": [],
+ "entorno": {
+  "fecha": "2026-10-03T02:20:21",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.297,
+   "ms_predict_lote1_mediana": 13.113520486513153,
+   "ms_predict_lote1_p90": 13.71021218947135,
+   "ms_llamada_directa_mediana": 60.87881248095073,
+   "ms_llamada_directa_p90": 61.47025829995982
+  },
+  {
+   "brazo": "T0",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.631583503913134,
+   "ms_predict_lote1_p90": 11.992641421966255,
+   "ms_llamada_directa_mediana": 7.223166496260092,
+   "ms_llamada_directa_p90": 7.389070896897465
+  },
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.66424949769862,
+   "ms_predict_lote1_p90": 11.949500581249595,
+   "ms_llamada_directa_mediana": 7.243229483719915,
+   "ms_llamada_directa_p90": 7.398466393351555
+  },
+  {
+   "brazo": "T2",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.563270993065089,
+   "ms_predict_lote1_p90": 12.018508312758058,
+   "ms_llamada_directa_mediana": 7.196542021119967,
+   "ms_llamada_directa_p90": 7.371337455697358
+  },
+  {
+   "brazo": "T3",
+   "modelo": "models/factorial_tcn_2026-10-03/T3_mascara_132/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.623374972259626,
+   "ms_predict_lote1_p90": 12.05418303143233,
+   "ms_llamada_directa_mediana": 7.189978990936652,
+   "ms_llamada_directa_p90": 7.322261924855411
+  },
+  {
+   "brazo": "T4",
+   "modelo": "models/factorial_tcn_2026-10-03/T4_pivote_252/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.680104507831857,
+   "ms_predict_lote1_p90": 12.148103909566998,
+   "ms_llamada_directa_mediana": 7.22995848627761,
+   "ms_llamada_directa_p90": 7.3659121815580875
+  },
+  {
+   "brazo": "T5",
+   "modelo": "models/factorial_tcn_2026-10-03/T5_pivote_132/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.57764601521194,
+   "ms_predict_lote1_p90": 11.896166595397517,
+   "ms_llamada_directa_mediana": 7.178583473432809,
+   "ms_llamada_directa_p90": 7.339261868037283
+  },
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.297,
+   "ms_predict_lote1_mediana": 13.055562507361174,
+   "ms_predict_lote1_p90": 13.443391706096008,
+   "ms_llamada_directa_mediana": 60.93787448480725,
+   "ms_llamada_directa_p90": 61.59737502457574
+  },
+  {
+   "brazo": "T0",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.626729479758069,
+   "ms_predict_lote1_p90": 12.164950335863978,
+   "ms_llamada_directa_mediana": 7.2316250298172235,
+   "ms_llamada_directa_p90": 7.372562470845878
+  },
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.561541527044028,
+   "ms_predict_lote1_p90": 11.996320798061788,
+   "ms_llamada_directa_mediana": 7.184645510278642,
+   "ms_llamada_directa_p90": 7.3469792027026415
+  },
+  {
+   "brazo": "T2",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.630187509581447,
+   "ms_predict_lote1_p90": 12.0257378090173,
+   "ms_llamada_directa_mediana": 7.1708754694554955,
+   "ms_llamada_directa_p90": 7.317991665331647
+  },
+  {
+   "brazo": "T3",
+   "modelo": "models/factorial_tcn_2026-10-03/T3_mascara_132/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.58441649749875,
+   "ms_predict_lote1_p90": 11.969328887062147,
+   "ms_llamada_directa_mediana": 7.1622915274929255,
+   "ms_llamada_directa_p90": 7.350229780422524
+  },
+  {
+   "brazo": "T4",
+   "modelo": "models/factorial_tcn_2026-10-03/T4_pivote_252/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.640292010270059,
+   "ms_predict_lote1_p90": 11.95441671879962,
+   "ms_llamada_directa_mediana": 7.2017289930954576,
+   "ms_llamada_directa_p90": 7.35151277622208
+  },
+  {
+   "brazo": "T5",
+   "modelo": "models/factorial_tcn_2026-10-03/T5_pivote_132/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.634791473625228,
+   "ms_predict_lote1_p90": 11.954045569291338,
+   "ms_llamada_directa_mediana": 7.159749482525513,
+   "ms_llamada_directa_p90": 7.2870289091952145
+  },
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.297,
+   "ms_predict_lote1_mediana": 13.04335449822247,
+   "ms_predict_lote1_p90": 13.77714168629609,
+   "ms_llamada_directa_mediana": 60.97562497598119,
+   "ms_llamada_directa_p90": 61.909833253594115
+  },
+  {
+   "brazo": "T0",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.61547951051034,
+   "ms_predict_lote1_p90": 11.92410868825391,
+   "ms_llamada_directa_mediana": 7.1838125004433095,
+   "ms_llamada_directa_p90": 7.288041390711442
+  },
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.628791515249759,
+   "ms_predict_lote1_p90": 12.120808393228799,
+   "ms_llamada_directa_mediana": 7.216854020953178,
+   "ms_llamada_directa_p90": 7.33975411276333
+  },
+  {
+   "brazo": "T2",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.602416983805597,
+   "ms_predict_lote1_p90": 12.06443723058328,
+   "ms_llamada_directa_mediana": 7.192187506007031,
+   "ms_llamada_directa_p90": 7.32342530391179
+  },
+  {
+   "brazo": "T3",
+   "modelo": "models/factorial_tcn_2026-10-03/T3_mascara_132/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.589833506150171,
+   "ms_predict_lote1_p90": 11.903341894503683,
+   "ms_llamada_directa_mediana": 7.14912498369813,
+   "ms_llamada_directa_p90": 7.3331503313966095
+  },
+  {
+   "brazo": "T4",
+   "modelo": "models/factorial_tcn_2026-10-03/T4_pivote_252/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.59199999528937,
+   "ms_predict_lote1_p90": 11.911125021288171,
+   "ms_llamada_directa_mediana": 7.194770470960066,
+   "ms_llamada_directa_p90": 7.344232790637761
+  },
+  {
+   "brazo": "T5",
+   "modelo": "models/factorial_tcn_2026-10-03/T5_pivote_132/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 13.451062492094934,
+   "ms_predict_lote1_p90": 14.453725010389462,
+   "ms_llamada_directa_mediana": 8.051125012570992,
+   "ms_llamada_directa_p90": 8.789696427993476
+  }
+ ],
+ "construccion_de_la_entrada": {
+  "T0": {
+   "ms_mediana_de_medianas": 0.15024997992441058,
+   "ms_max_de_medianas": 0.15806249575689435,
+   "ms_por_video": {
+    "0030_0000_0003": 0.15364549471996725,
+    "0000_0000_0000": 0.15024997992441058,
+    "0004_0004_0001": 0.14964601723477244,
+    "0009_0003_0002": 0.15806249575689435,
+    "0014_0002_0003": 0.15000050188973546
+   },
+   "videos": [
+    "0030_0000_0003",
+    "0000_0000_0000",
+    "0004_0004_0001",
+    "0009_0003_0002",
+    "0014_0002_0003"
+   ]
+  },
+  "T1": {
+   "ms_mediana_de_medianas": 0.2767709665931761,
+   "ms_max_de_medianas": 0.3881670127157122,
+   "ms_por_video": {
+    "0030_0000_0003": 0.3881670127157122,
+    "0000_0000_0000": 0.16218697419390082,
+    "0004_0004_0001": 0.3854795068036765,
+    "0009_0003_0002": 0.2700624754652381,
+    "0014_0002_0003": 0.2767709665931761
+   },
+   "videos": [
+    "0030_0000_0003",
+    "0000_0000_0000",
+    "0004_0004_0001",
+    "0009_0003_0002",
+    "0014_0002_0003"
+   ]
+  },
+  "T2": {
+   "ms_mediana_de_medianas": 0.2881874970626086,
+   "ms_max_de_medianas": 0.4028120019938797,
+   "ms_por_video": {
+    "0030_0000_0003": 0.4028120019938797,
+    "0000_0000_0000": 0.17835397738963366,
+    "0004_0004_0001": 0.39962498703971505,
+    "0009_0003_0002": 0.2854999911505729,
+    "0014_0002_0003": 0.2881874970626086
+   },
+   "videos": [
+    "0030_0000_0003",
+    "0000_0000_0000",
+    "0004_0004_0001",
+    "0009_0003_0002",
+    "0014_0002_0003"
+   ]
+  },
+  "T3": {
+   "ms_mediana_de_medianas": 0.16479098121635616,
+   "ms_max_de_medianas": 0.1705419854260981,
+   "ms_por_video": {
+    "0030_0000_0003": 0.1705419854260981,
+    "0000_0000_0000": 0.1586459984537214,
+    "0004_0004_0001": 0.16479098121635616,
+    "0009_0003_0002": 0.1635204826015979,
+    "0014_0002_0003": 0.16572902677580714
+   },
+   "videos": [
+    "0030_0000_0003",
+    "0000_0000_0000",
+    "0004_0004_0001",
+    "0009_0003_0002",
+    "0014_0002_0003"
+   ]
+  },
+  "T4": {
+   "ms_mediana_de_medianas": 0.05385448457673192,
+   "ms_max_de_medianas": 0.058999983593821526,
+   "ms_por_video": {
+    "0030_0000_0003": 0.05385448457673192,
+    "0000_0000_0000": 0.03989553079009056,
+    "0004_0004_0001": 0.05408350261859596,
+    "0009_0003_0002": 0.043333013309165835,
+    "0014_0002_0003": 0.058999983593821526
+   },
+   "videos": [
+    "0030_0000_0003",
+    "0000_0000_0000",
+    "0004_0004_0001",
+    "0009_0003_0002",
+    "0014_0002_0003"
+   ]
+  },
+  "T5": {
+   "ms_mediana_de_medianas": 0.0662085076328367,
+   "ms_max_de_medianas": 0.0736669753678143,
+   "ms_por_video": {
+    "0030_0000_0003": 0.06664599641226232,
+    "0000_0000_0000": 0.05131200305186212,
+    "0004_0004_0001": 0.0662085076328367,
+    "0009_0003_0002": 0.05668750964105129,
+    "0014_0002_0003": 0.0736669753678143
+   },
+   "videos": [
+    "0030_0000_0003",
+    "0000_0000_0000",
+    "0004_0004_0001",
+    "0009_0003_0002",
+    "0014_0002_0003"
+   ]
+  }
+ },
+ "costo_por_brazo": {
+  "T0": {
+   "ms_red_predict_lote1": 11.624597498060515,
+   "ms_red_llamada_directa": 7.212868008840208,
+   "ms_entrada": 0.15024997992441058,
+   "mb_archivo": 0.738,
+   "ms_total": 11.774847477984926
+  },
+  "T1": {
+   "ms_red_predict_lote1": 11.618194179997468,
+   "ms_red_llamada_directa": 7.214909671650578,
+   "ms_entrada": 0.2767709665931761,
+   "mb_archivo": 0.738,
+   "ms_total": 11.894965146590645
+  },
+  "T2": {
+   "ms_red_predict_lote1": 11.59862516215071,
+   "ms_red_llamada_directa": 7.186534998860831,
+   "ms_entrada": 0.2881874970626086,
+   "mb_archivo": 0.621,
+   "ms_total": 11.88681265921332
+  },
+  "T3": {
+   "ms_red_predict_lote1": 11.599208325302849,
+   "ms_red_llamada_directa": 7.167131834042569,
+   "ms_entrada": 0.16479098121635616,
+   "mb_archivo": 0.621,
+   "ms_total": 11.763999306519205
+  },
+  "T4": {
+   "ms_red_predict_lote1": 11.637465504463762,
+   "ms_red_llamada_directa": 7.208819316777711,
+   "ms_entrada": 0.05385448457673192,
+   "mb_archivo": 0.738,
+   "ms_total": 11.691319989040494
+  },
+  "T5": {
+   "ms_red_predict_lote1": 12.2211666603107,
+   "ms_red_llamada_directa": 7.463152656176438,
+   "ms_entrada": 0.0662085076328367,
+   "mb_archivo": 0.621,
+   "ms_total": 12.287375167943537
+  }
+ }
+}

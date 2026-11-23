@@ -1,0 +1,45 @@
+{
+ "modelo": "modelo.keras",
+ "representacion": "manos",
+ "bloques": [
+  "mano_izq",
+  "mano_der"
+ ],
+ "n_rasgos_por_paso": 126,
+ "velocidades": true,
+ "n_rasgos_entrada": 252,
+ "seq_length": 30,
+ "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+ "mano_ausente": "imputacion",
+ "rostro_del_processed": "cejas_labios",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "landmarks_dir": "data/extracted/LSC50_holistic",
+ "script": "src/train_final_tcn.py",
+ "fecha": "2026-10-03T09:00:13",
+ "mano_ausente_detalle": "mano_ausente_variantes.imputar_fotogramas sobre los cuadros originales del processed «mascara» (normalizados por hombros, mano no detectada en 0): por mano, interpolación lineal entre el cuadro válido anterior y el siguiente; bordes = copia del válido más cercano; mano nunca detectada = 0. Después resample_sequence a 30 pasos y add_velocity",
+ "arquitectura": {
+  "descripcion": "TCN pequeña con GAP (arquitecturas_literatura.construir_tcn, CONFIG_T): 4 bloques residuales con convoluciones dilatadas 1-2-4-8 (2 Conv1D de 64 filtros, ventana 3, BN, ReLU y dropout 0,2 por bloque; atajo 1×1 si cambian los canales), padding «same», GlobalAveragePooling1D, dropout 0,3 y softmax de 50",
+  "constructor": "src/arquitecturas_literatura.py:construir_tcn",
+  "config_T": {
+   "filtros": 64,
+   "ventana": 3,
+   "dilataciones": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "convs_por_bloque": 2,
+   "dropout_bloque": 0.2,
+   "dropout_final": 0.3,
+   "padding": "same"
+  },
+  "n_parametros": 156402
+ },
+ "entrenamiento": {
+  "lr": 0.001,
+  "batch": 64,
+  "label_smoothing": 0.1
+ },
+ "nota": "opcion EXPERIMENTAL del prototipo (N-63), pendiente de la decision del director; el modelo por defecto sigue siendo models/canonico_holistic_mascara_manos/modelo_canonico.keras"
+}

@@ -1,0 +1,54 @@
+{
+ "brazo": "B",
+ "semilla": 2028,
+ "pliegue": 0,
+ "senante_test": "0000",
+ "hiperparametros": {
+  "lr": 0.0005,
+  "batch": 64,
+  "label_smoothing": 0.1,
+  "arquitectura": {
+   "conv_capas": 1,
+   "conv_filtros": 64,
+   "conv_ventana": 5,
+   "gru": [
+    128
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.3,
+   "recurrente": "GRU (reset_after=True, por defecto de Keras)"
+  }
+ },
+ "n_parametros": 341171,
+ "val_top1": 0.9900000095367432,
+ "val_top1_checkpoint_reevaluado": 0.99,
+ "val_top3": 1.0,
+ "val_f1_macro": 0.9893333333333334,
+ "val_loss": 0.9004008769989014,
+ "test_top1": 0.45,
+ "test_top3": 0.63,
+ "test_f1_macro": 0.4347570947570948,
+ "test_precision_macro": 0.517787784679089,
+ "test_recall_macro": 0.45,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "epocas_ejecutadas": 109,
+ "mejor_epoca": 84,
+ "tiempo_entrenamiento_s": 288.9,
+ "tiempo_total_s": 292.2,
+ "s_por_epoca": 2.65,
+ "epochs_max": 200,
+ "aug": 10,
+ "patience": 25,
+ "processed": "data/processed_holistic_mascara_rostro",
+ "representacion": "manos",
+ "seq_length": 30,
+ "modelo": "models/arquitecturas_2_2026-10-03/B_bigru/semilla_2028/pliegue_0/modelo.keras",
+ "fecha_fin": "2026-10-03T01:16:07",
+ "constructor": "arquitecturas_2.construir_bigru",
+ "script": "src/experimento_arquitecturas_2.py"
+}

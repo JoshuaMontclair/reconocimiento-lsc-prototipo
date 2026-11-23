@@ -1,0 +1,195 @@
+{
+ "script": "src/train_final_100.py",
+ "esquema": "aleatoria_80_10_10",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "representacion": "manos",
+ "particion": "data/partitions/aleatoria_80_10_10.json",
+ "semilla_particion": 2026,
+ "configuracion": {
+  "arquitectura": "CNN+BiLSTM+atencion (build_model)",
+  "seq_length": 30,
+  "n_features": 252,
+  "velocidades": true,
+  "epochs_max": 200,
+  "aug": 10,
+  "batch_size": 64,
+  "patience": 25,
+  "dropout": 0.3,
+  "semillas_entrenamiento": [
+   2026,
+   2027,
+   2028,
+   2029,
+   2030
+  ],
+  "monitor": "val_accuracy"
+ },
+ "semillas": [
+  {
+   "semilla": 2026,
+   "modelo": "models/canonico_holistic_mascara_manos/semilla_2026/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 42,
+   "mejor_epoca": 17,
+   "val_accuracy_checkpoint": 0.9599999785423279,
+   "val_loss_checkpoint": 0.9088973999023438,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.96,
+    "top3": 0.99,
+    "precision_macro": 0.9733333333333334,
+    "recall_macro": 0.96,
+    "f1_macro": 0.9573333333333334
+   },
+   "mejor_val_accuracy_historial": 0.9599999785423279,
+   "tiempo_entrenamiento_s": 140.0,
+   "tiempo_total_s": 142.0
+  },
+  {
+   "semilla": 2027,
+   "modelo": "models/canonico_holistic_mascara_manos/semilla_2027/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 41,
+   "mejor_epoca": 16,
+   "val_accuracy_checkpoint": 0.9399999976158142,
+   "val_loss_checkpoint": 0.9853460788726807,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.94,
+    "top3": 0.97,
+    "precision_macro": 0.9566666666666666,
+    "recall_macro": 0.94,
+    "f1_macro": 0.9366666666666665
+   },
+   "mejor_val_accuracy_historial": 0.9399999976158142,
+   "tiempo_entrenamiento_s": 169.9,
+   "tiempo_total_s": 171.7
+  },
+  {
+   "semilla": 2028,
+   "modelo": "models/canonico_holistic_mascara_manos/semilla_2028/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 58,
+   "mejor_epoca": 33,
+   "val_accuracy_checkpoint": 0.949999988079071,
+   "val_loss_checkpoint": 0.9368574023246765,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.95,
+    "top3": 0.98,
+    "precision_macro": 0.97,
+    "recall_macro": 0.95,
+    "f1_macro": 0.948
+   },
+   "mejor_val_accuracy_historial": 0.949999988079071,
+   "tiempo_entrenamiento_s": 226.6,
+   "tiempo_total_s": 228.3
+  },
+  {
+   "semilla": 2029,
+   "modelo": "models/canonico_holistic_mascara_manos/semilla_2029/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 58,
+   "mejor_epoca": 33,
+   "val_accuracy_checkpoint": 0.949999988079071,
+   "val_loss_checkpoint": 0.9538192749023438,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.95,
+    "top3": 0.99,
+    "precision_macro": 0.95,
+    "recall_macro": 0.95,
+    "f1_macro": 0.9433333333333335
+   },
+   "mejor_val_accuracy_historial": 0.949999988079071,
+   "tiempo_entrenamiento_s": 233.5,
+   "tiempo_total_s": 235.4
+  },
+  {
+   "semilla": 2030,
+   "modelo": "models/canonico_holistic_mascara_manos/semilla_2030/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 63,
+   "mejor_epoca": 38,
+   "val_accuracy_checkpoint": 0.9399999976158142,
+   "val_loss_checkpoint": 0.9710932970046997,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.94,
+    "top3": 0.98,
+    "precision_macro": 0.9633333333333333,
+    "recall_macro": 0.94,
+    "f1_macro": 0.9373333333333332
+   },
+   "mejor_val_accuracy_historial": 0.9399999976158142,
+   "tiempo_entrenamiento_s": 255.2,
+   "tiempo_total_s": 256.9
+  }
+ ],
+ "seleccion": {
+  "criterio": "mayor val_accuracy del checkpoint; empate: menor val_loss; luego orden de las semillas. Sin intervención del conjunto de prueba.",
+  "semilla": 2026,
+  "val_accuracy_checkpoint": 0.9599999785423279,
+  "metricas_validacion_checkpoint": {
+   "top1": 0.96,
+   "top3": 0.99,
+   "precision_macro": 0.9733333333333334,
+   "recall_macro": 0.96,
+   "f1_macro": 0.9573333333333334
+  },
+  "modelo": "models/canonico_holistic_mascara_manos/modelo_canonico.keras",
+  "copiado_de": "models/canonico_holistic_mascara_manos/semilla_2026/modelo.keras"
+ },
+ "prueba": {
+  "modelo_seleccionado": {
+   "sistema": "modelo seleccionado (semilla 2026)",
+   "n_test": 100,
+   "top1": 0.88,
+   "top3": 0.98,
+   "precision_macro": 0.8966666666666666,
+   "recall_macro": 0.88,
+   "f1_macro": 0.8706666666666666,
+   "n_errores": 12,
+   "archivos": {
+    "metricas.json": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/metricas.json",
+    "classification_report.json": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/classification_report.json",
+    "matriz_confusion.json": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/matriz_confusion.json",
+    "matriz_confusion.png": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/matriz_confusion.png",
+    "predicciones.json": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/predicciones.json"
+   }
+  },
+  "ensemble": {
+   "sistema": "ensemble de 5 semillas (promedio de softmax)",
+   "n_test": 100,
+   "top1": 0.91,
+   "top3": 1.0,
+   "precision_macro": 0.93,
+   "recall_macro": 0.91,
+   "f1_macro": 0.9086666666666666,
+   "n_errores": 9,
+   "archivos": {
+    "metricas.json": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/metricas.json",
+    "classification_report.json": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/classification_report.json",
+    "matriz_confusion.json": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/matriz_confusion.json",
+    "matriz_confusion.png": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/matriz_confusion.png",
+    "predicciones.json": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/predicciones.json"
+   }
+  }
+ },
+ "entorno": {
+  "fecha": "2026-09-15T10:38:26",
+  "plataforma": "macOS-26.6.2-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "gpus_visibles": [],
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0"
+ }
+}

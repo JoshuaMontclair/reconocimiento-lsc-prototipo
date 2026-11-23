@@ -1,0 +1,1649 @@
+{
+ "identidad_corpus": {
+  "nombre": "LSC50: Colombian Sign Language Video and Inertial Measurement Dataset",
+  "articulo_descriptor": {
+   "cita": "A. F. Flórez-Sierra, B. D. Solórzano, F. Segura-Quijano, Y. M. Cortés-Bello, L. Cubillos, L. F. Giraldo y C. Cifuentes-De la Portilla, Scientific Data, vol. 11, art. 1347, dic. 2024",
+   "doi": "10.1038/s41597-024-04172-5",
+   "licencia": "CC BY-NC-ND 4.0 (rige sobre el texto y las figuras del artículo, no sobre los datos)",
+   "fuente": "anteproyecto 13_referencias.tex, \\bibitem{ref19}; README.md (Datasets)"
+  },
+  "deposito_de_datos": {
+   "repositorio": "figshare",
+   "doi": "10.6084/m9.figshare.27383016.v1",
+   "version": "1",
+   "fecha_publicacion": "2024-10-31",
+   "url": "https://figshare.com/articles/dataset/LSC50/27383016",
+   "codigo_autores": "https://github.com/BiomecanicaUniandes/LSC50",
+   "licencia": "CC BY 4.0",
+   "fuente": "anteproyecto 13_referencias.tex, \\bibitem[19b]{ref19b}; README.md (Datasets)"
+  }
+ },
+ "cifras_anticipadas_por_el_anteproyecto": {
+  "fuente": "anteproyecto 05_justificacion.tex §1.3.4 (50 señas, 5 voluntarios y 4.000 videos publicados; 1.000 secuencias por modalidad y 4 repeticiones por derivación aritmética) y 09_metodologia.tex §2.2.2; lo declarado por el artículo, en «citas_del_articulo» → cifras",
+  "videos_avi": {
+   "declarado_por_el_articulo": 4000,
+   "verificado": 4000,
+   "fuente": "conteo de *.avi en las cuatro carpetas de VIDEOS"
+  },
+  "medidas_inerciales": {
+   "declarado_por_el_articulo": 250,
+   "verificado_filas_en_Timestamps_xlsx": 250,
+   "fuente": "filas con N y Sign en IMU/INFO/Timestamps.xlsx (5 hojas); IMU/RAW trae 5 libros con 7 hojas (una por sensor). Fuera del alcance del proyecto: se cuenta solo para el cotejo con lo declarado"
+  },
+  "senas": {
+   "anticipado": 50,
+   "verificado": 50,
+   "fuente": "nombres de archivo SSSS_VVVV_RRRR en LANDMARKS/BODY_LANDMARKS (cotejados con las otras 7 carpetas)"
+  },
+  "senantes": {
+   "anticipado": 5,
+   "verificado": 5,
+   "fuente": "nombres de archivo SSSS_VVVV_RRRR en LANDMARKS/BODY_LANDMARKS (cotejados con las otras 7 carpetas)"
+  },
+  "repeticiones_por_sena_y_senante": {
+   "anticipado": 4,
+   "verificado_min": 4,
+   "verificado_max": 4,
+   "fuente": "nombres de archivo SSSS_VVVV_RRRR en LANDMARKS/BODY_LANDMARKS (cotejados con las otras 7 carpetas)"
+  },
+  "secuencias": {
+   "anticipado": 1000,
+   "verificado": 1000,
+   "fuente": "nombres de archivo SSSS_VVVV_RRRR en LANDMARKS/BODY_LANDMARKS (cotejados con las otras 7 carpetas)"
+  }
+ },
+ "vocabulario": {
+  "fuente_codigo": "SIGN_VOCABULARY en src/grammar_mapper.py (verificado 50/50 contra la Tabla 2 del artículo, README 13-sep-2026)",
+  "fuente_publicada": "IMU/INFO/Timestamps.xlsx del depósito figshare, columna «Sign», una hoja por voluntario (hojas: Volunteer 1, Volunteer 2, Volunteer 3, Volunteer 4, Volunteer 5)",
+  "nota_tabla_2_del_articulo": "Cotejo del revisor (14-sep-2026) con el texto completo del artículo en Europe PMC (PMC11655960): la Tabla 2 escribe la seña 0029 como «JUCIOSO», la misma grafía de Timestamps.xlsx; «juicioso» es la grafía del código. Las dos fuentes publicadas coinciden entre sí: la discrepancia es del código frente a ambas y va a 1.d.",
+  "nota_timestamps": "Timestamps.xlsx trae además «Time Start (s)» y «Time End (s)» por seña y voluntario; su semántica (referencia temporal frente a la grabación IMU) no está documentada en el material descargado y no se usa aquí.",
+  "n_senas": 50,
+  "discrepancias_codigo_vs_publicado": [
+   {
+    "id": 29,
+    "codigo": "juicioso",
+    "publicado": "Jucioso",
+    "motivo": "difiere tras normalizar (minúsculas, sin tildes, espacios)"
+   }
+  ],
+  "senas": [
+   {
+    "id": 0,
+    "glosa_codigo": "gracias",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Gracias"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 1,
+    "glosa_codigo": "buenos días",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Buenos Días"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 2,
+    "glosa_codigo": "buenas tardes",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Buenas Tardes"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 3,
+    "glosa_codigo": "buenas noches",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Buenas Noches"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 4,
+    "glosa_codigo": "seña",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Seña"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 5,
+    "glosa_codigo": "nombre",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Nombre"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 6,
+    "glosa_codigo": "trabajar",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Trabajar"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 7,
+    "glosa_codigo": "comer",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Comer"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 8,
+    "glosa_codigo": "vivir",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Vivir"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 9,
+    "glosa_codigo": "poco",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Poco"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 10,
+    "glosa_codigo": "familia",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Familia"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 11,
+    "glosa_codigo": "personas",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Personas"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 12,
+    "glosa_codigo": "mujer",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Mujer"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 13,
+    "glosa_codigo": "hombre",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Hombre"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 14,
+    "glosa_codigo": "niño",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Niño"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 15,
+    "glosa_codigo": "niña",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Niña"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 16,
+    "glosa_codigo": "abuelo",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Abuelo"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 17,
+    "glosa_codigo": "tío",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Tío "
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 18,
+    "glosa_codigo": "hermano",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Hermano"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 19,
+    "glosa_codigo": "hambre",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Hambre"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 20,
+    "glosa_codigo": "feliz",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Feliz"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 21,
+    "glosa_codigo": "contento",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Contento"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 22,
+    "glosa_codigo": "triste",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Triste"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 23,
+    "glosa_codigo": "aburrido",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Aburrido"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 24,
+    "glosa_codigo": "bien",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Bien"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 25,
+    "glosa_codigo": "mal",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Mal"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 26,
+    "glosa_codigo": "¿cómo estás?",
+    "glosa_publicada_Timestamps_xlsx": [
+     "¿Cómo estas?"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 27,
+    "glosa_codigo": "más o menos",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Más o menos"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 28,
+    "glosa_codigo": "sentir",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Sentir"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 29,
+    "glosa_codigo": "juicioso",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Jucioso"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 30,
+    "glosa_codigo": "hola",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Hola"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 31,
+    "glosa_codigo": "adiós",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Adiós"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 32,
+    "glosa_codigo": "por favor",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Por favor"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 33,
+    "glosa_codigo": "con gusto",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Con Gusto"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 34,
+    "glosa_codigo": "bienvenido",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Bienvenido"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 35,
+    "glosa_codigo": "perdón",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Perdón"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 36,
+    "glosa_codigo": "permiso",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Permiso"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 37,
+    "glosa_codigo": "nunca",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Nunca"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 38,
+    "glosa_codigo": "yo",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Yo"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 39,
+    "glosa_codigo": "tú",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Tú"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 40,
+    "glosa_codigo": "ustedes",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Ustedes"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 41,
+    "glosa_codigo": "¿qué?",
+    "glosa_publicada_Timestamps_xlsx": [
+     "¿Qué?"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 42,
+    "glosa_codigo": "¿cuándo?",
+    "glosa_publicada_Timestamps_xlsx": [
+     "¿Cuándo?"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 43,
+    "glosa_codigo": "¿dónde?",
+    "glosa_publicada_Timestamps_xlsx": [
+     "¿Dónde?"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 44,
+    "glosa_codigo": "¿cómo?",
+    "glosa_publicada_Timestamps_xlsx": [
+     "¿Cómo?"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 45,
+    "glosa_codigo": "¿por qué?",
+    "glosa_publicada_Timestamps_xlsx": [
+     "¿Por qué?"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 46,
+    "glosa_codigo": "¿quién?",
+    "glosa_publicada_Timestamps_xlsx": [
+     "¿Quién?"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 47,
+    "glosa_codigo": "diferente",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Diferente"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 48,
+    "glosa_codigo": "todos",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Todos"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   },
+   {
+    "id": 49,
+    "glosa_codigo": "mucho",
+    "glosa_publicada_Timestamps_xlsx": [
+     "Mucho"
+    ],
+    "condicion_dinamica_estatica": "PENDIENTE (validación lingüística 1.d)"
+   }
+  ]
+ },
+ "citas_del_articulo": {
+  "fuente": "Texto completo del artículo descriptor (ref19, doi 10.1038/s41597-024-04172-5) en Europe PMC, PMC11655960 (https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11655960/fullTextXML), consultado el 14-sep-2026. Citas literales en inglés; la sección se indica en cada una.",
+  "senantes": [
+   {
+    "seccion": "Methods",
+    "cita": "Participants were recruited through the Association of Colombian-Spanish Sign Language Interpreters. Two of them are deaf and three of them are not hearing impaired."
+   },
+   {
+    "seccion": "Methods",
+    "cita": "All participants are fluent in Colombian Sign Language and were above 18 years old at the time of their participation in the data collection process."
+   },
+   {
+    "seccion": "Data Records",
+    "cita": "The total information in the dataset[14] is equally distributed in the number of classes (50 signs) and the number of participants involved (5 volunteers: 3 native speakers and two non-native speakers)."
+   },
+   {
+    "seccion": "Technical Validation (Sign validation)",
+    "cita": "These LSC interpreters are non-native speakers and are some of the participants that can be seen in the stored data."
+   }
+  ],
+  "registro": [
+   {
+    "seccion": "Methods (Video data acquisition)",
+    "camara": "COLOR_FACE",
+    "cita": "The first video corresponds to an RGB video of the face of the LSC speaker taken with a Nikon D5600 DSLR camera with an AF-P DX NIKKOR lens with a focal length of 55 millimeters. A diaphragm opening of 3.5 G, video that records at a rate of 50 frames per second (FPS) at a resolution of 640 by 424 pixels"
+   },
+   {
+    "seccion": "Methods (Video data acquisition)",
+    "camara": "COLOR_BODY",
+    "cita": "The second type of video corresponds to an RGB capture of the LSC speaker’s body from the knees to a height of maximum vertical extension of the arms. This type of video is recorded at a rate of 24 FPS, and a resolution of 1920 by 1080 pixels"
+   },
+   {
+    "seccion": "Methods (Video data acquisition)",
+    "camara": "GRAY_DEPTH",
+    "cita": "The third type corresponds to a grayscale video representing the scene’s depth. This video is recorded at a rate of 30 FPS at a resolution of 512 by 424 pixels"
+   },
+   {
+    "seccion": "Methods (Video data acquisition)",
+    "camara": "GRAY_IR",
+    "cita": "This video is recorded at the same rate and resolution as the one representing the depth"
+   },
+   {
+    "seccion": "Methods (Video data acquisition)",
+    "camara": "COLOR_BODY, GRAY_DEPTH, GRAY_IR",
+    "cita": "For RGB full body, depth, and IR videos, the Microsoft Kinect V2 is used, which has RGB sensors, infrared emission, and reception that work at the mentioned rates and resolutions."
+   },
+   {
+    "seccion": "Methods (Video data acquisition)",
+    "camara": "escena",
+    "cita": "Regarding the spatial distribution of the recording set, a group of cameras is located at a distance of 200 centimeters from the LSC speaker, which is 10 centimeters from a blue curtain of dimensions three by three meters."
+   },
+   {
+    "seccion": "Methods (Video data acquisition)",
+    "camara": "escena",
+    "cita": "The height of the Nikon d 5600 DSLR camera is adjusted to eye level for the LSC speaker, and the Microsoft Kinect V2 sits 5 centimeters below the DSLR camera, where both are docked on a 3D printed platform and mounted on a tripod that allows adjusting the height and inclination in the three axes."
+   },
+   {
+    "seccion": "Methods (Video data acquisition)",
+    "camara": "escena",
+    "cita": "The lighting must be white and homogeneous."
+   }
+  ],
+  "landmarks": [
+   {
+    "seccion": "Methods (Video landmarks acquisition)",
+    "cita": "For this, the holistic models provided by the MediaPipe framework are used."
+   },
+   {
+    "seccion": "Methods (Video landmarks acquisition)",
+    "cita": "MediaPipe Holistic uses the pose, face, and hand cue point models in MediaPipe Pose, MediaPipe Face Mesh, and MediaPipe Hands, respectively, to generate a total of 543 cue points; 33 pose landmarks, 468 face landmarks, and 21 reference landmarks in each hand."
+   }
+  ],
+  "cifras": [
+   {
+    "seccion": "Data Records",
+    "cita": "The dataset[14] has 4000 videos (.avi format) distributed in RGB, depth, and IR."
+   },
+   {
+    "seccion": "Data Records (Videos)",
+    "cita": "The first four digits symbolize the class number (Sign N presented in the Table 2), the second four digits correspond to the number of the volunteer, and the last four digits represent the number of the repetition of the sign made."
+   },
+   {
+    "seccion": "Data Records (IMU)",
+    "cita": "The IMU folder contains information on 250 inertial measurements associated with the 50 signs considered."
+   }
+  ],
+  "lo_que_el_articulo_no_dice": [
+   "Qué versión de MediaPipe se usó.",
+   "Qué se hace con los fotogramas en los que MediaPipe no detecta (descartar o rellenar); tampoco por qué los CSV publicados tienen menos filas que fotogramas el video (N-02): la hipótesis de que fueran fotogramas sin detección quedó contradicha por la re-extracción propia (N-09) y la causa es desconocida.",
+   "Sumas de comprobación de los archivos del depósito (las MD5 están solo en la API de figshare, por ZIP).",
+   "Cuál de los cinco voluntarios (0000-0004) es sordo u oyente, nativo o no nativo; tampoco sexo, edad individual ni lateralidad.",
+   "Ni el número de repeticiones por seña y señante ni el de secuencias por modalidad: 4 y 1.000 son derivación aritmética (anteproyecto §1.3.4), que aquí se verifica contando archivos."
+  ]
+ },
+ "condicion_dinamica_estatica": {
+  "estado": "PENDIENTE",
+  "nota": "El anteproyecto (§1.4) declara el corpus como de señas dinámicas; la condición por seña se consigna tras la validación lingüística con la persona señante o intérprete (actividad 1.d). No se infiere aquí de los datos."
+ },
+ "distribucion": {
+  "fuente": "nombres de archivo SSSS_VVVV_RRRR en LANDMARKS/BODY_LANDMARKS (cotejados con las otras 7 carpetas)",
+  "muestras_por_clase": {
+   "0000": 20,
+   "0001": 20,
+   "0002": 20,
+   "0003": 20,
+   "0004": 20,
+   "0005": 20,
+   "0006": 20,
+   "0007": 20,
+   "0008": 20,
+   "0009": 20,
+   "0010": 20,
+   "0011": 20,
+   "0012": 20,
+   "0013": 20,
+   "0014": 20,
+   "0015": 20,
+   "0016": 20,
+   "0017": 20,
+   "0018": 20,
+   "0019": 20,
+   "0020": 20,
+   "0021": 20,
+   "0022": 20,
+   "0023": 20,
+   "0024": 20,
+   "0025": 20,
+   "0026": 20,
+   "0027": 20,
+   "0028": 20,
+   "0029": 20,
+   "0030": 20,
+   "0031": 20,
+   "0032": 20,
+   "0033": 20,
+   "0034": 20,
+   "0035": 20,
+   "0036": 20,
+   "0037": 20,
+   "0038": 20,
+   "0039": 20,
+   "0040": 20,
+   "0041": 20,
+   "0042": 20,
+   "0043": 20,
+   "0044": 20,
+   "0045": 20,
+   "0046": 20,
+   "0047": 20,
+   "0048": 20,
+   "0049": 20
+  },
+  "muestras_por_senante": {
+   "0000": 200,
+   "0001": 200,
+   "0002": 200,
+   "0003": 200,
+   "0004": 200
+  },
+  "muestras_por_repeticion": {
+   "0000": 250,
+   "0001": 250,
+   "0002": 250,
+   "0003": 250
+  },
+  "muestras_por_clase_y_senante": {
+   "0000": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0001": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0002": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0003": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0004": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0005": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0006": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0007": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0008": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0009": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0010": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0011": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0012": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0013": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0014": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0015": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0016": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0017": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0018": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0019": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0020": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0021": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0022": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0023": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0024": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0025": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0026": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0027": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0028": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0029": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0030": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0031": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0032": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0033": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0034": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0035": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0036": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0037": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0038": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0039": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0040": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0041": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0042": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0043": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0044": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0045": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0046": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0047": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0048": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   },
+   "0049": {
+    "0000": 4,
+    "0001": 4,
+    "0002": 4,
+    "0003": 4,
+    "0004": 4
+   }
+  },
+  "balanceado_por_clase": true,
+  "balanceado_por_senante": true
+ },
+ "fotogramas_por_modalidad": {
+  "fuente": "filas de datos de cada CSV (sin cabecera) y avih.dwTotalFrames de cada AVI; DE = desviación estándar poblacional (numpy.std, ddof = 0), la misma convención que frame_stats de metadata.json",
+  "landmarks_publicados": {
+   "body": {
+    "n": 1000,
+    "min": 25.0,
+    "max": 134.0,
+    "media": 61.765,
+    "mediana": 62.0,
+    "de": 13.226,
+    "p90": 79.0
+   },
+   "lh": {
+    "n": 1000,
+    "min": 24.0,
+    "max": 134.0,
+    "media": 61.72,
+    "mediana": 62.0,
+    "de": 13.289,
+    "p90": 79.0
+   },
+   "rh": {
+    "n": 1000,
+    "min": 24.0,
+    "max": 134.0,
+    "media": 61.707,
+    "mediana": 62.0,
+    "de": 13.293,
+    "p90": 79.0
+   },
+   "face": {
+    "n": 1000,
+    "min": 111.0,
+    "max": 435.0,
+    "media": 210.638,
+    "mediana": 211.0,
+    "de": 40.795,
+    "p90": 263.0
+   }
+  },
+  "landmarks_body_lh_rh_truncados_al_minimo_como_preprocess": {
+   "n": 1000,
+   "min": 24.0,
+   "max": 134.0,
+   "media": 61.707,
+   "mediana": 62.0,
+   "de": 13.293,
+   "p90": 79.0
+  },
+  "videos": {
+   "COLOR_BODY": {
+    "n": 1000,
+    "min": 40.0,
+    "max": 135.0,
+    "media": 67.328,
+    "mediana": 67.0,
+    "de": 11.082,
+    "p90": 81.0
+   },
+   "COLOR_FACE": {
+    "n": 1000,
+    "min": 111.0,
+    "max": 435.0,
+    "media": 210.655,
+    "mediana": 211.0,
+    "de": 40.819,
+    "p90": 263.0
+   },
+   "GRAY_DEPTH": {
+    "n": 1000,
+    "min": 66.0,
+    "max": 241.0,
+    "media": 119.267,
+    "mediana": 121.0,
+    "de": 22.6,
+    "p90": 147.0
+   },
+   "GRAY_IR": {
+    "n": 1000,
+    "min": 66.0,
+    "max": 241.0,
+    "media": 119.444,
+    "mediana": 121.0,
+    "de": 22.672,
+    "p90": 147.0
+   }
+  },
+  "duracion_s_por_camara_con_fps_medido": {
+   "COLOR_BODY": {
+    "n": 1000,
+    "min": 1.6666666666666667,
+    "max": 5.625,
+    "media": 2.805,
+    "mediana": 2.7916666666666665,
+    "de": 0.462,
+    "p90": 3.375
+   },
+   "COLOR_FACE": {
+    "n": 1000,
+    "min": 2.22,
+    "max": 8.7,
+    "media": 4.213,
+    "mediana": 4.22,
+    "de": 0.816,
+    "p90": 5.26
+   },
+   "GRAY_DEPTH": {
+    "n": 1000,
+    "min": 2.2,
+    "max": 8.033333333333333,
+    "media": 3.976,
+    "mediana": 4.033333333333333,
+    "de": 0.753,
+    "p90": 4.9
+   },
+   "GRAY_IR": {
+    "n": 1000,
+    "min": 2.2,
+    "max": 8.033333333333333,
+    "media": 3.981,
+    "mediana": 4.033333333333333,
+    "de": 0.756,
+    "p90": 4.9
+   }
+  }
+ },
+ "camaras": {
+  "fuente": "cabeceras AVI (avih: dwWidth/dwHeight/dwMicroSecPerFrame; strh: dwRate/dwScale; strf: biCompression), una por archivo, 4 × N archivos",
+  "por_camara": {
+   "COLOR_BODY": {
+    "fps": 24.0,
+    "resolucion": "1920x1080",
+    "codec": "XVID",
+    "fps_valores": {
+     "24.0": 1000
+    },
+    "resolucion_valores": {
+     "1920x1080": 1000
+    },
+    "codec_valores": {
+     "XVID": 1000
+    }
+   },
+   "COLOR_FACE": {
+    "fps": 50.0,
+    "resolucion": "640x424",
+    "codec": "XVID",
+    "fps_valores": {
+     "50.0": 1000
+    },
+    "resolucion_valores": {
+     "640x424": 1000
+    },
+    "codec_valores": {
+     "XVID": 1000
+    }
+   },
+   "GRAY_DEPTH": {
+    "fps": 30.0,
+    "resolucion": "512x424",
+    "codec": "XVID",
+    "fps_valores": {
+     "30.0": 1000
+    },
+    "resolucion_valores": {
+     "512x424": 1000
+    },
+    "codec_valores": {
+     "XVID": 1000
+    }
+   },
+   "GRAY_IR": {
+    "fps": 30.0,
+    "resolucion": "512x424",
+    "codec": "XVID",
+    "fps_valores": {
+     "30.0": 1000
+    },
+    "resolucion_valores": {
+     "512x424": 1000
+    },
+    "codec_valores": {
+     "XVID": 1000
+    }
+   }
+  },
+  "declarado_por_el_articulo": {
+   "fuente": "citas «registro» de ARTICULO_CITAS (Methods, Video data acquisition)",
+   "por_camara": {
+    "COLOR_FACE": {
+     "dispositivo": "Nikon D5600 DSLR, objetivo AF-P DX NIKKOR 55 mm, f/3.5",
+     "fps": 50.0,
+     "resolucion": "640x424",
+     "encuadre": "rostro del señante; cámara a la altura de los ojos"
+    },
+    "COLOR_BODY": {
+     "dispositivo": "Microsoft Kinect V2 (RGB)",
+     "fps": 24.0,
+     "resolucion": "1920x1080",
+     "encuadre": "cuerpo desde las rodillas hasta la máxima extensión vertical de los brazos; Kinect 5 cm por debajo de la DSLR"
+    },
+    "GRAY_DEPTH": {
+     "dispositivo": "Microsoft Kinect V2 (profundidad)",
+     "fps": 30.0,
+     "resolucion": "512x424",
+     "encuadre": "el del Kinect"
+    },
+    "GRAY_IR": {
+     "dispositivo": "Microsoft Kinect V2 (infrarrojo)",
+     "fps": 30.0,
+     "resolucion": "512x424",
+     "encuadre": "el del Kinect"
+    }
+   }
+  },
+  "cotejo_declarado_vs_medido": {
+   "COLOR_BODY": {
+    "fps_declarado": 24.0,
+    "fps_medido_moda": 24.0,
+    "fps_coincide": true,
+    "resolucion_declarada": "1920x1080",
+    "resolucion_medida_moda": "1920x1080",
+    "resolucion_coincide": true,
+    "todos_los_archivos_en_la_moda": true
+   },
+   "COLOR_FACE": {
+    "fps_declarado": 50.0,
+    "fps_medido_moda": 50.0,
+    "fps_coincide": true,
+    "resolucion_declarada": "640x424",
+    "resolucion_medida_moda": "640x424",
+    "resolucion_coincide": true,
+    "todos_los_archivos_en_la_moda": true
+   },
+   "GRAY_DEPTH": {
+    "fps_declarado": 30.0,
+    "fps_medido_moda": 30.0,
+    "fps_coincide": true,
+    "resolucion_declarada": "512x424",
+    "resolucion_medida_moda": "512x424",
+    "resolucion_coincide": true,
+    "todos_los_archivos_en_la_moda": true
+   },
+   "GRAY_IR": {
+    "fps_declarado": 30.0,
+    "fps_medido_moda": 30.0,
+    "fps_coincide": true,
+    "resolucion_declarada": "512x424",
+    "resolucion_medida_moda": "512x424",
+    "resolucion_coincide": true,
+    "todos_los_archivos_en_la_moda": true
+   }
+  }
+ },
+ "desalineamiento_rostro_cuerpo": {
+  "fuente": "filas FACE_LANDMARKS / filas BODY_LANDMARKS por muestra; fotogramas COLOR_FACE / COLOR_BODY por muestra; fps medidos",
+  "fps_COLOR_FACE_sobre_fps_COLOR_BODY": 2.0833,
+  "ratio_filas_face_body": {
+   "n": 1000,
+   "min": 2.5319,
+   "max": 9.88,
+   "media": 3.478,
+   "mediana": 3.3231,
+   "de": 0.658,
+   "p90": 4.1368
+  },
+  "ratio_fotogramas_COLOR_FACE_COLOR_BODY": {
+   "n": 1000,
+   "min": 2.2609,
+   "max": 4.6038,
+   "media": 3.118,
+   "mediana": 3.12235,
+   "de": 0.203,
+   "p90": 3.3621399999999997
+  },
+  "face_frente_a_su_video": {
+   "fuente": "avih.dwTotalFrames de VIDEOS/COLOR_FACE/*.avi frente a filas de LANDMARKS/FACE_LANDMARKS/*.csv",
+   "video_mas_fotogramas_que_filas": 6,
+   "video_igual_filas": 994,
+   "video_menos_fotogramas_que_filas": 0,
+   "diferencia_sobre_todas": {
+    "n": 1000,
+    "min": 0.0,
+    "max": 7.0,
+    "media": 0.017,
+    "mediana": 0.0,
+    "de": 0.273,
+    "p90": 0.0
+   }
+  },
+  "consecuencia": "Los landmarks faciales publicados proceden de otra cámara (COLOR_FACE) con otra tasa y otra resolución: no están alineados fotograma a fotograma con body/manos. Es la causa verificada de que el rostro quedara fuera del preprocesamiento de marzo (ESTADO_PROYECTO §3, RE1) y una razón más para la extracción propia sobre COLOR_BODY (D-01)."
+ },
+ "senantes": {
+  "numero": 5,
+  "fuente_numero": "nombres de archivo SSSS_VVVV_RRRR en LANDMARKS/BODY_LANDMARKS (cotejados con las otras 7 carpetas)",
+  "condicion_segun_el_articulo": {
+   "criterio_methods": "2 voluntarios sordos y 3 oyentes («Two of them are deaf and three of them are not hearing impaired»)",
+   "criterio_data_records": "3 señantes nativos y 2 no nativos («5 volunteers: 3 native speakers and two non-native speakers»)",
+   "otros_datos_publicados": [
+    "Reclutados a través de la Asociación de Intérpretes de Lengua de Señas Colombiana-Español (Methods).",
+    "Todos fluidos en LSC y mayores de 18 años en el momento de la captura (Methods).",
+    "Los intérpretes que validaron las señas «are non-native speakers and are some of the participants that can be seen in the stored data» (Technical Validation).",
+    "No publica sexo, edad individual, lateralidad ni qué voluntario (0000-0004) pertenece a cada grupo."
+   ],
+   "advertencia": "Los dos criterios no se corresponden entre sí (2 + 3 frente a 3 + 2) y el artículo no publica cuál de los cinco voluntarios (0000-0004) pertenece a cada grupo. Se registran ambos SIN conciliarlos, como exige la actividad 1.b del anteproyecto.",
+   "fuente": "Texto completo del artículo descriptor (ref19, doi 10.1038/s41597-024-04172-5) en Europe PMC, PMC11655960 (https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11655960/fullTextXML), consultado el 14-sep-2026. Citas literales en inglés; la sección se indica en cada una. Citas completas en «citas_del_articulo»."
+  },
+  "antropometria_publicada": {
+   "fuente": "IMU/INFO/Volunteer_k.txt del depósito figshare (k = 1..5)",
+   "advertencia": "La correspondencia entre Volunteer_k (IMU) y el campo VVVV = 000(k−1) de los nombres de archivo es la presumible, pero el material descargado no la declara: no se afirma.",
+   "datos": {
+    "Volunteer_1": {
+     "height": "176cm",
+     "humerus": "29cm",
+     "radius": "27cm",
+     "back (from coccyx to cervical vertebrae C7)": "52cm",
+     "sampling frecuency": "125Hz"
+    },
+    "Volunteer_2": {
+     "height": "164cm",
+     "humerus": "28cm",
+     "radius": "25cm",
+     "back (from coccyx to cervical vertebrae C7)": "46cm",
+     "sampling frecuency": "125Hz"
+    },
+    "Volunteer_3": {
+     "height": "156cm",
+     "humerus": "26cm",
+     "radius": "22cm",
+     "back (from coccyx to cervical vertebrae C7)": "39cm",
+     "sampling frecuency": "125Hz"
+    },
+    "Volunteer_4": {
+     "height": "158cm",
+     "humerus": "26cm",
+     "radius": "21cm",
+     "back (from coccyx to cervical vertebrae C7)": "38cm",
+     "sampling frecuency": "125Hz"
+    },
+    "Volunteer_5": {
+     "height": "165cm",
+     "humerus": "28cm",
+     "radius": "26cm",
+     "back (from coccyx to cervical vertebrae C7)": "55cm",
+     "sampling frecuency": "125Hz"
+    }
+   }
+  }
+ },
+ "condiciones_de_registro": {
+  "medidas_aqui": {
+   "resolucion_y_fps_por_camara": "ver «camaras» (cabeceras AVI) y «camaras» → cotejo_declarado_vs_medido",
+   "duracion_de_los_clips": "ver «fotogramas_por_modalidad»"
+  },
+  "declaradas_por_el_articulo": {
+   "fuente": "citas «escena» de ARTICULO_CITAS['registro'] (Methods, Video data acquisition); Texto completo del artículo descriptor (ref19, doi 10.1038/s41597-024-04172-5) en Europe PMC, PMC11655960 (https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11655960/fullTextXML), consultado el 14-sep-2026. Citas literales en inglés; la sección se indica en cada una.",
+   "escena": {
+    "distancia_camaras_senante_cm": 200,
+    "distancia_senante_fondo_cm": 10,
+    "fondo": "cortina azul de 3 m × 3 m",
+    "iluminacion": "blanca y homogénea",
+    "montaje": "DSLR y Kinect acoplados en una plataforma impresa en 3D sobre trípode con altura e inclinación ajustables"
+   },
+   "encuadre_por_camara": {
+    "COLOR_FACE": "rostro del señante; cámara a la altura de los ojos",
+    "COLOR_BODY": "cuerpo desde las rodillas hasta la máxima extensión vertical de los brazos; Kinect 5 cm por debajo de la DSLR",
+    "GRAY_DEPTH": "el del Kinect",
+    "GRAY_IR": "el del Kinect"
+   },
+   "dispositivo_por_camara": {
+    "COLOR_FACE": "Nikon D5600 DSLR, objetivo AF-P DX NIKKOR 55 mm, f/3.5",
+    "COLOR_BODY": "Microsoft Kinect V2 (RGB)",
+    "GRAY_DEPTH": "Microsoft Kinect V2 (profundidad)",
+    "GRAY_IR": "Microsoft Kinect V2 (infrarrojo)"
+   }
+  },
+  "no_verificadas_aqui": "encuadre, distancia aparente, iluminación y fondo se toman del artículo y NO se verifican por inspección visual en esta corrida (no se decodifica ningún fotograma). PENDIENTE: inspección visual de una muestra por señante al hacer la extracción propia (1.c)."
+ },
+ "diferencias_landmarks_publicados_vs_video": {
+  "fuente": "DECISIONES_TESIS.txt N-02 (verificación manual del 13-sep-2026) reproducida por este script",
+  "COLOR_BODY_vs_body": {
+   "fuente": "avih.dwTotalFrames de VIDEOS/COLOR_BODY/*.avi frente a filas de LANDMARKS/BODY_LANDMARKS/*.csv",
+   "video_mas_fotogramas_que_filas": 749,
+   "video_igual_filas": 251,
+   "video_menos_fotogramas_que_filas": 0,
+   "diferencia_sobre_las_positivas": {
+    "n": 749,
+    "min": 1.0,
+    "max": 51.0,
+    "media": 7.427,
+    "mediana": 5.0,
+    "de": 7.32,
+    "p90": 18.0
+   },
+   "diferencia_sobre_todas": {
+    "n": 1000,
+    "min": 0.0,
+    "max": 51.0,
+    "media": 5.563,
+    "mediana": 3.0,
+    "de": 7.106,
+    "p90": 15.0
+   },
+   "histograma_diferencia": {
+    "0": 251,
+    "1": 154,
+    "2": 71,
+    "3": 57,
+    "4": 60,
+    "5": 49,
+    "6": 49,
+    "7": 44,
+    "8": 41,
+    "9": 26,
+    "10": 21,
+    "11": 17,
+    "12": 17,
+    "13": 18,
+    "14": 15,
+    "15": 13,
+    "16": 12,
+    "17": 9,
+    "18": 7,
+    "19": 10,
+    "20": 10,
+    "21": 5,
+    "22": 3,
+    "23": 5,
+    "24": 4,
+    "25": 5,
+    "26": 5,
+    "27": 3,
+    "28": 2,
+    "29": 4,
+    "30": 1,
+    "31": 3,
+    "33": 2,
+    "34": 3,
+    "36": 1,
+    "38": 1,
+    "40": 1,
+    "51": 1
+   }
+  },
+  "COLOR_FACE_vs_face": {
+   "fuente": "avih.dwTotalFrames de VIDEOS/COLOR_FACE/*.avi frente a filas de LANDMARKS/FACE_LANDMARKS/*.csv",
+   "video_mas_fotogramas_que_filas": 6,
+   "video_igual_filas": 994,
+   "video_menos_fotogramas_que_filas": 0,
+   "diferencia_sobre_todas": {
+    "n": 1000,
+    "min": 0.0,
+    "max": 7.0,
+    "media": 0.017,
+    "mediana": 0.0,
+    "de": 0.273,
+    "p90": 0.0
+   }
+  },
+  "body_vs_manos": {
+   "fuente": "filas de BODY_LANDMARKS frente a LEFT_HAND_LANDMARKS y RIGHT_HAND_LANDMARKS",
+   "muestras_con_longitud_distinta": 58,
+   "muestras_con_diferencia_1_o_2_truncadas_por_preprocess": 58,
+   "muestras_con_diferencia_mayor_que_2_descartadas_por_preprocess": 0,
+   "histograma_max_menos_min": {
+    "0": 942,
+    "1": 58
+   }
+  },
+  "filas_todo_cero_por_modalidad": {
+   "body": 0,
+   "lh": 0,
+   "rh": 0,
+   "face": 0
+  },
+  "nan_por_modalidad": {
+   "body": 0,
+   "lh": 0,
+   "rh": 0,
+   "face": 0
+  },
+  "indice_csv_consecutivo_en_todas": true,
+  "hecho_verificado": "Los CSV publicados no cubren todos los fotogramas del video y no contienen filas «vacías» (todo-cero); su columna índice está renumerada 0..n−1, así que no identifica qué fotogramas faltan.",
+  "causa_del_deficit": {
+   "estado": "DESCONOCIDA",
+   "hipotesis_N02": "Que las filas que faltan sean los fotogramas sin detección de MediaPipe (DECISIONES_TESIS.txt, N-02, 13-sep-2026). No confirmada con los autores.",
+   "evidencia_en_contra_N09": "La re-extracción propia con Tasks API (DECISIONES_TESIS.txt, N-09, 14-sep-2026) detecta la postura en 61/61 fotogramas de 0025_0002_0001 y en 78/78 de 0049_0004_0003, con 0 y 2 fotogramas sin mano alguna, y aun así los CSV publicados tienen 4 filas menos en ambas: el déficit no se explica por fotogramas sin detección.",
+   "pendiente": "Alineamiento monótono entre lo publicado y lo re-extraído con las METRICAS_FOTOGRAMA de la corrida completa (N-09). Hasta entonces se reporta: hecho verificado (déficit de filas) y causa desconocida.",
+   "fuente": "DECISIONES_TESIS.txt, entradas N-02 y N-09; este script solo reproduce las cifras de N-02"
+  }
+ },
+ "duplicados_exactos": {
+  "fuente": "SHA-1 del archivo completo: CSV de LANDMARKS y, para los videos, candidatos por tamaño + SHA-1 de los primeros 64 KiB confirmados con SHA-1 completo (bitacora_integridad.json → agregados)",
+  "grupos": [
+   {
+    "muestras": [
+     "0000_0003_0000",
+     "0000_0003_0001"
+    ],
+    "modalidades": [
+     "face",
+     "COLOR_FACE",
+     "GRAY_DEPTH"
+    ]
+   },
+   {
+    "muestras": [
+     "0002_0001_0000",
+     "0002_0001_0001"
+    ],
+    "modalidades": [
+     "body",
+     "lh",
+     "rh",
+     "COLOR_BODY"
+    ]
+   },
+   {
+    "muestras": [
+     "0008_0002_0000",
+     "0008_0002_0001"
+    ],
+    "modalidades": [
+     "body",
+     "lh",
+     "rh",
+     "COLOR_BODY"
+    ]
+   },
+   {
+    "muestras": [
+     "0016_0002_0000",
+     "0016_0002_0001"
+    ],
+    "modalidades": [
+     "body",
+     "lh",
+     "rh",
+     "COLOR_BODY"
+    ]
+   },
+   {
+    "muestras": [
+     "0017_0000_0000",
+     "0017_0000_0001"
+    ],
+    "modalidades": [
+     "GRAY_DEPTH"
+    ]
+   },
+   {
+    "muestras": [
+     "0024_0002_0002",
+     "0024_0002_0003"
+    ],
+    "modalidades": [
+     "GRAY_DEPTH"
+    ]
+   },
+   {
+    "muestras": [
+     "0041_0003_0000",
+     "0041_0003_0001"
+    ],
+    "modalidades": [
+     "GRAY_DEPTH"
+    ]
+   },
+   {
+    "muestras": [
+     "0044_0004_0002",
+     "0044_0004_0003"
+    ],
+    "modalidades": [
+     "GRAY_DEPTH"
+    ]
+   }
+  ],
+  "grupos_que_afectan_al_entrenamiento": [
+   [
+    "0002_0001_0000",
+    "0002_0001_0001"
+   ],
+   [
+    "0008_0002_0000",
+    "0008_0002_0001"
+   ],
+   [
+    "0016_0002_0000",
+    "0016_0002_0001"
+   ]
+  ],
+  "modalidades_que_afectan_al_entrenamiento": [
+   "COLOR_BODY",
+   "body",
+   "lh",
+   "rh"
+  ],
+  "muestras_unicas_en_COLOR_BODY_body_lh_rh": 997,
+  "cotejo_con_particiones": {
+   "aleatoria_80_10_10": {
+    "archivo": "data/partitions/aleatoria_80_10_10.json",
+    "encontrado": true,
+    "bloques_revisados": 1,
+    "grupos_revisados": 3,
+    "grupos_repartidos_entre_conjuntos": [
+     {
+      "bloque": "única",
+      "muestras": {
+       "0016_0002_0000": "train",
+       "0016_0002_0001": "val"
+      }
+     }
+    ]
+   },
+   "loso_5_pliegues": {
+    "archivo": "data/partitions/loso_5_pliegues.json",
+    "encontrado": true,
+    "bloques_revisados": 5,
+    "grupos_revisados": 3,
+    "grupos_repartidos_entre_conjuntos": [
+     {
+      "bloque": "pliegue 4 (test = señante 0004)",
+      "muestras": {
+       "0016_0002_0000": "train",
+       "0016_0002_0001": "val"
+      }
+     }
+    ]
+   }
+  },
+  "hecho_verificado": "Hay pares de muestras con nombre distinto (misma seña y señante, repeticiones consecutivas) cuyo archivo es byte a byte idéntico. La duplicación es por modalidad: un par puede tener idénticos COLOR_BODY y los tres CSV body/lh/rh y distintos COLOR_FACE y GRAY_IR, o al revés.",
+  "hipotesis_no_confirmada": "Error de copia al ensamblar el depósito (una toma publicada dos veces con dos números de repetición). No confirmado con los autores.",
+  "consecuencia": "Para el entrenamiento sobre COLOR_BODY/body/lh/rh el corpus tiene tantas secuencias únicas como indica «muestras_unicas_en_COLOR_BODY_body_lh_rh». Si un par queda repartido entre conjuntos de una partición, el modelo se evalúa sobre una copia exacta de una secuencia de entrenamiento: ver «cotejo_con_particiones». Qué hacer con ellos (excluir la copia o declararlo) es decisión para DECISIONES_TESIS.txt, no de este script."
+ },
+ "cotejo_con_metadata_json": {
+  "fuente": "data/processed/metadata.json (sample_order, frame_stats) frente a esta corrida",
+  "n_samples_metadata": 1000,
+  "sample_order_igual_a_rejilla": true,
+  "frame_stats_metadata": {
+   "min": 24,
+   "max": 134,
+   "mean": 61.707,
+   "median": 62.0,
+   "std": 13.292522371619317
+  },
+  "frame_stats_recalculados_min_body_lh_rh": {
+   "min": 24.0,
+   "max": 134.0,
+   "media": 61.707,
+   "mediana": 62.0,
+   "de": 13.293
+  },
+  "coinciden": true
+ },
+ "fecha_generacion": "2026-09-14T08:48:21-05:00",
+ "muestras_verificadas": 1000
+}

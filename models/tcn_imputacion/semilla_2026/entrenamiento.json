@@ -1,0 +1,21 @@
+{
+ "semilla": 2026,
+ "modelo": "models/tcn_imputacion/semilla_2026/modelo.keras",
+ "n_train_original": 797,
+ "n_train_aumentado": 7970,
+ "n_val": 100,
+ "epocas_ejecutadas": 44,
+ "mejor_epoca": 19,
+ "val_accuracy_checkpoint": 0.9599999785423279,
+ "val_loss_checkpoint": 0.9620180726051331,
+ "metricas_validacion_checkpoint": {
+  "top1": 0.96,
+  "top3": 0.99,
+  "precision_macro": 0.9733333333333333,
+  "recall_macro": 0.96,
+  "f1_macro": 0.9573333333333334
+ },
+ "mejor_val_accuracy_historial": 0.9599999785423279,
+ "tiempo_entrenamiento_s": 54.6,
+ "tiempo_total_s": 55.9
+}

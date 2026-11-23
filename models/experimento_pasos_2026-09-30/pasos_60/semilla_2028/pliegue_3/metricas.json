@@ -1,0 +1,19 @@
+{
+ "corrida": "L60_s2028_pliegue_3",
+ "n_train_original": 697,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "top1": 0.68,
+ "top3": 0.805,
+ "precision_macro": 0.624968253968254,
+ "recall_macro": 0.68,
+ "f1_macro": 0.6274871794871794,
+ "n_errores": 64,
+ "mejor_val_accuracy": 0.9399999976158142,
+ "epocas_ejecutadas": 41,
+ "mejor_epoca": 16,
+ "tiempo_entrenamiento_s": 200.1,
+ "tiempo_total_s": 202.8,
+ "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2028/pliegue_3/modelo.keras"
+}

@@ -1,0 +1,29 @@
+{
+ "fecha": "2026-10-02T19:19:07",
+ "metodo": "tiempo de mav.aplicar_regla (T fotogramas x 126 -> 30 x 126) en 200 videos al azar (semilla 0); la red es la misma en los tres brazos (30 x 252, 714 291 parametros), asi que su latencia no cambia",
+ "entorno": {
+  "fecha": "2026-10-02T19:19:07",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "ms_construir_30_pasos": {
+  "A": {
+   "ms_mediana": 0.16045846859924495,
+   "ms_p90": 0.16819940647110343
+  },
+  "B": {
+   "ms_mediana": 0.047250010538846254,
+   "ms_p90": 0.06807108875364064
+  },
+  "C": {
+   "ms_mediana": 0.2809579891618341,
+   "ms_p90": 0.3943040792364627
+  }
+ }
+}

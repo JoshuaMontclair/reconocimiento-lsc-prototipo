@@ -1,0 +1,473 @@
+{
+ "fecha": "2026-10-02T20:39:59",
+ "metodo": "model.predict(verbose=0) de un lote de 1 como translator.py; 20 llamadas de calentamiento y 100 medidas por modelo; ademas lote de 200 (5 medidas). CPU, sin otros entrenamientos corriendo. Solo la red: sin MediaPipe ni remuestreo. Modelos intercalados A, B, C.",
+ "carga_equipo_al_terminar": "20:39  up 4 days,  6:49, 20 users, load averages: 5.68 20.68 33.37",
+ "entorno": {
+  "fecha": "2026-10-02T20:39:59",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 13.651958492118865,
+   "ms_lote1_p90": 14.605870476225391,
+   "ms_por_muestra_lote200_mediana": 0.2215456252451986
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 13.408375001745299,
+   "ms_lote1_p90": 14.118125039385632,
+   "ms_por_muestra_lote200_mediana": 0.2166022951132618
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 13.591312512289733,
+   "ms_lote1_p90": 14.238929201383144,
+   "ms_por_muestra_lote200_mediana": 0.2156572899548337
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 13.312270486494526,
+   "ms_lote1_p90": 14.565604808740318,
+   "ms_por_muestra_lote200_mediana": 0.21891333017265424
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 12.705979024758562,
+   "ms_lote1_p90": 13.19344169460237,
+   "ms_por_muestra_lote200_mediana": 0.21483874996192753
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 12.760604498907924,
+   "ms_lote1_p90": 13.113928865641356,
+   "ms_por_muestra_lote200_mediana": 0.21409207984106615
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 12.78956251917407,
+   "ms_lote1_p90": 13.234425598056987,
+   "ms_por_muestra_lote200_mediana": 0.21662083017872646
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 12.688188027823344,
+   "ms_lote1_p90": 13.487008900847286,
+   "ms_por_muestra_lote200_mediana": 0.21150916494661942
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 12.789770524250343,
+   "ms_lote1_p90": 13.482583360746503,
+   "ms_por_muestra_lote200_mediana": 0.21480853989487514
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2026/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 14.126104506431147,
+   "ms_lote1_p90": 15.441383403958753,
+   "ms_por_muestra_lote200_mediana": 0.22883249999722466
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2026/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 14.677292027045041,
+   "ms_lote1_p90": 15.5830416129902,
+   "ms_por_muestra_lote200_mediana": 0.21511333499802276
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2026/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 14.545583486324176,
+   "ms_lote1_p90": 15.68394997739233,
+   "ms_por_muestra_lote200_mediana": 0.22899271018104628
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2026/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 14.405729016289115,
+   "ms_lote1_p90": 16.123291588155553,
+   "ms_por_muestra_lote200_mediana": 0.24672395491506904
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2026/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 13.618208526168019,
+   "ms_lote1_p90": 15.570812189253047,
+   "ms_por_muestra_lote200_mediana": 0.22253000002820045
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2026/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 13.964645972009748,
+   "ms_lote1_p90": 15.506957663455978,
+   "ms_por_muestra_lote200_mediana": 0.2333864598767832
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2027/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 13.362792000407353,
+   "ms_lote1_p90": 15.460645756684244,
+   "ms_por_muestra_lote200_mediana": 0.24489145522238687
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2027/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 13.986520993057638,
+   "ms_lote1_p90": 15.947070514084773,
+   "ms_por_muestra_lote200_mediana": 0.21367916517192498
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2027/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 12.840666488045827,
+   "ms_lote1_p90": 13.769354386022314,
+   "ms_por_muestra_lote200_mediana": 0.21367937501054257
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2027/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 13.60252097947523,
+   "ms_lote1_p90": 16.112912842072546,
+   "ms_por_muestra_lote200_mediana": 0.21979125012876466
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2027/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 12.838271009968594,
+   "ms_lote1_p90": 13.46258299308829,
+   "ms_por_muestra_lote200_mediana": 0.21343854488804936
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2027/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 12.878999987151474,
+   "ms_lote1_p90": 13.94762498093769,
+   "ms_por_muestra_lote200_mediana": 0.21252312493743375
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2027/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 13.611791480798274,
+   "ms_lote1_p90": 14.44278751150705,
+   "ms_por_muestra_lote200_mediana": 0.22185166511917487
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2027/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 13.614187017083168,
+   "ms_lote1_p90": 14.62774196988903,
+   "ms_por_muestra_lote200_mediana": 0.21994374983478338
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2027/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 12.946833507157862,
+   "ms_lote1_p90": 14.061779819894582,
+   "ms_por_muestra_lote200_mediana": 0.2161114598857239
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2027/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 12.746937514748424,
+   "ms_lote1_p90": 13.259937183465809,
+   "ms_por_muestra_lote200_mediana": 0.21576166502200067
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2027/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 12.774708506185561,
+   "ms_lote1_p90": 13.440495502436534,
+   "ms_por_muestra_lote200_mediana": 0.2146168748731725
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2027/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 13.55643750866875,
+   "ms_lote1_p90": 14.43958716117777,
+   "ms_por_muestra_lote200_mediana": 0.21644166496116668
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2027/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 13.399603980360553,
+   "ms_lote1_p90": 14.756687503540888,
+   "ms_por_muestra_lote200_mediana": 0.232073545048479
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2027/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 13.422208518022671,
+   "ms_lote1_p90": 15.116583870258184,
+   "ms_por_muestra_lote200_mediana": 0.21275812498060986
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2027/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 12.893063016235828,
+   "ms_lote1_p90": 13.546146085718647,
+   "ms_por_muestra_lote200_mediana": 0.2164983347756788
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2028/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 14.008750003995374,
+   "ms_lote1_p90": 15.177886869059876,
+   "ms_por_muestra_lote200_mediana": 0.22383479488780722
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2028/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 14.10137498169206,
+   "ms_lote1_p90": 15.63560362556018,
+   "ms_por_muestra_lote200_mediana": 0.22815500007709488
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2028/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 13.288333517266437,
+   "ms_lote1_p90": 14.357028796803206,
+   "ms_por_muestra_lote200_mediana": 0.21331833500880748
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2028/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 12.831020983867347,
+   "ms_lote1_p90": 13.794046512339264,
+   "ms_por_muestra_lote200_mediana": 0.21509875019546598
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2028/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 13.830562500515953,
+   "ms_lote1_p90": 15.152566676260903,
+   "ms_por_muestra_lote200_mediana": 0.2121572897885926
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2028/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 13.24691652553156,
+   "ms_lote1_p90": 14.960504765622318,
+   "ms_por_muestra_lote200_mediana": 0.2175458348938264
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2028/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 13.701104471692815,
+   "ms_lote1_p90": 14.623108337400481,
+   "ms_por_muestra_lote200_mediana": 0.22979041503276676
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2028/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 14.241499971831217,
+   "ms_lote1_p90": 15.005954512162134,
+   "ms_por_muestra_lote200_mediana": 0.21432895999168977
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2028/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 12.73831250728108,
+   "ms_lote1_p90": 13.869353913469242,
+   "ms_por_muestra_lote200_mediana": 0.21333208511350676
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2028/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 13.395624991972,
+   "ms_lote1_p90": 14.33493311633356,
+   "ms_por_muestra_lote200_mediana": 0.2222025001537986
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2028/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 14.12856302340515,
+   "ms_lote1_p90": 15.664621075848117,
+   "ms_por_muestra_lote200_mediana": 0.2267987499362789
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2028/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 13.297187484567985,
+   "ms_lote1_p90": 15.624066937016323,
+   "ms_por_muestra_lote200_mediana": 0.22285354003543034
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2028/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "parametros_primera_conv": 96896,
+   "ms_lote1_mediana": 12.74289601133205,
+   "ms_lote1_p90": 13.45467148348689,
+   "ms_por_muestra_lote200_mediana": 0.21718500007409602
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/B_director_128/semilla_2028/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 128,
+   "n_parametros": 666675,
+   "parametros_primera_conv": 49280,
+   "ms_lote1_mediana": 12.676874990575016,
+   "ms_lote1_p90": 13.310050329891965,
+   "ms_por_muestra_lote200_mediana": 0.21248104516416788
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2028/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 668211,
+   "parametros_primera_conv": 50816,
+   "ms_lote1_mediana": 12.693458498688415,
+   "ms_lote1_p90": 13.263625261606649,
+   "ms_por_muestra_lote200_mediana": 0.21173229499254376
+  }
+ ],
+ "ms_construir_entrada_mediana": {
+  "A": 0.002500019036233425,
+  "B": 0.007792026735842228,
+  "C": 0.016000005416572094
+ }
+}

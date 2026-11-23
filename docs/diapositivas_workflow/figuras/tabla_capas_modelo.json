@@ -1,0 +1,444 @@
+{
+ "modelo": "models/canonico_holistic_mascara_manos/modelo_canonico.keras",
+ "tensorflow": "2.21.0",
+ "keras": "3.13.2",
+ "entrada": [
+  null,
+  30,
+  252
+ ],
+ "salida": [
+  null,
+  50
+ ],
+ "capas": [
+  {
+   "nombre": "input_layer",
+   "tipo": "InputLayer",
+   "forma_salida": [
+    null,
+    30,
+    252
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": []
+  },
+  {
+   "nombre": "conv1d",
+   "tipo": "Conv1D",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 96896,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "input_layer"
+   ]
+  },
+  {
+   "nombre": "batch_normalization",
+   "tipo": "BatchNormalization",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 256,
+   "param_no_entrenables": 256,
+   "entradas": [
+    "keras_tensor_1"
+   ]
+  },
+  {
+   "nombre": "re_lu",
+   "tipo": "ReLU",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_3"
+   ]
+  },
+  {
+   "nombre": "conv1d_1",
+   "tipo": "Conv1D",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 49280,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_5"
+   ]
+  },
+  {
+   "nombre": "batch_normalization_1",
+   "tipo": "BatchNormalization",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 256,
+   "param_no_entrenables": 256,
+   "entradas": [
+    "keras_tensor_7"
+   ]
+  },
+  {
+   "nombre": "re_lu_1",
+   "tipo": "ReLU",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_9"
+   ]
+  },
+  {
+   "nombre": "dropout",
+   "tipo": "Dropout",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_11"
+   ]
+  },
+  {
+   "nombre": "bidirectional",
+   "tipo": "Bidirectional",
+   "forma_salida": [
+    null,
+    30,
+    256
+   ],
+   "param_entrenables": 263168,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_13"
+   ]
+  },
+  {
+   "nombre": "batch_normalization_2",
+   "tipo": "BatchNormalization",
+   "forma_salida": [
+    null,
+    30,
+    256
+   ],
+   "param_entrenables": 512,
+   "param_no_entrenables": 512,
+   "entradas": [
+    "keras_tensor_15"
+   ]
+  },
+  {
+   "nombre": "dropout_1",
+   "tipo": "Dropout",
+   "forma_salida": [
+    null,
+    30,
+    256
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_17"
+   ]
+  },
+  {
+   "nombre": "bidirectional_1",
+   "tipo": "Bidirectional",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 164352,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_19"
+   ]
+  },
+  {
+   "nombre": "batch_normalization_3",
+   "tipo": "BatchNormalization",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 256,
+   "param_no_entrenables": 256,
+   "entradas": [
+    "keras_tensor_21"
+   ]
+  },
+  {
+   "nombre": "dropout_2",
+   "tipo": "Dropout",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_23"
+   ]
+  },
+  {
+   "nombre": "dense",
+   "tipo": "Dense",
+   "forma_salida": [
+    null,
+    30,
+    1
+   ],
+   "param_entrenables": 129,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_25"
+   ]
+  },
+  {
+   "nombre": "softmax",
+   "tipo": "Softmax",
+   "forma_salida": [
+    null,
+    30,
+    1
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_27"
+   ]
+  },
+  {
+   "nombre": "multiply",
+   "tipo": "Multiply",
+   "forma_salida": [
+    null,
+    30,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_25",
+    "keras_tensor_29"
+   ]
+  },
+  {
+   "nombre": "global_average_pooling1d",
+   "tipo": "GlobalAveragePooling1D",
+   "forma_salida": [
+    null,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_32"
+   ]
+  },
+  {
+   "nombre": "global_average_pooling1d_1",
+   "tipo": "GlobalAveragePooling1D",
+   "forma_salida": [
+    null,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_25"
+   ]
+  },
+  {
+   "nombre": "global_max_pooling1d",
+   "tipo": "GlobalMaxPooling1D",
+   "forma_salida": [
+    null,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_25"
+   ]
+  },
+  {
+   "nombre": "concatenate",
+   "tipo": "Concatenate",
+   "forma_salida": [
+    null,
+    384
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_34",
+    "keras_tensor_36",
+    "keras_tensor_38"
+   ]
+  },
+  {
+   "nombre": "dense_1",
+   "tipo": "Dense",
+   "forma_salida": [
+    null,
+    256
+   ],
+   "param_entrenables": 98560,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_42"
+   ]
+  },
+  {
+   "nombre": "dropout_3",
+   "tipo": "Dropout",
+   "forma_salida": [
+    null,
+    256
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_44"
+   ]
+  },
+  {
+   "nombre": "dense_2",
+   "tipo": "Dense",
+   "forma_salida": [
+    null,
+    128
+   ],
+   "param_entrenables": 32896,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_46"
+   ]
+  },
+  {
+   "nombre": "dropout_4",
+   "tipo": "Dropout",
+   "forma_salida": [
+    null,
+    128
+   ],
+   "param_entrenables": 0,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_48"
+   ]
+  },
+  {
+   "nombre": "dense_3",
+   "tipo": "Dense",
+   "forma_salida": [
+    null,
+    50
+   ],
+   "param_entrenables": 6450,
+   "param_no_entrenables": 0,
+   "entradas": [
+    "keras_tensor_50"
+   ]
+  }
+ ],
+ "totales": {
+  "entrenables": 713011,
+  "no_entrenables": 1280,
+  "total": 714291
+ },
+ "config_capas_clave": {
+  "conv1d": {
+   "filters": 128,
+   "kernel_size": [
+    3
+   ],
+   "padding": "same",
+   "activation": "linear"
+  },
+  "conv1d_1": {
+   "filters": 128,
+   "kernel_size": [
+    3
+   ],
+   "padding": "same",
+   "activation": "linear"
+  },
+  "dropout": {
+   "rate": 0.15
+  },
+  "bidirectional": {
+   "units": 128,
+   "return_sequences": true,
+   "activation": "tanh",
+   "recurrent_activation": "sigmoid",
+   "merge_mode": "concat"
+  },
+  "dropout_1": {
+   "rate": 0.3
+  },
+  "bidirectional_1": {
+   "units": 64,
+   "return_sequences": true,
+   "activation": "tanh",
+   "recurrent_activation": "sigmoid",
+   "merge_mode": "concat"
+  },
+  "dropout_2": {
+   "rate": 0.3
+  },
+  "dense": {
+   "units": 1,
+   "activation": "linear"
+  },
+  "softmax": {
+   "axis": 1
+  },
+  "dense_1": {
+   "units": 256,
+   "activation": "relu"
+  },
+  "dropout_3": {
+   "rate": 0.3
+  },
+  "dense_2": {
+   "units": 128,
+   "activation": "relu"
+  },
+  "dropout_4": {
+   "rate": 0.15
+  },
+  "dense_3": {
+   "units": 50,
+   "activation": "softmax"
+  }
+ },
+ "coincide_con_build_model_30_252_50": true
+}

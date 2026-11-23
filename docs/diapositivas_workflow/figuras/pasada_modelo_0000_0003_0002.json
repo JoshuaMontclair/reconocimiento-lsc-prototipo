@@ -1,0 +1,111 @@
+{
+ "muestra": "0000_0003_0002",
+ "sena_real": [
+  0,
+  "gracias"
+ ],
+ "conjunto": "prueba (aleatoria 80/10/10)",
+ "fotogramas_originales": 50,
+ "entrada": [
+  1,
+  30,
+  252
+ ],
+ "formas": {
+  "conv1d_1": [
+   1,
+   30,
+   128
+  ],
+  "bidirectional": [
+   1,
+   30,
+   256
+  ],
+  "bidirectional_1": [
+   1,
+   30,
+   128
+  ],
+  "softmax": [
+   1,
+   30,
+   1
+  ],
+  "concatenate": [
+   1,
+   384
+  ],
+  "dense_3": [
+   1,
+   50
+  ]
+ },
+ "manos_enmascaradas_en_los_30_pasos": {
+  "izquierda_en_ceros": 1,
+  "derecha_en_ceros": 0
+ },
+ "atencion": [
+  0.029,
+  0.0256,
+  0.0304,
+  0.0332,
+  0.0294,
+  0.0295,
+  0.036,
+  0.0733,
+  0.0752,
+  0.0314,
+  0.0162,
+  0.0183,
+  0.0315,
+  0.0341,
+  0.0359,
+  0.0496,
+  0.0539,
+  0.0536,
+  0.049,
+  0.0402,
+  0.0329,
+  0.028,
+  0.0254,
+  0.0238,
+  0.0226,
+  0.0207,
+  0.0188,
+  0.0181,
+  0.0156,
+  0.0187
+ ],
+ "atencion_suma": 1.0,
+ "atencion_paso_max_0a29": 8,
+ "atencion_uniforme": 0.0333,
+ "top5": [
+  [
+   0,
+   "gracias",
+   0.9684
+  ],
+  [
+   9,
+   "poco",
+   0.0016
+  ],
+  [
+   32,
+   "por favor",
+   0.0015
+  ],
+  [
+   35,
+   "perdón",
+   0.0015
+  ],
+  [
+   5,
+   "nombre",
+   0.0011
+  ]
+ ],
+ "prob_guardada_en_predicciones_json": 0.9683621525764465
+}

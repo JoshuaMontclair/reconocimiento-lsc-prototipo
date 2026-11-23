@@ -1,0 +1,25 @@
+{
+ "fecha": "2026-11-08T15:02:03",
+ "descripcion": "prueba de humo en una carpeta temporal: C2D, semilla 2026, pliegue 0, 3 epocas. Las cifras no se usan.",
+ "salida_carpeta_temporal": "/tmp/trabajo/humo/C2D_cnn2d/semilla_2026/pliegue_0",
+ "n_parametros": 146546,
+ "epocas": 3,
+ "s_por_epoca": 3.33,
+ "val_top1": 0.3199999928474426,
+ "val_loss": 2.650465726852417,
+ "test_top1": 0.24,
+ "modelo_recargado": {
+  "input_shape": [
+   null,
+   30,
+   252
+  ],
+  "n_parametros": 146546
+ },
+ "procedencia_corregida": {
+  "mano_ausente": "imputacion ...",
+  "n_rasgos_entrada": 252,
+  "script": "src/experimento_cnn2d.py",
+  "brazo_cnn2d": "C2D"
+ }
+}

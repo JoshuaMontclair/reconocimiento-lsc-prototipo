@@ -1,0 +1,33 @@
+{
+ "estado": "CANDIDATO, no vigente: la adopción la decide el estudiante con el director (D-nn pendiente)",
+ "uso_previsto": "aviso de seña posiblemente cortada en los bordes de la ventana (opción B de recomendacion.md)",
+ "regla": "aviso_inicio si v_pose_ini_por_s > v_pose_por_s.ini o h_ini < h.ini; aviso_fin si v_pose_fin_por_s > v_pose_por_s.fin o h_fin < h.fin; un rasgo indefinido (sin postura) no dispara",
+ "definiciones": {
+  "v_pose": "media sobre los pares consecutivos del borde y sobre las muñecas 15 y 16 de la postura de ‖Δxy‖/Δt, en el espacio normalizado por hombros (anchos de hombro por segundo)",
+  "h": "media sobre los fotogramas del borde de min(y_muñeca_izq, y_muñeca_der) de la postura, normalizada por hombros (y crece hacia abajo; 0 = línea de los hombros)",
+  "borde": "los primeros / últimos max(3, round(borde_s · fps)) fotogramas de la ventana"
+ },
+ "borde_s": 0.125,
+ "v_pose_por_s": {
+  "ini": 1.7613815236281587,
+  "fin": 0.2294990097279393
+ },
+ "h": {
+  "ini": 0.9740414301554363,
+  "fin": 1.261004090309143
+ },
+ "percentil": 95,
+ "origen": {
+  "script": "src/analisis_senas_cortadas.py",
+  "processed": "data/processed_holistic_mascara_rostro",
+  "n_clips": 997,
+  "K_corpus": 3,
+  "fps_corpus": 24.0,
+  "resultados": "models/senas_cortadas_2026-09-22/resultados.json [umbral_candidato_cinco_senantes]"
+ },
+ "limites": [
+  "umbrales medidos en los clips del corpus LSC50, no en ventanas del prototipo abiertas con tecla",
+  "FP de la regla elegida en cada pliegue sobre clips íntegros de señantes no vistos entre 2,5 % y 75,5 % según el pliegue (resultados.json, pliegues[].regla_elegida.test)",
+  "la altura depende de la postura de reposo; el protocolo debe fijarla (PD-10)"
+ ]
+}

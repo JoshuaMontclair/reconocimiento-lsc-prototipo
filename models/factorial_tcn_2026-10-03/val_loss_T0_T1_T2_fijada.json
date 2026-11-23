@@ -1,0 +1,461 @@
+{
+ "fecha": "2026-10-03T01:42:04",
+ "nota": "val_loss de T0, T1 y T2 fijada ANTES de ver cualquier resultado de T3, T4 y T5. Es la que guarda experimento_arquitecturas.entrenar_corrida: model.evaluate del checkpoint recargado (elegido por val_accuracy) sobre la validacion del pliegue; CategoricalCrossentropy con label smoothing 0,1. Se comprobo que coincide (|dif| < 1e-4) con el recalculo desde probabilidades.npz.",
+ "resumen": {
+  "T0": {
+   "media_global": 0.9916258255640665,
+   "por_pliegue_media_semillas": [
+    0.920289953549703,
+    1.0060477058092754,
+    1.0563880999883015,
+    0.8856821258862814,
+    1.0897212425867717
+   ],
+   "por_semilla_media_pliegues": {
+    "2026": 0.9944390296936035,
+    "2027": 0.9995278239250183,
+    "2028": 0.9809106230735779
+   },
+   "de_entre_semillas": 0.009622142692329543
+  },
+  "T1": {
+   "media_global": 0.9776195605595907,
+   "por_pliegue_media_semillas": [
+    0.8974148035049438,
+    1.0118394891421,
+    1.0463785926500957,
+    0.9197533329327902,
+    1.0127115845680237
+   ],
+   "por_semilla_media_pliegues": {
+    "2026": 0.9753640174865723,
+    "2027": 0.9560582637786865,
+    "2028": 1.0014364004135132
+   },
+   "de_entre_semillas": 0.022772997761119008
+  },
+  "T2": {
+   "media_global": 0.9898665030797322,
+   "por_pliegue_media_semillas": [
+    0.9137923121452332,
+    1.0449548562367756,
+    1.0422816276550293,
+    0.888081947962443,
+    1.0602217713991802
+   ],
+   "por_semilla_media_pliegues": {
+    "2026": 0.9331899046897888,
+    "2027": 1.0212783575057984,
+    "2028": 1.0151312470436096
+   },
+   "de_entre_semillas": 0.049179511440739176
+  }
+ },
+ "corridas": [
+  {
+   "brazo": "T0",
+   "semilla": 2026,
+   "pliegue": 0,
+   "val_loss": 0.8614340424537659,
+   "val_loss_recalculada_npz": 0.8614339776070831,
+   "val_nll_sin_suavizado": 0.151513507476553,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_0"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2026,
+   "pliegue": 1,
+   "val_loss": 1.0567377805709839,
+   "val_loss_recalculada_npz": 1.0567377879869282,
+   "val_nll_sin_suavizado": 0.3923761586807424,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_1"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2026,
+   "pliegue": 2,
+   "val_loss": 1.0881847143173218,
+   "val_loss_recalculada_npz": 1.0881846663446668,
+   "val_nll_sin_suavizado": 0.407863330499734,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_2"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2026,
+   "pliegue": 3,
+   "val_loss": 0.842093288898468,
+   "val_loss_recalculada_npz": 0.8420932175878952,
+   "val_nll_sin_suavizado": 0.1573875633080408,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_3"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2026,
+   "pliegue": 4,
+   "val_loss": 1.123745322227478,
+   "val_loss_recalculada_npz": 1.1237452697665105,
+   "val_nll_sin_suavizado": 0.45479115082441235,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_4"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2027,
+   "pliegue": 0,
+   "val_loss": 0.9734007120132446,
+   "val_loss_recalculada_npz": 0.9734006588336852,
+   "val_nll_sin_suavizado": 0.2953120405972989,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2027/pliegue_0"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2027,
+   "pliegue": 1,
+   "val_loss": 1.029516577720642,
+   "val_loss_recalculada_npz": 1.0295166045889996,
+   "val_nll_sin_suavizado": 0.3440293564351265,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2027/pliegue_1"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2027,
+   "pliegue": 2,
+   "val_loss": 1.0003503561019897,
+   "val_loss_recalculada_npz": 1.0003503031598853,
+   "val_nll_sin_suavizado": 0.3292874381548249,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2027/pliegue_2"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2027,
+   "pliegue": 3,
+   "val_loss": 0.9320527911186218,
+   "val_loss_recalculada_npz": 0.9320526970062228,
+   "val_nll_sin_suavizado": 0.2394105946643887,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2027/pliegue_3"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2027,
+   "pliegue": 4,
+   "val_loss": 1.0623186826705933,
+   "val_loss_recalculada_npz": 1.062318630962755,
+   "val_nll_sin_suavizado": 0.390083656546886,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2027/pliegue_4"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2028,
+   "pliegue": 0,
+   "val_loss": 0.9260351061820984,
+   "val_loss_recalculada_npz": 0.9260349970534988,
+   "val_nll_sin_suavizado": 0.23490945828854393,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2028/pliegue_0"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2028,
+   "pliegue": 1,
+   "val_loss": 0.9318887591362,
+   "val_loss_recalculada_npz": 0.9318887780716518,
+   "val_nll_sin_suavizado": 0.2759228687132643,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2028/pliegue_1"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2028,
+   "pliegue": 2,
+   "val_loss": 1.0806292295455933,
+   "val_loss_recalculada_npz": 1.080584926564848,
+   "val_nll_sin_suavizado": 0.39922570978088445,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2028/pliegue_2"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2028,
+   "pliegue": 3,
+   "val_loss": 0.8829002976417542,
+   "val_loss_recalculada_npz": 0.8829002832038558,
+   "val_nll_sin_suavizado": 0.17652289458376963,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2028/pliegue_3"
+  },
+  {
+   "brazo": "T0",
+   "semilla": 2028,
+   "pliegue": 4,
+   "val_loss": 1.0830997228622437,
+   "val_loss_recalculada_npz": 1.0830996973675213,
+   "val_nll_sin_suavizado": 0.42220803877669266,
+   "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2028/pliegue_4"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2026,
+   "pliegue": 0,
+   "val_loss": 0.8701225519180298,
+   "val_loss_recalculada_npz": 0.8701225338534195,
+   "val_nll_sin_suavizado": 0.1433262107393815,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_0"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2026,
+   "pliegue": 1,
+   "val_loss": 0.9900990128517151,
+   "val_loss_recalculada_npz": 0.9900990129112932,
+   "val_nll_sin_suavizado": 0.31905401905434977,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_1"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2026,
+   "pliegue": 2,
+   "val_loss": 1.0698184967041016,
+   "val_loss_recalculada_npz": 1.069818515712501,
+   "val_nll_sin_suavizado": 0.389581680764487,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_2"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2026,
+   "pliegue": 3,
+   "val_loss": 0.8905239701271057,
+   "val_loss_recalculada_npz": 0.8905239545358177,
+   "val_nll_sin_suavizado": 0.18962839504265117,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_3"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2026,
+   "pliegue": 4,
+   "val_loss": 1.0562560558319092,
+   "val_loss_recalculada_npz": 1.0562559997923977,
+   "val_nll_sin_suavizado": 0.3973404396983773,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_4"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2027,
+   "pliegue": 0,
+   "val_loss": 0.9157710075378418,
+   "val_loss_recalculada_npz": 0.9157709549516723,
+   "val_nll_sin_suavizado": 0.21412020489551417,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2027/pliegue_0"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2027,
+   "pliegue": 1,
+   "val_loss": 1.0169559717178345,
+   "val_loss_recalculada_npz": 1.0169559665551744,
+   "val_nll_sin_suavizado": 0.3217735107333302,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2027/pliegue_1"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2027,
+   "pliegue": 2,
+   "val_loss": 0.9516405463218689,
+   "val_loss_recalculada_npz": 0.9516405651448138,
+   "val_nll_sin_suavizado": 0.28749639767590246,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2027/pliegue_2"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2027,
+   "pliegue": 3,
+   "val_loss": 0.8783040642738342,
+   "val_loss_recalculada_npz": 0.8783040580645498,
+   "val_nll_sin_suavizado": 0.17816700912342712,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2027/pliegue_3"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2027,
+   "pliegue": 4,
+   "val_loss": 1.0176197290420532,
+   "val_loss_recalculada_npz": 1.0176197745341913,
+   "val_nll_sin_suavizado": 0.33530416734119556,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2027/pliegue_4"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2028,
+   "pliegue": 0,
+   "val_loss": 0.90635085105896,
+   "val_loss_recalculada_npz": 0.9063507942952179,
+   "val_nll_sin_suavizado": 0.20183911404661095,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2028/pliegue_0"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2028,
+   "pliegue": 1,
+   "val_loss": 1.0284634828567505,
+   "val_loss_recalculada_npz": 1.0284634676512987,
+   "val_nll_sin_suavizado": 0.3308200379444947,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2028/pliegue_1"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2028,
+   "pliegue": 2,
+   "val_loss": 1.1176767349243164,
+   "val_loss_recalculada_npz": 1.1176767707189124,
+   "val_nll_sin_suavizado": 0.44400399069484275,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2028/pliegue_2"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2028,
+   "pliegue": 3,
+   "val_loss": 0.9904319643974304,
+   "val_loss_recalculada_npz": 0.9904319426829747,
+   "val_nll_sin_suavizado": 0.2971069088187883,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2028/pliegue_3"
+  },
+  {
+   "brazo": "T1",
+   "semilla": 2028,
+   "pliegue": 4,
+   "val_loss": 0.9642589688301086,
+   "val_loss_recalculada_npz": 0.9642588835222438,
+   "val_nll_sin_suavizado": 0.2950542755155913,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2028/pliegue_4"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2026,
+   "pliegue": 0,
+   "val_loss": 0.8290014863014221,
+   "val_loss_recalculada_npz": 0.8290014006452704,
+   "val_nll_sin_suavizado": 0.12082394346151877,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_0"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2026,
+   "pliegue": 1,
+   "val_loss": 1.0193814039230347,
+   "val_loss_recalculada_npz": 1.019381308178621,
+   "val_nll_sin_suavizado": 0.34233507403042596,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_1"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2026,
+   "pliegue": 2,
+   "val_loss": 1.0329593420028687,
+   "val_loss_recalculada_npz": 1.0329592886833752,
+   "val_nll_sin_suavizado": 0.3630680581340996,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_2"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2026,
+   "pliegue": 3,
+   "val_loss": 0.7866902947425842,
+   "val_loss_recalculada_npz": 0.7866903269964781,
+   "val_nll_sin_suavizado": 0.08875663797633965,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_3"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2026,
+   "pliegue": 4,
+   "val_loss": 0.9979169964790344,
+   "val_loss_recalculada_npz": 0.997917047036201,
+   "val_nll_sin_suavizado": 0.3082704163861925,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_4"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2027,
+   "pliegue": 0,
+   "val_loss": 0.9798853397369385,
+   "val_loss_recalculada_npz": 0.9798853274584097,
+   "val_nll_sin_suavizado": 0.281527699487122,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2027/pliegue_0"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2027,
+   "pliegue": 1,
+   "val_loss": 1.055738925933838,
+   "val_loss_recalculada_npz": 1.0557389276092566,
+   "val_nll_sin_suavizado": 0.36992125305278484,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2027/pliegue_1"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2027,
+   "pliegue": 2,
+   "val_loss": 1.0311909914016724,
+   "val_loss_recalculada_npz": 1.0311910493217393,
+   "val_nll_sin_suavizado": 0.351960511135454,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2027/pliegue_2"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2027,
+   "pliegue": 3,
+   "val_loss": 0.9769091606140137,
+   "val_loss_recalculada_npz": 0.976909158174581,
+   "val_nll_sin_suavizado": 0.27265402208672446,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2027/pliegue_3"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2027,
+   "pliegue": 4,
+   "val_loss": 1.0626673698425293,
+   "val_loss_recalculada_npz": 1.0626672423164398,
+   "val_nll_sin_suavizado": 0.38066176890476283,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2027/pliegue_4"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2028,
+   "pliegue": 0,
+   "val_loss": 0.9324901103973389,
+   "val_loss_recalculada_npz": 0.9324900193544228,
+   "val_nll_sin_suavizado": 0.2018257243208803,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2028/pliegue_0"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2028,
+   "pliegue": 1,
+   "val_loss": 1.0597442388534546,
+   "val_loss_recalculada_npz": 1.0597441819145355,
+   "val_nll_sin_suavizado": 0.36629957966497706,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2028/pliegue_1"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2028,
+   "pliegue": 2,
+   "val_loss": 1.0626945495605469,
+   "val_loss_recalculada_npz": 1.0626945787184483,
+   "val_nll_sin_suavizado": 0.38105502634597377,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2028/pliegue_2"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2028,
+   "pliegue": 3,
+   "val_loss": 0.9006463885307312,
+   "val_loss_recalculada_npz": 0.9006464179896906,
+   "val_nll_sin_suavizado": 0.18875340795033155,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2028/pliegue_3"
+  },
+  {
+   "brazo": "T2",
+   "semilla": 2028,
+   "pliegue": 4,
+   "val_loss": 1.1200809478759766,
+   "val_loss_recalculada_npz": 1.1200809314675555,
+   "val_nll_sin_suavizado": 0.4410188325184844,
+   "fuente": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2028/pliegue_4"
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+============================================================
+  LSC50 — Pipeline de Preprocesamiento
+============================================================
+  Entrada: data/extracted/LSC50_holistic (arbol plano)
+  Salida:  data/processed_holistic
+
+[Etapa 1] Carga y verificacion de estructura
+------------------------------------------------------------
+  Cargando 1000 muestras...
+  Progreso: 100/1000
+  Progreso: 200/1000
+  Progreso: 300/1000
+  Progreso: 400/1000
+  Progreso: 500/1000
+  Progreso: 600/1000
+  Progreso: 700/1000
+  Progreso: 800/1000
+  Progreso: 900/1000
+  Progreso: 1000/1000
+  Sin anomalias detectadas.
+
+  Total muestras cargadas: 1000
+  Features por frame: {225}
+  Frames — min: 40, max: 135, media: 67.3, mediana: 67.0, std: 11.1
+
+[Etapa 2] Distribucion de clases
+------------------------------------------------------------
+  Clases: 50
+  Muestras por clase: min=20, max=20
+  Balanceado: SI
+  Grafico guardado: data/processed_holistic/class_distribution.png
+
+[Etapa 3] Deteccion de valores faltantes
+------------------------------------------------------------
+  NaN totales: 0
+  Filas completamente en cero: 0
+  Filas en cero por grupo — postura: 0, mano izq: 4155, mano der: 1878
+  Datos limpios — no se requiere tratamiento.
+  Grafico guardado: data/processed_holistic/missing_values.png
+
+[Etapa 4] Normalizacion de coordenadas
+------------------------------------------------------------
+  Metodo: centrado en torso + escalado por ancho de hombros
+  Fotogramas sin postura (BODY en ceros): 0 en 0 muestras -> fotograma completo en ceros (regla del prototipo, src/translator.py)
+  Escala (ancho hombros) — min: 0.0832, max: 0.1343, media: 0.1059, std: 0.0100
+  Verificacion (0000_0000_0000, frame 0): midpoint hombros = (0.000000, 0.000000) [esperado ~0]
+
+[Etapa 5] Guardando datos procesados
+------------------------------------------------------------
+  X_padded.npy: shape (1000, 135, 225)
+  y_labels.npy: shape (1000,), clases 50
+  lengths.npy: shape (1000,)
+  Muestras individuales: 1000 archivos en data/processed_holistic/samples
+  metadata.json guardado: data/processed_holistic/metadata.json
+
+============================================================
+  Pipeline completado exitosamente!
+  Datos en: data/processed_holistic
+============================================================

@@ -1,0 +1,15 @@
+ 1. c07 val 0.9320 loss 1.0357 params 389,811  <- finalista
+ 2. c17 val 0.9300 loss 0.5115 params 370,163  <- finalista
+ 3. c05 val 0.9300 loss 1.0153 params 473,139  <- finalista
+ 4. c14 val 0.9240 loss 0.3826 params 389,811
+ 5. c04 val 0.9200 loss 0.4387 params 536,883
+ 6. c13 val 0.9160 loss 1.0449 params 225,267
+ 7. c12 val 0.9160 loss 1.0753 params 298,611
+ 8. c09 val 0.9140 loss 1.0482 params 338,995
+ 9. c20 val 0.9120 loss 1.0548 params 664,499
+10. c06 val 0.9100 loss 0.4922 params 651,891
+11. c18 val 0.9100 loss 0.5764 params 745,139
+12. c03 val 0.9040 loss 1.2019 params 811,571
+13. c11 val 0.9020 loss 1.0998 params 603,315
+14. c10 val 0.8920 loss 1.1658 params 550,259
+15. c16 val 0.8840 loss 0.7289 params 193,011

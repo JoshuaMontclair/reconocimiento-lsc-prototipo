@@ -1,0 +1,19 @@
+{
+ "corrida": "pliegue_4",
+ "n_train_original": 697,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "top1": 0.615,
+ "top3": 0.825,
+ "precision_macro": 0.6156904761904761,
+ "recall_macro": 0.615,
+ "f1_macro": 0.5790043290043291,
+ "n_errores": 77,
+ "mejor_val_accuracy": 0.8899999856948853,
+ "epocas_ejecutadas": 81,
+ "mejor_epoca": 56,
+ "tiempo_entrenamiento_s": 283.6,
+ "tiempo_total_s": 285.6,
+ "modelo": "models/loso_2026-09-14_holistic/pliegue_4/modelo.keras"
+}

@@ -1,0 +1,15 @@
+pasos [15, 20, 30, 45, 60] | semillas [2026, 2027, 2028] | completas en todos los L: [2026, 2027, 2028] | pliegues [0, 1, 2, 3, 4]
+
+  L  val media     DE                      val/pliegue  test t1     DE     t3     F1  epoc  ms(1)
+ 15     0.8853 0.0402    0.877 0.833 0.907 0.940 0.870   0.5263 0.1332 0.7082 0.4820  63.3  12.14
+ 20     0.8980 0.0299    0.900 0.860 0.897 0.943 0.890   0.5687 0.1290 0.7462 0.5219  58.6  12.32
+ 30     0.9200 0.0203    0.923 0.893 0.917 0.950 0.917   0.5891 0.0943 0.7636 0.5436  54.5  12.91
+ 45     0.9313 0.0306    0.933 0.893 0.937 0.977 0.917   0.5989 0.1098 0.7691 0.5537  61.0  13.78
+ 60     0.9360 0.0157    0.937 0.917 0.937 0.960 0.930   0.5981 0.1040 0.7677 0.5590  59.9  14.42
+
+sigma_semilla 0.008132236810418253 | margen 0.0100
+  L=15: delta val -0.0347 | pliegues mejores 0/5 | signos p 0.062 | wilcoxon p 0.062 | cumple False
+  L=20: delta val -0.0220 | pliegues mejores 0/5 | signos p 0.062 | wilcoxon p 0.062 | cumple False
+  L=45: delta val +0.0113 | pliegues mejores 3/5 | signos p 0.250 | wilcoxon p 0.188 | cumple False
+  L=60: delta val +0.0160 | pliegues mejores 5/5 | signos p 0.062 | wilcoxon p 0.062 | cumple True
+valor recomendado: 60

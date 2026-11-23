@@ -1,0 +1,19 @@
+{
+ "corrida": "pliegue_2",
+ "n_train_original": 720,
+ "n_train_aumentado": 7200,
+ "n_val": 80,
+ "n_test": 200,
+ "top1": 0.57,
+ "top3": 0.76,
+ "precision_macro": 0.5329949494949494,
+ "recall_macro": 0.57,
+ "f1_macro": 0.5187939837939838,
+ "n_errores": 86,
+ "mejor_val_accuracy": 0.9375,
+ "epocas_ejecutadas": 53,
+ "mejor_epoca": 28,
+ "tiempo_entrenamiento_s": 178.3,
+ "tiempo_total_s": 180.2,
+ "modelo": "models/loso/pliegue_2/modelo.keras"
+}

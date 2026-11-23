@@ -1,0 +1,7 @@
+processed data/processed_holistic_mascara_rostro | representacion manos | X_seq (1000, 30, 126)
+[ok] A = [B | C]; anchos A 252, B 126, C 126; C[:,0]=0
+[ok] aumentacion x10 determinista con la semilla, sobre 126 columnas (600 secuencias de 60); el espejo es una involucion
+[info] saltos falsos de la regla mascara (secuencias remuestreadas a 30 pasos, 1000 muestras):
+  mano_izq: {"secuencias_con_alguna_transicion": 353, "secuencias_con_bloque_ausente_en_algun_paso": 353, "transiciones_totales": 1095, "pasos_totales_con_velocidad": 29000, "norma_velocidad_mediana_en_transicion": 4.931514739990234, "norma_velocidad_mediana_ambos_presentes": 0.4634399712085724, "norma_velocidad_p95_ambos_presentes": 4.307416915893555}
+  mano_der: {"secuencias_con_alguna_transicion": 164, "secuencias_con_bloque_ausente_en_algun_paso": 164, "transiciones_totales": 430, "pasos_totales_con_velocidad": 29000, "norma_velocidad_mediana_en_transicion": 4.958044052124023, "norma_velocidad_mediana_ambos_presentes": 0.3664436936378479, "norma_velocidad_p95_ambos_presentes": 3.69012451171875}
+  escrito models/experimento_velocidades_2026-09-30/verificacion.json

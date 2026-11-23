@@ -1,0 +1,53 @@
+{
+ "brazo": "G",
+ "semilla": 2028,
+ "pliegue": 3,
+ "senante_test": "0003",
+ "hiperparametros": {
+  "lr": 0.001,
+  "batch": 64,
+  "label_smoothing": 0.1,
+  "arquitectura": {
+   "canales": [
+    32,
+    64,
+    64
+   ],
+   "pasos_temporales": [
+    1,
+    2,
+    1
+   ],
+   "ventana_temporal": 9,
+   "dropout_bloque": 0.2,
+   "dropout_final": 0.3
+  }
+ },
+ "n_parametros": 97858,
+ "val_top1": 0.699999988079071,
+ "val_top1_checkpoint_reevaluado": 0.7,
+ "val_top3": 0.8,
+ "val_f1_macro": 0.6647619047619048,
+ "val_loss": 1.8628277778625488,
+ "test_top1": 0.39,
+ "test_top3": 0.585,
+ "test_f1_macro": 0.3482486957486957,
+ "test_precision_macro": 0.36728571428571427,
+ "test_recall_macro": 0.39,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "epocas_ejecutadas": 58,
+ "mejor_epoca": 33,
+ "tiempo_entrenamiento_s": 1013.9,
+ "tiempo_total_s": 1019.0,
+ "s_por_epoca": 17.48,
+ "epochs_max": 200,
+ "aug": 10,
+ "patience": 25,
+ "processed": "data/processed_holistic_mascara_rostro",
+ "representacion": "manos",
+ "seq_length": 30,
+ "modelo": "models/arquitecturas_literatura_2026-10-02/G_stgcn/semilla_2028/pliegue_3/modelo.keras",
+ "fecha_fin": "2026-10-02T23:15:18"
+}

@@ -1,0 +1,22 @@
+{
+ "modelo": "modelo.keras",
+ "representacion": "manos",
+ "bloques": [
+  "mano_izq",
+  "mano_der"
+ ],
+ "n_rasgos_por_paso": 126,
+ "velocidades": true,
+ "n_rasgos_entrada": 126,
+ "seq_length": 30,
+ "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+ "mano_ausente": "mascara",
+ "rostro_del_processed": "cejas_labios",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "landmarks_dir": "data/extracted/LSC50_holistic",
+ "script": "src/experimento_velocidades.py (via train_loso.entrenar_y_evaluar)",
+ "fecha": "2026-10-01T01:33:06",
+ "posiciones": false,
+ "brazo_experimento_velocidades": "C",
+ "nota": "modelo del experimento de ablacion de velocidades (docs/EXPERIMENTO_VELOCIDADES.md); NO es el modelo canonico ni debe cargarse en el prototipo"
+}

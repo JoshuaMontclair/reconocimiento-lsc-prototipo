@@ -1,0 +1,46 @@
+{
+ "config": "c17",
+ "hiperparametros": {
+  "conv_filtros": 64,
+  "conv_ventana": 3,
+  "conv_capas": 2,
+  "lstm": [
+   128
+  ],
+  "densas": [
+   128,
+   64
+  ],
+  "dropout": 0.3,
+  "lr": 0.002,
+  "batch": 32,
+  "label_smoothing": 0.0
+ },
+ "semilla": 2032,
+ "pliegue": 3,
+ "senante_test": "0003",
+ "n_parametros": 370163,
+ "val_top1": 0.9599999785423279,
+ "val_top1_checkpoint_reevaluado": 0.96,
+ "val_top3": 0.98,
+ "val_f1_macro": 0.9573333333333334,
+ "val_loss": 0.36225274205207825,
+ "test_top1": 0.635,
+ "test_top3": 0.795,
+ "test_f1_macro": 0.590162615162615,
+ "test_precision_macro": 0.5971190476190477,
+ "test_recall_macro": 0.635,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "epocas_ejecutadas": 93,
+ "mejor_epoca": 68,
+ "tiempo_entrenamiento_s": 182.3,
+ "tiempo_total_s": 184.7,
+ "s_por_epoca": 1.96,
+ "epochs_max": 200,
+ "aug": 10,
+ "patience": 25,
+ "modelo": "models/busqueda_hiperparametros/fase2/c17/semilla_2032/pliegue_3/modelo.keras",
+ "fecha_fin": "2026-10-01T06:46:55"
+}

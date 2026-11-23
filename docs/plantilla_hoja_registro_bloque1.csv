@@ -1,0 +1,36 @@
+sesion,presentacion,ronda,intento,id_ensayo,id_glosa_objetivo,glosa_objetivo,referencia_mostrada,variante,valida,estado_pantalla,observacion
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+# LEYENDA — las filas que empiezan por # no se leen. Una fila por EJECUCIÓN (una ventana abierta con ESPACIO).
+# Corresponde a la hoja de ejecución del Bloque 1 (docs/PROTOCOLO_EXPERIMENTAL_4a.md, 9.3) más las columnas
+# que pide el cruce con el JSONL. La unión con el registro automático es (sesion, id_ensayo); el JSONL no
+# guarda la glosa objetivo ni el bloque (protocolo 9.1; PD-22 A).
+# sesion            OBLIGATORIA. Campo "sesion" del JSONL, tal cual (src/translator.py, _registro_ensayo).
+# presentacion      Número de la presentación (cada vez que se pide una glosa). Varias ejecuciones de la
+#                   misma presentación comparten este número: es lo que permite separar intentos (PD-14).
+#                   Sin esta columna no se pueden calcular las políticas "primer intento" y "último intento".
+# ronda             Número de ronda, si el orden de presentación se organiza en rondas (PD-03 C). Opcional.
+# intento           1, 2, 3 … dentro de la presentación. Opcional; si falta se usa el orden de la hoja.
+# id_ensayo         OBLIGATORIA. "id_ensayo" impreso en la consola (src/realtime.py, _resumen_consola).
+# id_glosa_objetivo Identificador 0-49 de la seña pedida. Puede ir en lugar de glosa_objetivo o junto a ella.
+# glosa_objetivo    OBLIGATORIA como columna. Nombre de la seña pedida, como en el vocabulario LSC50
+#                   (src/grammar_mapper.py, SIGN_VOCABULARY). Se admite sin tildes ni signos de interrogación.
+#                   La celda puede quedar vacía si se llena id_glosa_objetivo.
+# referencia_mostrada  si / no. Si se mostró la secuencia de referencia del corpus [MET 225-226]. Opcional.
+# variante          OBLIGATORIA. Declaración de la persona ejecutante: si / no / no estoy segura.
+#                   La tercera categoría solo se usa si el director la aprueba (PD-13); el guion informa
+#                   la exactitud sin variante contando "no estoy segura" de las dos maneras.
+# valida            OBLIGATORIA. si / no. "no" = ejecución excluida por un criterio de la sección 10 del
+#                   protocolo (E3 fallo técnico, E5 familiarización, …). El motivo va en observacion.
+#                   Una celda vacía NO es "si": el guion la reporta como dato faltante y no la usa.
+# estado_pantalla   Estado mostrado por el prototipo, como control de transcripción (protocolo 5.2.6):
+#                   aceptada / rechazada_confianza / rechazada_manos / rechazada_incompleta. Opcional.
+# observacion       Texto libre SIN datos identificativos. Motivo de la exclusión, incidencias de voz, etc.

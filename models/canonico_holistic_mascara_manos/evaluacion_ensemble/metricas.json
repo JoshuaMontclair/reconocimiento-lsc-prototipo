@@ -1,0 +1,17 @@
+{
+ "sistema": "ensemble de 5 semillas (promedio de softmax)",
+ "n_test": 100,
+ "top1": 0.91,
+ "top3": 1.0,
+ "precision_macro": 0.93,
+ "recall_macro": 0.91,
+ "f1_macro": 0.9086666666666666,
+ "n_errores": 9,
+ "archivos": {
+  "metricas.json": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/metricas.json",
+  "classification_report.json": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/classification_report.json",
+  "matriz_confusion.json": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/matriz_confusion.json",
+  "matriz_confusion.png": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/matriz_confusion.png",
+  "predicciones.json": "models/canonico_holistic_mascara_manos/evaluacion_ensemble/predicciones.json"
+ }
+}

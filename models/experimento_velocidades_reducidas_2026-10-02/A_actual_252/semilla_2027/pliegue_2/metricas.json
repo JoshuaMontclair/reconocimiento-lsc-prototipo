@@ -1,0 +1,19 @@
+{
+ "corrida": "A_s2027_pliegue_2",
+ "n_train_original": 699,
+ "n_train_aumentado": 6990,
+ "n_val": 100,
+ "n_test": 198,
+ "top1": 0.6060606060606061,
+ "top3": 0.7474747474747475,
+ "precision_macro": 0.6053809523809524,
+ "recall_macro": 0.6066666666666667,
+ "f1_macro": 0.5756037851037852,
+ "n_errores": 78,
+ "mejor_val_accuracy": 0.9100000262260437,
+ "epocas_ejecutadas": 58,
+ "mejor_epoca": 33,
+ "tiempo_entrenamiento_s": 275.1,
+ "tiempo_total_s": 278.2,
+ "modelo": "models/experimento_velocidades_reducidas_2026-10-02/A_actual_252/semilla_2027/pliegue_2/modelo.keras"
+}

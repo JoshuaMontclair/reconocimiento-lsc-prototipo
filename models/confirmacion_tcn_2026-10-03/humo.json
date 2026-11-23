@@ -1,0 +1,24 @@
+{
+ "fecha": "2026-10-03T00:00:13",
+ "descripcion": "prueba de humo en una carpeta temporal: T1 y T2, semilla 2026, pliegue 0, 3 epocas, aug x10; cifras no usadas",
+ "corridas": [
+  {
+   "brazo": "T1",
+   "n_parametros": 156402,
+   "n_rasgos_entrada": 252,
+   "epocas_ejecutadas": 3,
+   "val_top1": 0.47999998927116394,
+   "test_top1": 0.265,
+   "s_por_epoca": 1.57
+  },
+  {
+   "brazo": "T2",
+   "n_parametros": 125682,
+   "n_rasgos_entrada": 132,
+   "epocas_ejecutadas": 3,
+   "val_top1": 0.4300000071525574,
+   "test_top1": 0.205,
+   "s_por_epoca": 1.5
+  }
+ ]
+}

@@ -1,0 +1,138 @@
+{
+ "fecha": "2026-10-01T08:13:39",
+ "metodo": "model.predict(verbose=0) con lote de 1, como translator.py, y llamada directa model(x, training=False); 10 llamadas de calentamiento y 100 medidas por modelo; mediana y p90. Solo la red (sin MediaPipe ni remuestreo). CPU.",
+ "procesos_de_entrenamiento_activos": [],
+ "entorno": {
+  "fecha": "2026-10-01T08:13:39",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "config": "c00",
+   "modelo": "models/busqueda_hiperparametros/fase2/c00/semilla_2031/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 2.83,
+   "ms_predict_lote1_mediana": 13.04316648747772,
+   "ms_predict_lote1_p90": 13.777292316081002,
+   "ms_llamada_directa_mediana": 61.123729014070705,
+   "ms_llamada_directa_p90": 62.119282997446135
+  },
+  {
+   "config": "c00",
+   "modelo": "models/busqueda_hiperparametros/fase2/c00/semilla_2031/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 2.83,
+   "ms_predict_lote1_mediana": 12.872354505816475,
+   "ms_predict_lote1_p90": 13.43864161754027,
+   "ms_llamada_directa_mediana": 61.04293749376666,
+   "ms_llamada_directa_p90": 61.41370830591768
+  },
+  {
+   "config": "c00",
+   "modelo": "models/busqueda_hiperparametros/fase2/c00/semilla_2031/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 2.83,
+   "ms_predict_lote1_mediana": 12.93222900130786,
+   "ms_predict_lote1_p90": 13.502404201426543,
+   "ms_llamada_directa_mediana": 61.14083350985311,
+   "ms_llamada_directa_p90": 61.559475006652065
+  },
+  {
+   "config": "c07",
+   "modelo": "models/busqueda_hiperparametros/fase2/c07/semilla_2031/pliegue_0/modelo.keras",
+   "n_parametros": 389811,
+   "tamano_archivo_mb": 1.56,
+   "ms_predict_lote1_mediana": 12.27570849005133,
+   "ms_predict_lote1_p90": 12.742657997296192,
+   "ms_llamada_directa_mediana": 32.0566879818216,
+   "ms_llamada_directa_p90": 32.3227750021033
+  },
+  {
+   "config": "c07",
+   "modelo": "models/busqueda_hiperparametros/fase2/c07/semilla_2031/pliegue_1/modelo.keras",
+   "n_parametros": 389811,
+   "tamano_archivo_mb": 1.56,
+   "ms_predict_lote1_mediana": 12.348728996585123,
+   "ms_predict_lote1_p90": 12.80502051813528,
+   "ms_llamada_directa_mediana": 32.082874997286126,
+   "ms_llamada_directa_p90": 32.464616603101604
+  },
+  {
+   "config": "c07",
+   "modelo": "models/busqueda_hiperparametros/fase2/c07/semilla_2031/pliegue_2/modelo.keras",
+   "n_parametros": 389811,
+   "tamano_archivo_mb": 1.56,
+   "ms_predict_lote1_mediana": 12.284687501960434,
+   "ms_predict_lote1_p90": 12.606500004767442,
+   "ms_llamada_directa_mediana": 32.06408351252321,
+   "ms_llamada_directa_p90": 32.30719189159572
+  },
+  {
+   "config": "c17",
+   "modelo": "models/busqueda_hiperparametros/fase2/c17/semilla_2031/pliegue_0/modelo.keras",
+   "n_parametros": 370163,
+   "tamano_archivo_mb": 1.5,
+   "ms_predict_lote1_mediana": 12.300895497901365,
+   "ms_predict_lote1_p90": 12.979420516057871,
+   "ms_llamada_directa_mediana": 32.59693749714643,
+   "ms_llamada_directa_p90": 32.92960420658346
+  },
+  {
+   "config": "c17",
+   "modelo": "models/busqueda_hiperparametros/fase2/c17/semilla_2031/pliegue_1/modelo.keras",
+   "n_parametros": 370163,
+   "tamano_archivo_mb": 1.5,
+   "ms_predict_lote1_mediana": 12.370916505460627,
+   "ms_predict_lote1_p90": 12.842299995827489,
+   "ms_llamada_directa_mediana": 32.62804198311642,
+   "ms_llamada_directa_p90": 32.9169794858899
+  },
+  {
+   "config": "c17",
+   "modelo": "models/busqueda_hiperparametros/fase2/c17/semilla_2031/pliegue_2/modelo.keras",
+   "n_parametros": 370163,
+   "tamano_archivo_mb": 1.5,
+   "ms_predict_lote1_mediana": 12.44681300886441,
+   "ms_predict_lote1_p90": 14.527003609691748,
+   "ms_llamada_directa_mediana": 32.73862499918323,
+   "ms_llamada_directa_p90": 35.461462184321135
+  },
+  {
+   "config": "c05",
+   "modelo": "models/busqueda_hiperparametros/fase2/c05/semilla_2031/pliegue_0/modelo.keras",
+   "n_parametros": 473139,
+   "tamano_archivo_mb": 1.9,
+   "ms_predict_lote1_mediana": 12.755020492477342,
+   "ms_predict_lote1_p90": 13.26470350031741,
+   "ms_llamada_directa_mediana": 60.021270997822285,
+   "ms_llamada_directa_p90": 60.415916712372564
+  },
+  {
+   "config": "c05",
+   "modelo": "models/busqueda_hiperparametros/fase2/c05/semilla_2031/pliegue_1/modelo.keras",
+   "n_parametros": 473139,
+   "tamano_archivo_mb": 1.9,
+   "ms_predict_lote1_mediana": 12.766458006808534,
+   "ms_predict_lote1_p90": 13.178979509393685,
+   "ms_llamada_directa_mediana": 59.88054149202071,
+   "ms_llamada_directa_p90": 60.24291220237501
+  },
+  {
+   "config": "c05",
+   "modelo": "models/busqueda_hiperparametros/fase2/c05/semilla_2031/pliegue_2/modelo.keras",
+   "n_parametros": 473139,
+   "tamano_archivo_mb": 1.9,
+   "ms_predict_lote1_mediana": 12.766958519932814,
+   "ms_predict_lote1_p90": 13.209787794039586,
+   "ms_llamada_directa_mediana": 59.84495849406812,
+   "ms_llamada_directa_p90": 60.225999416434206
+  }
+ ]
+}

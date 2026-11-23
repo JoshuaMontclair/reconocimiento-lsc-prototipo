@@ -1,0 +1,271 @@
+{
+ "esquema": "loso_5_pliegues",
+ "processed_dir": "data/processed_holistic_descartar",
+ "particion_loso": "data/partitions/loso_5_pliegues.json",
+ "particion_aleatoria": "data/partitions/aleatoria_80_10_10.json",
+ "configuracion": {
+  "arquitectura": "CNN+BiLSTM+atencion (train_final_100.build_model)",
+  "seq_length": 30,
+  "n_features": 450,
+  "velocidades": true,
+  "epochs_max": 200,
+  "aug": 10,
+  "batch_size": 64,
+  "patience": 25,
+  "dropout": 0.3,
+  "seed_entrenamiento": 2026,
+  "monitor": "val_accuracy",
+  "pliegues_solicitados": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "semilla_particion": 2026
+ },
+ "pliegues": [
+  {
+   "corrida": "pliegue_0",
+   "n_train_original": 697,
+   "n_train_aumentado": 6970,
+   "n_val": 100,
+   "n_test": 200,
+   "top1": 0.34,
+   "top3": 0.515,
+   "precision_macro": 0.33869841269841267,
+   "recall_macro": 0.34,
+   "f1_macro": 0.301507215007215,
+   "n_errores": 132,
+   "mejor_val_accuracy": 0.9100000262260437,
+   "epocas_ejecutadas": 71,
+   "mejor_epoca": 46,
+   "tiempo_entrenamiento_s": 338.6,
+   "tiempo_total_s": 341.2,
+   "modelo": "models/loso_2026-09-14_holistic_descartar/pliegue_0/modelo.keras",
+   "pliegue": 0,
+   "senante_test": "0000"
+  },
+  {
+   "corrida": "pliegue_1",
+   "n_train_original": 698,
+   "n_train_aumentado": 6980,
+   "n_val": 100,
+   "n_test": 199,
+   "top1": 0.49748743718592964,
+   "top3": 0.6683417085427136,
+   "precision_macro": 0.42839405039405043,
+   "recall_macro": 0.5,
+   "f1_macro": 0.42677395153865744,
+   "n_errores": 100,
+   "mejor_val_accuracy": 0.8899999856948853,
+   "epocas_ejecutadas": 77,
+   "mejor_epoca": 52,
+   "tiempo_entrenamiento_s": 413.4,
+   "tiempo_total_s": 417.4,
+   "modelo": "models/loso_2026-09-14_holistic_descartar/pliegue_1/modelo.keras",
+   "pliegue": 1,
+   "senante_test": "0001"
+  },
+  {
+   "corrida": "pliegue_2",
+   "n_train_original": 699,
+   "n_train_aumentado": 6990,
+   "n_val": 100,
+   "n_test": 198,
+   "top1": 0.5858585858585859,
+   "top3": 0.7525252525252525,
+   "precision_macro": 0.5325897435897436,
+   "recall_macro": 0.585,
+   "f1_macro": 0.526342670401494,
+   "n_errores": 82,
+   "mejor_val_accuracy": 0.9100000262260437,
+   "epocas_ejecutadas": 85,
+   "mejor_epoca": 60,
+   "tiempo_entrenamiento_s": 521.6,
+   "tiempo_total_s": 526.5,
+   "modelo": "models/loso_2026-09-14_holistic_descartar/pliegue_2/modelo.keras",
+   "pliegue": 2,
+   "senante_test": "0002"
+  },
+  {
+   "corrida": "pliegue_3",
+   "n_train_original": 697,
+   "n_train_aumentado": 6970,
+   "n_val": 100,
+   "n_test": 200,
+   "top1": 0.595,
+   "top3": 0.83,
+   "precision_macro": 0.5460108225108224,
+   "recall_macro": 0.595,
+   "f1_macro": 0.5423059163059163,
+   "n_errores": 81,
+   "mejor_val_accuracy": 0.9399999976158142,
+   "epocas_ejecutadas": 56,
+   "mejor_epoca": 31,
+   "tiempo_entrenamiento_s": 349.0,
+   "tiempo_total_s": 353.7,
+   "modelo": "models/loso_2026-09-14_holistic_descartar/pliegue_3/modelo.keras",
+   "pliegue": 3,
+   "senante_test": "0003"
+  },
+  {
+   "corrida": "pliegue_4",
+   "n_train_original": 697,
+   "n_train_aumentado": 6970,
+   "n_val": 100,
+   "n_test": 200,
+   "top1": 0.665,
+   "top3": 0.855,
+   "precision_macro": 0.6813253968253968,
+   "recall_macro": 0.665,
+   "f1_macro": 0.6305921855921857,
+   "n_errores": 67,
+   "mejor_val_accuracy": 0.8999999761581421,
+   "epocas_ejecutadas": 71,
+   "mejor_epoca": 46,
+   "tiempo_entrenamiento_s": 427.5,
+   "tiempo_total_s": 432.5,
+   "modelo": "models/loso_2026-09-14_holistic_descartar/pliegue_4/modelo.keras",
+   "pliegue": 4,
+   "senante_test": "0004"
+  }
+ ],
+ "agregado": {
+  "top1": {
+   "media": 0.5366692046089032,
+   "desviacion_estandar": 0.1250048568099284,
+   "min": 0.34,
+   "max": 0.665,
+   "valores": [
+    0.34,
+    0.49748743718592964,
+    0.5858585858585859,
+    0.595,
+    0.665
+   ]
+  },
+  "top3": {
+   "media": 0.7241733922135932,
+   "desviacion_estandar": 0.13783086112630488,
+   "min": 0.515,
+   "max": 0.855,
+   "valores": [
+    0.515,
+    0.6683417085427136,
+    0.7525252525252525,
+    0.83,
+    0.855
+   ]
+  },
+  "precision_macro": {
+   "media": 0.5054036852036852,
+   "desviacion_estandar": 0.12947741282298433,
+   "min": 0.33869841269841267,
+   "max": 0.6813253968253968,
+   "valores": [
+    0.33869841269841267,
+    0.42839405039405043,
+    0.5325897435897436,
+    0.5460108225108224,
+    0.6813253968253968
+   ]
+  },
+  "recall_macro": {
+   "media": 0.537,
+   "desviacion_estandar": 0.12472970776843822,
+   "min": 0.34,
+   "max": 0.665,
+   "valores": [
+    0.34,
+    0.5,
+    0.585,
+    0.595,
+    0.665
+   ]
+  },
+  "f1_macro": {
+   "media": 0.4855043877690937,
+   "desviacion_estandar": 0.12574664187744702,
+   "min": 0.301507215007215,
+   "max": 0.6305921855921857,
+   "valores": [
+    0.301507215007215,
+    0.42677395153865744,
+    0.526342670401494,
+    0.5423059163059163,
+    0.6305921855921857
+   ]
+  },
+  "mejor_val_accuracy": {
+   "media": 0.9100000023841858,
+   "desviacion_estandar": 0.01870829298728726,
+   "min": 0.8899999856948853,
+   "max": 0.9399999976158142,
+   "valores": [
+    0.9100000262260437,
+    0.8899999856948853,
+    0.9100000262260437,
+    0.9399999976158142,
+    0.8999999761581421
+   ]
+  },
+  "epocas_ejecutadas": {
+   "media": 72.0,
+   "desviacion_estandar": 10.63014581273465,
+   "min": 56.0,
+   "max": 85.0,
+   "valores": [
+    71.0,
+    77.0,
+    85.0,
+    56.0,
+    71.0
+   ]
+  },
+  "tiempo_total_s": {
+   "media": 414.26000000000005,
+   "desviacion_estandar": 74.07032469214646,
+   "min": 341.2,
+   "max": 526.5,
+   "valores": [
+    341.2,
+    417.4,
+    526.5,
+    353.7,
+    432.5
+   ]
+  },
+  "_nota": "desviacion_estandar es la muestral (ddof=1) sobre los pliegues ejecutados; null si hay un solo pliegue"
+ },
+ "aleatoria_80_10_10": {
+  "corrida": "aleatoria_80_10_10",
+  "n_train_original": 797,
+  "n_train_aumentado": 7970,
+  "n_val": 100,
+  "n_test": 100,
+  "top1": 0.93,
+  "top3": 0.97,
+  "precision_macro": 0.95,
+  "recall_macro": 0.93,
+  "f1_macro": 0.9259999999999999,
+  "n_errores": 7,
+  "mejor_val_accuracy": 0.9300000071525574,
+  "epocas_ejecutadas": 53,
+  "mejor_epoca": 28,
+  "tiempo_entrenamiento_s": 323.8,
+  "tiempo_total_s": 328.3,
+  "modelo": "models/loso_2026-09-14_holistic_descartar/aleatoria_80_10_10/modelo.keras"
+ },
+ "entorno": {
+  "fecha": "2026-09-14T14:55:28",
+  "plataforma": "macOS-26.6.2-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ }
+}

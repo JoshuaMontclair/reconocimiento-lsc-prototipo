@@ -1,0 +1,39 @@
+% Diagrama «dataset original -> EDA -> dataset resultante» (pieza «datos»).
+% Uso en Beamer:  \usetikzlibrary{positioning,arrows.meta}  y  \input{figuras/diagrama_eda_datos.tex}
+% Fuentes de cada cifra: caracterizacion.md §2, §6, §11.1; DECISIONES_TESIS.txt N-13, N-15, N-16, N-43, D-06.
+\begin{tikzpicture}[
+  font=\sffamily\scriptsize,
+  caja/.style={draw=#1!70!black, fill=#1!8, rounded corners=2pt, align=left,
+               inner sep=4pt, text width=3.95cm, minimum height=3.2cm,
+               execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}},
+  flecha/.style={-{Stealth[length=2.2mm]}, thick, draw=black!65},
+  etiqueta/.style={font=\sffamily\tiny, text=black!65, align=center}
+]
+\node[caja=blue] (orig) {%
+  \textbf{Corpus original LSC50}\\[2pt]
+  50 señas $\times$ 5 personas $\times$ 4 repeticiones\\
+  = \textbf{1.000 videos} (una seña por video)\\[2pt]
+  Cámara usada: \texttt{COLOR\_BODY}\\
+  Kinect V2 · 1920$\times$1080 · 24 fps\\[2pt]
+  20 videos por seña};
+\node[caja=orange, right=0.55cm of orig] (eda) {%
+  \textbf{EDA / verificación}\\[2pt]
+  1. Integridad: 8.000 de 8.000 archivos iguales al depósito (CRC-32)\\[1pt]
+  2. Están los 1.000 videos esperados (50 $\times$ 5 $\times$ 4): ninguno falta ni está dañado\\[1pt]
+  3. Duplicados (SHA-1): \textbf{3 pares} de videos byte a byte idénticos\\[1pt]
+  4. Confirmado a ojo y en el depósito de figshare: error de origen};
+\node[caja=teal, right=0.55cm of eda] (res) {%
+  \textbf{Corpus depurado}\\[2pt]
+  Se descarta la copia de cada par\\
+  = \textbf{997 videos}\\[2pt]
+  47 señas con 20 videos\\
+  3 señas con 19, por la copia quitada\\(persona que la grabó):\\
+  \quad «buenas tardes» (0001)\\
+  \quad «vivir» (0002)\\
+  \quad «abuelo» (0002)};
+\draw[flecha] (orig) -- node[etiqueta, above]{entra} (eda);
+\draw[flecha] (eda) -- node[etiqueta, above]{sale} (res);
+\node[etiqueta, below=2pt of orig] {caracterizacion.md §2, §6};
+\node[etiqueta, below=2pt of eda] {N-13, N-15, N-16, N-43};
+\node[etiqueta, below=2pt of res] {D-06; data/partitions/*.json};
+\end{tikzpicture}

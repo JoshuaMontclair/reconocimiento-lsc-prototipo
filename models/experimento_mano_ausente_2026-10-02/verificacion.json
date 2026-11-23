@@ -1,0 +1,96 @@
+{
+ "fecha": "2026-10-02T18:07:34",
+ "processed": "data/processed_holistic_mascara_rostro",
+ "comprobaciones": [
+  "A = train_loso.remuestrear_todas bit a bit",
+  "las tres reglas conmutan con el espejo (1 de cada 7 muestras)"
+ ],
+ "espejo_dif_max": {
+  "A": 0.0,
+  "B": 0.0,
+  "C": 0.0
+ },
+ "por_regla": {
+  "A": {
+   "mano_izq": {
+    "pasos_en_cero": 1150,
+    "secuencias_con_algun_paso_en_cero": 353,
+    "transiciones": 1095,
+    "norma_velocidad_mediana": 0.4808042049407959,
+    "norma_velocidad_p99": 8.056218147277832,
+    "norma_velocidad_max": 16.93345069885254
+   },
+   "mano_der": {
+    "pasos_en_cero": 347,
+    "secuencias_con_algun_paso_en_cero": 164,
+    "transiciones": 430,
+    "norma_velocidad_mediana": 0.3730936050415039,
+    "norma_velocidad_p99": 7.979660987854004,
+    "norma_velocidad_max": 17.42879295349121
+   }
+  },
+  "B": {
+   "mano_izq": {
+    "pasos_en_cero": 0,
+    "secuencias_con_algun_paso_en_cero": 0,
+    "transiciones": 0,
+    "norma_velocidad_mediana": 0.45354509353637695,
+    "norma_velocidad_p99": 6.970973014831543,
+    "norma_velocidad_max": 17.634653091430664
+   },
+   "mano_der": {
+    "pasos_en_cero": 0,
+    "secuencias_con_algun_paso_en_cero": 0,
+    "transiciones": 0,
+    "norma_velocidad_mediana": 0.38017722964286804,
+    "norma_velocidad_p99": 5.623977184295654,
+    "norma_velocidad_max": 15.158222198486328
+   }
+  },
+  "C": {
+   "mano_izq": {
+    "pasos_en_cero": 0,
+    "secuencias_con_algun_paso_en_cero": 0,
+    "transiciones": 0,
+    "norma_velocidad_mediana": 0.4380524158477783,
+    "norma_velocidad_p99": 6.167327880859375,
+    "norma_velocidad_max": 16.123960494995117
+   },
+   "mano_der": {
+    "pasos_en_cero": 0,
+    "secuencias_con_algun_paso_en_cero": 0,
+    "transiciones": 0,
+    "norma_velocidad_mediana": 0.3610302209854126,
+    "norma_velocidad_p99": 5.20260763168335,
+    "norma_velocidad_max": 11.627457618713379
+   }
+  }
+ },
+ "pivote": {
+  "momentos_reemplazados": 2747,
+  "momentos_que_repiten_un_fotograma": 935,
+  "distancia_al_momento_mediana_fotogramas": 1.1034482758620712,
+  "distancia_p95": 7.334482758620683,
+  "distancia_max": 28.0
+ },
+ "mascara_pasos_contaminados": {
+  "mano_izq": {
+   "pasos_contaminados": 2658,
+   "de_ellos_encogidos_no_cero": 1508,
+   "videos_con_algun_paso_contaminado": 636
+  },
+  "mano_der": {
+   "pasos_contaminados": 1291,
+   "de_ellos_encogidos_no_cero": 944,
+   "videos_con_algun_paso_contaminado": 413
+  }
+ },
+ "diferencia_media_absoluta_con_A": {
+  "B": 0.04077298939228058,
+  "C": 0.03041069395840168
+ },
+ "videos_con_mano_nunca_detectada": {
+  "mano_izq": 0,
+  "mano_der": 0
+ }
+}

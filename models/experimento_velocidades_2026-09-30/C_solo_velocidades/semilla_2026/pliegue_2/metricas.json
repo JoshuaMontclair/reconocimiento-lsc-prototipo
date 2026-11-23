@@ -1,0 +1,19 @@
+{
+ "corrida": "C_s2026_pliegue_2",
+ "n_train_original": 699,
+ "n_train_aumentado": 6990,
+ "n_val": 100,
+ "n_test": 198,
+ "top1": 0.601010101010101,
+ "top3": 0.7474747474747475,
+ "precision_macro": 0.6040213675213675,
+ "recall_macro": 0.6016666666666667,
+ "f1_macro": 0.5740184586655175,
+ "n_errores": 79,
+ "mejor_val_accuracy": 0.8700000047683716,
+ "epocas_ejecutadas": 42,
+ "mejor_epoca": 17,
+ "tiempo_entrenamiento_s": 113.0,
+ "tiempo_total_s": 114.3,
+ "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2026/pliegue_2/modelo.keras"
+}

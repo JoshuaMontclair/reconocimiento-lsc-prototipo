@@ -1,0 +1,4052 @@
+{
+  "descripcion": "Tasa del extractor de puntos característicos (MediaPipe HolisticLandmarker, D-05) medida sobre la misma muestra leída desde Google Drive y desde disco local: cabo pendiente de N-21, actividad 1.c / §2.2.3 del anteproyecto.",
+  "pregunta": "N-21 midió 15,0 ms por fotograma en la corrida completa frente a 11,3-11,6 ms en las pruebas cortas de N-20 y dejó como causa probable, sin verificar, la sincronización de Google Drive (el repositorio vive en CloudStorage y la corrida creó 5.000 archivos). Esta medición repite el extractor sobre una muestra leída desde Drive y desde una copia fuera de Drive, para separar el efecto del almacenamiento del efecto del extractor.",
+  "estado": "completado",
+  "fecha_hora": "2026-09-16T10:49:18",
+  "comando": [
+    "src/tasa_extractor_local.py",
+    "--n",
+    "60",
+    "--semilla",
+    "2026",
+    "--umbral-ms",
+    "1.0",
+    "--salida",
+    "models/tasa_extractor_local_2026-09-16",
+    "--copia-local",
+    "scratch_tesis/adelantos_2026-09-16/tasa/videos_local",
+    "--nota",
+    "Cabo de N-21: misma muestra leida desde Google Drive y desde disco local; sin otra carga del proyecto; hilos OMP/OpenBLAS/MKL topados a 2 por si se graba con la camara"
+  ],
+  "git_commit": "2aacc4c",
+  "nota": "Cabo de N-21: misma muestra leida desde Google Drive y desde disco local; sin otra carga del proyecto; hilos OMP/OpenBLAS/MKL topados a 2 por si se graba con la camara",
+  "hardware": {
+    "sistema_operativo": "macOS-26.6.2-arm64-arm-64bit",
+    "arquitectura": "arm64",
+    "cpu": "Apple M5 Max",
+    "nucleos_fisicos": 18,
+    "nucleos_logicos": 18,
+    "ram_gb": 48.0,
+    "gpu": "no se usa: delegado CPU en HolisticLandmarker"
+  },
+  "software": {
+    "python": "3.12.13",
+    "mediapipe": "0.10.35",
+    "opencv": "4.13.0",
+    "numpy": "2.4.3"
+  },
+  "reloj": "time.perf_counter_ns (monótono) para todas las marcas; ms = ns / 1e6. Las estadísticas por etapa usan resumen_ms de src/reextract_lsc50.py (N-21).",
+  "limites_de_cpu": {
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "VECLIB_MAXIMUM_THREADS": "2",
+    "NUMEXPR_NUM_THREADS": "2"
+  },
+  "modelo": {
+    "archivo": "holistic_landmarker.task",
+    "ruta": "models/mediapipe/holistic_landmarker.task",
+    "bytes": 13683609,
+    "sha256": "e2dab61191e2dcd0a15f943d8e3ed1dce13c82dfa597b9dd39f562975a50c3f8",
+    "sha256_esperado_d05": "e2dab61191e2dcd0a15f943d8e3ed1dce13c82dfa597b9dd39f562975a50c3f8",
+    "opciones": {
+      "tarea": "HolisticLandmarker",
+      "running_mode": "VIDEO",
+      "min_face_detection_confidence": 0.5,
+      "min_face_suppression_threshold": 0.5,
+      "min_face_landmarks_confidence": 0.5,
+      "min_pose_detection_confidence": 0.5,
+      "min_pose_suppression_threshold": 0.5,
+      "min_pose_landmarks_confidence": 0.5,
+      "min_hand_landmarks_confidence": 0.5,
+      "output_face_blendshapes": false,
+      "output_segmentation_mask": false,
+      "delegate": "CPU"
+    },
+    "procedencia": "importado sin cambios de src/reextract_lsc50.py (crear_holistic, extraer_video, resumen_ms): el mismo extractor y las mismas convenciones de medición de N-21"
+  },
+  "referencias_no_medidas_aqui": {
+    "nota": "cifras copiadas del registro de decisiones para poder contrastar; NO se midieron en esta corrida",
+    "N-20_pruebas_cortas_holistic_ms": 11.5,
+    "N-21_corrida_completa_holistic_ms": 15.01,
+    "N-21_corrida_completa_total_ms": 15.8,
+    "N-21_medias_por_bloques_de_100_videos_ms": [
+      12.4,
+      14.3,
+      14.3,
+      14.8,
+      15.7,
+      15.1,
+      15.8,
+      15.5,
+      16.0,
+      16.0
+    ],
+    "N-21_causa_probable": "sincronización de Google Drive durante la escritura de 5.000 archivos nuevos (declarada como probable, sin verificar)"
+  },
+  "semilla": 2026,
+  "umbral_declarado_ms": 1.0,
+  "muestra": {
+    "n": 60,
+    "senas": [
+      6,
+      7,
+      14,
+      20,
+      26,
+      32,
+      35,
+      36,
+      38,
+      39,
+      41,
+      47
+    ],
+    "videos_por_sena": {
+      "6": 5,
+      "7": 5,
+      "14": 5,
+      "20": 5,
+      "26": 5,
+      "32": 5,
+      "35": 5,
+      "36": 5,
+      "38": 5,
+      "39": 5,
+      "41": 5,
+      "47": 5
+    },
+    "videos_por_senante": {
+      "0": 12,
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12
+    },
+    "videos_por_repeticion": {
+      "0": 14,
+      "1": 7,
+      "2": 14,
+      "3": 25
+    },
+    "muestras": [
+      "0006_0000_0003",
+      "0006_0001_0003",
+      "0006_0002_0001",
+      "0006_0003_0000",
+      "0006_0004_0000",
+      "0007_0000_0000",
+      "0007_0001_0002",
+      "0007_0002_0000",
+      "0007_0003_0003",
+      "0007_0004_0000",
+      "0014_0000_0003",
+      "0014_0001_0002",
+      "0014_0002_0001",
+      "0014_0003_0003",
+      "0014_0004_0002",
+      "0020_0000_0002",
+      "0020_0001_0002",
+      "0020_0002_0003",
+      "0020_0003_0000",
+      "0020_0004_0002",
+      "0026_0000_0000",
+      "0026_0001_0002",
+      "0026_0002_0002",
+      "0026_0003_0003",
+      "0026_0004_0001",
+      "0032_0000_0002",
+      "0032_0001_0000",
+      "0032_0002_0002",
+      "0032_0003_0002",
+      "0032_0004_0003",
+      "0035_0000_0003",
+      "0035_0001_0000",
+      "0035_0002_0003",
+      "0035_0003_0003",
+      "0035_0004_0000",
+      "0036_0000_0003",
+      "0036_0001_0003",
+      "0036_0002_0003",
+      "0036_0003_0002",
+      "0036_0004_0003",
+      "0038_0000_0003",
+      "0038_0001_0000",
+      "0038_0002_0001",
+      "0038_0003_0001",
+      "0038_0004_0000",
+      "0039_0000_0000",
+      "0039_0001_0003",
+      "0039_0002_0003",
+      "0039_0003_0001",
+      "0039_0004_0003",
+      "0041_0000_0001",
+      "0041_0001_0000",
+      "0041_0002_0003",
+      "0041_0003_0003",
+      "0041_0004_0002",
+      "0047_0000_0003",
+      "0047_0001_0002",
+      "0047_0002_0003",
+      "0047_0003_0003",
+      "0047_0004_0003"
+    ],
+    "criterio": "60 videos: se eligen n/5 señas con random.Random(2026).sample sobre las señas ordenadas que tienen los 5 señantes, y para cada seña y cada señante UNA repetición con random.Random(...).choice sobre las repeticiones ordenadas. Determinista: la misma semilla da siempre la misma lista."
+  },
+  "copia_local": {
+    "directorio": "scratch_tesis/adelantos_2026-09-16/tasa/videos_local",
+    "copiados": 0,
+    "reutilizados": 60,
+    "bytes_copiados": 0,
+    "segundos": 0.0,
+    "nota": "copia, no traslado: los originales de data/raw quedan intactos"
+  },
+  "orden_condiciones": [
+    "drive_1",
+    "local",
+    "drive_2"
+  ],
+  "diseno": "tres pasadas seguidas sobre los MISMOS videos, en el orden drive_1 → local → drive_2; la tercera repite la primera para medir la deriva del equipo y que el calentamiento no se confunda con el efecto del almacenamiento.",
+  "no_se_escribe_nada": "no se guardan fotogramas, video ni filas de puntos (§1.5 del anteproyecto): los videos solo se leen y se cronometran. La copia local es una copia de los .avi en un directorio temporal fuera del repositorio; data/ no se modifica.",
+  "totales": {
+    "fotogramas_por_pasada": 3999,
+    "megabytes_muestra": 149.6,
+    "bytes_muestra": 156866160,
+    "bytes_leidos_en_total": 470598480,
+    "segundos_de_la_corrida": 200.98
+  },
+  "condiciones": {
+    "drive_1": {
+      "nombre": "drive_1",
+      "orden": 1,
+      "almacenamiento": "google_drive_cloudstorage",
+      "directorio": "data/raw/LSC50/VIDEOS/COLOR_BODY",
+      "inicio": "2026-09-16T10:45:57",
+      "fin": "2026-09-16T10:47:03",
+      "n_videos": 60,
+      "n_fotogramas": 3999,
+      "bytes_leidos": 156866160,
+      "megabytes_leidos": 149.6,
+      "fallidos": [],
+      "materializacion": {
+        "n_archivos_medidos": 60,
+        "bytes_logicos": 156866160,
+        "bytes_en_bloques": 156995584,
+        "archivos_sin_bloques_asignados": 0,
+        "fraccion_materializada": 1.0008,
+        "nota": "bytes_en_bloques = st_blocks * 512. Si es ~= bytes_logicos el archivo ya está en disco local (en Drive, en la caché de DriveFS) y leerlo no va a la red; si hay archivos con 0 bloques, esos sí se descargarían al leerlos"
+      },
+      "carga_sistema_1_5_15_min_inicio": [
+        3.51,
+        3.5,
+        3.19
+      ],
+      "carga_sistema_1_5_15_min_fin": [
+        4.26,
+        3.63,
+        3.25
+      ],
+      "cpu_de_este_proceso": {
+        "usuario_s": 107.41,
+        "sistema_s": 11.58,
+        "nucleos_medios_ocupados": 1.81
+      },
+      "google_drive": {
+        "procesos_al_empezar": [
+          {
+            "pid": 744,
+            "cpu_segundos_acumulados": 4.44,
+            "rss_kb": 20656,
+            "comando": "/Applications/Google Drive.app/Contents/Applications/FinderHelper.app/Contents/PlugIns/FinderSyncExtension.appex/Content"
+          },
+          {
+            "pid": 1528,
+            "cpu_segundos_acumulados": 0.8,
+            "rss_kb": 11216,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive"
+          },
+          {
+            "pid": 1627,
+            "cpu_segundos_acumulados": 0.07,
+            "rss_kb": 4000,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/crashpad_handler --database=~/Library/Application Support/Goog"
+          },
+          {
+            "pid": 1628,
+            "cpu_segundos_acumulados": 7641.26,
+            "rss_kb": 250816,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive --single_process --parent_version=130.0.2.0 --crash_handler_t"
+          },
+          {
+            "pid": 1775,
+            "cpu_segundos_acumulados": 36.67,
+            "rss_kb": 20272,
+            "comando": "/Applications/Google Drive.app/Contents/PlugIns/DFSFileProviderExtension.appex/Contents/MacOS/DFSFileProviderExtension -"
+          }
+        ],
+        "procesos_al_terminar": [
+          {
+            "pid": 744,
+            "cpu_segundos_acumulados": 4.44,
+            "rss_kb": 20656,
+            "comando": "/Applications/Google Drive.app/Contents/Applications/FinderHelper.app/Contents/PlugIns/FinderSyncExtension.appex/Content"
+          },
+          {
+            "pid": 1528,
+            "cpu_segundos_acumulados": 0.8,
+            "rss_kb": 11216,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive"
+          },
+          {
+            "pid": 1627,
+            "cpu_segundos_acumulados": 0.07,
+            "rss_kb": 4000,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/crashpad_handler --database=~/Library/Application Support/Goog"
+          },
+          {
+            "pid": 1628,
+            "cpu_segundos_acumulados": 7643.55,
+            "rss_kb": 250336,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive --single_process --parent_version=130.0.2.0 --crash_handler_t"
+          },
+          {
+            "pid": 1775,
+            "cpu_segundos_acumulados": 36.68,
+            "rss_kb": 20128,
+            "comando": "/Applications/Google Drive.app/Contents/PlugIns/DFSFileProviderExtension.appex/Contents/MacOS/DFSFileProviderExtension -"
+          }
+        ],
+        "delta_cpu": {
+          "segundos": 2.3,
+          "pids_comparados": [
+            744,
+            1528,
+            1627,
+            1628,
+            1775
+          ],
+          "pids_que_nacieron": [],
+          "pids_que_murieron": []
+        },
+        "cpu_segundos_consumidos_durante_la_condicion": 2.3,
+        "nota": "delta del tiempo de CPU acumulado de los procesos de Google Drive entre el principio y el final de esta condición. Cerca de cero = la sincronización estaba quieta, es decir, NO se está reproduciendo la situación de N-21 (5.000 archivos nuevos subiéndose)"
+      },
+      "por_video": [
+        {
+          "muestra": "0006_0000_0003",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2607536,
+          "ms_medio": {
+            "decodificar": 0.71,
+            "holistic": 11.462,
+            "total": 12.216
+          },
+          "ms_mediana": {
+            "decodificar": 0.562,
+            "holistic": 11.38,
+            "total": 11.994
+          },
+          "segundos_video": 1.442
+        },
+        {
+          "muestra": "0006_0001_0003",
+          "fotogramas": 69,
+          "fps_video": 24.0,
+          "bytes": 1993436,
+          "ms_medio": {
+            "decodificar": 0.625,
+            "holistic": 11.425,
+            "total": 12.092
+          },
+          "ms_mediana": {
+            "decodificar": 0.561,
+            "holistic": 11.306,
+            "total": 11.903
+          },
+          "segundos_video": 1.115
+        },
+        {
+          "muestra": "0006_0002_0001",
+          "fotogramas": 62,
+          "fps_video": 24.0,
+          "bytes": 2589032,
+          "ms_medio": {
+            "decodificar": 0.624,
+            "holistic": 11.345,
+            "total": 12.013
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.332,
+            "total": 11.953
+          },
+          "segundos_video": 1.016
+        },
+        {
+          "muestra": "0006_0003_0000",
+          "fotogramas": 54,
+          "fps_video": 24.0,
+          "bytes": 2456310,
+          "ms_medio": {
+            "decodificar": 0.604,
+            "holistic": 11.263,
+            "total": 11.908
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.314,
+            "total": 11.913
+          },
+          "segundos_video": 0.923
+        },
+        {
+          "muestra": "0006_0004_0000",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3331322,
+          "ms_medio": {
+            "decodificar": 0.625,
+            "holistic": 11.688,
+            "total": 12.359
+          },
+          "ms_mediana": {
+            "decodificar": 0.587,
+            "holistic": 11.68,
+            "total": 12.307
+          },
+          "segundos_video": 1.228
+        },
+        {
+          "muestra": "0007_0000_0000",
+          "fotogramas": 81,
+          "fps_video": 24.0,
+          "bytes": 2170834,
+          "ms_medio": {
+            "decodificar": 0.596,
+            "holistic": 11.299,
+            "total": 11.938
+          },
+          "ms_mediana": {
+            "decodificar": 0.562,
+            "holistic": 11.345,
+            "total": 11.963
+          },
+          "segundos_video": 1.236
+        },
+        {
+          "muestra": "0007_0001_0002",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2014772,
+          "ms_medio": {
+            "decodificar": 0.592,
+            "holistic": 11.3,
+            "total": 11.935
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.28,
+            "total": 11.896
+          },
+          "segundos_video": 1.116
+        },
+        {
+          "muestra": "0007_0002_0000",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2606976,
+          "ms_medio": {
+            "decodificar": 0.605,
+            "holistic": 11.355,
+            "total": 12.004
+          },
+          "ms_mediana": {
+            "decodificar": 0.565,
+            "holistic": 11.406,
+            "total": 12.015
+          },
+          "segundos_video": 1.07
+        },
+        {
+          "muestra": "0007_0003_0003",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2622258,
+          "ms_medio": {
+            "decodificar": 0.596,
+            "holistic": 11.323,
+            "total": 11.962
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.324,
+            "total": 11.929
+          },
+          "segundos_video": 0.967
+        },
+        {
+          "muestra": "0007_0004_0000",
+          "fotogramas": 84,
+          "fps_video": 24.0,
+          "bytes": 3411784,
+          "ms_medio": {
+            "decodificar": 0.615,
+            "holistic": 11.409,
+            "total": 12.068
+          },
+          "ms_mediana": {
+            "decodificar": 0.578,
+            "holistic": 11.488,
+            "total": 12.111
+          },
+          "segundos_video": 1.561
+        },
+        {
+          "muestra": "0014_0000_0003",
+          "fotogramas": 74,
+          "fps_video": 24.0,
+          "bytes": 2865838,
+          "ms_medio": {
+            "decodificar": 0.602,
+            "holistic": 11.392,
+            "total": 12.037
+          },
+          "ms_mediana": {
+            "decodificar": 0.563,
+            "holistic": 11.377,
+            "total": 11.998
+          },
+          "segundos_video": 1.311
+        },
+        {
+          "muestra": "0014_0001_0002",
+          "fotogramas": 82,
+          "fps_video": 24.0,
+          "bytes": 2388456,
+          "ms_medio": {
+            "decodificar": 0.605,
+            "holistic": 11.362,
+            "total": 12.011
+          },
+          "ms_mediana": {
+            "decodificar": 0.571,
+            "holistic": 11.326,
+            "total": 11.949
+          },
+          "segundos_video": 1.252
+        },
+        {
+          "muestra": "0014_0002_0001",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2423000,
+          "ms_medio": {
+            "decodificar": 0.607,
+            "holistic": 11.283,
+            "total": 11.932
+          },
+          "ms_mediana": {
+            "decodificar": 0.561,
+            "holistic": 11.265,
+            "total": 11.857
+          },
+          "segundos_video": 1.018
+        },
+        {
+          "muestra": "0014_0003_0003",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2193420,
+          "ms_medio": {
+            "decodificar": 0.617,
+            "holistic": 11.334,
+            "total": 11.993
+          },
+          "ms_mediana": {
+            "decodificar": 0.569,
+            "holistic": 11.295,
+            "total": 11.906
+          },
+          "segundos_video": 0.815
+        },
+        {
+          "muestra": "0014_0004_0002",
+          "fotogramas": 52,
+          "fps_video": 24.0,
+          "bytes": 2056394,
+          "ms_medio": {
+            "decodificar": 0.607,
+            "holistic": 11.381,
+            "total": 12.03
+          },
+          "ms_mediana": {
+            "decodificar": 0.559,
+            "holistic": 11.326,
+            "total": 11.927
+          },
+          "segundos_video": 0.931
+        },
+        {
+          "muestra": "0020_0000_0002",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2769174,
+          "ms_medio": {
+            "decodificar": 0.599,
+            "holistic": 11.352,
+            "total": 11.994
+          },
+          "ms_mediana": {
+            "decodificar": 0.564,
+            "holistic": 11.359,
+            "total": 11.979
+          },
+          "segundos_video": 1.108
+        },
+        {
+          "muestra": "0020_0001_0002",
+          "fotogramas": 73,
+          "fps_video": 24.0,
+          "bytes": 2284086,
+          "ms_medio": {
+            "decodificar": 0.597,
+            "holistic": 11.383,
+            "total": 12.023
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.303,
+            "total": 11.918
+          },
+          "segundos_video": 1.115
+        },
+        {
+          "muestra": "0020_0002_0003",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2617542,
+          "ms_medio": {
+            "decodificar": 0.597,
+            "holistic": 11.34,
+            "total": 11.979
+          },
+          "ms_mediana": {
+            "decodificar": 0.553,
+            "holistic": 11.304,
+            "total": 11.909
+          },
+          "segundos_video": 0.952
+        },
+        {
+          "muestra": "0020_0003_0000",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2765522,
+          "ms_medio": {
+            "decodificar": 0.6,
+            "holistic": 11.367,
+            "total": 12.011
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.311,
+            "total": 11.932
+          },
+          "segundos_video": 1.013
+        },
+        {
+          "muestra": "0020_0004_0002",
+          "fotogramas": 67,
+          "fps_video": 24.0,
+          "bytes": 2667344,
+          "ms_medio": {
+            "decodificar": 0.603,
+            "holistic": 11.391,
+            "total": 12.037
+          },
+          "ms_mediana": {
+            "decodificar": 0.564,
+            "holistic": 11.404,
+            "total": 12.005
+          },
+          "segundos_video": 1.117
+        },
+        {
+          "muestra": "0026_0000_0000",
+          "fotogramas": 74,
+          "fps_video": 24.0,
+          "bytes": 2081018,
+          "ms_medio": {
+            "decodificar": 0.596,
+            "holistic": 11.342,
+            "total": 11.98
+          },
+          "ms_mediana": {
+            "decodificar": 0.56,
+            "holistic": 11.282,
+            "total": 11.889
+          },
+          "segundos_video": 1.123
+        },
+        {
+          "muestra": "0026_0001_0002",
+          "fotogramas": 71,
+          "fps_video": 24.0,
+          "bytes": 2141452,
+          "ms_medio": {
+            "decodificar": 0.598,
+            "holistic": 11.847,
+            "total": 12.488
+          },
+          "ms_mediana": {
+            "decodificar": 0.559,
+            "holistic": 11.287,
+            "total": 11.898
+          },
+          "segundos_video": 1.123
+        },
+        {
+          "muestra": "0026_0002_0002",
+          "fotogramas": 62,
+          "fps_video": 24.0,
+          "bytes": 2692102,
+          "ms_medio": {
+            "decodificar": 0.592,
+            "holistic": 11.237,
+            "total": 11.871
+          },
+          "ms_mediana": {
+            "decodificar": 0.553,
+            "holistic": 11.255,
+            "total": 11.856
+          },
+          "segundos_video": 1.026
+        },
+        {
+          "muestra": "0026_0003_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2636786,
+          "ms_medio": {
+            "decodificar": 0.602,
+            "holistic": 11.37,
+            "total": 12.015
+          },
+          "ms_mediana": {
+            "decodificar": 0.565,
+            "holistic": 11.343,
+            "total": 11.937
+          },
+          "segundos_video": 0.951
+        },
+        {
+          "muestra": "0026_0004_0001",
+          "fotogramas": 56,
+          "fps_video": 24.0,
+          "bytes": 2263864,
+          "ms_medio": {
+            "decodificar": 0.603,
+            "holistic": 11.269,
+            "total": 11.914
+          },
+          "ms_mediana": {
+            "decodificar": 0.56,
+            "holistic": 11.321,
+            "total": 11.918
+          },
+          "segundos_video": 0.905
+        },
+        {
+          "muestra": "0032_0000_0002",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2619870,
+          "ms_medio": {
+            "decodificar": 0.604,
+            "holistic": 11.411,
+            "total": 12.056
+          },
+          "ms_mediana": {
+            "decodificar": 0.567,
+            "holistic": 11.361,
+            "total": 11.991
+          },
+          "segundos_video": 1.404
+        },
+        {
+          "muestra": "0032_0001_0000",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3626038,
+          "ms_medio": {
+            "decodificar": 0.59,
+            "holistic": 11.373,
+            "total": 12.006
+          },
+          "ms_mediana": {
+            "decodificar": 0.559,
+            "holistic": 11.335,
+            "total": 11.944
+          },
+          "segundos_video": 1.239
+        },
+        {
+          "muestra": "0032_0002_0002",
+          "fotogramas": 77,
+          "fps_video": 24.0,
+          "bytes": 3192744,
+          "ms_medio": {
+            "decodificar": 0.59,
+            "holistic": 11.319,
+            "total": 11.953
+          },
+          "ms_mediana": {
+            "decodificar": 0.559,
+            "holistic": 11.307,
+            "total": 11.904
+          },
+          "segundos_video": 1.357
+        },
+        {
+          "muestra": "0032_0003_0002",
+          "fotogramas": 58,
+          "fps_video": 24.0,
+          "bytes": 2594454,
+          "ms_medio": {
+            "decodificar": 0.602,
+            "holistic": 11.437,
+            "total": 12.085
+          },
+          "ms_mediana": {
+            "decodificar": 0.559,
+            "holistic": 11.373,
+            "total": 11.976
+          },
+          "segundos_video": 0.999
+        },
+        {
+          "muestra": "0032_0004_0003",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 2994800,
+          "ms_medio": {
+            "decodificar": 0.6,
+            "holistic": 11.317,
+            "total": 11.959
+          },
+          "ms_mediana": {
+            "decodificar": 0.567,
+            "holistic": 11.312,
+            "total": 11.928
+          },
+          "segundos_video": 1.239
+        },
+        {
+          "muestra": "0035_0000_0003",
+          "fotogramas": 71,
+          "fps_video": 24.0,
+          "bytes": 2696318,
+          "ms_medio": {
+            "decodificar": 0.588,
+            "holistic": 11.318,
+            "total": 11.949
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.354,
+            "total": 11.948
+          },
+          "segundos_video": 1.1
+        },
+        {
+          "muestra": "0035_0001_0000",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3698460,
+          "ms_medio": {
+            "decodificar": 0.587,
+            "holistic": 11.313,
+            "total": 11.942
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.316,
+            "total": 11.925
+          },
+          "segundos_video": 1.227
+        },
+        {
+          "muestra": "0035_0002_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3407388,
+          "ms_medio": {
+            "decodificar": 0.592,
+            "holistic": 11.301,
+            "total": 11.935
+          },
+          "ms_mediana": {
+            "decodificar": 0.559,
+            "holistic": 11.3,
+            "total": 11.917
+          },
+          "segundos_video": 1.266
+        },
+        {
+          "muestra": "0035_0003_0003",
+          "fotogramas": 56,
+          "fps_video": 24.0,
+          "bytes": 2544006,
+          "ms_medio": {
+            "decodificar": 0.599,
+            "holistic": 11.342,
+            "total": 11.986
+          },
+          "ms_mediana": {
+            "decodificar": 0.551,
+            "holistic": 11.334,
+            "total": 11.932
+          },
+          "segundos_video": 0.917
+        },
+        {
+          "muestra": "0035_0004_0000",
+          "fotogramas": 78,
+          "fps_video": 24.0,
+          "bytes": 3344504,
+          "ms_medio": {
+            "decodificar": 0.585,
+            "holistic": 11.306,
+            "total": 11.933
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.3,
+            "total": 11.907
+          },
+          "segundos_video": 1.199
+        },
+        {
+          "muestra": "0036_0000_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3040818,
+          "ms_medio": {
+            "decodificar": 0.6,
+            "holistic": 11.345,
+            "total": 11.988
+          },
+          "ms_mediana": {
+            "decodificar": 0.565,
+            "holistic": 11.368,
+            "total": 11.983
+          },
+          "segundos_video": 1.221
+        },
+        {
+          "muestra": "0036_0001_0003",
+          "fotogramas": 65,
+          "fps_video": 24.0,
+          "bytes": 1931806,
+          "ms_medio": {
+            "decodificar": 0.583,
+            "holistic": 11.278,
+            "total": 11.904
+          },
+          "ms_mediana": {
+            "decodificar": 0.546,
+            "holistic": 11.328,
+            "total": 11.91
+          },
+          "segundos_video": 1.037
+        },
+        {
+          "muestra": "0036_0002_0003",
+          "fotogramas": 58,
+          "fps_video": 24.0,
+          "bytes": 2502782,
+          "ms_medio": {
+            "decodificar": 0.6,
+            "holistic": 11.243,
+            "total": 11.886
+          },
+          "ms_mediana": {
+            "decodificar": 0.561,
+            "holistic": 11.276,
+            "total": 11.883
+          },
+          "segundos_video": 0.932
+        },
+        {
+          "muestra": "0036_0003_0002",
+          "fotogramas": 53,
+          "fps_video": 24.0,
+          "bytes": 2334358,
+          "ms_medio": {
+            "decodificar": 0.607,
+            "holistic": 11.319,
+            "total": 11.968
+          },
+          "ms_mediana": {
+            "decodificar": 0.56,
+            "holistic": 11.272,
+            "total": 11.892
+          },
+          "segundos_video": 0.911
+        },
+        {
+          "muestra": "0036_0004_0003",
+          "fotogramas": 88,
+          "fps_video": 24.0,
+          "bytes": 3355596,
+          "ms_medio": {
+            "decodificar": 0.585,
+            "holistic": 11.228,
+            "total": 11.856
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.306,
+            "total": 11.914
+          },
+          "segundos_video": 1.343
+        },
+        {
+          "muestra": "0038_0000_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3004650,
+          "ms_medio": {
+            "decodificar": 0.606,
+            "holistic": 11.471,
+            "total": 12.121
+          },
+          "ms_mediana": {
+            "decodificar": 0.572,
+            "holistic": 11.444,
+            "total": 12.063
+          },
+          "segundos_video": 1.322
+        },
+        {
+          "muestra": "0038_0001_0000",
+          "fotogramas": 63,
+          "fps_video": 24.0,
+          "bytes": 2951794,
+          "ms_medio": {
+            "decodificar": 0.61,
+            "holistic": 11.377,
+            "total": 12.029
+          },
+          "ms_mediana": {
+            "decodificar": 0.569,
+            "holistic": 11.314,
+            "total": 11.94
+          },
+          "segundos_video": 1.011
+        },
+        {
+          "muestra": "0038_0002_0001",
+          "fotogramas": 55,
+          "fps_video": 24.0,
+          "bytes": 2286186,
+          "ms_medio": {
+            "decodificar": 0.609,
+            "holistic": 11.361,
+            "total": 12.013
+          },
+          "ms_mediana": {
+            "decodificar": 0.567,
+            "holistic": 11.308,
+            "total": 11.911
+          },
+          "segundos_video": 0.924
+        },
+        {
+          "muestra": "0038_0003_0001",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2152636,
+          "ms_medio": {
+            "decodificar": 0.606,
+            "holistic": 11.32,
+            "total": 11.971
+          },
+          "ms_mediana": {
+            "decodificar": 0.547,
+            "holistic": 11.322,
+            "total": 11.908
+          },
+          "segundos_video": 0.914
+        },
+        {
+          "muestra": "0038_0004_0000",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2865494,
+          "ms_medio": {
+            "decodificar": 0.597,
+            "holistic": 11.279,
+            "total": 11.918
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.322,
+            "total": 11.922
+          },
+          "segundos_video": 1.118
+        },
+        {
+          "muestra": "0039_0000_0000",
+          "fotogramas": 81,
+          "fps_video": 24.0,
+          "bytes": 2137926,
+          "ms_medio": {
+            "decodificar": 0.592,
+            "holistic": 11.333,
+            "total": 11.968
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.324,
+            "total": 11.931
+          },
+          "segundos_video": 1.33
+        },
+        {
+          "muestra": "0039_0001_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 1708374,
+          "ms_medio": {
+            "decodificar": 0.606,
+            "holistic": 11.316,
+            "total": 11.965
+          },
+          "ms_mediana": {
+            "decodificar": 0.562,
+            "holistic": 11.255,
+            "total": 11.87
+          },
+          "segundos_video": 0.963
+        },
+        {
+          "muestra": "0039_0002_0003",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2872332,
+          "ms_medio": {
+            "decodificar": 0.585,
+            "holistic": 11.206,
+            "total": 11.833
+          },
+          "ms_mediana": {
+            "decodificar": 0.546,
+            "holistic": 11.224,
+            "total": 11.828
+          },
+          "segundos_video": 1.097
+        },
+        {
+          "muestra": "0039_0003_0001",
+          "fotogramas": 48,
+          "fps_video": 24.0,
+          "bytes": 2059958,
+          "ms_medio": {
+            "decodificar": 0.61,
+            "holistic": 11.391,
+            "total": 12.044
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.268,
+            "total": 11.861
+          },
+          "segundos_video": 0.836
+        },
+        {
+          "muestra": "0039_0004_0003",
+          "fotogramas": 77,
+          "fps_video": 24.0,
+          "bytes": 2864584,
+          "ms_medio": {
+            "decodificar": 0.59,
+            "holistic": 11.306,
+            "total": 11.937
+          },
+          "ms_mediana": {
+            "decodificar": 0.558,
+            "holistic": 11.284,
+            "total": 11.894
+          },
+          "segundos_video": 1.227
+        },
+        {
+          "muestra": "0041_0000_0001",
+          "fotogramas": 57,
+          "fps_video": 24.0,
+          "bytes": 2185166,
+          "ms_medio": {
+            "decodificar": 0.595,
+            "holistic": 11.334,
+            "total": 11.971
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.363,
+            "total": 11.957
+          },
+          "segundos_video": 0.939
+        },
+        {
+          "muestra": "0041_0001_0000",
+          "fotogramas": 54,
+          "fps_video": 24.0,
+          "bytes": 2525522,
+          "ms_medio": {
+            "decodificar": 0.6,
+            "holistic": 11.222,
+            "total": 11.865
+          },
+          "ms_mediana": {
+            "decodificar": 0.558,
+            "holistic": 11.273,
+            "total": 11.875
+          },
+          "segundos_video": 0.882
+        },
+        {
+          "muestra": "0041_0002_0003",
+          "fotogramas": 69,
+          "fps_video": 24.0,
+          "bytes": 2886318,
+          "ms_medio": {
+            "decodificar": 0.598,
+            "holistic": 11.12,
+            "total": 11.76
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.237,
+            "total": 11.829
+          },
+          "segundos_video": 1.071
+        },
+        {
+          "muestra": "0041_0003_0003",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2251254,
+          "ms_medio": {
+            "decodificar": 0.606,
+            "holistic": 11.358,
+            "total": 12.006
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.282,
+            "total": 11.89
+          },
+          "segundos_video": 0.83
+        },
+        {
+          "muestra": "0041_0004_0002",
+          "fotogramas": 55,
+          "fps_video": 24.0,
+          "bytes": 2260982,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.376,
+            "total": 12.011
+          },
+          "ms_mediana": {
+            "decodificar": 0.546,
+            "holistic": 11.313,
+            "total": 11.901
+          },
+          "segundos_video": 0.917
+        },
+        {
+          "muestra": "0047_0000_0003",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3088556,
+          "ms_medio": {
+            "decodificar": 0.589,
+            "holistic": 11.358,
+            "total": 11.989
+          },
+          "ms_mediana": {
+            "decodificar": 0.548,
+            "holistic": 11.343,
+            "total": 11.947
+          },
+          "segundos_video": 1.217
+        },
+        {
+          "muestra": "0047_0001_0002",
+          "fotogramas": 53,
+          "fps_video": 24.0,
+          "bytes": 1591132,
+          "ms_medio": {
+            "decodificar": 0.605,
+            "holistic": 11.308,
+            "total": 11.957
+          },
+          "ms_mediana": {
+            "decodificar": 0.551,
+            "holistic": 11.261,
+            "total": 11.857
+          },
+          "segundos_video": 0.895
+        },
+        {
+          "muestra": "0047_0002_0003",
+          "fotogramas": 72,
+          "fps_video": 24.0,
+          "bytes": 2960498,
+          "ms_medio": {
+            "decodificar": 0.595,
+            "holistic": 11.321,
+            "total": 11.959
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.265,
+            "total": 11.887
+          },
+          "segundos_video": 1.156
+        },
+        {
+          "muestra": "0047_0003_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2647504,
+          "ms_medio": {
+            "decodificar": 0.596,
+            "holistic": 11.335,
+            "total": 11.973
+          },
+          "ms_mediana": {
+            "decodificar": 0.548,
+            "holistic": 11.3,
+            "total": 11.902
+          },
+          "segundos_video": 1.039
+        },
+        {
+          "muestra": "0047_0004_0003",
+          "fotogramas": 75,
+          "fps_video": 24.0,
+          "bytes": 3031094,
+          "ms_medio": {
+            "decodificar": 0.595,
+            "holistic": 11.312,
+            "total": 11.95
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.317,
+            "total": 11.917
+          },
+          "segundos_video": 1.154
+        }
+      ],
+      "ms_por_fotograma": {
+        "decodificar": {
+          "n": 3999,
+          "media": 0.601,
+          "de": 0.314,
+          "mediana": 0.559,
+          "p90": 0.62,
+          "min": 0.465,
+          "max": 9.409
+        },
+        "holistic": {
+          "n": 3999,
+          "media": 11.348,
+          "de": 1.046,
+          "mediana": 11.32,
+          "p90": 11.509,
+          "min": 9.621,
+          "max": 54.78
+        },
+        "total": {
+          "n": 3999,
+          "media": 11.992,
+          "de": 1.285,
+          "mediana": 11.927,
+          "p90": 12.131,
+          "min": 10.169,
+          "max": 57.67
+        }
+      },
+      "fotogramas_por_segundo": {
+        "bucle_por_media": 83.39,
+        "bucle_por_mediana": 83.84,
+        "holistic_por_media": 88.12,
+        "pared": 60.83
+      },
+      "segundos_bucle": 47.96,
+      "segundos_pared": 65.74,
+      "media_holistic_por_bloques_de_10_videos": [
+        11.39,
+        11.36,
+        11.39,
+        11.3,
+        11.34,
+        11.3
+      ],
+      "nota_bloques": "media de `holistic` por bloques de 10 videos EN EL ORDEN DE LA PASADA. N-21 vio esta serie subir de 12,4 a 16,0 ms a lo largo de sus 1.000 videos (primeros 50: 11,8; últimos 50: 16,1); si la subida no aparece aquí, es que no arranca en los primeros 60 videos"
+    },
+    "local": {
+      "nombre": "local",
+      "orden": 2,
+      "almacenamiento": "disco_local_fuera_de_drive",
+      "directorio": "scratch_tesis/adelantos_2026-09-16/tasa/videos_local",
+      "inicio": "2026-09-16T10:47:03",
+      "fin": "2026-09-16T10:48:08",
+      "n_videos": 60,
+      "n_fotogramas": 3999,
+      "bytes_leidos": 156866160,
+      "megabytes_leidos": 149.6,
+      "fallidos": [],
+      "materializacion": {
+        "n_archivos_medidos": 60,
+        "bytes_logicos": 156866160,
+        "bytes_en_bloques": 156995584,
+        "archivos_sin_bloques_asignados": 0,
+        "fraccion_materializada": 1.0008,
+        "nota": "bytes_en_bloques = st_blocks * 512. Si es ~= bytes_logicos el archivo ya está en disco local (en Drive, en la caché de DriveFS) y leerlo no va a la red; si hay archivos con 0 bloques, esos sí se descargarían al leerlos"
+      },
+      "carga_sistema_1_5_15_min_inicio": [
+        4.26,
+        3.63,
+        3.25
+      ],
+      "carga_sistema_1_5_15_min_fin": [
+        3.85,
+        3.65,
+        3.29
+      ],
+      "cpu_de_este_proceso": {
+        "usuario_s": 107.06,
+        "sistema_s": 11.51,
+        "nucleos_medios_ocupados": 1.84
+      },
+      "google_drive": {
+        "procesos_al_empezar": [
+          {
+            "pid": 744,
+            "cpu_segundos_acumulados": 4.44,
+            "rss_kb": 20656,
+            "comando": "/Applications/Google Drive.app/Contents/Applications/FinderHelper.app/Contents/PlugIns/FinderSyncExtension.appex/Content"
+          },
+          {
+            "pid": 1528,
+            "cpu_segundos_acumulados": 0.8,
+            "rss_kb": 11216,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive"
+          },
+          {
+            "pid": 1627,
+            "cpu_segundos_acumulados": 0.07,
+            "rss_kb": 4000,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/crashpad_handler --database=~/Library/Application Support/Goog"
+          },
+          {
+            "pid": 1628,
+            "cpu_segundos_acumulados": 7643.55,
+            "rss_kb": 250336,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive --single_process --parent_version=130.0.2.0 --crash_handler_t"
+          },
+          {
+            "pid": 1775,
+            "cpu_segundos_acumulados": 36.68,
+            "rss_kb": 20128,
+            "comando": "/Applications/Google Drive.app/Contents/PlugIns/DFSFileProviderExtension.appex/Contents/MacOS/DFSFileProviderExtension -"
+          }
+        ],
+        "procesos_al_terminar": [
+          {
+            "pid": 744,
+            "cpu_segundos_acumulados": 4.44,
+            "rss_kb": 20656,
+            "comando": "/Applications/Google Drive.app/Contents/Applications/FinderHelper.app/Contents/PlugIns/FinderSyncExtension.appex/Content"
+          },
+          {
+            "pid": 1528,
+            "cpu_segundos_acumulados": 0.8,
+            "rss_kb": 11216,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive"
+          },
+          {
+            "pid": 1627,
+            "cpu_segundos_acumulados": 0.07,
+            "rss_kb": 4000,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/crashpad_handler --database=~/Library/Application Support/Goog"
+          },
+          {
+            "pid": 1628,
+            "cpu_segundos_acumulados": 7643.56,
+            "rss_kb": 250288,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive --single_process --parent_version=130.0.2.0 --crash_handler_t"
+          },
+          {
+            "pid": 1775,
+            "cpu_segundos_acumulados": 36.68,
+            "rss_kb": 20128,
+            "comando": "/Applications/Google Drive.app/Contents/PlugIns/DFSFileProviderExtension.appex/Contents/MacOS/DFSFileProviderExtension -"
+          }
+        ],
+        "delta_cpu": {
+          "segundos": 0.01,
+          "pids_comparados": [
+            744,
+            1528,
+            1627,
+            1628,
+            1775
+          ],
+          "pids_que_nacieron": [],
+          "pids_que_murieron": []
+        },
+        "cpu_segundos_consumidos_durante_la_condicion": 0.01,
+        "nota": "delta del tiempo de CPU acumulado de los procesos de Google Drive entre el principio y el final de esta condición. Cerca de cero = la sincronización estaba quieta, es decir, NO se está reproduciendo la situación de N-21 (5.000 archivos nuevos subiéndose)"
+      },
+      "por_video": [
+        {
+          "muestra": "0006_0000_0003",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2607536,
+          "ms_medio": {
+            "decodificar": 0.676,
+            "holistic": 11.439,
+            "total": 12.16
+          },
+          "ms_mediana": {
+            "decodificar": 0.562,
+            "holistic": 11.375,
+            "total": 11.976
+          },
+          "segundos_video": 1.05
+        },
+        {
+          "muestra": "0006_0001_0003",
+          "fotogramas": 69,
+          "fps_video": 24.0,
+          "bytes": 1993436,
+          "ms_medio": {
+            "decodificar": 0.587,
+            "holistic": 11.267,
+            "total": 11.897
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.265,
+            "total": 11.867
+          },
+          "segundos_video": 1.111
+        },
+        {
+          "muestra": "0006_0002_0001",
+          "fotogramas": 62,
+          "fps_video": 24.0,
+          "bytes": 2589032,
+          "ms_medio": {
+            "decodificar": 0.603,
+            "holistic": 11.224,
+            "total": 11.87
+          },
+          "ms_mediana": {
+            "decodificar": 0.544,
+            "holistic": 11.227,
+            "total": 11.823
+          },
+          "segundos_video": 1.035
+        },
+        {
+          "muestra": "0006_0003_0000",
+          "fotogramas": 54,
+          "fps_video": 24.0,
+          "bytes": 2456310,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.351,
+            "total": 11.987
+          },
+          "ms_mediana": {
+            "decodificar": 0.549,
+            "holistic": 11.261,
+            "total": 11.854
+          },
+          "segundos_video": 0.903
+        },
+        {
+          "muestra": "0006_0004_0000",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3331322,
+          "ms_medio": {
+            "decodificar": 0.573,
+            "holistic": 11.327,
+            "total": 11.942
+          },
+          "ms_mediana": {
+            "decodificar": 0.536,
+            "holistic": 11.313,
+            "total": 11.894
+          },
+          "segundos_video": 1.226
+        },
+        {
+          "muestra": "0007_0000_0000",
+          "fotogramas": 81,
+          "fps_video": 24.0,
+          "bytes": 2170834,
+          "ms_medio": {
+            "decodificar": 0.579,
+            "holistic": 11.28,
+            "total": 11.902
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.293,
+            "total": 11.89
+          },
+          "segundos_video": 1.235
+        },
+        {
+          "muestra": "0007_0001_0002",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2014772,
+          "ms_medio": {
+            "decodificar": 0.579,
+            "holistic": 11.331,
+            "total": 11.952
+          },
+          "ms_mediana": {
+            "decodificar": 0.54,
+            "holistic": 11.255,
+            "total": 11.841
+          },
+          "segundos_video": 1.094
+        },
+        {
+          "muestra": "0007_0002_0000",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2606976,
+          "ms_medio": {
+            "decodificar": 0.586,
+            "holistic": 11.352,
+            "total": 11.98
+          },
+          "ms_mediana": {
+            "decodificar": 0.541,
+            "holistic": 11.278,
+            "total": 11.871
+          },
+          "segundos_video": 0.981
+        },
+        {
+          "muestra": "0007_0003_0003",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2622258,
+          "ms_medio": {
+            "decodificar": 0.586,
+            "holistic": 11.311,
+            "total": 11.941
+          },
+          "ms_mediana": {
+            "decodificar": 0.546,
+            "holistic": 11.3,
+            "total": 11.901
+          },
+          "segundos_video": 1.008
+        },
+        {
+          "muestra": "0007_0004_0000",
+          "fotogramas": 84,
+          "fps_video": 24.0,
+          "bytes": 3411784,
+          "ms_medio": {
+            "decodificar": 0.581,
+            "holistic": 11.332,
+            "total": 11.956
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.311,
+            "total": 11.907
+          },
+          "segundos_video": 1.246
+        },
+        {
+          "muestra": "0014_0000_0003",
+          "fotogramas": 74,
+          "fps_video": 24.0,
+          "bytes": 2865838,
+          "ms_medio": {
+            "decodificar": 0.581,
+            "holistic": 11.36,
+            "total": 11.983
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.353,
+            "total": 11.948
+          },
+          "segundos_video": 1.151
+        },
+        {
+          "muestra": "0014_0001_0002",
+          "fotogramas": 82,
+          "fps_video": 24.0,
+          "bytes": 2388456,
+          "ms_medio": {
+            "decodificar": 0.578,
+            "holistic": 11.206,
+            "total": 11.826
+          },
+          "ms_mediana": {
+            "decodificar": 0.542,
+            "holistic": 11.258,
+            "total": 11.858
+          },
+          "segundos_video": 1.497
+        },
+        {
+          "muestra": "0014_0002_0001",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2423000,
+          "ms_medio": {
+            "decodificar": 0.6,
+            "holistic": 11.274,
+            "total": 11.916
+          },
+          "ms_mediana": {
+            "decodificar": 0.547,
+            "holistic": 11.243,
+            "total": 11.845
+          },
+          "segundos_video": 0.974
+        },
+        {
+          "muestra": "0014_0003_0003",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2193420,
+          "ms_medio": {
+            "decodificar": 0.599,
+            "holistic": 11.263,
+            "total": 11.904
+          },
+          "ms_mediana": {
+            "decodificar": 0.547,
+            "holistic": 11.285,
+            "total": 11.89
+          },
+          "segundos_video": 0.84
+        },
+        {
+          "muestra": "0014_0004_0002",
+          "fotogramas": 52,
+          "fps_video": 24.0,
+          "bytes": 2056394,
+          "ms_medio": {
+            "decodificar": 0.601,
+            "holistic": 11.406,
+            "total": 12.05
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.335,
+            "total": 11.957
+          },
+          "segundos_video": 0.996
+        },
+        {
+          "muestra": "0020_0000_0002",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2769174,
+          "ms_medio": {
+            "decodificar": 0.595,
+            "holistic": 11.433,
+            "total": 12.072
+          },
+          "ms_mediana": {
+            "decodificar": 0.56,
+            "holistic": 11.368,
+            "total": 11.979
+          },
+          "segundos_video": 1.102
+        },
+        {
+          "muestra": "0020_0001_0002",
+          "fotogramas": 73,
+          "fps_video": 24.0,
+          "bytes": 2284086,
+          "ms_medio": {
+            "decodificar": 0.578,
+            "holistic": 11.244,
+            "total": 11.865
+          },
+          "ms_mediana": {
+            "decodificar": 0.539,
+            "holistic": 11.288,
+            "total": 11.877
+          },
+          "segundos_video": 1.094
+        },
+        {
+          "muestra": "0020_0002_0003",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2617542,
+          "ms_medio": {
+            "decodificar": 0.589,
+            "holistic": 11.208,
+            "total": 11.839
+          },
+          "ms_mediana": {
+            "decodificar": 0.549,
+            "holistic": 11.25,
+            "total": 11.856
+          },
+          "segundos_video": 0.996
+        },
+        {
+          "muestra": "0020_0003_0000",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2765522,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.385,
+            "total": 12.022
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.32,
+            "total": 11.912
+          },
+          "segundos_video": 0.966
+        },
+        {
+          "muestra": "0020_0004_0002",
+          "fotogramas": 67,
+          "fps_video": 24.0,
+          "bytes": 2667344,
+          "ms_medio": {
+            "decodificar": 0.582,
+            "holistic": 11.27,
+            "total": 11.895
+          },
+          "ms_mediana": {
+            "decodificar": 0.544,
+            "holistic": 11.311,
+            "total": 11.897
+          },
+          "segundos_video": 1.214
+        },
+        {
+          "muestra": "0026_0000_0000",
+          "fotogramas": 74,
+          "fps_video": 24.0,
+          "bytes": 2081018,
+          "ms_medio": {
+            "decodificar": 0.584,
+            "holistic": 11.399,
+            "total": 12.026
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.342,
+            "total": 11.936
+          },
+          "segundos_video": 1.159
+        },
+        {
+          "muestra": "0026_0001_0002",
+          "fotogramas": 71,
+          "fps_video": 24.0,
+          "bytes": 2141452,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.361,
+            "total": 11.997
+          },
+          "ms_mediana": {
+            "decodificar": 0.56,
+            "holistic": 11.33,
+            "total": 11.936
+          },
+          "segundos_video": 1.115
+        },
+        {
+          "muestra": "0026_0002_0002",
+          "fotogramas": 62,
+          "fps_video": 24.0,
+          "bytes": 2692102,
+          "ms_medio": {
+            "decodificar": 0.623,
+            "holistic": 11.363,
+            "total": 12.031
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.346,
+            "total": 11.965
+          },
+          "segundos_video": 1.042
+        },
+        {
+          "muestra": "0026_0003_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2636786,
+          "ms_medio": {
+            "decodificar": 0.609,
+            "holistic": 11.387,
+            "total": 12.041
+          },
+          "ms_mediana": {
+            "decodificar": 0.563,
+            "holistic": 11.388,
+            "total": 12.007
+          },
+          "segundos_video": 0.998
+        },
+        {
+          "muestra": "0026_0004_0001",
+          "fotogramas": 56,
+          "fps_video": 24.0,
+          "bytes": 2263864,
+          "ms_medio": {
+            "decodificar": 0.61,
+            "holistic": 11.391,
+            "total": 12.044
+          },
+          "ms_mediana": {
+            "decodificar": 0.559,
+            "holistic": 11.389,
+            "total": 11.995
+          },
+          "segundos_video": 0.921
+        },
+        {
+          "muestra": "0032_0000_0002",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2619870,
+          "ms_medio": {
+            "decodificar": 0.594,
+            "holistic": 11.499,
+            "total": 12.137
+          },
+          "ms_mediana": {
+            "decodificar": 0.549,
+            "holistic": 11.434,
+            "total": 12.036
+          },
+          "segundos_video": 1.082
+        },
+        {
+          "muestra": "0032_0001_0000",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3626038,
+          "ms_medio": {
+            "decodificar": 0.595,
+            "holistic": 11.316,
+            "total": 11.955
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.284,
+            "total": 11.899
+          },
+          "segundos_video": 1.168
+        },
+        {
+          "muestra": "0032_0002_0002",
+          "fotogramas": 77,
+          "fps_video": 24.0,
+          "bytes": 3192744,
+          "ms_medio": {
+            "decodificar": 0.595,
+            "holistic": 11.284,
+            "total": 11.923
+          },
+          "ms_mediana": {
+            "decodificar": 0.56,
+            "holistic": 11.301,
+            "total": 11.905
+          },
+          "segundos_video": 1.186
+        },
+        {
+          "muestra": "0032_0003_0002",
+          "fotogramas": 58,
+          "fps_video": 24.0,
+          "bytes": 2594454,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.318,
+            "total": 11.954
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.335,
+            "total": 11.939
+          },
+          "segundos_video": 0.958
+        },
+        {
+          "muestra": "0032_0004_0003",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 2994800,
+          "ms_medio": {
+            "decodificar": 0.584,
+            "holistic": 11.354,
+            "total": 11.98
+          },
+          "ms_mediana": {
+            "decodificar": 0.551,
+            "holistic": 11.335,
+            "total": 11.937
+          },
+          "segundos_video": 1.191
+        },
+        {
+          "muestra": "0035_0000_0003",
+          "fotogramas": 71,
+          "fps_video": 24.0,
+          "bytes": 2696318,
+          "ms_medio": {
+            "decodificar": 0.59,
+            "holistic": 11.327,
+            "total": 11.959
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.35,
+            "total": 11.95
+          },
+          "segundos_video": 1.143
+        },
+        {
+          "muestra": "0035_0001_0000",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3698460,
+          "ms_medio": {
+            "decodificar": 0.587,
+            "holistic": 11.269,
+            "total": 11.899
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.313,
+            "total": 11.919
+          },
+          "segundos_video": 1.215
+        },
+        {
+          "muestra": "0035_0002_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3407388,
+          "ms_medio": {
+            "decodificar": 0.583,
+            "holistic": 11.294,
+            "total": 11.919
+          },
+          "ms_mediana": {
+            "decodificar": 0.547,
+            "holistic": 11.306,
+            "total": 11.9
+          },
+          "segundos_video": 1.176
+        },
+        {
+          "muestra": "0035_0003_0003",
+          "fotogramas": 56,
+          "fps_video": 24.0,
+          "bytes": 2544006,
+          "ms_medio": {
+            "decodificar": 0.591,
+            "holistic": 11.332,
+            "total": 11.967
+          },
+          "ms_mediana": {
+            "decodificar": 0.551,
+            "holistic": 11.303,
+            "total": 11.904
+          },
+          "segundos_video": 0.929
+        },
+        {
+          "muestra": "0035_0004_0000",
+          "fotogramas": 78,
+          "fps_video": 24.0,
+          "bytes": 3344504,
+          "ms_medio": {
+            "decodificar": 0.579,
+            "holistic": 11.275,
+            "total": 11.898
+          },
+          "ms_mediana": {
+            "decodificar": 0.544,
+            "holistic": 11.31,
+            "total": 11.916
+          },
+          "segundos_video": 1.472
+        },
+        {
+          "muestra": "0036_0000_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3040818,
+          "ms_medio": {
+            "decodificar": 0.582,
+            "holistic": 11.322,
+            "total": 11.948
+          },
+          "ms_mediana": {
+            "decodificar": 0.548,
+            "holistic": 11.378,
+            "total": 11.958
+          },
+          "segundos_video": 1.246
+        },
+        {
+          "muestra": "0036_0001_0003",
+          "fotogramas": 65,
+          "fps_video": 24.0,
+          "bytes": 1931806,
+          "ms_medio": {
+            "decodificar": 0.592,
+            "holistic": 11.378,
+            "total": 12.013
+          },
+          "ms_mediana": {
+            "decodificar": 0.553,
+            "holistic": 11.294,
+            "total": 11.906
+          },
+          "segundos_video": 1.066
+        },
+        {
+          "muestra": "0036_0002_0003",
+          "fotogramas": 58,
+          "fps_video": 24.0,
+          "bytes": 2502782,
+          "ms_medio": {
+            "decodificar": 0.597,
+            "holistic": 11.3,
+            "total": 11.94
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.289,
+            "total": 11.886
+          },
+          "segundos_video": 0.967
+        },
+        {
+          "muestra": "0036_0003_0002",
+          "fotogramas": 53,
+          "fps_video": 24.0,
+          "bytes": 2334358,
+          "ms_medio": {
+            "decodificar": 0.602,
+            "holistic": 11.295,
+            "total": 11.939
+          },
+          "ms_mediana": {
+            "decodificar": 0.547,
+            "holistic": 11.268,
+            "total": 11.869
+          },
+          "segundos_video": 0.947
+        },
+        {
+          "muestra": "0036_0004_0003",
+          "fotogramas": 88,
+          "fps_video": 24.0,
+          "bytes": 3355596,
+          "ms_medio": {
+            "decodificar": 0.58,
+            "holistic": 11.274,
+            "total": 11.898
+          },
+          "ms_mediana": {
+            "decodificar": 0.549,
+            "holistic": 11.341,
+            "total": 11.941
+          },
+          "segundos_video": 1.401
+        },
+        {
+          "muestra": "0038_0000_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3004650,
+          "ms_medio": {
+            "decodificar": 0.588,
+            "holistic": 11.34,
+            "total": 11.971
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.362,
+            "total": 11.95
+          },
+          "segundos_video": 1.222
+        },
+        {
+          "muestra": "0038_0001_0000",
+          "fotogramas": 63,
+          "fps_video": 24.0,
+          "bytes": 2951794,
+          "ms_medio": {
+            "decodificar": 0.601,
+            "holistic": 11.339,
+            "total": 11.983
+          },
+          "ms_mediana": {
+            "decodificar": 0.567,
+            "holistic": 11.334,
+            "total": 11.947
+          },
+          "segundos_video": 0.978
+        },
+        {
+          "muestra": "0038_0002_0001",
+          "fotogramas": 55,
+          "fps_video": 24.0,
+          "bytes": 2286186,
+          "ms_medio": {
+            "decodificar": 0.601,
+            "holistic": 11.397,
+            "total": 12.041
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.274,
+            "total": 11.88
+          },
+          "segundos_video": 0.896
+        },
+        {
+          "muestra": "0038_0003_0001",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2152636,
+          "ms_medio": {
+            "decodificar": 0.611,
+            "holistic": 11.303,
+            "total": 11.958
+          },
+          "ms_mediana": {
+            "decodificar": 0.557,
+            "holistic": 11.28,
+            "total": 11.873
+          },
+          "segundos_video": 0.822
+        },
+        {
+          "muestra": "0038_0004_0000",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2865494,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.358,
+            "total": 11.995
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.377,
+            "total": 11.986
+          },
+          "segundos_video": 1.11
+        },
+        {
+          "muestra": "0039_0000_0000",
+          "fotogramas": 81,
+          "fps_video": 24.0,
+          "bytes": 2137926,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.302,
+            "total": 11.939
+          },
+          "ms_mediana": {
+            "decodificar": 0.557,
+            "holistic": 11.35,
+            "total": 11.966
+          },
+          "segundos_video": 1.21
+        },
+        {
+          "muestra": "0039_0001_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 1708374,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.292,
+            "total": 11.927
+          },
+          "ms_mediana": {
+            "decodificar": 0.557,
+            "holistic": 11.268,
+            "total": 11.868
+          },
+          "segundos_video": 0.945
+        },
+        {
+          "muestra": "0039_0002_0003",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2872332,
+          "ms_medio": {
+            "decodificar": 0.583,
+            "holistic": 11.355,
+            "total": 11.982
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.292,
+            "total": 11.891
+          },
+          "segundos_video": 1.103
+        },
+        {
+          "muestra": "0039_0003_0001",
+          "fotogramas": 48,
+          "fps_video": 24.0,
+          "bytes": 2059958,
+          "ms_medio": {
+            "decodificar": 0.594,
+            "holistic": 11.132,
+            "total": 11.769
+          },
+          "ms_mediana": {
+            "decodificar": 0.544,
+            "holistic": 11.278,
+            "total": 11.866
+          },
+          "segundos_video": 0.825
+        },
+        {
+          "muestra": "0039_0004_0003",
+          "fotogramas": 77,
+          "fps_video": 24.0,
+          "bytes": 2864584,
+          "ms_medio": {
+            "decodificar": 0.581,
+            "holistic": 11.249,
+            "total": 11.874
+          },
+          "ms_mediana": {
+            "decodificar": 0.551,
+            "holistic": 11.308,
+            "total": 11.906
+          },
+          "segundos_video": 1.144
+        },
+        {
+          "muestra": "0041_0000_0001",
+          "fotogramas": 57,
+          "fps_video": 24.0,
+          "bytes": 2185166,
+          "ms_medio": {
+            "decodificar": 0.594,
+            "holistic": 11.335,
+            "total": 11.97
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.386,
+            "total": 11.983
+          },
+          "segundos_video": 0.946
+        },
+        {
+          "muestra": "0041_0001_0000",
+          "fotogramas": 54,
+          "fps_video": 24.0,
+          "bytes": 2525522,
+          "ms_medio": {
+            "decodificar": 0.598,
+            "holistic": 11.28,
+            "total": 11.92
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.315,
+            "total": 11.912
+          },
+          "segundos_video": 0.937
+        },
+        {
+          "muestra": "0041_0002_0003",
+          "fotogramas": 69,
+          "fps_video": 24.0,
+          "bytes": 2886318,
+          "ms_medio": {
+            "decodificar": 0.601,
+            "holistic": 11.296,
+            "total": 11.94
+          },
+          "ms_mediana": {
+            "decodificar": 0.562,
+            "holistic": 11.284,
+            "total": 11.882
+          },
+          "segundos_video": 1.067
+        },
+        {
+          "muestra": "0041_0003_0003",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2251254,
+          "ms_medio": {
+            "decodificar": 0.594,
+            "holistic": 11.327,
+            "total": 11.964
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.259,
+            "total": 11.842
+          },
+          "segundos_video": 0.804
+        },
+        {
+          "muestra": "0041_0004_0002",
+          "fotogramas": 55,
+          "fps_video": 24.0,
+          "bytes": 2260982,
+          "ms_medio": {
+            "decodificar": 0.599,
+            "holistic": 11.302,
+            "total": 11.944
+          },
+          "ms_mediana": {
+            "decodificar": 0.548,
+            "holistic": 11.325,
+            "total": 11.92
+          },
+          "segundos_video": 0.924
+        },
+        {
+          "muestra": "0047_0000_0003",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3088556,
+          "ms_medio": {
+            "decodificar": 0.582,
+            "holistic": 11.309,
+            "total": 11.935
+          },
+          "ms_mediana": {
+            "decodificar": 0.547,
+            "holistic": 11.351,
+            "total": 11.939
+          },
+          "segundos_video": 1.198
+        },
+        {
+          "muestra": "0047_0001_0002",
+          "fotogramas": 53,
+          "fps_video": 24.0,
+          "bytes": 1591132,
+          "ms_medio": {
+            "decodificar": 0.61,
+            "holistic": 11.262,
+            "total": 11.916
+          },
+          "ms_mediana": {
+            "decodificar": 0.567,
+            "holistic": 11.215,
+            "total": 11.815
+          },
+          "segundos_video": 0.875
+        },
+        {
+          "muestra": "0047_0002_0003",
+          "fotogramas": 72,
+          "fps_video": 24.0,
+          "bytes": 2960498,
+          "ms_medio": {
+            "decodificar": 0.585,
+            "holistic": 11.236,
+            "total": 11.865
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.238,
+            "total": 11.844
+          },
+          "segundos_video": 1.105
+        },
+        {
+          "muestra": "0047_0003_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2647504,
+          "ms_medio": {
+            "decodificar": 0.597,
+            "holistic": 11.333,
+            "total": 11.974
+          },
+          "ms_mediana": {
+            "decodificar": 0.557,
+            "holistic": 11.311,
+            "total": 11.915
+          },
+          "segundos_video": 0.988
+        },
+        {
+          "muestra": "0047_0004_0003",
+          "fotogramas": 75,
+          "fps_video": 24.0,
+          "bytes": 3031094,
+          "ms_medio": {
+            "decodificar": 0.59,
+            "holistic": 11.309,
+            "total": 11.942
+          },
+          "ms_mediana": {
+            "decodificar": 0.549,
+            "holistic": 11.367,
+            "total": 11.971
+          },
+          "segundos_video": 1.152
+        }
+      ],
+      "ms_por_fotograma": {
+        "decodificar": {
+          "n": 3999,
+          "media": 0.592,
+          "de": 0.302,
+          "mediana": 0.55,
+          "p90": 0.61,
+          "min": 0.464,
+          "max": 7.791
+        },
+        "holistic": {
+          "n": 3999,
+          "media": 11.317,
+          "de": 0.789,
+          "mediana": 11.313,
+          "p90": 11.481,
+          "min": 9.578,
+          "max": 18.113
+        },
+        "total": {
+          "n": 3999,
+          "media": 11.953,
+          "de": 1.055,
+          "mediana": 11.911,
+          "p90": 12.096,
+          "min": 10.109,
+          "max": 24.92
+        }
+      },
+      "fotogramas_por_segundo": {
+        "bucle_por_media": 83.66,
+        "bucle_por_mediana": 83.96,
+        "holistic_por_media": 88.36,
+        "pared": 62.07
+      },
+      "segundos_bucle": 47.8,
+      "segundos_pared": 64.42,
+      "media_holistic_por_bloques_de_10_videos": [
+        11.32,
+        11.3,
+        11.37,
+        11.31,
+        11.31,
+        11.3
+      ],
+      "nota_bloques": "media de `holistic` por bloques de 10 videos EN EL ORDEN DE LA PASADA. N-21 vio esta serie subir de 12,4 a 16,0 ms a lo largo de sus 1.000 videos (primeros 50: 11,8; últimos 50: 16,1); si la subida no aparece aquí, es que no arranca en los primeros 60 videos"
+    },
+    "drive_2": {
+      "nombre": "drive_2",
+      "orden": 3,
+      "almacenamiento": "google_drive_cloudstorage",
+      "directorio": "data/raw/LSC50/VIDEOS/COLOR_BODY",
+      "inicio": "2026-09-16T10:48:08",
+      "fin": "2026-09-16T10:49:18",
+      "n_videos": 60,
+      "n_fotogramas": 3999,
+      "bytes_leidos": 156866160,
+      "megabytes_leidos": 149.6,
+      "fallidos": [],
+      "materializacion": {
+        "n_archivos_medidos": 60,
+        "bytes_logicos": 156866160,
+        "bytes_en_bloques": 156995584,
+        "archivos_sin_bloques_asignados": 0,
+        "fraccion_materializada": 1.0008,
+        "nota": "bytes_en_bloques = st_blocks * 512. Si es ~= bytes_logicos el archivo ya está en disco local (en Drive, en la caché de DriveFS) y leerlo no va a la red; si hay archivos con 0 bloques, esos sí se descargarían al leerlos"
+      },
+      "carga_sistema_1_5_15_min_inicio": [
+        3.85,
+        3.65,
+        3.29
+      ],
+      "carga_sistema_1_5_15_min_fin": [
+        3.37,
+        3.54,
+        3.27
+      ],
+      "cpu_de_este_proceso": {
+        "usuario_s": 108.16,
+        "sistema_s": 11.75,
+        "nucleos_medios_ocupados": 1.7
+      },
+      "google_drive": {
+        "procesos_al_empezar": [
+          {
+            "pid": 744,
+            "cpu_segundos_acumulados": 4.44,
+            "rss_kb": 20656,
+            "comando": "/Applications/Google Drive.app/Contents/Applications/FinderHelper.app/Contents/PlugIns/FinderSyncExtension.appex/Content"
+          },
+          {
+            "pid": 1528,
+            "cpu_segundos_acumulados": 0.8,
+            "rss_kb": 11216,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive"
+          },
+          {
+            "pid": 1627,
+            "cpu_segundos_acumulados": 0.07,
+            "rss_kb": 4000,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/crashpad_handler --database=~/Library/Application Support/Goog"
+          },
+          {
+            "pid": 1628,
+            "cpu_segundos_acumulados": 7643.56,
+            "rss_kb": 250288,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive --single_process --parent_version=130.0.2.0 --crash_handler_t"
+          },
+          {
+            "pid": 1775,
+            "cpu_segundos_acumulados": 36.68,
+            "rss_kb": 20128,
+            "comando": "/Applications/Google Drive.app/Contents/PlugIns/DFSFileProviderExtension.appex/Contents/MacOS/DFSFileProviderExtension -"
+          }
+        ],
+        "procesos_al_terminar": [
+          {
+            "pid": 744,
+            "cpu_segundos_acumulados": 4.45,
+            "rss_kb": 20656,
+            "comando": "/Applications/Google Drive.app/Contents/Applications/FinderHelper.app/Contents/PlugIns/FinderSyncExtension.appex/Content"
+          },
+          {
+            "pid": 1528,
+            "cpu_segundos_acumulados": 0.8,
+            "rss_kb": 11216,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive"
+          },
+          {
+            "pid": 1627,
+            "cpu_segundos_acumulados": 0.07,
+            "rss_kb": 4000,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/crashpad_handler --database=~/Library/Application Support/Goog"
+          },
+          {
+            "pid": 1628,
+            "cpu_segundos_acumulados": 7643.57,
+            "rss_kb": 250288,
+            "comando": "/Applications/Google Drive.app/Contents/MacOS/Google Drive --single_process --parent_version=130.0.2.0 --crash_handler_t"
+          },
+          {
+            "pid": 1775,
+            "cpu_segundos_acumulados": 36.68,
+            "rss_kb": 20128,
+            "comando": "/Applications/Google Drive.app/Contents/PlugIns/DFSFileProviderExtension.appex/Contents/MacOS/DFSFileProviderExtension -"
+          }
+        ],
+        "delta_cpu": {
+          "segundos": 0.02,
+          "pids_comparados": [
+            744,
+            1528,
+            1627,
+            1628,
+            1775
+          ],
+          "pids_que_nacieron": [],
+          "pids_que_murieron": []
+        },
+        "cpu_segundos_consumidos_durante_la_condicion": 0.02,
+        "nota": "delta del tiempo de CPU acumulado de los procesos de Google Drive entre el principio y el final de esta condición. Cerca de cero = la sincronización estaba quieta, es decir, NO se está reproduciendo la situación de N-21 (5.000 archivos nuevos subiéndose)"
+      },
+      "por_video": [
+        {
+          "muestra": "0006_0000_0003",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2607536,
+          "ms_medio": {
+            "decodificar": 0.696,
+            "holistic": 11.466,
+            "total": 12.21
+          },
+          "ms_mediana": {
+            "decodificar": 0.557,
+            "holistic": 11.426,
+            "total": 12.049
+          },
+          "segundos_video": 1.078
+        },
+        {
+          "muestra": "0006_0001_0003",
+          "fotogramas": 69,
+          "fps_video": 24.0,
+          "bytes": 1993436,
+          "ms_medio": {
+            "decodificar": 0.588,
+            "holistic": 11.251,
+            "total": 11.882
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.301,
+            "total": 11.884
+          },
+          "segundos_video": 1.108
+        },
+        {
+          "muestra": "0006_0002_0001",
+          "fotogramas": 62,
+          "fps_video": 24.0,
+          "bytes": 2589032,
+          "ms_medio": {
+            "decodificar": 0.605,
+            "holistic": 11.31,
+            "total": 11.958
+          },
+          "ms_mediana": {
+            "decodificar": 0.557,
+            "holistic": 11.285,
+            "total": 11.902
+          },
+          "segundos_video": 1.569
+        },
+        {
+          "muestra": "0006_0003_0000",
+          "fotogramas": 54,
+          "fps_video": 24.0,
+          "bytes": 2456310,
+          "ms_medio": {
+            "decodificar": 0.609,
+            "holistic": 11.377,
+            "total": 12.028
+          },
+          "ms_mediana": {
+            "decodificar": 0.56,
+            "holistic": 11.304,
+            "total": 11.906
+          },
+          "segundos_video": 0.916
+        },
+        {
+          "muestra": "0006_0004_0000",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3331322,
+          "ms_medio": {
+            "decodificar": 0.594,
+            "holistic": 11.333,
+            "total": 11.971
+          },
+          "ms_mediana": {
+            "decodificar": 0.565,
+            "holistic": 11.403,
+            "total": 11.999
+          },
+          "segundos_video": 1.201
+        },
+        {
+          "muestra": "0007_0000_0000",
+          "fotogramas": 81,
+          "fps_video": 24.0,
+          "bytes": 2170834,
+          "ms_medio": {
+            "decodificar": 0.579,
+            "holistic": 11.27,
+            "total": 11.892
+          },
+          "ms_mediana": {
+            "decodificar": 0.548,
+            "holistic": 11.352,
+            "total": 11.948
+          },
+          "segundos_video": 1.214
+        },
+        {
+          "muestra": "0007_0001_0002",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2014772,
+          "ms_medio": {
+            "decodificar": 0.59,
+            "holistic": 11.357,
+            "total": 11.99
+          },
+          "ms_mediana": {
+            "decodificar": 0.549,
+            "holistic": 11.283,
+            "total": 11.896
+          },
+          "segundos_video": 1.183
+        },
+        {
+          "muestra": "0007_0002_0000",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2606976,
+          "ms_medio": {
+            "decodificar": 0.597,
+            "holistic": 11.291,
+            "total": 11.932
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.354,
+            "total": 11.951
+          },
+          "segundos_video": 1.943
+        },
+        {
+          "muestra": "0007_0003_0003",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2622258,
+          "ms_medio": {
+            "decodificar": 0.602,
+            "holistic": 11.362,
+            "total": 12.007
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.317,
+            "total": 11.929
+          },
+          "segundos_video": 0.984
+        },
+        {
+          "muestra": "0007_0004_0000",
+          "fotogramas": 84,
+          "fps_video": 24.0,
+          "bytes": 3411784,
+          "ms_medio": {
+            "decodificar": 0.582,
+            "holistic": 11.339,
+            "total": 11.964
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.348,
+            "total": 11.949
+          },
+          "segundos_video": 1.488
+        },
+        {
+          "muestra": "0014_0000_0003",
+          "fotogramas": 74,
+          "fps_video": 24.0,
+          "bytes": 2865838,
+          "ms_medio": {
+            "decodificar": 0.597,
+            "holistic": 11.384,
+            "total": 12.025
+          },
+          "ms_mediana": {
+            "decodificar": 0.559,
+            "holistic": 11.375,
+            "total": 11.976
+          },
+          "segundos_video": 1.372
+        },
+        {
+          "muestra": "0014_0001_0002",
+          "fotogramas": 82,
+          "fps_video": 24.0,
+          "bytes": 2388456,
+          "ms_medio": {
+            "decodificar": 0.583,
+            "holistic": 11.27,
+            "total": 11.896
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.286,
+            "total": 11.89
+          },
+          "segundos_video": 1.22
+        },
+        {
+          "muestra": "0014_0002_0001",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2423000,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.244,
+            "total": 11.878
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.264,
+            "total": 11.861
+          },
+          "segundos_video": 1.126
+        },
+        {
+          "muestra": "0014_0003_0003",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2193420,
+          "ms_medio": {
+            "decodificar": 0.606,
+            "holistic": 11.367,
+            "total": 12.016
+          },
+          "ms_mediana": {
+            "decodificar": 0.547,
+            "holistic": 11.312,
+            "total": 11.917
+          },
+          "segundos_video": 1.013
+        },
+        {
+          "muestra": "0014_0004_0002",
+          "fotogramas": 52,
+          "fps_video": 24.0,
+          "bytes": 2056394,
+          "ms_medio": {
+            "decodificar": 0.603,
+            "holistic": 11.315,
+            "total": 11.961
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.336,
+            "total": 11.947
+          },
+          "segundos_video": 1.134
+        },
+        {
+          "muestra": "0020_0000_0002",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2769174,
+          "ms_medio": {
+            "decodificar": 0.6,
+            "holistic": 12.004,
+            "total": 12.647
+          },
+          "ms_mediana": {
+            "decodificar": 0.56,
+            "holistic": 11.37,
+            "total": 11.992
+          },
+          "segundos_video": 1.138
+        },
+        {
+          "muestra": "0020_0001_0002",
+          "fotogramas": 73,
+          "fps_video": 24.0,
+          "bytes": 2284086,
+          "ms_medio": {
+            "decodificar": 0.59,
+            "holistic": 11.366,
+            "total": 11.999
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.291,
+            "total": 11.893
+          },
+          "segundos_video": 1.336
+        },
+        {
+          "muestra": "0020_0002_0003",
+          "fotogramas": 61,
+          "fps_video": 24.0,
+          "bytes": 2617542,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.329,
+            "total": 11.964
+          },
+          "ms_mediana": {
+            "decodificar": 0.547,
+            "holistic": 11.305,
+            "total": 11.891
+          },
+          "segundos_video": 1.02
+        },
+        {
+          "muestra": "0020_0003_0000",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2765522,
+          "ms_medio": {
+            "decodificar": 0.599,
+            "holistic": 11.35,
+            "total": 11.991
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.301,
+            "total": 11.912
+          },
+          "segundos_video": 0.96
+        },
+        {
+          "muestra": "0020_0004_0002",
+          "fotogramas": 67,
+          "fps_video": 24.0,
+          "bytes": 2667344,
+          "ms_medio": {
+            "decodificar": 0.591,
+            "holistic": 11.292,
+            "total": 11.925
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.309,
+            "total": 11.895
+          },
+          "segundos_video": 1.141
+        },
+        {
+          "muestra": "0026_0000_0000",
+          "fotogramas": 74,
+          "fps_video": 24.0,
+          "bytes": 2081018,
+          "ms_medio": {
+            "decodificar": 0.583,
+            "holistic": 11.319,
+            "total": 11.947
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.316,
+            "total": 11.913
+          },
+          "segundos_video": 1.15
+        },
+        {
+          "muestra": "0026_0001_0002",
+          "fotogramas": 71,
+          "fps_video": 24.0,
+          "bytes": 2141452,
+          "ms_medio": {
+            "decodificar": 0.58,
+            "holistic": 11.268,
+            "total": 11.892
+          },
+          "ms_mediana": {
+            "decodificar": 0.545,
+            "holistic": 11.298,
+            "total": 11.893
+          },
+          "segundos_video": 2.075
+        },
+        {
+          "muestra": "0026_0002_0002",
+          "fotogramas": 62,
+          "fps_video": 24.0,
+          "bytes": 2692102,
+          "ms_medio": {
+            "decodificar": 0.602,
+            "holistic": 11.36,
+            "total": 12.004
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.292,
+            "total": 11.899
+          },
+          "segundos_video": 1.002
+        },
+        {
+          "muestra": "0026_0003_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2636786,
+          "ms_medio": {
+            "decodificar": 0.595,
+            "holistic": 11.36,
+            "total": 11.998
+          },
+          "ms_mediana": {
+            "decodificar": 0.55,
+            "holistic": 11.357,
+            "total": 11.969
+          },
+          "segundos_video": 0.96
+        },
+        {
+          "muestra": "0026_0004_0001",
+          "fotogramas": 56,
+          "fps_video": 24.0,
+          "bytes": 2263864,
+          "ms_medio": {
+            "decodificar": 0.586,
+            "holistic": 11.39,
+            "total": 12.018
+          },
+          "ms_mediana": {
+            "decodificar": 0.542,
+            "holistic": 11.328,
+            "total": 11.911
+          },
+          "segundos_video": 0.938
+        },
+        {
+          "muestra": "0032_0000_0002",
+          "fotogramas": 68,
+          "fps_video": 24.0,
+          "bytes": 2619870,
+          "ms_medio": {
+            "decodificar": 0.595,
+            "holistic": 11.352,
+            "total": 11.99
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.37,
+            "total": 11.98
+          },
+          "segundos_video": 1.061
+        },
+        {
+          "muestra": "0032_0001_0000",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3626038,
+          "ms_medio": {
+            "decodificar": 0.588,
+            "holistic": 11.265,
+            "total": 11.895
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.302,
+            "total": 11.898
+          },
+          "segundos_video": 1.471
+        },
+        {
+          "muestra": "0032_0002_0002",
+          "fotogramas": 77,
+          "fps_video": 24.0,
+          "bytes": 3192744,
+          "ms_medio": {
+            "decodificar": 0.618,
+            "holistic": 11.403,
+            "total": 12.067
+          },
+          "ms_mediana": {
+            "decodificar": 0.583,
+            "holistic": 11.499,
+            "total": 12.112
+          },
+          "segundos_video": 1.159
+        },
+        {
+          "muestra": "0032_0003_0002",
+          "fotogramas": 58,
+          "fps_video": 24.0,
+          "bytes": 2594454,
+          "ms_medio": {
+            "decodificar": 0.646,
+            "holistic": 11.783,
+            "total": 12.479
+          },
+          "ms_mediana": {
+            "decodificar": 0.583,
+            "holistic": 11.73,
+            "total": 12.357
+          },
+          "segundos_video": 1.217
+        },
+        {
+          "muestra": "0032_0004_0003",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 2994800,
+          "ms_medio": {
+            "decodificar": 0.617,
+            "holistic": 11.438,
+            "total": 12.102
+          },
+          "ms_mediana": {
+            "decodificar": 0.572,
+            "holistic": 11.503,
+            "total": 12.131
+          },
+          "segundos_video": 1.213
+        },
+        {
+          "muestra": "0035_0000_0003",
+          "fotogramas": 71,
+          "fps_video": 24.0,
+          "bytes": 2696318,
+          "ms_medio": {
+            "decodificar": 0.615,
+            "holistic": 11.566,
+            "total": 12.225
+          },
+          "ms_mediana": {
+            "decodificar": 0.584,
+            "holistic": 11.506,
+            "total": 12.139
+          },
+          "segundos_video": 1.103
+        },
+        {
+          "muestra": "0035_0001_0000",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3698460,
+          "ms_medio": {
+            "decodificar": 0.6,
+            "holistic": 11.44,
+            "total": 12.085
+          },
+          "ms_mediana": {
+            "decodificar": 0.564,
+            "holistic": 11.48,
+            "total": 12.093
+          },
+          "segundos_video": 1.226
+        },
+        {
+          "muestra": "0035_0002_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3407388,
+          "ms_medio": {
+            "decodificar": 0.615,
+            "holistic": 11.367,
+            "total": 12.026
+          },
+          "ms_mediana": {
+            "decodificar": 0.579,
+            "holistic": 11.418,
+            "total": 12.054
+          },
+          "segundos_video": 1.206
+        },
+        {
+          "muestra": "0035_0003_0003",
+          "fotogramas": 56,
+          "fps_video": 24.0,
+          "bytes": 2544006,
+          "ms_medio": {
+            "decodificar": 0.612,
+            "holistic": 11.478,
+            "total": 12.134
+          },
+          "ms_mediana": {
+            "decodificar": 0.571,
+            "holistic": 11.462,
+            "total": 12.085
+          },
+          "segundos_video": 1.165
+        },
+        {
+          "muestra": "0035_0004_0000",
+          "fotogramas": 78,
+          "fps_video": 24.0,
+          "bytes": 3344504,
+          "ms_medio": {
+            "decodificar": 0.612,
+            "holistic": 11.519,
+            "total": 12.177
+          },
+          "ms_mediana": {
+            "decodificar": 0.575,
+            "holistic": 11.497,
+            "total": 12.137
+          },
+          "segundos_video": 1.464
+        },
+        {
+          "muestra": "0036_0000_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3040818,
+          "ms_medio": {
+            "decodificar": 0.615,
+            "holistic": 11.459,
+            "total": 12.12
+          },
+          "ms_mediana": {
+            "decodificar": 0.574,
+            "holistic": 11.57,
+            "total": 12.193
+          },
+          "segundos_video": 1.471
+        },
+        {
+          "muestra": "0036_0001_0003",
+          "fotogramas": 65,
+          "fps_video": 24.0,
+          "bytes": 1931806,
+          "ms_medio": {
+            "decodificar": 0.608,
+            "holistic": 11.497,
+            "total": 12.148
+          },
+          "ms_mediana": {
+            "decodificar": 0.568,
+            "holistic": 11.451,
+            "total": 12.045
+          },
+          "segundos_video": 1.365
+        },
+        {
+          "muestra": "0036_0002_0003",
+          "fotogramas": 58,
+          "fps_video": 24.0,
+          "bytes": 2502782,
+          "ms_medio": {
+            "decodificar": 0.62,
+            "holistic": 11.463,
+            "total": 12.127
+          },
+          "ms_mediana": {
+            "decodificar": 0.569,
+            "holistic": 11.439,
+            "total": 12.057
+          },
+          "segundos_video": 0.982
+        },
+        {
+          "muestra": "0036_0003_0002",
+          "fotogramas": 53,
+          "fps_video": 24.0,
+          "bytes": 2334358,
+          "ms_medio": {
+            "decodificar": 0.631,
+            "holistic": 11.53,
+            "total": 12.206
+          },
+          "ms_mediana": {
+            "decodificar": 0.575,
+            "holistic": 11.501,
+            "total": 12.143
+          },
+          "segundos_video": 0.911
+        },
+        {
+          "muestra": "0036_0004_0003",
+          "fotogramas": 88,
+          "fps_video": 24.0,
+          "bytes": 3355596,
+          "ms_medio": {
+            "decodificar": 0.609,
+            "holistic": 11.448,
+            "total": 12.102
+          },
+          "ms_mediana": {
+            "decodificar": 0.577,
+            "holistic": 11.511,
+            "total": 12.144
+          },
+          "segundos_video": 1.557
+        },
+        {
+          "muestra": "0038_0000_0003",
+          "fotogramas": 79,
+          "fps_video": 24.0,
+          "bytes": 3004650,
+          "ms_medio": {
+            "decodificar": 0.601,
+            "holistic": 11.443,
+            "total": 12.09
+          },
+          "ms_mediana": {
+            "decodificar": 0.569,
+            "holistic": 11.515,
+            "total": 12.124
+          },
+          "segundos_video": 1.197
+        },
+        {
+          "muestra": "0038_0001_0000",
+          "fotogramas": 63,
+          "fps_video": 24.0,
+          "bytes": 2951794,
+          "ms_medio": {
+            "decodificar": 0.621,
+            "holistic": 11.615,
+            "total": 12.283
+          },
+          "ms_mediana": {
+            "decodificar": 0.582,
+            "holistic": 11.624,
+            "total": 12.253
+          },
+          "segundos_video": 1.06
+        },
+        {
+          "muestra": "0038_0002_0001",
+          "fotogramas": 55,
+          "fps_video": 24.0,
+          "bytes": 2286186,
+          "ms_medio": {
+            "decodificar": 0.62,
+            "holistic": 11.273,
+            "total": 11.938
+          },
+          "ms_mediana": {
+            "decodificar": 0.575,
+            "holistic": 11.364,
+            "total": 11.993
+          },
+          "segundos_video": 0.891
+        },
+        {
+          "muestra": "0038_0003_0001",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2152636,
+          "ms_medio": {
+            "decodificar": 0.637,
+            "holistic": 11.507,
+            "total": 12.19
+          },
+          "ms_mediana": {
+            "decodificar": 0.584,
+            "holistic": 11.464,
+            "total": 12.101
+          },
+          "segundos_video": 0.846
+        },
+        {
+          "muestra": "0038_0004_0000",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2865494,
+          "ms_medio": {
+            "decodificar": 0.613,
+            "holistic": 11.404,
+            "total": 12.061
+          },
+          "ms_mediana": {
+            "decodificar": 0.577,
+            "holistic": 11.474,
+            "total": 12.095
+          },
+          "segundos_video": 1.094
+        },
+        {
+          "muestra": "0039_0000_0000",
+          "fotogramas": 81,
+          "fps_video": 24.0,
+          "bytes": 2137926,
+          "ms_medio": {
+            "decodificar": 0.607,
+            "holistic": 11.53,
+            "total": 12.185
+          },
+          "ms_mediana": {
+            "decodificar": 0.572,
+            "holistic": 11.519,
+            "total": 12.149
+          },
+          "segundos_video": 1.226
+        },
+        {
+          "muestra": "0039_0001_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 1708374,
+          "ms_medio": {
+            "decodificar": 0.613,
+            "holistic": 11.376,
+            "total": 12.034
+          },
+          "ms_mediana": {
+            "decodificar": 0.568,
+            "holistic": 11.352,
+            "total": 11.964
+          },
+          "segundos_video": 0.953
+        },
+        {
+          "muestra": "0039_0002_0003",
+          "fotogramas": 70,
+          "fps_video": 24.0,
+          "bytes": 2872332,
+          "ms_medio": {
+            "decodificar": 0.603,
+            "holistic": 11.198,
+            "total": 11.847
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.365,
+            "total": 11.957
+          },
+          "segundos_video": 1.081
+        },
+        {
+          "muestra": "0039_0003_0001",
+          "fotogramas": 48,
+          "fps_video": 24.0,
+          "bytes": 2059958,
+          "ms_medio": {
+            "decodificar": 0.605,
+            "holistic": 11.249,
+            "total": 11.897
+          },
+          "ms_mediana": {
+            "decodificar": 0.548,
+            "holistic": 11.284,
+            "total": 11.896
+          },
+          "segundos_video": 0.827
+        },
+        {
+          "muestra": "0039_0004_0003",
+          "fotogramas": 77,
+          "fps_video": 24.0,
+          "bytes": 2864584,
+          "ms_medio": {
+            "decodificar": 0.585,
+            "holistic": 11.24,
+            "total": 11.868
+          },
+          "ms_mediana": {
+            "decodificar": 0.548,
+            "holistic": 11.319,
+            "total": 11.917
+          },
+          "segundos_video": 1.152
+        },
+        {
+          "muestra": "0041_0000_0001",
+          "fotogramas": 57,
+          "fps_video": 24.0,
+          "bytes": 2185166,
+          "ms_medio": {
+            "decodificar": 0.598,
+            "holistic": 11.5,
+            "total": 12.141
+          },
+          "ms_mediana": {
+            "decodificar": 0.554,
+            "holistic": 11.45,
+            "total": 12.053
+          },
+          "segundos_video": 0.993
+        },
+        {
+          "muestra": "0041_0001_0000",
+          "fotogramas": 54,
+          "fps_video": 24.0,
+          "bytes": 2525522,
+          "ms_medio": {
+            "decodificar": 0.602,
+            "holistic": 11.301,
+            "total": 11.947
+          },
+          "ms_mediana": {
+            "decodificar": 0.556,
+            "holistic": 11.353,
+            "total": 11.951
+          },
+          "segundos_video": 0.927
+        },
+        {
+          "muestra": "0041_0002_0003",
+          "fotogramas": 69,
+          "fps_video": 24.0,
+          "bytes": 2886318,
+          "ms_medio": {
+            "decodificar": 0.596,
+            "holistic": 11.222,
+            "total": 11.863
+          },
+          "ms_mediana": {
+            "decodificar": 0.553,
+            "holistic": 11.298,
+            "total": 11.889
+          },
+          "segundos_video": 1.328
+        },
+        {
+          "muestra": "0041_0003_0003",
+          "fotogramas": 49,
+          "fps_video": 24.0,
+          "bytes": 2251254,
+          "ms_medio": {
+            "decodificar": 0.61,
+            "holistic": 11.418,
+            "total": 12.072
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.363,
+            "total": 11.979
+          },
+          "segundos_video": 0.85
+        },
+        {
+          "muestra": "0041_0004_0002",
+          "fotogramas": 55,
+          "fps_video": 24.0,
+          "bytes": 2260982,
+          "ms_medio": {
+            "decodificar": 0.596,
+            "holistic": 11.312,
+            "total": 11.951
+          },
+          "ms_mediana": {
+            "decodificar": 0.552,
+            "holistic": 11.346,
+            "total": 11.938
+          },
+          "segundos_video": 1.035
+        },
+        {
+          "muestra": "0047_0000_0003",
+          "fotogramas": 80,
+          "fps_video": 24.0,
+          "bytes": 3088556,
+          "ms_medio": {
+            "decodificar": 0.591,
+            "holistic": 11.353,
+            "total": 11.988
+          },
+          "ms_mediana": {
+            "decodificar": 0.558,
+            "holistic": 11.386,
+            "total": 11.99
+          },
+          "segundos_video": 1.437
+        },
+        {
+          "muestra": "0047_0001_0002",
+          "fotogramas": 53,
+          "fps_video": 24.0,
+          "bytes": 1591132,
+          "ms_medio": {
+            "decodificar": 0.596,
+            "holistic": 11.356,
+            "total": 11.995
+          },
+          "ms_mediana": {
+            "decodificar": 0.555,
+            "holistic": 11.326,
+            "total": 11.909
+          },
+          "segundos_video": 1.021
+        },
+        {
+          "muestra": "0047_0002_0003",
+          "fotogramas": 72,
+          "fps_video": 24.0,
+          "bytes": 2960498,
+          "ms_medio": {
+            "decodificar": 0.593,
+            "holistic": 11.39,
+            "total": 12.027
+          },
+          "ms_mediana": {
+            "decodificar": 0.558,
+            "holistic": 11.322,
+            "total": 11.925
+          },
+          "segundos_video": 1.113
+        },
+        {
+          "muestra": "0047_0003_0003",
+          "fotogramas": 59,
+          "fps_video": 24.0,
+          "bytes": 2647504,
+          "ms_medio": {
+            "decodificar": 0.61,
+            "holistic": 11.27,
+            "total": 11.924
+          },
+          "ms_mediana": {
+            "decodificar": 0.565,
+            "holistic": 11.359,
+            "total": 11.969
+          },
+          "segundos_video": 1.136
+        },
+        {
+          "muestra": "0047_0004_0003",
+          "fotogramas": 75,
+          "fps_video": 24.0,
+          "bytes": 3031094,
+          "ms_medio": {
+            "decodificar": 0.601,
+            "holistic": 11.379,
+            "total": 12.023
+          },
+          "ms_mediana": {
+            "decodificar": 0.566,
+            "holistic": 11.428,
+            "total": 12.035
+          },
+          "segundos_video": 1.397
+        }
+      ],
+      "ms_por_fotograma": {
+        "decodificar": {
+          "n": 3999,
+          "media": 0.603,
+          "de": 0.311,
+          "mediana": 0.559,
+          "p90": 0.624,
+          "min": 0.454,
+          "max": 8.638
+        },
+        "holistic": {
+          "n": 3999,
+          "media": 11.388,
+          "de": 1.043,
+          "mediana": 11.375,
+          "p90": 11.621,
+          "min": 9.632,
+          "max": 52.358
+        },
+        "total": {
+          "n": 3999,
+          "media": 12.036,
+          "de": 1.263,
+          "mediana": 11.982,
+          "p90": 12.247,
+          "min": 10.2,
+          "max": 52.968
+        }
+      },
+      "fotogramas_por_segundo": {
+        "bucle_por_media": 83.08,
+        "bucle_por_mediana": 83.46,
+        "holistic_por_media": 87.81,
+        "pared": 56.73
+      },
+      "segundos_bucle": 48.13,
+      "segundos_pared": 70.49,
+      "media_holistic_por_bloques_de_10_videos": [
+        11.34,
+        11.39,
+        11.39,
+        11.48,
+        11.38,
+        11.35
+      ],
+      "nota_bloques": "media de `holistic` por bloques de 10 videos EN EL ORDEN DE LA PASADA. N-21 vio esta serie subir de 12,4 a 16,0 ms a lo largo de sus 1.000 videos (primeros 50: 11,8; últimos 50: 16,1); si la subida no aparece aquí, es que no arranca en los primeros 60 videos"
+    }
+  },
+  "comparaciones": [
+    {
+      "etapa": "holistic",
+      "a": "drive_1",
+      "b": "local",
+      "media_a_ms": 11.348,
+      "media_b_ms": 11.317,
+      "diferencia_media_ms": 0.031,
+      "diferencia_media_pct": 0.27,
+      "mediana_a_ms": 11.32,
+      "mediana_b_ms": 11.313,
+      "diferencia_mediana_ms": 0.007,
+      "fps_a": 88.12,
+      "fps_b": 88.36,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.029,
+        "diferencia_mediana_ms": 0.021,
+        "de_ms": 0.11,
+        "videos_con_a_mas_lento": 39,
+        "signos": {
+          "n_pares": 60,
+          "veces_positiva": 39,
+          "veces_negativa": 21,
+          "p_valor": 0.02734,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    },
+    {
+      "etapa": "holistic",
+      "a": "drive_2",
+      "b": "local",
+      "media_a_ms": 11.388,
+      "media_b_ms": 11.317,
+      "diferencia_media_ms": 0.071,
+      "diferencia_media_pct": 0.63,
+      "mediana_a_ms": 11.375,
+      "mediana_b_ms": 11.313,
+      "diferencia_mediana_ms": 0.062,
+      "fps_a": 87.81,
+      "fps_b": 88.36,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.071,
+        "diferencia_mediana_ms": 0.058,
+        "de_ms": 0.131,
+        "videos_con_a_mas_lento": 42,
+        "signos": {
+          "n_pares": 60,
+          "veces_positiva": 42,
+          "veces_negativa": 18,
+          "p_valor": 0.00267,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    },
+    {
+      "etapa": "holistic",
+      "a": "drive_2",
+      "b": "drive_1",
+      "media_a_ms": 11.388,
+      "media_b_ms": 11.348,
+      "diferencia_media_ms": 0.04,
+      "diferencia_media_pct": 0.35,
+      "mediana_a_ms": 11.375,
+      "mediana_b_ms": 11.32,
+      "diferencia_mediana_ms": 0.055,
+      "fps_a": 87.81,
+      "fps_b": 88.12,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.042,
+        "diferencia_mediana_ms": 0.043,
+        "de_ms": 0.167,
+        "videos_con_a_mas_lento": 33,
+        "signos": {
+          "n_pares": 60,
+          "veces_positiva": 33,
+          "veces_negativa": 27,
+          "p_valor": 0.518958,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    },
+    {
+      "etapa": "decodificar",
+      "a": "drive_1",
+      "b": "local",
+      "media_a_ms": 0.601,
+      "media_b_ms": 0.592,
+      "diferencia_media_ms": 0.009,
+      "diferencia_media_pct": 1.52,
+      "mediana_a_ms": 0.559,
+      "mediana_b_ms": 0.55,
+      "diferencia_mediana_ms": 0.009,
+      "fps_a": 1663.89,
+      "fps_b": 1689.19,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.009,
+        "diferencia_mediana_ms": 0.008,
+        "de_ms": 0.013,
+        "videos_con_a_mas_lento": 46,
+        "signos": {
+          "n_pares": 59,
+          "veces_positiva": 46,
+          "veces_negativa": 13,
+          "p_valor": 1.9e-05,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    },
+    {
+      "etapa": "decodificar",
+      "a": "drive_2",
+      "b": "local",
+      "media_a_ms": 0.603,
+      "media_b_ms": 0.592,
+      "diferencia_media_ms": 0.011,
+      "diferencia_media_pct": 1.86,
+      "mediana_a_ms": 0.559,
+      "mediana_b_ms": 0.55,
+      "diferencia_mediana_ms": 0.009,
+      "fps_a": 1658.37,
+      "fps_b": 1689.19,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.011,
+        "diferencia_mediana_ms": 0.011,
+        "de_ms": 0.014,
+        "videos_con_a_mas_lento": 49,
+        "signos": {
+          "n_pares": 59,
+          "veces_positiva": 49,
+          "veces_negativa": 10,
+          "p_valor": 2.7e-07,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    },
+    {
+      "etapa": "decodificar",
+      "a": "drive_2",
+      "b": "drive_1",
+      "media_a_ms": 0.603,
+      "media_b_ms": 0.601,
+      "diferencia_media_ms": 0.002,
+      "diferencia_media_pct": 0.33,
+      "mediana_a_ms": 0.559,
+      "mediana_b_ms": 0.559,
+      "diferencia_mediana_ms": 0.0,
+      "fps_a": 1658.37,
+      "fps_b": 1663.89,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.002,
+        "diferencia_mediana_ms": 0.002,
+        "de_ms": 0.017,
+        "videos_con_a_mas_lento": 31,
+        "signos": {
+          "n_pares": 60,
+          "veces_positiva": 31,
+          "veces_negativa": 29,
+          "p_valor": 0.897422,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    },
+    {
+      "etapa": "total",
+      "a": "drive_1",
+      "b": "local",
+      "media_a_ms": 11.992,
+      "media_b_ms": 11.953,
+      "diferencia_media_ms": 0.039,
+      "diferencia_media_pct": 0.33,
+      "mediana_a_ms": 11.927,
+      "mediana_b_ms": 11.911,
+      "diferencia_mediana_ms": 0.016,
+      "fps_a": 83.39,
+      "fps_b": 83.66,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.037,
+        "diferencia_mediana_ms": 0.029,
+        "de_ms": 0.118,
+        "videos_con_a_mas_lento": 39,
+        "signos": {
+          "n_pares": 60,
+          "veces_positiva": 39,
+          "veces_negativa": 21,
+          "p_valor": 0.02734,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    },
+    {
+      "etapa": "total",
+      "a": "drive_2",
+      "b": "local",
+      "media_a_ms": 12.036,
+      "media_b_ms": 11.953,
+      "diferencia_media_ms": 0.083,
+      "diferencia_media_pct": 0.69,
+      "mediana_a_ms": 11.982,
+      "mediana_b_ms": 11.911,
+      "diferencia_mediana_ms": 0.071,
+      "fps_a": 83.08,
+      "fps_b": 83.66,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.083,
+        "diferencia_mediana_ms": 0.068,
+        "de_ms": 0.14,
+        "videos_con_a_mas_lento": 42,
+        "signos": {
+          "n_pares": 60,
+          "veces_positiva": 42,
+          "veces_negativa": 18,
+          "p_valor": 0.00267,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    },
+    {
+      "etapa": "total",
+      "a": "drive_2",
+      "b": "drive_1",
+      "media_a_ms": 12.036,
+      "media_b_ms": 11.992,
+      "diferencia_media_ms": 0.044,
+      "diferencia_media_pct": 0.37,
+      "mediana_a_ms": 11.982,
+      "mediana_b_ms": 11.927,
+      "diferencia_mediana_ms": 0.055,
+      "fps_a": 83.08,
+      "fps_b": 83.39,
+      "pareada_por_video": {
+        "n_videos": 60,
+        "diferencia_media_ms": 0.046,
+        "diferencia_mediana_ms": 0.041,
+        "de_ms": 0.179,
+        "videos_con_a_mas_lento": 33,
+        "signos": {
+          "n_pares": 60,
+          "veces_positiva": 33,
+          "veces_negativa": 27,
+          "p_valor": 0.518958,
+          "nota": "prueba de los signos exacta, dos colas; positiva = el primer término fue más lento"
+        }
+      }
+    }
+  ],
+  "limitaciones": [
+    "Muestra de 60 videos (3999 fotogramas por pasada), no los 1.000 de N-21.",
+    "Se pidieron 2 hilos a OMP/OPENBLAS/MKL porque el equipo podía estar grabando. MediaPipe no obedece esas variables (usa su propio grupo de hilos), así que el tope no estranguló al extractor; aun así, los ms absolutos de esta corrida se dan con esa salvedad y lo que de verdad se compara es la diferencia entre las tres condiciones, medidas seguidas y en las mismas condiciones.",
+    "No se vacía la caché de disco entre condiciones (haría falta permiso de administrador y no se toca el equipo): tras la copia, los archivos de las dos condiciones están tibios en la caché del sistema, así que esta medición no dice qué pasaría con una lectura en frío.",
+    "Los archivos de Drive ya estaban descargados en la caché local de DriveFS: 'desde Drive' significa a través del proveedor de archivos, no bajando de la red.",
+    "La corrida de N-21 ESCRIBÍA 5.000 archivos dentro de Drive; esta solo lee. Si el coste de N-21 venía de la subida (CPU del proceso de sincronización), esta medición no lo reproduce y por tanto no puede confirmarlo ni descartarlo.",
+    "Una sola repetición por condición: la deriva drive_1 → drive_2 es la única estimación de la variabilidad entre pasadas.",
+    "Las dos rutas viven en el MISMO volumen APFS: no hay un disco ni un punto de montaje distinto para la carpeta de Drive, así que lo que se compara es el camino de lectura, no el soporte físico.",
+    "La copia se hace con shutil.copy2 y el sistema de archivos es APFS: puede ser una copia por escritura diferida (clon), de modo que los bloques físicos se compartan con el original. Lo que sí cambia con seguridad es el CAMINO DE LECTURA (el proveedor de archivos de DriveFS frente al sistema de archivos normal), que es justo lo que se quería comparar; pero no se puede afirmar que sean bloques distintos en el disco.",
+    "La prueba de los signos (dos colas, exacta) usa una decisión por video: si su media fue mayor o menor. Con 60 videos pareados detecta diferencias diminutas, así que un p bajo no significa que la diferencia importe; por eso se fijó ANTES de medir un umbral en ms por fotograma y la conclusión se lee contra ese umbral, no contra el p."
+  ],
+  "lectura": [
+    "Leer los videos desde Google Drive frente a leerlos desde disco local cambia la etapa `holistic` en 0.031 ms por fotograma (0.27 %, Drive más lento); la comparación pareada por video da p = 0.02734 en la prueba de los signos.",
+    "La segunda pasada desde Drive (drive_2) frente a local da +0.071 ms por fotograma (42/60 videos más lentos desde Drive, p = 0.00267). Sale distinta de cero en la prueba de los signos, pero mide 0.071 ms, unas 49 veces menos que los 3,5 ms que N-21 tiene que explicar: detectable no es lo mismo que relevante, y parte de esa diferencia es deriva (punto siguiente).",
+    "En la etapa donde de verdad se lee el archivo (`decodificar`) la diferencia es +0.009 ms por fotograma. Es ahí, y no en `holistic`, donde tendría que aparecer un efecto del almacenamiento.",
+    "La diferencia total (+0.039 ms por fotograma) queda por debajo del umbral de 1.0 ms que se fijó como «relevante» antes de medir: con esta muestra y en estas condiciones NO se reproduce la brecha de 3,5 ms que separaba las pruebas cortas de N-20 (11,5 ms) de la corrida completa de N-21 (15,0 ms). La causa probable que N-21 dejó anotada —la sincronización de Drive— no queda confirmada por esta medición; tampoco queda descartada, porque aquí no se reproduce la escritura masiva de 5.000 archivos que la corrida de N-21 sí provocaba.",
+    "Deriva: la repetición desde Drive al final (drive_2) difiere de la primera (drive_1) en +0.040 ms por fotograma en `holistic`. Esa cifra es la escala de lo que se mueve solo por el paso del tiempo y el calentamiento del equipo, y hay que compararla con la diferencia entre Drive y local antes de atribuirle nada al almacenamiento.",
+    "Los procesos de Google Drive consumieron [2.3, 0.01, 0.02] segundos de CPU durante cada condición (en el orden ['drive_1', 'local', 'drive_2']). Con esos valores tan bajos, la sincronización estaba prácticamente quieta: la corrida de N-21 escribía 5.000 archivos y esta no escribe ninguno, así que la comparación de hoy aísla el efecto de LEER desde Drive, no el de sincronizar.",
+    "Los videos de la muestra ya estaban descargados en el disco (100% de los bytes con bloques asignados; 0 archivos sin bloques). Leer «desde Drive» aquí significa leer a través del proveedor de archivos de DriveFS, no bajar nada de la red: ese es el escenario real del proyecto, pero conviene decirlo.",
+    "Dentro de la primera pasada, la media de `holistic` por bloques de 10 videos fue [11.39, 11.36, 11.39, 11.3, 11.34, 11.3] ms (de 11.3 a 11.39). N-21 describió esa misma serie subiendo de 12,4 a 16,0 ms a lo largo de sus 1.000 videos; en 60 videos esa subida no aparece.",
+    "El grueso de la distribución es el mismo en las tres condiciones (p90 de `holistic`: {'drive_1': 11.509, 'local': 11.481, 'drive_2': 11.621}). Los máximos sí difieren ({'drive_1': 54.78, 'local': 18.113, 'drive_2': 52.358}), pero con un solo máximo por condición y una sola repetición eso no distingue un efecto del almacenamiento de un pico cualquiera del sistema: una revisión independiente repitió la medición y el pico mayor le salió en la condición local. No se lee nada de esos máximos.",
+    "Cifra del extractor fuera de Drive en esta corrida: 11.32 ms por fotograma en `holistic` (88.4 fot./s) y 11.95 ms en el bucle completo (83.7 fot./s).",
+    "Sobre el tope de CPU: se pidieron 2 hilos a OMP/OpenBLAS/MKL, pero MediaPipe usa su propio grupo de hilos y no los obedece; el proceso ocupó [1.81, 1.84, 1.7] núcleos de media en cada condición. Es decir, el tope no estranguló al extractor y las cifras están en la misma escala que las de N-20 y N-21."
+  ],
+  "informe_rehecho": "2026-09-16T11:09:02",
+  "correccion_del_verificador": "2026-09-16, ronda 1: el valor p de la prueba de los signos se redondeaba a 6 decimales y uno de ellos quedaba guardado como 0.0 (imposible en una prueba exacta). Corregido en src/tasa_extractor_local.py (por debajo de 1e-6 se guardan dos cifras significativas) y recalculado aquí desde los mismos datos por video; ninguna otra cifra cambia y tasa.md ya lo escribía como «< 0,0001»."
+}

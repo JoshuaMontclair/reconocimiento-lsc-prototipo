@@ -1,0 +1,21 @@
+{
+ "semilla": 2028,
+ "modelo": "models/canonico_holistic_mascara/semilla_2028/modelo.keras",
+ "n_train_original": 797,
+ "n_train_aumentado": 7970,
+ "n_val": 100,
+ "epocas_ejecutadas": 73,
+ "mejor_epoca": 48,
+ "val_accuracy_checkpoint": 0.9399999976158142,
+ "val_loss_checkpoint": 0.9408680200576782,
+ "metricas_validacion_checkpoint": {
+  "top1": 0.94,
+  "top3": 0.97,
+  "precision_macro": 0.96,
+  "recall_macro": 0.94,
+  "f1_macro": 0.9359999999999999
+ },
+ "mejor_val_accuracy_historial": 0.9399999976158142,
+ "tiempo_entrenamiento_s": 323.7,
+ "tiempo_total_s": 326.3
+}

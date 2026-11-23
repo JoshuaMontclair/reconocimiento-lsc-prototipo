@@ -1,0 +1,468 @@
+{
+ "fecha": "2026-09-30T21:28:45",
+ "semilla_muestreo": 20260930,
+ "espacio": {
+  "conv_filtros": [
+   64,
+   128
+  ],
+  "conv_ventana": [
+   3,
+   5
+  ],
+  "conv_capas": [
+   1,
+   2
+  ],
+  "lstm": [
+   [
+    128,
+    64
+   ],
+   [
+    64,
+    32
+   ],
+   [
+    128
+   ]
+  ],
+  "densas": [
+   [
+    256,
+    128
+   ],
+   [
+    128,
+    64
+   ]
+  ],
+  "dropout": [
+   0.2,
+   0.3,
+   0.5
+  ],
+  "lr": [
+   0.0005,
+   0.001,
+   0.002
+  ],
+  "batch": [
+   32,
+   64
+  ],
+  "label_smoothing": [
+   0.0,
+   0.1
+  ]
+ },
+ "configuraciones": [
+  {
+   "id": "c00",
+   "conv_filtros": 128,
+   "conv_ventana": 3,
+   "conv_capas": 2,
+   "lstm": [
+    128,
+    64
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.3,
+   "lr": 0.001,
+   "batch": 64,
+   "label_smoothing": 0.1,
+   "canonica": true
+  },
+  {
+   "id": "c01",
+   "conv_filtros": 128,
+   "conv_ventana": 3,
+   "conv_capas": 1,
+   "lstm": [
+    64,
+    32
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.2,
+   "lr": 0.002,
+   "batch": 32,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c02",
+   "conv_filtros": 64,
+   "conv_ventana": 3,
+   "conv_capas": 1,
+   "lstm": [
+    64,
+    32
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.5,
+   "lr": 0.002,
+   "batch": 64,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c03",
+   "conv_filtros": 128,
+   "conv_ventana": 5,
+   "conv_capas": 2,
+   "lstm": [
+    128,
+    64
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.5,
+   "lr": 0.001,
+   "batch": 64,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c04",
+   "conv_filtros": 64,
+   "conv_ventana": 5,
+   "conv_capas": 2,
+   "lstm": [
+    128
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.2,
+   "lr": 0.0005,
+   "batch": 64,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c05",
+   "conv_filtros": 64,
+   "conv_ventana": 3,
+   "conv_capas": 1,
+   "lstm": [
+    128,
+    64
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.5,
+   "lr": 0.0005,
+   "batch": 32,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c06",
+   "conv_filtros": 128,
+   "conv_ventana": 5,
+   "conv_capas": 1,
+   "lstm": [
+    128,
+    64
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.5,
+   "lr": 0.0005,
+   "batch": 64,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c07",
+   "conv_filtros": 64,
+   "conv_ventana": 5,
+   "conv_capas": 1,
+   "lstm": [
+    128
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.3,
+   "lr": 0.0005,
+   "batch": 64,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c08",
+   "conv_filtros": 64,
+   "conv_ventana": 3,
+   "conv_capas": 1,
+   "lstm": [
+    64,
+    32
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.2,
+   "lr": 0.002,
+   "batch": 64,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c09",
+   "conv_filtros": 128,
+   "conv_ventana": 5,
+   "conv_capas": 1,
+   "lstm": [
+    64,
+    32
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.5,
+   "lr": 0.0005,
+   "batch": 64,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c10",
+   "conv_filtros": 64,
+   "conv_ventana": 3,
+   "conv_capas": 1,
+   "lstm": [
+    128,
+    64
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.3,
+   "lr": 0.002,
+   "batch": 32,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c11",
+   "conv_filtros": 64,
+   "conv_ventana": 5,
+   "conv_capas": 2,
+   "lstm": [
+    128,
+    64
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.3,
+   "lr": 0.001,
+   "batch": 32,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c12",
+   "conv_filtros": 64,
+   "conv_ventana": 5,
+   "conv_capas": 2,
+   "lstm": [
+    64,
+    32
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.3,
+   "lr": 0.001,
+   "batch": 64,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c13",
+   "conv_filtros": 64,
+   "conv_ventana": 5,
+   "conv_capas": 1,
+   "lstm": [
+    64,
+    32
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.5,
+   "lr": 0.0005,
+   "batch": 64,
+   "label_smoothing": 0.1,
+   "canonica": false
+  },
+  {
+   "id": "c14",
+   "conv_filtros": 64,
+   "conv_ventana": 5,
+   "conv_capas": 1,
+   "lstm": [
+    128
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.3,
+   "lr": 0.001,
+   "batch": 64,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c15",
+   "conv_filtros": 64,
+   "conv_ventana": 5,
+   "conv_capas": 1,
+   "lstm": [
+    64,
+    32
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.2,
+   "lr": 0.002,
+   "batch": 64,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c16",
+   "conv_filtros": 64,
+   "conv_ventana": 3,
+   "conv_capas": 1,
+   "lstm": [
+    64,
+    32
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.3,
+   "lr": 0.002,
+   "batch": 64,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c17",
+   "conv_filtros": 64,
+   "conv_ventana": 3,
+   "conv_capas": 2,
+   "lstm": [
+    128
+   ],
+   "densas": [
+    128,
+    64
+   ],
+   "dropout": 0.3,
+   "lr": 0.002,
+   "batch": 32,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c18",
+   "conv_filtros": 128,
+   "conv_ventana": 5,
+   "conv_capas": 2,
+   "lstm": [
+    128
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 64,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c19",
+   "conv_filtros": 128,
+   "conv_ventana": 3,
+   "conv_capas": 1,
+   "lstm": [
+    128,
+    64
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.5,
+   "lr": 0.002,
+   "batch": 64,
+   "label_smoothing": 0.0,
+   "canonica": false
+  },
+  {
+   "id": "c20",
+   "conv_filtros": 128,
+   "conv_ventana": 3,
+   "conv_capas": 1,
+   "lstm": [
+    128,
+    64
+   ],
+   "densas": [
+    256,
+    128
+   ],
+   "dropout": 0.3,
+   "lr": 0.0005,
+   "batch": 64,
+   "label_smoothing": 0.1,
+   "canonica": false
+  }
+ ],
+ "semilla_fase1": 2026,
+ "semillas_fase2": [
+  2031,
+  2032,
+  2033
+ ],
+ "corte": {
+  "pliegues": [
+   0,
+   1
+  ],
+  "puntos": 0.05
+ }
+}

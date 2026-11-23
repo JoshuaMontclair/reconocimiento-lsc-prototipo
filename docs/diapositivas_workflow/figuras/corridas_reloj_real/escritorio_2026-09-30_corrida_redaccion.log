@@ -1,0 +1,268 @@
+I0000 00:00:1790802278.274446 5494109 init-domain.cc:128] Fiber init: default domain = pthread, concurrency = 19, prefix = pthread-default
+I0000 00:00:1790802278.338911 5494109 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+W0000 00:00:1790802278.366113 5494114 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802278.369770 5494112 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802278.370565 5494120 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802278.370597 5494125 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802278.370607 5494127 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802278.372899 5494113 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802278.372913 5494114 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802278.392815 5494126 landmark_projection_calculator.cc:81] Using NORM_RECT without IMAGE_DIMENSIONS is only supported for the square ROI. Provide IMAGE_DIMENSIONS or use PROJECTION_MATRIX.
+I0000 00:00:1790802281.005346 5494395 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+W0000 00:00:1790802281.032017 5494398 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802281.035288 5494404 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802281.036063 5494407 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802281.036115 5494401 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802281.036119 5494413 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802281.038060 5494413 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802281.038070 5494411 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+I0000 00:00:1790802282.915155 5494519 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+W0000 00:00:1790802282.948661 5494524 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802282.952243 5494523 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802282.952947 5494538 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802282.953065 5494531 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802282.953074 5494522 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802282.955201 5494526 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802282.955213 5494531 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+I0000 00:00:1790802285.154855 5494726 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+W0000 00:00:1790802285.181073 5494733 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802285.184612 5494734 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802285.185298 5494734 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802285.185314 5494729 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802285.185337 5494744 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802285.187615 5494737 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802285.187643 5494744 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+================================================================================================
+  PRUEBA DE ESCRITORIO · modelo models/canonico_holistic_mascara_manos/modelo_canonico.keras
+  procedencia: representación «manos», 252 rasgos, 30 pasos, velocidades True, mano ausente «mascara», processed data/processed_holistic_mascara_rostro
+  umbral 0.2 (D-09, models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json)
+================================================================================================
+
+################################################################################################
+#  MUESTRA 0030_0000_0000
+################################################################################################
+── ETAPA 1 · Video  (data/raw/LSC50/VIDEOS/COLOR_BODY/0030_0000_0000.avi) ──────────────────────
+  ENTRA: archivo .avi (FMP4)
+  SALE : 135 cuadros de 1920x1080 px a 24 cuadros/s (cabecera: 135) → duración 5,625 s
+         seña 30 «hola», señante 0000, repetición 0000
+         partición aleatoria (modelo canónico): train; LOSO: prueba del pliegue 0
+── ETAPA 2 · Extracción de puntos: MediaPipe HolisticLandmarker (D-05) ─────────────────────────
+  ENTRA: 135 cuadros RGB; modelo holistic_landmarker.task (SHA256 e2dab61191e2…), modo VIDEO, CPU,
+         marcas de tiempo round(i·1000/fps); opciones = las del prototipo: True
+  SALE : por cuadro 543 puntos (x, y, z) = postura 33 + rostro 468 + mano izq. 21 + mano der. 21
+         matrices: postura (135, 99), mano izq. (135, 63), mano der. (135, 63), rostro (135, 1404)
+         detección: postura 135/135, mano izq. 134/135, mano der. 135/135, rostro 135/135
+         costo del extractor en esta corrida: media 11,7 ms por cuadro (mediana 11,4)
+         ejemplo, cuadro 67, muñeca de la mano der. (punto 0): x=0,4523 y=0,8852 z=-0,0000 (x, y en fracción del ancho/alto de la imagen)
+  COTEJO: frente a data/extracted/LSC50_holistic/…/0030_0000_0000.csv (corrida del 14-sep): diferencia máxima 0
+── ETAPA 3 · Fila por cuadro (CSV → preprocess_lsc50.load_single_sample) ───────────────────────
+  ENTRA: los 4 CSV de la Etapa 2 (1 fila por cuadro)
+  SALE : matriz (135, 405) = por cuadro postura 99 (0:99) + mano izq. 63 (99:162) + mano der. 63 (162:225) + cejas y labios 180 (225:405)
+         (del rostro solo se conservan 60 puntos; el modelo «manos» no los usa)
+── ETAPA 4 · Regla sin postura, regla «mascara» (D-07) y normalización por hombros ─────────────
+  ENTRA: (135, 405); cuadros sin postura 0, sin mano izq. 1, sin mano der. 0
+  SALE : (135, 405); cada punto → (punto − punto medio de los hombros) / distancia entre hombros;
+         bloques de mano ausente puestos en 0 DESPUÉS de normalizar: 1
+         distancia entre hombros (fracción del ancho de imagen): media 0,1124, mín. 0,1057, máx. 0,1144
+         ejemplo, cuadro 67, muñeca der.: x = (0,4523 − 0,5247) / 0,1139 = -0,6356;  y = (0,8852 − 0,5705) / 0,1139 = 2,7628
+  COTEJO: frente a data/processed_holistic_mascara_rostro/samples/0030_0000_0000.npy (135, 405): diferencia máxima 0
+── ETAPA 5 · Representación «manos» (D-08): solo las dos manos ─────────────────────────────────
+  ENTRA: (135, 405)
+  SALE : (135, 126) = mano izq. 21 puntos × (x, y, z) = 63  +  mano der. 21 × 3 = 63  (columnas 99:225 del processed)
+         orden de columnas: izq. p0x p0y p0z p1x … p20z | der. p0x … p20z
+── ETAPA 6 · Remuestreo temporal a 30 pasos (resample_sequence: interpolación lineal) ──────────
+  ENTRA: (135, 126) (135 cuadros)
+  SALE : (30, 126); el paso j toma la posición j·(T−1)/29 = j·134/29 = j·4,6207 sobre el eje de cuadros
+         posiciones: 0,00, 4,62, 9,24, 13,86, 18,48, 23,10, …, 134,00
+── ETAPA 7 · Velocidades (add_velocity): diferencia entre pasos consecutivos ───────────────────
+  ENTRA: (1, 30, 126)
+  SALE : (1, 30, 252) = 126 de posición + 126 de velocidad (v_j = p_j − p_(j−1); v_0 = 0)
+  COTEJO con el ENTRENADOR (cargar_datos + remuestrear_todas + add_velocity sobre data/processed_holistic_mascara_rostro): forma (1, 30, 252), T guardado 135, diferencia máxima 0
+── ETAPA 8 · Modelo canónico: Conv1D + BiLSTM + atención (TensorFlow/Keras) ────────────────────
+  ENTRA: (1, 30, 252)
+  SALE : 50 probabilidades (softmax; suman 1,0000)
+         top-1: 30 «hola»  p = 0,9020
+         top-2: 45 «¿por qué?»  p = 0,0089
+         top-3: 14 «niño»  p = 0,0051
+         decisión con umbral 0,20 (D-09): aceptada  ✓ coincide con la seña real
+── ETAPA 9 · GrammarMapper → texto para la voz (aquí no se reproduce audio) ────────────────────
+  ENTRA: glosa «hola»   SALE: «Hola»
+── EJEMPLO NUMÉRICO · interpolación lineal con valores reales de esta muestra ──────────────────
+  mano que más se mueve: izquierda (Σ|Δ| muñeca: izq. 9,28, der. 1,13)
+  paso j = 19: posición = 19 × (135 − 1) / 29 = 87,7931 → entre el cuadro 87 y el 88, fracción 0,7931
+  x(muñeca) = x_87 + 0,7931 × (x_88 − x_87) = 0,5576 + 0,7931 × (0,5955 − 0,5576) = 0,5876
+  resample_sequence da 0,5876 (diferencia 2.7e-08)
+  velocidad en ese paso: v_19 = p_19 − p_18 = 0,5876 − 0,7029 = -0,1153
+── VERIFICACIÓN · prototipo LSCTranslator alimentado con los cuadros del video ─────────────────
+  reloj_real     : estado aceptada, «hola» p = 0,8991; entrada (1, 30, 252); |Δ entrada| máx. 0.175; |Δ prob. top-3| máx. 0.00289; misma clase: True; pasos con otra presencia de mano: 0; umbral 0.2 (models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json)
+  reloj_del_video: estado aceptada, «hola» p = 0,9020; entrada (1, 30, 252); |Δ entrada| máx. 0; |Δ prob. top-3| máx. 0; misma clase: True; pasos con otra presencia de mano: 0; umbral 0.2 (models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json)
+
+################################################################################################
+#  MUESTRA 0030_0000_0003
+################################################################################################
+── ETAPA 1 · Video  (data/raw/LSC50/VIDEOS/COLOR_BODY/0030_0000_0003.avi) ──────────────────────
+  ENTRA: archivo .avi (FMP4)
+  SALE : 69 cuadros de 1920x1080 px a 24 cuadros/s (cabecera: 69) → duración 2,875 s
+         seña 30 «hola», señante 0000, repetición 0003
+         partición aleatoria (modelo canónico): test; LOSO: prueba del pliegue 0
+── ETAPA 2 · Extracción de puntos: MediaPipe HolisticLandmarker (D-05) ─────────────────────────
+  ENTRA: 69 cuadros RGB; modelo holistic_landmarker.task (SHA256 e2dab61191e2…), modo VIDEO, CPU,
+         marcas de tiempo round(i·1000/fps); opciones = las del prototipo: True
+  SALE : por cuadro 543 puntos (x, y, z) = postura 33 + rostro 468 + mano izq. 21 + mano der. 21
+         matrices: postura (69, 99), mano izq. (69, 63), mano der. (69, 63), rostro (69, 1404)
+         detección: postura 69/69, mano izq. 65/69, mano der. 64/69, rostro 69/69
+         costo del extractor en esta corrida: media 11,4 ms por cuadro (mediana 11,4)
+         ejemplo, cuadro 34, muñeca de la mano der. (punto 0): x=0,4395 y=0,8356 z=-0,0000 (x, y en fracción del ancho/alto de la imagen)
+  COTEJO: frente a data/extracted/LSC50_holistic/…/0030_0000_0003.csv (corrida del 14-sep): diferencia máxima 0
+── ETAPA 3 · Fila por cuadro (CSV → preprocess_lsc50.load_single_sample) ───────────────────────
+  ENTRA: los 4 CSV de la Etapa 2 (1 fila por cuadro)
+  SALE : matriz (69, 405) = por cuadro postura 99 (0:99) + mano izq. 63 (99:162) + mano der. 63 (162:225) + cejas y labios 180 (225:405)I0000 00:00:1790802286.660990 5494969 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+W0000 00:00:1790802286.686728 5494976 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802286.690048 5494979 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802286.690715 5494974 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802286.690769 5494979 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802286.690773 5494987 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802286.692781 5494985 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802286.692792 5494973 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+I0000 00:00:1790802287.714403 5495065 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+W0000 00:00:1790802287.746275 5495067 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802287.749879 5495074 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802287.750643 5495084 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802287.750662 5495074 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802287.750702 5495081 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802287.752735 5495081 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802287.752740 5495077 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+I0000 00:00:1790802289.161108 5495254 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+W0000 00:00:1790802289.187974 5495259 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802289.191371 5495261 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802289.191900 5495259 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802289.192101 5495264 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802289.192107 5495265 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802289.194080 5495265 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802289.194086 5495270 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+
+         (del rostro solo se conservan 60 puntos; el modelo «manos» no los usa)
+── ETAPA 4 · Regla sin postura, regla «mascara» (D-07) y normalización por hombros ─────────────
+  ENTRA: (69, 405); cuadros sin postura 0, sin mano izq. 4, sin mano der. 5
+  SALE : (69, 405); cada punto → (punto − punto medio de los hombros) / distancia entre hombros;
+         bloques de mano ausente puestos en 0 DESPUÉS de normalizar: 9
+         distancia entre hombros (fracción del ancho de imagen): media 0,1246, mín. 0,1176, máx. 0,1310
+         ejemplo, cuadro 34, muñeca der.: x = (0,4395 − 0,5101) / 0,1179 = -0,5992;  y = (0,8356 − 0,4776) / 0,1179 = 3,0363
+  COTEJO: frente a data/processed_holistic_mascara_rostro/samples/0030_0000_0003.npy (69, 405): diferencia máxima 0
+── ETAPA 5 · Representación «manos» (D-08): solo las dos manos ─────────────────────────────────
+  ENTRA: (69, 405)
+  SALE : (69, 126) = mano izq. 21 puntos × (x, y, z) = 63  +  mano der. 21 × 3 = 63  (columnas 99:225 del processed)
+         orden de columnas: izq. p0x p0y p0z p1x … p20z | der. p0x … p20z
+── ETAPA 6 · Remuestreo temporal a 30 pasos (resample_sequence: interpolación lineal) ──────────
+  ENTRA: (69, 126) (69 cuadros)
+  SALE : (30, 126); el paso j toma la posición j·(T−1)/29 = j·68/29 = j·2,3448 sobre el eje de cuadros
+         posiciones: 0,00, 2,34, 4,69, 7,03, 9,38, 11,72, …, 68,00
+── ETAPA 7 · Velocidades (add_velocity): diferencia entre pasos consecutivos ───────────────────
+  ENTRA: (1, 30, 126)
+  SALE : (1, 30, 252) = 126 de posición + 126 de velocidad (v_j = p_j − p_(j−1); v_0 = 0)
+  COTEJO con el ENTRENADOR (cargar_datos + remuestrear_todas + add_velocity sobre data/processed_holistic_mascara_rostro): forma (1, 30, 252), T guardado 69, diferencia máxima 0
+── ETAPA 8 · Modelo canónico: Conv1D + BiLSTM + atención (TensorFlow/Keras) ────────────────────
+  ENTRA: (1, 30, 252)
+  SALE : 50 probabilidades (softmax; suman 1,0000)
+         top-1: 30 «hola»  p = 0,8762
+         top-2: 45 «¿por qué?»  p = 0,0130
+         top-3: 13 «hombre»  p = 0,0121
+         decisión con umbral 0,20 (D-09): aceptada  ✓ coincide con la seña real
+── ETAPA 9 · GrammarMapper → texto para la voz (aquí no se reproduce audio) ────────────────────
+  ENTRA: glosa «hola»   SALE: «Hola»
+── EJEMPLO NUMÉRICO · interpolación lineal con valores reales de esta muestra ──────────────────
+  mano que más se mueve: izquierda (Σ|Δ| muñeca: izq. 8,52, der. 4,03)
+  paso j = 18: posición = 18 × (69 − 1) / 29 = 42,2069 → entre el cuadro 42 y el 43, fracción 0,2069
+  x(muñeca) = x_42 + 0,2069 × (x_43 − x_42) = 0,6874 + 0,2069 × (0,5688 − 0,6874) = 0,6629
+  resample_sequence da 0,6629 (diferencia 1e-08)
+  velocidad en ese paso: v_18 = p_18 − p_17 = 0,6629 − 0,7484 = -0,0855
+── VERIFICACIÓN · prototipo LSCTranslator alimentado con los cuadros del video ─────────────────
+  reloj_real     : estado aceptada, «hola» p = 0,8012; entrada (1, 30, 252); |Δ entrada| máx. 2.41; |Δ prob. top-3| máx. 0.075; misma clase: True; pasos con otra presencia de mano: 1; umbral 0.2 (models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json)
+  reloj_del_video: estado aceptada, «hola» p = 0,8762; entrada (1, 30, 252); |Δ entrada| máx. 0; |Δ prob. top-3| máx. 0; misma clase: True; pasos con otra presencia de mano: 0; umbral 0.2 (models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json)
+
+################################################################################################
+#  MUESTRA 0033_0000_0001
+################################################################################################
+── ETAPA 1 · Video  (data/raw/LSC50/VIDEOS/COLOR_BODY/0033_0000_0001.avi) ──────────────────────
+  ENTRA: archivo .avi (FMP4)
+  SALE : 53 cuadros de 1920x1080 px a 24 cuadros/s (cabecera: 53) → duración 2,208 s
+         seña 33 «con gusto», señante 0000, repetición 0001
+         partición aleatoria (modelo canónico): val; LOSO: prueba del pliegue 0
+── ETAPA 2 · Extracción de puntos: MediaPipe HolisticLandmarker (D-05) ─────────────────────────
+  ENTRA: 53 cuadros RGB; modelo holistic_landmarker.task (SHA256 e2dab61191e2…), modo VIDEO, CPU,
+         marcas de tiempo round(i·1000/fps); opciones = las del prototipo: True
+  SALE : por cuadro 543 puntos (x, y, z) = postura 33 + rostro 468 + mano izq. 21 + mano der. 21
+         matrices: postura (53, 99), mano izq. (53, 63), mano der. (53, 63), rostro (53, 1404)
+         detección: postura 53/53, mano izq. 51/53, mano der. 49/53, rostro 53/53
+         costo del extractor en esta corrida: media 11,5 ms por cuadro (mediana 11,4)
+         ejemplo, cuadro 26, muñeca de la mano der. (punto 0): x=0,4399 y=0,8316 z=-0,0000 (x, y en fracción del ancho/alto de la imagen)
+  COTEJO: frente a data/extracted/LSC50_holistic/…/0033_0000_0001.csv (corrida del 14-sep): diferencia máxima 0
+── ETAPA 3 · Fila por cuadro (CSV → preprocess_lsc50.load_single_sample) ───────────────────────
+  ENTRA: los 4 CSV de la Etapa 2 (1 fila por cuadro)
+  SALE : matriz (53, 405) = por cuadro postura 99 (0:99) + mano izq. 63 (99:162) + mano der. 63 (162:225) + cejas y labios 180 (225:405)
+         (del rostro solo se conservan 60 puntos; el modelo «manos» no los usa)
+── ETAPA 4 · Regla sin postura, regla «mascara» (D-07) y normalización por hombros ─────────────
+  ENTRA: (53, 405); cuadros sin postura 0, sin mano izq. 2, sin mano der. 4
+  SALE : (53, 405); cada punto → (punto − punto medio de los hombros) / distancia entre hombros;
+         bloques de mano ausente puestos en 0 DESPUÉS de normalizar: 6
+         distancia entre hombros (fracción del ancho de imagen): media 0,1245, mín. 0,1203, máx. 0,1305
+         ejemplo, cuadro 26, muñeca der.: x = (0,4399 − 0,5134) / 0,1233 = -0,5957;  y = (0,8316 − 0,4793) / 0,1233 = 2,8558
+  COTEJO: frente a data/processed_holistic_mascara_rostro/samples/0033_0000_0001.npy (53, 405): diferencia máxima 0
+── ETAPA 5 · Representación «manos» (D-08): solo las dos manos ─────────────────────────────────
+  ENTRA: (53, 405)
+  SALE : (53, 126) = mano izq. 21 puntos × (x, y, z) = 63  +  mano der. 21 × 3 = 63  (columnas 99:225 del processed)
+         orden de columnas: izq. p0x p0y p0z p1x … p20z | der. p0x … p20z
+── ETAPA 6 · Remuestreo temporal a 30 pasos (resample_sequence: interpolación lineal) ──────────
+  ENTRA: (53, 126) (53 cuadros)
+  SALE : (30, 126); el paso j toma la posición j·(T−1)/29 = j·52/29 = j·1,7931 sobre el eje de cuadros
+         posiciones: 0,00, 1,79, 3,59, 5,38, 7,17, 8,97, …, 52,00
+── ETAPA 7 · Velocidades (add_velocity): diferencia entre pasos consecutivos ───────────────────
+  ENTRA: (1, 30, 126)
+  SALE : (1, 30, 252) = 126 de posición + 126 de velocidad (v_j = p_j − p_(j−1); v_0 = 0)
+  COTEJO con el ENTRENADOR (cargar_datos + remuestrear_todas + add_velocity sobre data/processed_holistic_mascara_rostro): forma (1, 30, 252), T guardado 53, diferencia máxima 0
+── ETAPA 8 · Modelo canónico: Conv1D + BiLSTM + atención (TensorFlow/Keras) ────────────────────
+  ENTRA: (1, 30, 252)
+  SALE : 50 probabilidades (softmax; suman 1,0000)
+         top-1: 33 «con gusto»  p = 0,3701
+         top-2: 28 «sentir»  p = 0,3302
+         top-3: 19 «hambre»  p = 0,0196
+         decisión con umbral 0,20 (D-09): aceptada  ✓ coincide con la seña real
+── ETAPA 9 · GrammarMapper → texto para la voz (aquí no se reproduce audio) ────────────────────I0000 00:00:1790802290.509773 5495470 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+W0000 00:00:1790802290.535810 5495472 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802290.539196 5495476 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802290.539892 5495475 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802290.539907 5495488 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802290.539942 5495476 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802290.541832 5495476 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802290.541832 5495478 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+I0000 00:00:1790802291.395024 5495565 gl_context.cc:407] GL version: 2.1 (2.1 Metal - 91.7), renderer: Apple M5 Max
+W0000 00:00:1790802291.429671 5495571 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802291.433820 5495576 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802291.434539 5495567 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802291.434595 5495575 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802291.434633 5495569 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802291.436620 5495570 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790802291.436756 5495581 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+
+  ENTRA: glosa «con gusto»   SALE: «Con gusto»
+── EJEMPLO NUMÉRICO · interpolación lineal con valores reales de esta muestra ──────────────────
+  mano que más se mueve: izquierda (Σ|Δ| muñeca: izq. 5,87, der. 3,10)
+  paso j = 26: posición = 26 × (53 − 1) / 29 = 46,6207 → entre el cuadro 46 y el 47, fracción 0,6207
+  x(muñeca) = x_46 + 0,6207 × (x_47 − x_46) = 0,2597 + 0,6207 × (0,2247 − 0,2597) = 0,2380
+  resample_sequence da 0,2380 (diferencia 6.7e-09)
+  velocidad en ese paso: v_26 = p_26 − p_25 = 0,2380 − 0,2320 = 0,0059
+── VERIFICACIÓN · prototipo LSCTranslator alimentado con los cuadros del video ─────────────────
+  reloj_real     : estado aceptada, «con gusto» p = 0,5648; entrada (1, 30, 252); |Δ entrada| máx. 2.5; |Δ prob. top-3| máx. 0.195; misma clase: True; pasos con otra presencia de mano: 1; umbral 0.2 (models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json)
+  reloj_del_video: estado aceptada, «con gusto» p = 0,3701; entrada (1, 30, 252); |Δ entrada| máx. 0; |Δ prob. top-3| máx. 0; misma clase: True; pasos con otra presencia de mano: 0; umbral 0.2 (models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json)
+── RESUMEN ─────────────────────────────────────────────────────────────────────────────────────
+  0030_0000_0000 «hola» [train]: T = 135 cuadros (5,62 s) → manos (135, 126) → (30, 126) → (1, 30, 252) → «hola» 0,902 (aceptada)
+  0030_0000_0003 «hola» [test]: T = 69 cuadros (2,88 s) → manos (69, 126) → (30, 126) → (1, 30, 252) → «hola» 0,876 (aceptada)
+  0033_0000_0001 «con gusto» [val]: T = 53 cuadros (2,21 s) → manos (53, 126) → (30, 126) → (1, 30, 252) → «con gusto» 0,370 (aceptada)
+── FIGURAS ─────────────────────────────────────────────────────────────────────────────────────
+  esqueleto       docs/diapositivas_workflow/figuras/escritorio_a_esqueleto_0030_0000_0000.pdf
+  trayectoria     docs/diapositivas_workflow/figuras/escritorio_b_interpolacion_0030_0000_0000.pdf
+  matriz          docs/diapositivas_workflow/figuras/escritorio_c_matriz_entrada_0030_0000_0000.pdf
+  probabilidades  docs/diapositivas_workflow/figuras/escritorio_d_probabilidades_0030_0000_0000.pdf
+  duraciones      docs/diapositivas_workflow/figuras/escritorio_e_duraciones.pdf
+  resumen JSON: docs/diapositivas_workflow/figuras/prueba_escritorio.json

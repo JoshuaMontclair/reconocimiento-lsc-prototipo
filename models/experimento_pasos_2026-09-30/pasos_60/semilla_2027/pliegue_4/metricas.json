@@ -1,0 +1,19 @@
+{
+ "corrida": "L60_s2027_pliegue_4",
+ "n_train_original": 697,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "top1": 0.705,
+ "top3": 0.85,
+ "precision_macro": 0.7135238095238096,
+ "recall_macro": 0.705,
+ "f1_macro": 0.661106782106782,
+ "n_errores": 59,
+ "mejor_val_accuracy": 0.9300000071525574,
+ "epocas_ejecutadas": 55,
+ "mejor_epoca": 30,
+ "tiempo_entrenamiento_s": 280.5,
+ "tiempo_total_s": 282.9,
+ "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2027/pliegue_4/modelo.keras"
+}

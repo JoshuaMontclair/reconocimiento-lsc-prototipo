@@ -1,0 +1,29 @@
+{
+ "modelo": "modelo.keras",
+ "representacion": "manos",
+ "bloques": [
+  "mano_izq",
+  "mano_der"
+ ],
+ "n_rasgos_por_paso": 126,
+ "velocidades": "por_coordenada",
+ "n_rasgos_entrada": 132,
+ "seq_length": 30,
+ "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+ "mano_ausente": "mascara",
+ "rostro_del_processed": "cejas_labios",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "landmarks_dir": "data/extracted/LSC50_holistic",
+ "script": "src/experimento_factorial_tcn.py (via experimento_arquitecturas.entrenar_corrida)",
+ "fecha": "2026-10-03T02:01:18",
+ "nota": "modelo del diseno factorial con la TCN (docs/EXPERIMENTO_FACTORIAL_TCN.md). NO es el modelo canonico ni debe cargarse en el prototipo.",
+ "columnas_velocidad": [
+  "v_izq_x_media21",
+  "v_izq_y_media21",
+  "v_izq_z_media21",
+  "v_der_x_media21",
+  "v_der_y_media21",
+  "v_der_z_media21"
+ ],
+ "brazo_factorial_tcn": "T3"
+}

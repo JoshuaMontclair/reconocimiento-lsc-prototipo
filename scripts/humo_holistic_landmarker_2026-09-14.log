@@ -1,0 +1,22 @@
+Prueba de HolisticLandmarker (D-05) · 14-sep-2026 · Apple M5 Max, macOS 26.6.2, Python 3.12, delegado CPU
+Modelo: holistic_landmarker/float16/latest/holistic_landmarker.task · 13.683.609 bytes · SHA256 e2dab61191e2dcd0a15f943d8e3ed1dce13c82dfa597b9dd39f562975a50c3f8
+
+Versiones (wheel macOS arm64 py3.12): holistic_landmarker.py presente en 0.10.14, 0.10.21, 0.10.33, 0.10.35, 1.0.0, 1.0.1; ausente en 0.10.30 y 0.10.32.
+0.10.21: aborta (packet is empty) en 0025_0002_0001 fot. 26 (sin mano izquierda). 1.0.1: aborta en macOS con CPU (Service is unavailable, Metal) y con GPU (TFLGpuDelegateBindMetalBufferToTensor).
+
+===== mediapipe 0.10.35 =====
+mediapipe 0.10.35 | opciones disponibles: ['min_face_detection_confidence', 'min_face_landmarks_confidence', 'min_face_suppression_threshold', 'min_hand_landmarks_confidence', 'min_pose_detection_confidence', 'min_pose_landmarks_confidence', 'min_pose_suppression_threshold']
+campos del resultado: ['face_blendshapes', 'face_landmarks', 'from_ctypes', 'left_hand_landmarks', 'left_hand_world_landmarks', 'pose_landmarks', 'pose_world_landmarks', 'right_hand_landmarks', 'right_hand_world_landmarks', 'segmentation_mask']
+0000_0000_0000: fotogramas 59 | pose 59 | rostro 59 | mano izq 59 | mano der 59
+0025_0002_0001: fotogramas 61 | pose 61 | rostro 61 | mano izq 57 | mano der 61
+0049_0004_0003: fotogramas 78 | pose 78 | rostro 78 | mano izq 74 | mano der 76
+TOTAL: {'n': 198, 'pose': 198, 'face': 198, 'lh': 190, 'rh': 196}
+0000_0000_0000 · muñeca del LEFT_HAND publicado frente a Holistic: |dxy| medio con la mano IZQ de Holistic 0.0013 (n=59) · con la DER 0.1315 (n=59); filas publicadas 59
+puntos por fotograma (pose, rostro, mano izq, mano der): (33, 478, 21, 21)
+ms por fotograma: media 12.4 | mediana 11.9 | p90 14.4 | fot./s 80.5
+LEFT_HAND: dist. mediana a muñeca pose 15 (izq) 0.009 | a 16 (der) 0.068 | n=190 | más cerca de 15: 187
+RIGHT_HAND: dist. mediana a muñeca pose 15 (izq) 0.069 | a 16 (der) 0.007 | n=196 | más cerca de 16: 178
+
+===== mediapipe 1.0.0 (solo primer video, fotograma a fotograma; últimas líneas) =====
+  f058 -> pose 1 rostro 1 izq 1 der 1 | 12 ms | puntos rostro 478
+FIN 0000_0000_0000: 59 fotogramas | pose 59 rostro 59 izq 59 der 59 | media 11.5 ms

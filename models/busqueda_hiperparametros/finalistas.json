@@ -1,0 +1,101 @@
+{
+ "fecha": "2026-10-01T05:26:19",
+ "criterio": "mayor val top-1 media de 5 pliegues (semilla 2026); empate: menor val_loss media; luego menos parametros. No se lee la prueba.",
+ "ranking_validacion": [
+  {
+   "config": "c07",
+   "val_top1_media": 0.9320000052452088,
+   "val_loss_media": 1.0357271194458009,
+   "n_parametros": 389811
+  },
+  {
+   "config": "c17",
+   "val_top1_media": 0.9300000071525574,
+   "val_loss_media": 0.5115062385797501,
+   "n_parametros": 370163
+  },
+  {
+   "config": "c05",
+   "val_top1_media": 0.9299999952316285,
+   "val_loss_media": 1.0152995705604553,
+   "n_parametros": 473139
+  },
+  {
+   "config": "c14",
+   "val_top1_media": 0.9239999890327454,
+   "val_loss_media": 0.38264599442481995,
+   "n_parametros": 389811
+  },
+  {
+   "config": "c04",
+   "val_top1_media": 0.9199999928474426,
+   "val_loss_media": 0.4387230396270752,
+   "n_parametros": 536883
+  },
+  {
+   "config": "c13",
+   "val_top1_media": 0.9159999966621399,
+   "val_loss_media": 1.044854724407196,
+   "n_parametros": 225267
+  },
+  {
+   "config": "c12",
+   "val_top1_media": 0.9160000085830688,
+   "val_loss_media": 1.0753117203712463,
+   "n_parametros": 298611
+  },
+  {
+   "config": "c09",
+   "val_top1_media": 0.9139999985694885,
+   "val_loss_media": 1.0482029438018798,
+   "n_parametros": 338995
+  },
+  {
+   "config": "c20",
+   "val_top1_media": 0.9119999885559082,
+   "val_loss_media": 1.0548465847969055,
+   "n_parametros": 664499
+  },
+  {
+   "config": "c06",
+   "val_top1_media": 0.9100000023841858,
+   "val_loss_media": 0.4921593189239502,
+   "n_parametros": 651891
+  },
+  {
+   "config": "c18",
+   "val_top1_media": 0.9100000023841858,
+   "val_loss_media": 0.5763991117477417,
+   "n_parametros": 745139
+  },
+  {
+   "config": "c03",
+   "val_top1_media": 0.9039999961853027,
+   "val_loss_media": 1.2018959283828736,
+   "n_parametros": 811571
+  },
+  {
+   "config": "c11",
+   "val_top1_media": 0.9019999861717224,
+   "val_loss_media": 1.0998027563095092,
+   "n_parametros": 603315
+  },
+  {
+   "config": "c10",
+   "val_top1_media": 0.8919999957084656,
+   "val_loss_media": 1.1657949447631837,
+   "n_parametros": 550259
+  },
+  {
+   "config": "c16",
+   "val_top1_media": 0.884000015258789,
+   "val_loss_media": 0.7289023160934448,
+   "n_parametros": 193011
+  }
+ ],
+ "finalistas": [
+  "c07",
+  "c17",
+  "c05"
+ ]
+}

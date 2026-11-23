@@ -1,0 +1,617 @@
+{
+ "fecha": "2026-09-30T23:28:10",
+ "metodo": "model.predict(verbose=0) de un lote de 1 como translator.py; 10 llamadas de calentamiento y 50 medidas por modelo; ademas lote de 200 (5 medidas). CPU, sin otros entrenamientos corriendo. Solo la red: sin MediaPipe ni remuestreo.",
+ "entorno": {
+  "fecha": "2026-09-30T23:28:10",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.549333507195115,
+   "ms_lote1_p90": 14.366016097483225,
+   "ms_por_muestra_lote200_mediana": 0.1569295849185437
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.285999997402541,
+   "ms_lote1_p90": 13.388338079676032,
+   "ms_por_muestra_lote200_mediana": 0.15776979504153132
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.166562504717149,
+   "ms_lote1_p90": 12.916882708668709,
+   "ms_por_muestra_lote200_mediana": 0.1567779149627313
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2026/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.479750002967194,
+   "ms_lote1_p90": 13.31814518198371,
+   "ms_por_muestra_lote200_mediana": 0.1585595851065591
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2026/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.013312501949258,
+   "ms_lote1_p90": 12.50147880637087,
+   "ms_por_muestra_lote200_mediana": 0.15600124999764375
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2027/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.140854014432989,
+   "ms_lote1_p90": 12.76916639180854,
+   "ms_por_muestra_lote200_mediana": 0.1619212499645073
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2027/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 11.915958501049317,
+   "ms_lote1_p90": 12.457512482069433,
+   "ms_por_muestra_lote200_mediana": 0.1562543750333134
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2027/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.097812490537763,
+   "ms_lote1_p90": 12.657079502241686,
+   "ms_por_muestra_lote200_mediana": 0.15577041995129548
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2027/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.204250000650063,
+   "ms_lote1_p90": 12.781641696346924,
+   "ms_por_muestra_lote200_mediana": 0.1554233299975749
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2027/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.071437507984228,
+   "ms_lote1_p90": 12.6264951803023,
+   "ms_por_muestra_lote200_mediana": 0.15935333503875881
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2028/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.200875513372011,
+   "ms_lote1_p90": 12.937666900688782,
+   "ms_por_muestra_lote200_mediana": 0.1593906249036081
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2028/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.11579202208668,
+   "ms_lote1_p90": 12.781837515649386,
+   "ms_por_muestra_lote200_mediana": 0.15741875002277084
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2028/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.11733350646682,
+   "ms_lote1_p90": 12.631629200768657,
+   "ms_por_muestra_lote200_mediana": 0.15632062495569699
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2028/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.308833494898863,
+   "ms_lote1_p90": 14.150117192184553,
+   "ms_por_muestra_lote200_mediana": 0.15681499993661419
+  },
+  {
+   "pasos": 15,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_15/semilla_2028/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.105812507797964,
+   "ms_lote1_p90": 12.66892469720915,
+   "ms_por_muestra_lote200_mediana": 0.15663250000216067
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.52474999637343,
+   "ms_lote1_p90": 13.465345810982399,
+   "ms_por_muestra_lote200_mediana": 0.17649833505856805
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.61874999909196,
+   "ms_lote1_p90": 14.555079195997678,
+   "ms_por_muestra_lote200_mediana": 0.18273729001521133
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.352625009953044,
+   "ms_lote1_p90": 12.937111902283505,
+   "ms_por_muestra_lote200_mediana": 0.17982853998546489
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2026/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.272416497580707,
+   "ms_lote1_p90": 12.754412792855874,
+   "ms_por_muestra_lote200_mediana": 0.17526458002976142
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2026/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.425603999872692,
+   "ms_lote1_p90": 13.114166702143848,
+   "ms_por_muestra_lote200_mediana": 0.17773853993276134
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2027/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.317833010456525,
+   "ms_lote1_p90": 12.898199690971524,
+   "ms_por_muestra_lote200_mediana": 0.18254395487019792
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2027/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.284228985663503,
+   "ms_lote1_p90": 12.867241696221754,
+   "ms_por_muestra_lote200_mediana": 0.17963770500500686
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2027/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.284458498470485,
+   "ms_lote1_p90": 12.706421402981505,
+   "ms_por_muestra_lote200_mediana": 0.17631520997383632
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2027/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.275458517251536,
+   "ms_lote1_p90": 13.068346100044437,
+   "ms_por_muestra_lote200_mediana": 0.1769741700263694
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2027/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.30337550805416,
+   "ms_lote1_p90": 14.146537217311561,
+   "ms_por_muestra_lote200_mediana": 0.17687354004010558
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2028/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.320188005105592,
+   "ms_lote1_p90": 12.706457800231874,
+   "ms_por_muestra_lote200_mediana": 0.1777566700184252
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2028/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.350666496786289,
+   "ms_lote1_p90": 12.918083113618195,
+   "ms_por_muestra_lote200_mediana": 0.1745587500045076
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2028/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.213500493089668,
+   "ms_lote1_p90": 12.727246090071276,
+   "ms_por_muestra_lote200_mediana": 0.1780179150227923
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2028/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.50560449261684,
+   "ms_lote1_p90": 13.359295285772532,
+   "ms_por_muestra_lote200_mediana": 0.17586875008419156
+  },
+  {
+   "pasos": 20,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_20/semilla_2028/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.276104505872354,
+   "ms_lote1_p90": 12.915675001568161,
+   "ms_por_muestra_lote200_mediana": 0.176408544939477
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.590771002578549,
+   "ms_lote1_p90": 13.119983286014758,
+   "ms_por_muestra_lote200_mediana": 0.22501187500893138
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.039500481681898,
+   "ms_lote1_p90": 15.368058285093866,
+   "ms_por_muestra_lote200_mediana": 0.21811541490023956
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.933104007970542,
+   "ms_lote1_p90": 13.68427939596586,
+   "ms_por_muestra_lote200_mediana": 0.21692937501939014
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2026/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.845978999393992,
+   "ms_lote1_p90": 13.579841985483654,
+   "ms_por_muestra_lote200_mediana": 0.21594603997073136
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2026/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.766625004587695,
+   "ms_lote1_p90": 13.283761902130209,
+   "ms_por_muestra_lote200_mediana": 0.24182124994695187
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2027/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.99231250595767,
+   "ms_lote1_p90": 13.676842002314515,
+   "ms_por_muestra_lote200_mediana": 0.2144512499216944
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2027/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.948353993124329,
+   "ms_lote1_p90": 13.540924986591563,
+   "ms_por_muestra_lote200_mediana": 0.21847125011845492
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2027/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.803624995285645,
+   "ms_lote1_p90": 13.279174995841458,
+   "ms_por_muestra_lote200_mediana": 0.2197312501084525
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2027/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.768896005582064,
+   "ms_lote1_p90": 13.325879187323153,
+   "ms_por_muestra_lote200_mediana": 0.2161675000388641
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2027/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.91289551591035,
+   "ms_lote1_p90": 13.390546114533208,
+   "ms_por_muestra_lote200_mediana": 0.22757291502784938
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2028/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.340771009097807,
+   "ms_lote1_p90": 16.033262191922404,
+   "ms_por_muestra_lote200_mediana": 0.21323562497855164
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2028/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.768771019182168,
+   "ms_lote1_p90": 13.200566393788904,
+   "ms_por_muestra_lote200_mediana": 0.21516603999771178
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2028/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.799041491234675,
+   "ms_lote1_p90": 13.421667003422044,
+   "ms_por_muestra_lote200_mediana": 0.2175460450234823
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2028/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.925832998007536,
+   "ms_lote1_p90": 13.391774715273641,
+   "ms_por_muestra_lote200_mediana": 0.2171914599603042
+  },
+  {
+   "pasos": 30,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_30/semilla_2028/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.069145497865975,
+   "ms_lote1_p90": 15.62828749010805,
+   "ms_por_muestra_lote200_mediana": 0.21768958002212457
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.485541494446807,
+   "ms_lote1_p90": 13.877053905162029,
+   "ms_por_muestra_lote200_mediana": 0.28119687500293367
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.572395502706058,
+   "ms_lote1_p90": 14.349029085133225,
+   "ms_por_muestra_lote200_mediana": 0.28720374990371056
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.546208007028326,
+   "ms_lote1_p90": 14.214454195462167,
+   "ms_por_muestra_lote200_mediana": 0.30694625005708076
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2026/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 15.425041492562741,
+   "ms_lote1_p90": 16.474246079451405,
+   "ms_por_muestra_lote200_mediana": 0.308493539923802
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2026/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 15.76660449791234,
+   "ms_lote1_p90": 16.36725831485819,
+   "ms_por_muestra_lote200_mediana": 0.3159804148890544
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2027/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 15.30943700345233,
+   "ms_lote1_p90": 16.081641998607665,
+   "ms_por_muestra_lote200_mediana": 0.30162896000547335
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2027/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 15.152124993619509,
+   "ms_lote1_p90": 15.938358000130393,
+   "ms_por_muestra_lote200_mediana": 0.29995167002198286
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2027/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.716312503674999,
+   "ms_lote1_p90": 14.942449997761287,
+   "ms_por_muestra_lote200_mediana": 0.28099708491936326
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2027/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.760041998466477,
+   "ms_lote1_p90": 14.324846112867817,
+   "ms_por_muestra_lote200_mediana": 0.290706039959332
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2027/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.657708492246456,
+   "ms_lote1_p90": 14.173041688627563,
+   "ms_por_muestra_lote200_mediana": 0.2894329150149133
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2028/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 15.617583005223423,
+   "ms_lote1_p90": 16.04432979656849,
+   "ms_por_muestra_lote200_mediana": 0.3118572899256833
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2028/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.080541994189844,
+   "ms_lote1_p90": 15.688266410143115,
+   "ms_por_muestra_lote200_mediana": 0.3054170850373339
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2028/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.78729149675928,
+   "ms_lote1_p90": 15.839508303906769,
+   "ms_por_muestra_lote200_mediana": 0.2826416700554546
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2028/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.776083491393365,
+   "ms_lote1_p90": 14.303937807562761,
+   "ms_por_muestra_lote200_mediana": 0.28585187494172715
+  },
+  {
+   "pasos": 45,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_45/semilla_2028/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 13.752458500675857,
+   "ms_lote1_p90": 14.056666017859243,
+   "ms_por_muestra_lote200_mediana": 0.28369999999995343
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.40752050257288,
+   "ms_lote1_p90": 14.977911897585727,
+   "ms_por_muestra_lote200_mediana": 0.34725541991065256
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.438270503887907,
+   "ms_lote1_p90": 14.820421201875433,
+   "ms_por_muestra_lote200_mediana": 0.342640000017127
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.440458005992696,
+   "ms_lote1_p90": 16.10780831251759,
+   "ms_por_muestra_lote200_mediana": 0.34592145500937477
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2026/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.390104508493096,
+   "ms_lote1_p90": 14.949037789483555,
+   "ms_por_muestra_lote200_mediana": 0.34491270998842083
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2026/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.477687000180595,
+   "ms_lote1_p90": 15.022420804598369,
+   "ms_por_muestra_lote200_mediana": 0.3499454200209584
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2027/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.325562486192212,
+   "ms_lote1_p90": 14.910695888102055,
+   "ms_por_muestra_lote200_mediana": 0.34642333499505185
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2027/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.239604002796113,
+   "ms_lote1_p90": 14.95774517825339,
+   "ms_por_muestra_lote200_mediana": 0.3476550000777934
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2027/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.376457998878323,
+   "ms_lote1_p90": 14.908687517163344,
+   "ms_por_muestra_lote200_mediana": 0.3469945849792566
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2027/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.304416501545347,
+   "ms_lote1_p90": 15.002325008390471,
+   "ms_por_muestra_lote200_mediana": 0.3457731250091456
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2027/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.519083997583948,
+   "ms_lote1_p90": 15.11755358078517,
+   "ms_por_muestra_lote200_mediana": 0.34495458501623943
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2028/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.42354149185121,
+   "ms_lote1_p90": 15.174662179197185,
+   "ms_por_muestra_lote200_mediana": 0.3460352100955788
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2028/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.622270507970825,
+   "ms_lote1_p90": 15.197578797233291,
+   "ms_por_muestra_lote200_mediana": 0.34607624998898245
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2028/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.41037499171216,
+   "ms_lote1_p90": 14.970562190865166,
+   "ms_por_muestra_lote200_mediana": 0.35622249997686595
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2028/pliegue_3/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.510312510537915,
+   "ms_lote1_p90": 15.25387498550117,
+   "ms_por_muestra_lote200_mediana": 0.3455085400491953
+  },
+  {
+   "pasos": 60,
+   "modelo": "models/experimento_pasos_2026-09-30/pasos_60/semilla_2028/pliegue_4/modelo.keras",
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 14.60887498978991,
+   "ms_lote1_p90": 16.328011904261075,
+   "ms_por_muestra_lote200_mediana": 0.3443600000173319
+  }
+ ]
+}

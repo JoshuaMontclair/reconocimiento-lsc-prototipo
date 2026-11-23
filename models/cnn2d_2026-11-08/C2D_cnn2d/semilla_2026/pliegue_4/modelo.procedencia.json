@@ -1,0 +1,23 @@
+{
+ "modelo": "modelo.keras",
+ "representacion": "manos",
+ "bloques": [
+  "mano_izq",
+  "mano_der"
+ ],
+ "n_rasgos_por_paso": 126,
+ "velocidades": "actual",
+ "n_rasgos_entrada": 252,
+ "seq_length": 30,
+ "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+ "mano_ausente": "imputacion (mano_ausente_variantes.regla_imputacion sobre el processed «mascara», antes de remuestrear)",
+ "rostro_del_processed": "cejas_labios",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "landmarks_dir": "data/extracted/LSC50_holistic",
+ "script": "src/experimento_cnn2d.py (via experimento_arquitecturas.entrenar_corrida)",
+ "fecha": "2026-11-08T15:46:17",
+ "nota": "modelo del experimento de cierre CNN 2D (docs/EXPERIMENTO_CNN2D.md). NO es el modelo final (D-14) ni debe cargarse en el prototipo.",
+ "columnas_velocidad": "126 (add_velocity)",
+ "imagen_interna": "30 (tiempo) x 21 (puntos MediaPipe) x 12 canales (x,y,z,vx,vy,vz izq + der)",
+ "brazo_cnn2d": "C2D"
+}

@@ -1,0 +1,21 @@
+{
+ "semilla": 2030,
+ "modelo": "models/canonico_holistic_mascara_manos/semilla_2030/modelo.keras",
+ "n_train_original": 797,
+ "n_train_aumentado": 7970,
+ "n_val": 100,
+ "epocas_ejecutadas": 63,
+ "mejor_epoca": 38,
+ "val_accuracy_checkpoint": 0.9399999976158142,
+ "val_loss_checkpoint": 0.9710932970046997,
+ "metricas_validacion_checkpoint": {
+  "top1": 0.94,
+  "top3": 0.98,
+  "precision_macro": 0.9633333333333333,
+  "recall_macro": 0.94,
+  "f1_macro": 0.9373333333333332
+ },
+ "mejor_val_accuracy_historial": 0.9399999976158142,
+ "tiempo_entrenamiento_s": 255.2,
+ "tiempo_total_s": 256.9
+}

@@ -1,0 +1,270 @@
+{
+ "esquema": "loso_5_pliegues",
+ "particion_loso": "data/partitions/loso_5_pliegues.json",
+ "particion_aleatoria": "data/partitions/aleatoria_80_10_10.json",
+ "configuracion": {
+  "arquitectura": "CNN+BiLSTM+atencion (train_final_100.build_model)",
+  "seq_length": 30,
+  "n_features": 450,
+  "velocidades": true,
+  "epochs_max": 200,
+  "aug": 10,
+  "batch_size": 64,
+  "patience": 25,
+  "dropout": 0.3,
+  "seed_entrenamiento": 2026,
+  "monitor": "val_accuracy",
+  "pliegues_solicitados": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "semilla_particion": 2026
+ },
+ "pliegues": [
+  {
+   "corrida": "pliegue_0",
+   "n_train_original": 720,
+   "n_train_aumentado": 7200,
+   "n_val": 80,
+   "n_test": 200,
+   "top1": 0.415,
+   "top3": 0.605,
+   "precision_macro": 0.4200839107572854,
+   "recall_macro": 0.415,
+   "f1_macro": 0.37380062449627666,
+   "n_errores": 117,
+   "mejor_val_accuracy": 0.949999988079071,
+   "epocas_ejecutadas": 75,
+   "mejor_epoca": 50,
+   "tiempo_entrenamiento_s": 199.1,
+   "tiempo_total_s": 200.9,
+   "modelo": "models/loso/pliegue_0/modelo.keras",
+   "pliegue": 0,
+   "senante_test": "0000"
+  },
+  {
+   "corrida": "pliegue_1",
+   "n_train_original": 720,
+   "n_train_aumentado": 7200,
+   "n_val": 80,
+   "n_test": 200,
+   "top1": 0.525,
+   "top3": 0.745,
+   "precision_macro": 0.5068253968253968,
+   "recall_macro": 0.525,
+   "f1_macro": 0.4673924963924964,
+   "n_errores": 95,
+   "mejor_val_accuracy": 0.949999988079071,
+   "epocas_ejecutadas": 61,
+   "mejor_epoca": 36,
+   "tiempo_entrenamiento_s": 178.6,
+   "tiempo_total_s": 180.5,
+   "modelo": "models/loso/pliegue_1/modelo.keras",
+   "pliegue": 1,
+   "senante_test": "0001"
+  },
+  {
+   "corrida": "pliegue_2",
+   "n_train_original": 720,
+   "n_train_aumentado": 7200,
+   "n_val": 80,
+   "n_test": 200,
+   "top1": 0.57,
+   "top3": 0.76,
+   "precision_macro": 0.5329949494949494,
+   "recall_macro": 0.57,
+   "f1_macro": 0.5187939837939838,
+   "n_errores": 86,
+   "mejor_val_accuracy": 0.9375,
+   "epocas_ejecutadas": 53,
+   "mejor_epoca": 28,
+   "tiempo_entrenamiento_s": 178.3,
+   "tiempo_total_s": 180.2,
+   "modelo": "models/loso/pliegue_2/modelo.keras",
+   "pliegue": 2,
+   "senante_test": "0002"
+  },
+  {
+   "corrida": "pliegue_3",
+   "n_train_original": 720,
+   "n_train_aumentado": 7200,
+   "n_val": 80,
+   "n_test": 200,
+   "top1": 0.48,
+   "top3": 0.685,
+   "precision_macro": 0.5299110563765735,
+   "recall_macro": 0.48,
+   "f1_macro": 0.4666049506049506,
+   "n_errores": 104,
+   "mejor_val_accuracy": 0.9750000238418579,
+   "epocas_ejecutadas": 67,
+   "mejor_epoca": 42,
+   "tiempo_entrenamiento_s": 225.2,
+   "tiempo_total_s": 227.2,
+   "modelo": "models/loso/pliegue_3/modelo.keras",
+   "pliegue": 3,
+   "senante_test": "0003"
+  },
+  {
+   "corrida": "pliegue_4",
+   "n_train_original": 720,
+   "n_train_aumentado": 7200,
+   "n_val": 80,
+   "n_test": 200,
+   "top1": 0.63,
+   "top3": 0.83,
+   "precision_macro": 0.6060388091440723,
+   "recall_macro": 0.63,
+   "f1_macro": 0.5773622271448358,
+   "n_errores": 74,
+   "mejor_val_accuracy": 0.862500011920929,
+   "epocas_ejecutadas": 59,
+   "mejor_epoca": 34,
+   "tiempo_entrenamiento_s": 196.4,
+   "tiempo_total_s": 198.3,
+   "modelo": "models/loso/pliegue_4/modelo.keras",
+   "pliegue": 4,
+   "senante_test": "0004"
+  }
+ ],
+ "agregado": {
+  "top1": {
+   "media": 0.5239999999999999,
+   "desviacion_estandar": 0.08241662453655817,
+   "min": 0.415,
+   "max": 0.63,
+   "valores": [
+    0.415,
+    0.525,
+    0.57,
+    0.48,
+    0.63
+   ]
+  },
+  "top3": {
+   "media": 0.7250000000000001,
+   "desviacion_estandar": 0.08463155439905377,
+   "min": 0.605,
+   "max": 0.83,
+   "valores": [
+    0.605,
+    0.745,
+    0.76,
+    0.685,
+    0.83
+   ]
+  },
+  "precision_macro": {
+   "media": 0.5191708245196555,
+   "desviacion_estandar": 0.06675165134340563,
+   "min": 0.4200839107572854,
+   "max": 0.6060388091440723,
+   "valores": [
+    0.4200839107572854,
+    0.5068253968253968,
+    0.5329949494949494,
+    0.5299110563765735,
+    0.6060388091440723
+   ]
+  },
+  "recall_macro": {
+   "media": 0.5239999999999999,
+   "desviacion_estandar": 0.08241662453655817,
+   "min": 0.415,
+   "max": 0.63,
+   "valores": [
+    0.415,
+    0.525,
+    0.57,
+    0.48,
+    0.63
+   ]
+  },
+  "f1_macro": {
+   "media": 0.48079085648650866,
+   "desviacion_estandar": 0.07516304450358079,
+   "min": 0.37380062449627666,
+   "max": 0.5773622271448358,
+   "valores": [
+    0.37380062449627666,
+    0.4673924963924964,
+    0.5187939837939838,
+    0.4666049506049506,
+    0.5773622271448358
+   ]
+  },
+  "mejor_val_accuracy": {
+   "media": 0.9350000023841858,
+   "desviacion_estandar": 0.04275657687291852,
+   "min": 0.862500011920929,
+   "max": 0.9750000238418579,
+   "valores": [
+    0.949999988079071,
+    0.949999988079071,
+    0.9375,
+    0.9750000238418579,
+    0.862500011920929
+   ]
+  },
+  "epocas_ejecutadas": {
+   "media": 63.0,
+   "desviacion_estandar": 8.366600265340756,
+   "min": 53.0,
+   "max": 75.0,
+   "valores": [
+    75.0,
+    61.0,
+    53.0,
+    67.0,
+    59.0
+   ]
+  },
+  "tiempo_total_s": {
+   "media": 197.42,
+   "desviacion_estandar": 19.251934967685713,
+   "min": 180.2,
+   "max": 227.2,
+   "valores": [
+    200.9,
+    180.5,
+    180.2,
+    227.2,
+    198.3
+   ]
+  },
+  "_nota": "desviacion_estandar es la muestral (ddof=1) sobre los pliegues ejecutados; null si hay un solo pliegue"
+ },
+ "aleatoria_80_10_10": {
+  "corrida": "aleatoria_80_10_10",
+  "n_train_original": 800,
+  "n_train_aumentado": 8000,
+  "n_val": 100,
+  "n_test": 100,
+  "top1": 0.85,
+  "top3": 0.94,
+  "precision_macro": 0.85,
+  "recall_macro": 0.85,
+  "f1_macro": 0.8333333333333333,
+  "n_errores": 15,
+  "mejor_val_accuracy": 0.9700000286102295,
+  "epocas_ejecutadas": 61,
+  "mejor_epoca": 36,
+  "tiempo_entrenamiento_s": 215.8,
+  "tiempo_total_s": 218.0,
+  "modelo": "models/loso/aleatoria_80_10_10/modelo.keras"
+ },
+ "entorno": {
+  "fecha": "2026-09-13T18:51:04",
+  "plataforma": "macOS-26.6.2-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ }
+}

@@ -1,0 +1,335 @@
+{
+  "n_registros": 15,
+  "n_ensayos": 10,
+  "n_turnos": 5,
+  "sesiones": [
+    "2026-09-22T17:01:09",
+    "2026-09-22T17:04:33"
+  ],
+  "modelos": [
+    "models/canonico_holistic_mascara_manos/modelo_canonico.keras"
+  ],
+  "tts_modos": [
+    "offline"
+  ],
+  "sintesis_antes_de_t5": {
+    "con_audio": 3,
+    "si": 3,
+    "no": 0
+  },
+  "tts_ocupado_en_t5": {
+    "con_audio": 3,
+    "si": 0,
+    "no": 3,
+    "sin_dato": 0
+  },
+  "errores_voz": {
+    "total": {
+      "n_ensayos": 10,
+      "informados": 10,
+      "sin_dato": 0,
+      "ensayos_con_errores": 0,
+      "maximo": 0,
+      "ensayos_desde_el_primer_error": 0,
+      "audio_dudoso": 0,
+      "ultimo_mensaje": null,
+      "n_sesiones": 2,
+      "sesiones_con_errores": 0
+    },
+    "por_sesion": [
+      {
+        "sesion": "2026-09-22T17:01:09",
+        "n_ensayos": 7,
+        "informados": 7,
+        "sin_dato": 0,
+        "ensayos_con_errores": 0,
+        "maximo": 0,
+        "primer_error_en_ensayo": null,
+        "ensayos_desde_el_primer_error": 0,
+        "audio_dudoso": 0,
+        "ultimo_mensaje": null
+      },
+      {
+        "sesion": "2026-09-22T17:04:33",
+        "n_ensayos": 3,
+        "informados": 3,
+        "sin_dato": 0,
+        "ensayos_con_errores": 0,
+        "maximo": 0,
+        "primer_error_en_ensayo": null,
+        "ensayos_desde_el_primer_error": 0,
+        "audio_dudoso": 0,
+        "ultimo_mensaje": null
+      }
+    ]
+  },
+  "umbrales": [
+    {
+      "umbral": 0.2,
+      "umbral_origen": "models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json",
+      "n_ensayos": 10,
+      "contadores": {
+        "aceptada": 9,
+        "rechazada_confianza": 1,
+        "rechazada_manos": 0,
+        "rechazada_incompleta": 0
+      },
+      "tasa_rechazo": 0.09999999999999998
+    }
+  ],
+  "contadores": {
+    "aceptada": 9,
+    "rechazada_confianza": 1,
+    "rechazada_manos": 0,
+    "rechazada_incompleta": 0
+  },
+  "tasa_rechazo": 0.09999999999999998,
+  "por_modo": {
+    "aislado": 3,
+    "oracion": 7
+  },
+  "N_fotogramas": {
+    "media": 74.9,
+    "min": 74,
+    "max": 75
+  },
+  "magnitudes_ms": {
+    "captura": {
+      "n": 10,
+      "media_ms": 2484.2209916,
+      "de_ms": 11.454339992470349,
+      "mediana_ms": 2485.683042,
+      "p90_ms": 2493.7808327000002,
+      "min_ms": 2453.38075,
+      "max_ms": 2494.950083
+    },
+    "extraccion": {
+      "n": 10,
+      "media_ms": 12.2463876,
+      "de_ms": 0.24261283808121598,
+      "mediana_ms": 12.2990625,
+      "p90_ms": 12.502279399999999,
+      "min_ms": 11.884875,
+      "max_ms": 12.526916
+    },
+    "preprocesamiento": {
+      "n": 10,
+      "media_ms": 0.48516249999999994,
+      "de_ms": 0.06227219420192469,
+      "mediana_ms": 0.5055835,
+      "p90_ms": 0.5306964,
+      "min_ms": 0.370458,
+      "max_ms": 0.542958
+    },
+    "inferencia": {
+      "n": 10,
+      "media_ms": 21.8984708,
+      "de_ms": 1.4890953279836874,
+      "mediana_ms": 21.720979,
+      "p90_ms": 23.4357577,
+      "min_ms": 19.295167,
+      "max_ms": 23.661583
+    },
+    "conversion": {
+      "n": 3,
+      "media_ms": 0.03847266666666666,
+      "de_ms": 0.00033920544413870105,
+      "mediana_ms": 0.038625,
+      "p90_ms": 0.0386922,
+      "min_ms": 0.038084,
+      "max_ms": 0.038709
+    },
+    "sintesis": {
+      "n": 3,
+      "media_ms": 0.461111,
+      "de_ms": 0.016817549256654494,
+      "mediana_ms": 0.470125,
+      "p90_ms": 0.471225,
+      "min_ms": 0.441708,
+      "max_ms": 0.4715
+    },
+    "W": {
+      "n": 10,
+      "media_ms": 2484.2209916,
+      "de_ms": 11.454339992470349,
+      "mediana_ms": 2485.683042,
+      "p90_ms": 2493.7808327000002,
+      "min_ms": 2453.38075,
+      "max_ms": 2494.950083
+    },
+    "L_total": {
+      "n": 3,
+      "media_ms": 2521.413639,
+      "de_ms": 1.791804054148566,
+      "mediana_ms": 2522.13525,
+      "p90_ms": 2522.61275,
+      "min_ms": 2519.373542,
+      "max_ms": 2522.732125
+    },
+    "L_resp": {
+      "n": 3,
+      "media_ms": 36.383569666666666,
+      "de_ms": 1.1032055982790951,
+      "mediana_ms": 36.804667,
+      "p90_ms": 37.1322998,
+      "min_ms": 35.131834,
+      "max_ms": 37.214208
+    }
+  },
+  "ventanas_inferidas": {
+    "n": 10,
+    "captura": {
+      "n": 10,
+      "media_ms": 2484.2209916,
+      "de_ms": 11.454339992470349,
+      "mediana_ms": 2485.683042,
+      "p90_ms": 2493.7808327000002,
+      "min_ms": 2453.38075,
+      "max_ms": 2494.950083
+    },
+    "W": {
+      "n": 10,
+      "media_ms": 2484.2209916,
+      "de_ms": 11.454339992470349,
+      "mediana_ms": 2485.683042,
+      "p90_ms": 2493.7808327000002,
+      "min_ms": 2453.38075,
+      "max_ms": 2494.950083
+    }
+  },
+  "por_sintesis_antes_de_t5": {
+    "sintesis_incluida": {
+      "n_ensayos_hasta_t5": 3,
+      "sintesis": {
+        "n": 3,
+        "media_ms": 0.461111,
+        "de_ms": 0.016817549256654494,
+        "mediana_ms": 0.470125,
+        "p90_ms": 0.471225,
+        "min_ms": 0.441708,
+        "max_ms": 0.4715
+      },
+      "L_total": {
+        "n": 3,
+        "media_ms": 2521.413639,
+        "de_ms": 1.791804054148566,
+        "mediana_ms": 2522.13525,
+        "p90_ms": 2522.61275,
+        "min_ms": 2519.373542,
+        "max_ms": 2522.732125
+      },
+      "L_resp": {
+        "n": 3,
+        "media_ms": 36.383569666666666,
+        "de_ms": 1.1032055982790951,
+        "mediana_ms": 36.804667,
+        "p90_ms": 37.1322998,
+        "min_ms": 35.131834,
+        "max_ms": 37.214208
+      }
+    },
+    "sintesis_no_incluida": {
+      "n_ensayos_hasta_t5": 0,
+      "tts_sintesis_antes_de_t5_false": 0,
+      "sin_dato_o_sin_audio": 0,
+      "sintesis": null,
+      "L_total": null,
+      "L_resp": null
+    }
+  },
+  "por_sintesis_desde_cache": {
+    "desde_cache": {
+      "n_ensayos_hasta_t5": 3,
+      "sintesis": {
+        "n": 3,
+        "media_ms": 0.461111,
+        "de_ms": 0.016817549256654494,
+        "mediana_ms": 0.470125,
+        "p90_ms": 0.471225,
+        "min_ms": 0.441708,
+        "max_ms": 0.4715
+      },
+      "L_total": {
+        "n": 3,
+        "media_ms": 2521.413639,
+        "de_ms": 1.791804054148566,
+        "mediana_ms": 2522.13525,
+        "p90_ms": 2522.61275,
+        "min_ms": 2519.373542,
+        "max_ms": 2522.732125
+      },
+      "L_resp": {
+        "n": 3,
+        "media_ms": 36.383569666666666,
+        "de_ms": 1.1032055982790951,
+        "mediana_ms": 36.804667,
+        "p90_ms": 37.1322998,
+        "min_ms": 35.131834,
+        "max_ms": 37.214208
+      }
+    },
+    "sintetizada": {
+      "n_ensayos_hasta_t5": 0,
+      "sintesis": null,
+      "L_total": null,
+      "L_resp": null
+    },
+    "sin_dato": {
+      "n_ensayos_hasta_t5": 0,
+      "sintesis": null,
+      "L_total": null,
+      "L_resp": null
+    }
+  },
+  "costo_extractor_por_fotograma_ms": {
+    "n": 749,
+    "media_ms": 12.241451166889187,
+    "de_ms": 0.3233831245577741,
+    "mediana_ms": 12.275667,
+    "p90_ms": 12.540608,
+    "min_ms": 10.175917,
+    "max_ms": 13.172458
+  },
+  "tasa_efectiva_fps": {
+    "n": 10,
+    "media_fps": 30.377657157714186,
+    "de_fps": 0.03528838642121349,
+    "mediana_fps": 30.393450080320967,
+    "p90_fps": 30.403381014890524,
+    "min_fps": 30.30767697810038,
+    "max_fps": 30.40817347376436
+  },
+  "turnos": {
+    "n": 5,
+    "conversion": {
+      "n": 5,
+      "media_ms": 0.0238166,
+      "de_ms": 0.004233142721430497,
+      "mediana_ms": 0.024083,
+      "p90_ms": 0.0273918,
+      "min_ms": 0.017,
+      "max_ms": 0.027625
+    },
+    "sintesis": {
+      "n": 5,
+      "media_ms": 4.807441599999999,
+      "de_ms": 9.593830550805388,
+      "mediana_ms": 0.516167,
+      "p90_ms": 13.400675000000001,
+      "min_ms": 0.500666,
+      "max_ms": 21.969375
+    },
+    "sintesis_incluida": {
+      "n": 5,
+      "media_ms": 4.807441599999999,
+      "de_ms": 9.593830550805388,
+      "mediana_ms": 0.516167,
+      "p90_ms": 13.400675000000001,
+      "min_ms": 0.500666,
+      "max_ms": 21.969375
+    },
+    "sintesis_no_incluida": null,
+    "glosas_por_turno_media": 1.2
+  },
+  "advertencias": []
+}

@@ -1,0 +1,11 @@
+{
+ "umbral": 0.2,
+ "decision": "D-09",
+ "c": 1.0,
+ "seleccionado_con": "validacion de models/loso_2026-09-15_holistic_mascara_manos (5 pliegues, 500 muestras)",
+ "modelo": "modelo_canonico.keras",
+ "sha256_modelo": "55e170fc6935be3c23315f5f503849e27fa8da8252f5e72e1d0366187c826fc1",
+ "script": "src/umbral_confianza.py",
+ "informe": "models/umbral_D09_2026-09-15.json",
+ "fecha": "2026-09-15T11:33:03"
+}

@@ -1,0 +1,25 @@
+{
+ "modelo": "modelo.keras",
+ "representacion": "manos",
+ "bloques": [
+  "mano_izq",
+  "mano_der"
+ ],
+ "n_rasgos_por_paso": 126,
+ "velocidades": "director",
+ "n_rasgos_entrada": 128,
+ "seq_length": 30,
+ "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+ "mano_ausente": "mascara",
+ "rostro_del_processed": "cejas_labios",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "landmarks_dir": "data/extracted/LSC50_holistic",
+ "script": "src/experimento_velocidades_reducidas.py (via train_loso.entrenar_y_evaluar)",
+ "fecha": "2026-10-02T19:36:43",
+ "columnas_velocidad": [
+  "v_izq_media63",
+  "v_der_media63"
+ ],
+ "brazo_experimento_velocidades_reducidas": "B",
+ "nota": "modelo del experimento de velocidades reducidas (docs/EXPERIMENTO_VELOCIDADES_REDUCIDAS.md); NO es el modelo canonico ni debe cargarse en el prototipo"
+}

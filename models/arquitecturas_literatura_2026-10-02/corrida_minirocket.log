@@ -1,0 +1,17 @@
+[2026-10-02T21:52:24] MiniRocket | semillas [2026, 2027, 2028] | pliegues [0, 1, 2, 3, 4] | datos /tmp/trabajo/export | salida models/arquitecturas_literatura_2026-10-02
+  -> M s=2026 k=0: val 0.750 | test top-1 0.170 | alpha 10000 | 9996 rasgos | 97 s ({'transformacion_entrenamiento': 0.8, 'cv_interna_alpha': 90.9, 'ajuste_final': 4.8})
+  -> M s=2026 k=1: val 0.630 | test top-1 0.372 | alpha 3162.28 | 9996 rasgos | 100 s ({'transformacion_entrenamiento': 1.3, 'cv_interna_alpha': 93.2, 'ajuste_final': 5.3})
+  -> M s=2026 k=2: val 0.730 | test top-1 0.495 | alpha 3162.28 | 9996 rasgos | 110 s ({'transformacion_entrenamiento': 1.5, 'cv_interna_alpha': 103.9, 'ajuste_final': 4.1})
+  -> M s=2026 k=3: val 0.720 | test top-1 0.525 | alpha 10000 | 9996 rasgos | 119 s ({'transformacion_entrenamiento': 1.3, 'cv_interna_alpha': 112.2, 'ajuste_final': 5.6})
+  -> M s=2026 k=4: val 0.650 | test top-1 0.595 | alpha 10000 | 9996 rasgos | 104 s ({'transformacion_entrenamiento': 1.0, 'cv_interna_alpha': 96.6, 'ajuste_final': 5.8})
+  -> M s=2027 k=0: val 0.750 | test top-1 0.170 | alpha 3162.28 | 9996 rasgos | 102 s ({'transformacion_entrenamiento': 1.3, 'cv_interna_alpha': 95.5, 'ajuste_final': 5.5})
+  -> M s=2027 k=1: val 0.680 | test top-1 0.377 | alpha 3162.28 | 9996 rasgos | 101 s ({'transformacion_entrenamiento': 1.3, 'cv_interna_alpha': 93.7, 'ajuste_final': 6.0})
+  -> M s=2027 k=2: val 0.700 | test top-1 0.525 | alpha 10000 | 9996 rasgos | 100 s ({'transformacion_entrenamiento': 1.1, 'cv_interna_alpha': 94.8, 'ajuste_final': 4.4})
+  -> M s=2027 k=3: val 0.700 | test top-1 0.495 | alpha 3162.28 | 9996 rasgos | 83 s ({'transformacion_entrenamiento': 0.9, 'cv_interna_alpha': 77.6, 'ajuste_final': 4.6})
+  -> M s=2027 k=4: val 0.690 | test top-1 0.595 | alpha 1000 | 9996 rasgos | 79 s ({'transformacion_entrenamiento': 1.0, 'cv_interna_alpha': 73.7, 'ajuste_final': 4.2})
+  -> M s=2028 k=0: val 0.730 | test top-1 0.175 | alpha 1000 | 9996 rasgos | 83 s ({'transformacion_entrenamiento': 1.1, 'cv_interna_alpha': 77.9, 'ajuste_final': 4.2})
+  -> M s=2028 k=1: val 0.630 | test top-1 0.382 | alpha 3162.28 | 9996 rasgos | 80 s ({'transformacion_entrenamiento': 1.1, 'cv_interna_alpha': 74.5, 'ajuste_final': 4.4})
+  -> M s=2028 k=2: val 0.730 | test top-1 0.480 | alpha 3162.28 | 9996 rasgos | 79 s ({'transformacion_entrenamiento': 1.0, 'cv_interna_alpha': 73.1, 'ajuste_final': 4.6})
+  -> M s=2028 k=3: val 0.670 | test top-1 0.470 | alpha 3162.28 | 9996 rasgos | 82 s ({'transformacion_entrenamiento': 1.0, 'cv_interna_alpha': 76.4, 'ajuste_final': 4.0})
+  -> M s=2028 k=4: val 0.670 | test top-1 0.605 | alpha 3162.28 | 9996 rasgos | 88 s ({'transformacion_entrenamiento': 1.1, 'cv_interna_alpha': 81.1, 'ajuste_final': 6.0})
+[2026-10-02T22:15:53] fin

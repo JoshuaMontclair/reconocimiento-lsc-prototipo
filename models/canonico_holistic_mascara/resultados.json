@@ -1,0 +1,194 @@
+{
+ "script": "src/train_final_100.py",
+ "esquema": "aleatoria_80_10_10",
+ "processed_dir": "data/processed_holistic_mascara",
+ "particion": "data/partitions/aleatoria_80_10_10.json",
+ "semilla_particion": 2026,
+ "configuracion": {
+  "arquitectura": "CNN+BiLSTM+atencion (build_model)",
+  "seq_length": 30,
+  "n_features": 450,
+  "velocidades": true,
+  "epochs_max": 200,
+  "aug": 10,
+  "batch_size": 64,
+  "patience": 25,
+  "dropout": 0.3,
+  "semillas_entrenamiento": [
+   2026,
+   2027,
+   2028,
+   2029,
+   2030
+  ],
+  "monitor": "val_accuracy"
+ },
+ "semillas": [
+  {
+   "semilla": 2026,
+   "modelo": "models/canonico_holistic_mascara/semilla_2026/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 89,
+   "mejor_epoca": 64,
+   "val_accuracy_checkpoint": 0.949999988079071,
+   "val_loss_checkpoint": 0.9096565842628479,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.95,
+    "top3": 0.99,
+    "precision_macro": 0.9666666666666666,
+    "recall_macro": 0.95,
+    "f1_macro": 0.9466666666666668
+   },
+   "mejor_val_accuracy_historial": 0.949999988079071,
+   "tiempo_entrenamiento_s": 293.9,
+   "tiempo_total_s": 296.1
+  },
+  {
+   "semilla": 2027,
+   "modelo": "models/canonico_holistic_mascara/semilla_2027/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 46,
+   "mejor_epoca": 21,
+   "val_accuracy_checkpoint": 0.9300000071525574,
+   "val_loss_checkpoint": 0.9707664251327515,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.93,
+    "top3": 0.98,
+    "precision_macro": 0.94,
+    "recall_macro": 0.93,
+    "f1_macro": 0.9213333333333332
+   },
+   "mejor_val_accuracy_historial": 0.9300000071525574,
+   "tiempo_entrenamiento_s": 170.4,
+   "tiempo_total_s": 172.5
+  },
+  {
+   "semilla": 2028,
+   "modelo": "models/canonico_holistic_mascara/semilla_2028/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 73,
+   "mejor_epoca": 48,
+   "val_accuracy_checkpoint": 0.9399999976158142,
+   "val_loss_checkpoint": 0.9408680200576782,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.94,
+    "top3": 0.97,
+    "precision_macro": 0.96,
+    "recall_macro": 0.94,
+    "f1_macro": 0.9359999999999999
+   },
+   "mejor_val_accuracy_historial": 0.9399999976158142,
+   "tiempo_entrenamiento_s": 323.7,
+   "tiempo_total_s": 326.3
+  },
+  {
+   "semilla": 2029,
+   "modelo": "models/canonico_holistic_mascara/semilla_2029/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 105,
+   "mejor_epoca": 80,
+   "val_accuracy_checkpoint": 0.949999988079071,
+   "val_loss_checkpoint": 0.9370953440666199,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.95,
+    "top3": 0.98,
+    "precision_macro": 0.9666666666666666,
+    "recall_macro": 0.95,
+    "f1_macro": 0.9466666666666668
+   },
+   "mejor_val_accuracy_historial": 0.949999988079071,
+   "tiempo_entrenamiento_s": 440.9,
+   "tiempo_total_s": 443.1
+  },
+  {
+   "semilla": 2030,
+   "modelo": "models/canonico_holistic_mascara/semilla_2030/modelo.keras",
+   "n_train_original": 797,
+   "n_train_aumentado": 7970,
+   "n_val": 100,
+   "epocas_ejecutadas": 74,
+   "mejor_epoca": 49,
+   "val_accuracy_checkpoint": 0.9300000071525574,
+   "val_loss_checkpoint": 1.0065797567367554,
+   "metricas_validacion_checkpoint": {
+    "top1": 0.93,
+    "top3": 0.98,
+    "precision_macro": 0.9499999999999998,
+    "recall_macro": 0.93,
+    "f1_macro": 0.9259999999999999
+   },
+   "mejor_val_accuracy_historial": 0.9300000071525574,
+   "tiempo_entrenamiento_s": 269.2,
+   "tiempo_total_s": 271.4
+  }
+ ],
+ "seleccion": {
+  "criterio": "mayor val_accuracy del checkpoint; empate: menor val_loss; luego orden de las semillas. Sin intervención del conjunto de prueba.",
+  "semilla": 2026,
+  "val_accuracy_checkpoint": 0.949999988079071,
+  "metricas_validacion_checkpoint": {
+   "top1": 0.95,
+   "top3": 0.99,
+   "precision_macro": 0.9666666666666666,
+   "recall_macro": 0.95,
+   "f1_macro": 0.9466666666666668
+  },
+  "modelo": "models/canonico_holistic_mascara/modelo_canonico.keras",
+  "copiado_de": "models/canonico_holistic_mascara/semilla_2026/modelo.keras"
+ },
+ "prueba": {
+  "modelo_seleccionado": {
+   "sistema": "modelo seleccionado (semilla 2026)",
+   "n_test": 100,
+   "top1": 0.93,
+   "top3": 0.98,
+   "precision_macro": 0.95,
+   "recall_macro": 0.93,
+   "f1_macro": 0.9259999999999999,
+   "n_errores": 7,
+   "archivos": {
+    "metricas.json": "models/canonico_holistic_mascara/evaluacion_modelo_seleccionado/metricas.json",
+    "classification_report.json": "models/canonico_holistic_mascara/evaluacion_modelo_seleccionado/classification_report.json",
+    "matriz_confusion.json": "models/canonico_holistic_mascara/evaluacion_modelo_seleccionado/matriz_confusion.json",
+    "matriz_confusion.png": "models/canonico_holistic_mascara/evaluacion_modelo_seleccionado/matriz_confusion.png",
+    "predicciones.json": "models/canonico_holistic_mascara/evaluacion_modelo_seleccionado/predicciones.json"
+   }
+  },
+  "ensemble": {
+   "sistema": "ensemble de 5 semillas (promedio de softmax)",
+   "n_test": 100,
+   "top1": 0.92,
+   "top3": 0.99,
+   "precision_macro": 0.94,
+   "recall_macro": 0.92,
+   "f1_macro": 0.9186666666666667,
+   "n_errores": 8,
+   "archivos": {
+    "metricas.json": "models/canonico_holistic_mascara/evaluacion_ensemble/metricas.json",
+    "classification_report.json": "models/canonico_holistic_mascara/evaluacion_ensemble/classification_report.json",
+    "matriz_confusion.json": "models/canonico_holistic_mascara/evaluacion_ensemble/matriz_confusion.json",
+    "matriz_confusion.png": "models/canonico_holistic_mascara/evaluacion_ensemble/matriz_confusion.png",
+    "predicciones.json": "models/canonico_holistic_mascara/evaluacion_ensemble/predicciones.json"
+   }
+  }
+ },
+ "entorno": {
+  "fecha": "2026-09-14T15:47:14",
+  "plataforma": "macOS-26.6.2-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "gpus_visibles": [],
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0"
+ }
+}

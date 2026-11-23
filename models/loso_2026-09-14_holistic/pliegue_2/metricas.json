@@ -1,0 +1,19 @@
+{
+ "corrida": "pliegue_2",
+ "n_train_original": 699,
+ "n_train_aumentado": 6990,
+ "n_val": 100,
+ "n_test": 198,
+ "top1": 0.4090909090909091,
+ "top3": 0.6161616161616161,
+ "precision_macro": 0.4883888888888889,
+ "recall_macro": 0.4066666666666666,
+ "f1_macro": 0.3977781107781107,
+ "n_errores": 117,
+ "mejor_val_accuracy": 0.8500000238418579,
+ "epocas_ejecutadas": 62,
+ "mejor_epoca": 37,
+ "tiempo_entrenamiento_s": 237.4,
+ "tiempo_total_s": 239.6,
+ "modelo": "models/loso_2026-09-14_holistic/pliegue_2/modelo.keras"
+}

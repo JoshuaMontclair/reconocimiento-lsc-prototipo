@@ -1,0 +1,19 @@
+{
+ "corrida": "par_0000_0004",
+ "n_train_original": 497,
+ "n_train_aumentado": 4970,
+ "n_val": 100,
+ "n_test": 400,
+ "top1": 0.415,
+ "top3": 0.595,
+ "precision_macro": 0.41212043242350144,
+ "recall_macro": 0.415,
+ "f1_macro": 0.3878368993712547,
+ "n_errores": 234,
+ "mejor_val_accuracy": 0.8999999761581421,
+ "epocas_ejecutadas": 35,
+ "mejor_epoca": 10,
+ "tiempo_entrenamiento_s": 70.9,
+ "tiempo_total_s": 72.2,
+ "modelo": "models/umbral_anidado_2026-09-22/par_0000_0004/modelo.keras"
+}

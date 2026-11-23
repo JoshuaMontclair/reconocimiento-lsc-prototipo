@@ -1,0 +1,55 @@
+{
+ "video": "0030_0000_0003",
+ "clase": "hola",
+ "escala_comun_lim_p99_abs_A": 2.6215877532958984,
+ "pasos_mano_izq_en_cero": [
+  10,
+  12
+ ],
+ "pasos_mano_der_en_cero": [],
+ "pasos_contaminados_posicion": {
+  "izq": [
+   10,
+   12
+  ],
+  "der": [
+   19,
+   24,
+   25,
+   28
+  ]
+ },
+ "pasos_velocidad_artificial": {
+  "izq": [
+   10,
+   11,
+   12,
+   13
+  ],
+  "der": [
+   19,
+   20,
+   24,
+   25,
+   26,
+   28,
+   29
+  ]
+ },
+ "max_abs": {
+  "A": 3.4732155799865723,
+  "B": 1.6239241361618042,
+  "C": 3.1098759174346924
+ },
+ "corr_B_izq_con_media_C_izq": 0.9999999999999987,
+ "fraccion_energia_explicada_hola": {
+  "izq": {
+   "B": 0.3521552351916457,
+   "C": 0.9750014461669192
+  },
+  "der": {
+   "B": 0.47482756059932607,
+   "C": 0.9930770799697665
+  }
+ }
+}

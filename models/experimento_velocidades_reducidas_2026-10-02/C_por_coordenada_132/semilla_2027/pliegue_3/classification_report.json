@@ -1,0 +1,315 @@
+{
+ "00_gracias": {
+  "precision": 1.0,
+  "recall": 0.75,
+  "f1-score": 0.8571428571428571,
+  "support": 4.0
+ },
+ "01_buenos días": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "02_buenas tardes": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "03_buenas noches": {
+  "precision": 0.5714285714285714,
+  "recall": 1.0,
+  "f1-score": 0.7272727272727273,
+  "support": 4.0
+ },
+ "04_seña": {
+  "precision": 0.8,
+  "recall": 1.0,
+  "f1-score": 0.8888888888888888,
+  "support": 4.0
+ },
+ "05_nombre": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "06_trabajar": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "07_comer": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "08_vivir": {
+  "precision": 0.25,
+  "recall": 0.5,
+  "f1-score": 0.3333333333333333,
+  "support": 4.0
+ },
+ "09_poco": {
+  "precision": 0.36363636363636365,
+  "recall": 1.0,
+  "f1-score": 0.5333333333333333,
+  "support": 4.0
+ },
+ "10_familia": {
+  "precision": 0.2,
+  "recall": 0.25,
+  "f1-score": 0.2222222222222222,
+  "support": 4.0
+ },
+ "11_personas": {
+  "precision": 0.6,
+  "recall": 0.75,
+  "f1-score": 0.6666666666666666,
+  "support": 4.0
+ },
+ "12_mujer": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "13_hombre": {
+  "precision": 0.5714285714285714,
+  "recall": 1.0,
+  "f1-score": 0.7272727272727273,
+  "support": 4.0
+ },
+ "14_niño": {
+  "precision": 0.42857142857142855,
+  "recall": 0.75,
+  "f1-score": 0.5454545454545454,
+  "support": 4.0
+ },
+ "15_niña": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "16_abuelo": {
+  "precision": 1.0,
+  "recall": 0.25,
+  "f1-score": 0.4,
+  "support": 4.0
+ },
+ "17_tío": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "18_hermano": {
+  "precision": 0.8,
+  "recall": 1.0,
+  "f1-score": 0.8888888888888888,
+  "support": 4.0
+ },
+ "19_hambre": {
+  "precision": 1.0,
+  "recall": 0.75,
+  "f1-score": 0.8571428571428571,
+  "support": 4.0
+ },
+ "20_feliz": {
+  "precision": 1.0,
+  "recall": 0.5,
+  "f1-score": 0.6666666666666666,
+  "support": 4.0
+ },
+ "21_contento": {
+  "precision": 0.4,
+  "recall": 0.5,
+  "f1-score": 0.4444444444444444,
+  "support": 4.0
+ },
+ "22_triste": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "23_aburrido": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "24_bien": {
+  "precision": 0.6666666666666666,
+  "recall": 1.0,
+  "f1-score": 0.8,
+  "support": 4.0
+ },
+ "25_mal": {
+  "precision": 1.0,
+  "recall": 0.75,
+  "f1-score": 0.8571428571428571,
+  "support": 4.0
+ },
+ "26_¿cómo estás?": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "27_más o menos": {
+  "precision": 0.5,
+  "recall": 0.25,
+  "f1-score": 0.3333333333333333,
+  "support": 4.0
+ },
+ "28_sentir": {
+  "precision": 1.0,
+  "recall": 0.25,
+  "f1-score": 0.4,
+  "support": 4.0
+ },
+ "29_juicioso": {
+  "precision": 0.6666666666666666,
+  "recall": 1.0,
+  "f1-score": 0.8,
+  "support": 4.0
+ },
+ "30_hola": {
+  "precision": 1.0,
+  "recall": 0.25,
+  "f1-score": 0.4,
+  "support": 4.0
+ },
+ "31_adiós": {
+  "precision": 0.2857142857142857,
+  "recall": 1.0,
+  "f1-score": 0.4444444444444444,
+  "support": 4.0
+ },
+ "32_por favor": {
+  "precision": 0.8,
+  "recall": 1.0,
+  "f1-score": 0.8888888888888888,
+  "support": 4.0
+ },
+ "33_con gusto": {
+  "precision": 0.8,
+  "recall": 1.0,
+  "f1-score": 0.8888888888888888,
+  "support": 4.0
+ },
+ "34_bienvenido": {
+  "precision": 0.75,
+  "recall": 0.75,
+  "f1-score": 0.75,
+  "support": 4.0
+ },
+ "35_perdón": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "36_permiso": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "37_nunca": {
+  "precision": 0.8,
+  "recall": 1.0,
+  "f1-score": 0.8888888888888888,
+  "support": 4.0
+ },
+ "38_yo": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "39_tú": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "40_ustedes": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "41_¿qué?": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "42_¿cuándo?": {
+  "precision": 0.3333333333333333,
+  "recall": 0.25,
+  "f1-score": 0.2857142857142857,
+  "support": 4.0
+ },
+ "43_¿dónde?": {
+  "precision": 0.75,
+  "recall": 0.75,
+  "f1-score": 0.75,
+  "support": 4.0
+ },
+ "44_¿cómo?": {
+  "precision": 0.5,
+  "recall": 0.75,
+  "f1-score": 0.6,
+  "support": 4.0
+ },
+ "45_¿por qué?": {
+  "precision": 1.0,
+  "recall": 0.25,
+  "f1-score": 0.4,
+  "support": 4.0
+ },
+ "46_¿quién?": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "47_diferente": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1-score": 1.0,
+  "support": 4.0
+ },
+ "48_todos": {
+  "precision": 0.5714285714285714,
+  "recall": 1.0,
+  "f1-score": 0.7272727272727273,
+  "support": 4.0
+ },
+ "49_mucho": {
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1-score": 0.0,
+  "support": 4.0
+ },
+ "accuracy": 0.625,
+ "macro avg": {
+  "precision": 0.6081774891774893,
+  "recall": 0.625,
+  "f1-score": 0.5794660894660896,
+  "support": 200.0
+ },
+ "weighted avg": {
+  "precision": 0.6081774891774893,
+  "recall": 0.625,
+  "f1-score": 0.5794660894660896,
+  "support": 200.0
+ }
+}

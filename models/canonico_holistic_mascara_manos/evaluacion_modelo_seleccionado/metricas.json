@@ -1,0 +1,17 @@
+{
+ "sistema": "modelo seleccionado (semilla 2026)",
+ "n_test": 100,
+ "top1": 0.88,
+ "top3": 0.98,
+ "precision_macro": 0.8966666666666666,
+ "recall_macro": 0.88,
+ "f1_macro": 0.8706666666666666,
+ "n_errores": 12,
+ "archivos": {
+  "metricas.json": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/metricas.json",
+  "classification_report.json": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/classification_report.json",
+  "matriz_confusion.json": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/matriz_confusion.json",
+  "matriz_confusion.png": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/matriz_confusion.png",
+  "predicciones.json": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado/predicciones.json"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "modelo": "modelo_canonico.keras",
+ "representacion": "manos_postura",
+ "bloques": [
+  "postura",
+  "mano_izq",
+  "mano_der"
+ ],
+ "n_rasgos_por_paso": 225,
+ "velocidades": true,
+ "n_rasgos_entrada": 450,
+ "seq_length": 30,
+ "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+ "mano_ausente": "mascara",
+ "rostro_del_processed": "ninguno",
+ "processed_dir": "data/processed_holistic_mascara",
+ "landmarks_dir": "data/extracted/LSC50_holistic",
+ "script": "src/train_final_100.py (procedencia reconstruida el 15-sep-2026 desde resultados.json; el entrenamiento es del 14-sep)",
+ "fecha": "2026-09-15T10:38:22"
+}

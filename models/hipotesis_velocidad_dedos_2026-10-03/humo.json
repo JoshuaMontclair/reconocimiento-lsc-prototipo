@@ -1,0 +1,40 @@
+{
+ "fecha": "2026-10-03T02:35:20",
+ "carpeta": "/tmp/trabajo/humo",
+ "modelos": [
+  {
+   "brazo": "H1",
+   "input_shape": [
+    30,
+    258
+   ],
+   "n_parametros": 157938,
+   "epocas": 3,
+   "val_top1": 0.5,
+   "val_loss": 2.2789971828460693
+  },
+  {
+   "brazo": "H2",
+   "input_shape": [
+    30,
+    252
+   ],
+   "n_parametros": 156402,
+   "epocas": 3,
+   "val_top1": 0.5,
+   "val_loss": 2.2042932510375977
+  },
+  {
+   "brazo": "H3",
+   "input_shape": [
+    30,
+    252
+   ],
+   "n_parametros": 156402,
+   "epocas": 3,
+   "val_top1": 0.41999998688697815,
+   "val_loss": 2.3963844776153564
+  }
+ ],
+ "nota": "prueba de humo (3 epocas, semilla 2026, pliegue 0); sus cifras no se usan"
+}

@@ -1,0 +1,51 @@
+{
+ "fecha": "2026-10-03T01:43:25",
+ "nota": "prueba de humo: semilla 2026, pliegue 0, 3 epocas, en una carpeta temporal; las cifras no se usan",
+ "brazos": {
+  "T3_mascara_132": {
+   "input_shape": [
+    30,
+    132
+   ],
+   "n_parametros": 125682,
+   "mano_ausente": "mascara",
+   "velocidades": "por_coordenada",
+   "n_rasgos_entrada": 132,
+   "brazo": "T3",
+   "regla": "mascara",
+   "forma": "por_coordenada",
+   "val_loss": 2.4039556980133057,
+   "epocas": 3
+  },
+  "T4_pivote_252": {
+   "input_shape": [
+    30,
+    252
+   ],
+   "n_parametros": 156402,
+   "mano_ausente": "pivote (mano_ausente_variantes.regla_pivote sobre el processed «mascara», antes de remuestrear)",
+   "velocidades": "actual",
+   "n_rasgos_entrada": 252,
+   "brazo": "T4",
+   "regla": "pivote",
+   "forma": "actual",
+   "val_loss": 2.2455196380615234,
+   "epocas": 3
+  },
+  "T5_pivote_132": {
+   "input_shape": [
+    30,
+    132
+   ],
+   "n_parametros": 125682,
+   "mano_ausente": "pivote (mano_ausente_variantes.regla_pivote sobre el processed «mascara», antes de remuestrear)",
+   "velocidades": "por_coordenada",
+   "n_rasgos_entrada": 132,
+   "brazo": "T5",
+   "regla": "pivote",
+   "forma": "por_coordenada",
+   "val_loss": 2.305521011352539,
+   "epocas": 3
+  }
+ }
+}

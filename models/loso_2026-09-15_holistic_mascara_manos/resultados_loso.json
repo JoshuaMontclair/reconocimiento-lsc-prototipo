@@ -1,0 +1,272 @@
+{
+ "esquema": "loso_5_pliegues",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "representacion": "manos",
+ "particion_loso": "data/partitions/loso_5_pliegues.json",
+ "particion_aleatoria": "data/partitions/aleatoria_80_10_10.json",
+ "configuracion": {
+  "arquitectura": "CNN+BiLSTM+atencion (train_final_100.build_model)",
+  "seq_length": 30,
+  "n_features": 252,
+  "velocidades": true,
+  "epochs_max": 200,
+  "aug": 10,
+  "batch_size": 64,
+  "patience": 25,
+  "dropout": 0.3,
+  "seed_entrenamiento": 2026,
+  "monitor": "val_accuracy",
+  "pliegues_solicitados": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "semilla_particion": 2026
+ },
+ "pliegues": [
+  {
+   "corrida": "pliegue_0",
+   "n_train_original": 697,
+   "n_train_aumentado": 6970,
+   "n_val": 100,
+   "n_test": 200,
+   "top1": 0.46,
+   "top3": 0.65,
+   "precision_macro": 0.43864912280701757,
+   "recall_macro": 0.46,
+   "f1_macro": 0.4207369804108934,
+   "n_errores": 108,
+   "mejor_val_accuracy": 0.949999988079071,
+   "epocas_ejecutadas": 67,
+   "mejor_epoca": 42,
+   "tiempo_entrenamiento_s": 285.0,
+   "tiempo_total_s": 287.4,
+   "modelo": "models/loso_2026-09-15_holistic_mascara_manos/pliegue_0/modelo.keras",
+   "pliegue": 0,
+   "senante_test": "0000"
+  },
+  {
+   "corrida": "pliegue_1",
+   "n_train_original": 698,
+   "n_train_aumentado": 6980,
+   "n_val": 100,
+   "n_test": 199,
+   "top1": 0.5326633165829145,
+   "top3": 0.7135678391959799,
+   "precision_macro": 0.4924941338854383,
+   "recall_macro": 0.535,
+   "f1_macro": 0.4629133011238274,
+   "n_errores": 93,
+   "mejor_val_accuracy": 0.8999999761581421,
+   "epocas_ejecutadas": 46,
+   "mejor_epoca": 21,
+   "tiempo_entrenamiento_s": 243.3,
+   "tiempo_total_s": 246.2,
+   "modelo": "models/loso_2026-09-15_holistic_mascara_manos/pliegue_1/modelo.keras",
+   "pliegue": 1,
+   "senante_test": "0001"
+  },
+  {
+   "corrida": "pliegue_2",
+   "n_train_original": 699,
+   "n_train_aumentado": 6990,
+   "n_val": 100,
+   "n_test": 198,
+   "top1": 0.6060606060606061,
+   "top3": 0.7878787878787878,
+   "precision_macro": 0.6022142857142857,
+   "recall_macro": 0.61,
+   "f1_macro": 0.5728167388167388,
+   "n_errores": 78,
+   "mejor_val_accuracy": 0.9100000262260437,
+   "epocas_ejecutadas": 42,
+   "mejor_epoca": 17,
+   "tiempo_entrenamiento_s": 227.4,
+   "tiempo_total_s": 230.2,
+   "modelo": "models/loso_2026-09-15_holistic_mascara_manos/pliegue_2/modelo.keras",
+   "pliegue": 2,
+   "senante_test": "0002"
+  },
+  {
+   "corrida": "pliegue_3",
+   "n_train_original": 697,
+   "n_train_aumentado": 6970,
+   "n_val": 100,
+   "n_test": 200,
+   "top1": 0.615,
+   "top3": 0.83,
+   "precision_macro": 0.6045295815295816,
+   "recall_macro": 0.615,
+   "f1_macro": 0.5851647592173908,
+   "n_errores": 77,
+   "mejor_val_accuracy": 0.9599999785423279,
+   "epocas_ejecutadas": 61,
+   "mejor_epoca": 36,
+   "tiempo_entrenamiento_s": 313.4,
+   "tiempo_total_s": 316.1,
+   "modelo": "models/loso_2026-09-15_holistic_mascara_manos/pliegue_3/modelo.keras",
+   "pliegue": 3,
+   "senante_test": "0003"
+  },
+  {
+   "corrida": "pliegue_4",
+   "n_train_original": 697,
+   "n_train_aumentado": 6970,
+   "n_val": 100,
+   "n_test": 200,
+   "top1": 0.685,
+   "top3": 0.87,
+   "precision_macro": 0.6491904761904762,
+   "recall_macro": 0.685,
+   "f1_macro": 0.6454877344877346,
+   "n_errores": 63,
+   "mejor_val_accuracy": 0.9399999976158142,
+   "epocas_ejecutadas": 62,
+   "mejor_epoca": 37,
+   "tiempo_entrenamiento_s": 285.3,
+   "tiempo_total_s": 287.9,
+   "modelo": "models/loso_2026-09-15_holistic_mascara_manos/pliegue_4/modelo.keras",
+   "pliegue": 4,
+   "senante_test": "0004"
+  }
+ ],
+ "agregado": {
+  "top1": {
+   "media": 0.5797447845287041,
+   "desviacion_estandar": 0.08597905429593236,
+   "min": 0.46,
+   "max": 0.685,
+   "valores": [
+    0.46,
+    0.5326633165829145,
+    0.6060606060606061,
+    0.615,
+    0.685
+   ]
+  },
+  "top3": {
+   "media": 0.7702893254149537,
+   "desviacion_estandar": 0.08874657920597107,
+   "min": 0.65,
+   "max": 0.87,
+   "valores": [
+    0.65,
+    0.7135678391959799,
+    0.7878787878787878,
+    0.83,
+    0.87
+   ]
+  },
+  "precision_macro": {
+   "media": 0.5574155200253599,
+   "desviacion_estandar": 0.08799083796671356,
+   "min": 0.43864912280701757,
+   "max": 0.6491904761904762,
+   "valores": [
+    0.43864912280701757,
+    0.4924941338854383,
+    0.6022142857142857,
+    0.6045295815295816,
+    0.6491904761904762
+   ]
+  },
+  "recall_macro": {
+   "media": 0.581,
+   "desviacion_estandar": 0.0859796487548071,
+   "min": 0.46,
+   "max": 0.685,
+   "valores": [
+    0.46,
+    0.535,
+    0.61,
+    0.615,
+    0.685
+   ]
+  },
+  "f1_macro": {
+   "media": 0.537423902811317,
+   "desviacion_estandar": 0.0927055844469406,
+   "min": 0.4207369804108934,
+   "max": 0.6454877344877346,
+   "valores": [
+    0.4207369804108934,
+    0.4629133011238274,
+    0.5728167388167388,
+    0.5851647592173908,
+    0.6454877344877346
+   ]
+  },
+  "mejor_val_accuracy": {
+   "media": 0.9319999933242797,
+   "desviacion_estandar": 0.0258843519476757,
+   "min": 0.8999999761581421,
+   "max": 0.9599999785423279,
+   "valores": [
+    0.949999988079071,
+    0.8999999761581421,
+    0.9100000262260437,
+    0.9599999785423279,
+    0.9399999976158142
+   ]
+  },
+  "epocas_ejecutadas": {
+   "media": 55.6,
+   "desviacion_estandar": 10.922453936730518,
+   "min": 42.0,
+   "max": 67.0,
+   "valores": [
+    67.0,
+    46.0,
+    42.0,
+    61.0,
+    62.0
+   ]
+  },
+  "tiempo_total_s": {
+   "media": 273.56000000000006,
+   "desviacion_estandar": 34.768851002010415,
+   "min": 230.2,
+   "max": 316.1,
+   "valores": [
+    287.4,
+    246.2,
+    230.2,
+    316.1,
+    287.9
+   ]
+  },
+  "_nota": "desviacion_estandar es la muestral (ddof=1) sobre los pliegues ejecutados; null si hay un solo pliegue"
+ },
+ "aleatoria_80_10_10": {
+  "corrida": "aleatoria_80_10_10",
+  "n_train_original": 797,
+  "n_train_aumentado": 7970,
+  "n_val": 100,
+  "n_test": 100,
+  "top1": 0.88,
+  "top3": 0.98,
+  "precision_macro": 0.8966666666666666,
+  "recall_macro": 0.88,
+  "f1_macro": 0.8706666666666666,
+  "n_errores": 12,
+  "mejor_val_accuracy": 0.9599999785423279,
+  "epocas_ejecutadas": 42,
+  "mejor_epoca": 17,
+  "tiempo_entrenamiento_s": 211.6,
+  "tiempo_total_s": 214.2,
+  "modelo": "models/loso_2026-09-15_holistic_mascara_manos/aleatoria_80_10_10/modelo.keras"
+ },
+ "entorno": {
+  "fecha": "2026-09-15T09:58:37",
+  "plataforma": "macOS-26.6.2-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ }
+}

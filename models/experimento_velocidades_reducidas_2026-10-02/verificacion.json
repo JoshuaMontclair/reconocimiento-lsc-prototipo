@@ -1,0 +1,88 @@
+{
+ "fecha": "2026-10-02T19:27:26",
+ "processed": "data/processed_holistic_mascara_rostro",
+ "comprobaciones": [
+  "A = add_velocity exacto",
+  "anchos 252/128/132",
+  "posiciones intactas",
+  "velocidad del paso 1 = 0",
+  "espejo y luego reducir: C = manos intercambiadas y vx negada",
+  "espejo y luego reducir: B = media de la otra mano con x negadas",
+  "aumentacion determinista e independiente del brazo"
+ ],
+ "espejo_max_error": {
+  "C": 0.0,
+  "B": 2.8075679892047845e-07,
+  "B_si_solo_se_intercambiaran_columnas": 1.00433349609375
+ },
+ "energia_explicada": {
+  "mano_izq": {
+   "todos_los_pasos": {
+    "n_pasos": 28440,
+    "fraccion_energia_explicada_B": 0.4674372093634417,
+    "fraccion_energia_explicada_C": 0.9683007537402512,
+    "correlacion_mediana_entre_las_63_columnas": 0.4232116947026611,
+    "correlacion_mediana_dentro_de_cada_eje_21_columnas": {
+     "x": 0.8898121680877792,
+     "y": 0.9736410883460008,
+     "z": 0.9958787822621454
+    },
+    "correlacion_entre_ejes_de_la_media_C": {
+     "x_y": 0.002711841164232357,
+     "x_z": 0.3032926722004105,
+     "y_z": 0.44962030833627337
+    }
+   },
+   "mano_presente_en_t_y_t-1": {
+    "n_pasos": 27345,
+    "fraccion_energia_explicada_B": 0.41550826259723395,
+    "fraccion_energia_explicada_C": 0.9610647940614148,
+    "correlacion_mediana_entre_las_63_columnas": 0.33553597491096443,
+    "correlacion_mediana_dentro_de_cada_eje_21_columnas": {
+     "x": 0.8709713844137754,
+     "y": 0.9679251146983795,
+     "z": 0.9944273351724675
+    },
+    "correlacion_entre_ejes_de_la_media_C": {
+     "x_y": -0.11370538577207047,
+     "x_z": 0.20265270354642503,
+     "y_z": 0.35954717149748866
+    }
+   }
+  },
+  "mano_der": {
+   "todos_los_pasos": {
+    "n_pasos": 28882,
+    "fraccion_energia_explicada_B": 0.42436107419834446,
+    "fraccion_energia_explicada_C": 0.9701496010848811,
+    "correlacion_mediana_entre_las_63_columnas": 0.4210012481066405,
+    "correlacion_mediana_dentro_de_cada_eje_21_columnas": {
+     "x": 0.8659132844255257,
+     "y": 0.9777932592130814,
+     "z": 0.9957965381772658
+    },
+    "correlacion_entre_ejes_de_la_media_C": {
+     "x_y": -0.02899832548909254,
+     "x_z": -0.20945889323437794,
+     "y_z": 0.4496922210980951
+    }
+   },
+   "mano_presente_en_t_y_t-1": {
+    "n_pasos": 28452,
+    "fraccion_energia_explicada_B": 0.4199375000036294,
+    "fraccion_energia_explicada_C": 0.9665734639817416,
+    "correlacion_mediana_entre_las_63_columnas": 0.35851463465158057,
+    "correlacion_mediana_dentro_de_cada_eje_21_columnas": {
+     "x": 0.8563171342442166,
+     "y": 0.9742591443930173,
+     "z": 0.9955337649745443
+    },
+    "correlacion_entre_ejes_de_la_media_C": {
+     "x_y": 0.04418403761637934,
+     "x_z": -0.15781486816806242,
+     "y_z": 0.38576736650152865
+    }
+   }
+  }
+ }
+}

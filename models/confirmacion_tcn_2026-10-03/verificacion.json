@@ -1,0 +1,149 @@
+{
+ "fecha": "2026-10-02T23:58:47",
+ "comprobaciones": [
+  "T0: las 15 corridas de T_tcn tienen CONFIG_T exacta, lr 1e-3, lote 64, label smoothing 0,1, 200 epocas, paciencia 25, aug x10, 30 pasos, processed_holistic_mascara_rostro, manos, mascara, 252 rasgos y 156,402 parametros",
+  "X_seq «mascara» de este script = la de experimento_arquitecturas.preparar, bit a bit (1000, 30, 126)",
+  "X_seq «imputacion» = mano_ausente_variantes.remuestrear_todas_con_regla; difiere de «mascara» en 735 de 1000 videos",
+  "entradas: T0 y T1 usan add_velocity (252); T2 usa velocidades_reducidas «por_coordenada» (132); posiciones intactas",
+  "parametros: {'T0': 156402, 'T1': 156402, 'T2': 125682}",
+  "T0 semilla 2026 pliegue 0 reproducido con este script: predicciones y top-3 identicos, mismas epocas y validacion; max |dif| de probabilidades de prueba 0.00e+00; predicciones.json identico byte a byte: True"
+ ],
+ "t0": [
+  {
+   "semilla": 2026,
+   "pliegue": 0,
+   "val_top1": 0.9800000190734863,
+   "test_top1": 0.495,
+   "epocas": 55
+  },
+  {
+   "semilla": 2026,
+   "pliegue": 1,
+   "val_top1": 0.9200000166893005,
+   "test_top1": 0.6482412060301508,
+   "epocas": 72
+  },
+  {
+   "semilla": 2026,
+   "pliegue": 2,
+   "val_top1": 0.949999988079071,
+   "test_top1": 0.6868686868686869,
+   "epocas": 43
+  },
+  {
+   "semilla": 2026,
+   "pliegue": 3,
+   "val_top1": 0.9700000286102295,
+   "test_top1": 0.74,
+   "epocas": 80
+  },
+  {
+   "semilla": 2026,
+   "pliegue": 4,
+   "val_top1": 0.9200000166893005,
+   "test_top1": 0.715,
+   "epocas": 57
+  },
+  {
+   "semilla": 2027,
+   "pliegue": 0,
+   "val_top1": 0.9599999785423279,
+   "test_top1": 0.425,
+   "epocas": 69
+  },
+  {
+   "semilla": 2027,
+   "pliegue": 1,
+   "val_top1": 0.9300000071525574,
+   "test_top1": 0.5979899497487438,
+   "epocas": 44
+  },
+  {
+   "semilla": 2027,
+   "pliegue": 2,
+   "val_top1": 0.9399999976158142,
+   "test_top1": 0.6868686868686869,
+   "epocas": 48
+  },
+  {
+   "semilla": 2027,
+   "pliegue": 3,
+   "val_top1": 0.9700000286102295,
+   "test_top1": 0.74,
+   "epocas": 44
+  },
+  {
+   "semilla": 2027,
+   "pliegue": 4,
+   "val_top1": 0.9300000071525574,
+   "test_top1": 0.775,
+   "epocas": 57
+  },
+  {
+   "semilla": 2028,
+   "pliegue": 0,
+   "val_top1": 0.949999988079071,
+   "test_top1": 0.475,
+   "epocas": 62
+  },
+  {
+   "semilla": 2028,
+   "pliegue": 1,
+   "val_top1": 0.9700000286102295,
+   "test_top1": 0.6381909547738693,
+   "epocas": 96
+  },
+  {
+   "semilla": 2028,
+   "pliegue": 2,
+   "val_top1": 0.9200000166893005,
+   "test_top1": 0.6161616161616161,
+   "epocas": 40
+  },
+  {
+   "semilla": 2028,
+   "pliegue": 3,
+   "val_top1": 0.9800000190734863,
+   "test_top1": 0.78,
+   "epocas": 62
+  },
+  {
+   "semilla": 2028,
+   "pliegue": 4,
+   "val_top1": 0.9399999976158142,
+   "test_top1": 0.745,
+   "epocas": 40
+  }
+ ],
+ "videos_que_cambian_con_imputacion": 735,
+ "n_parametros": {
+  "T0": 156402,
+  "T1": 156402,
+  "T2": 125682
+ },
+ "reproduccion_T0_s2026_k0": {
+  "predicciones_json_identico_byte_a_byte": true,
+  "predicha_y_top3_identicas": true,
+  "max_dif_prob_predicha": 0.0,
+  "max_dif_probabilidades_test": 0.0,
+  "max_dif_probabilidades_val": 0.0,
+  "historial_identico": true,
+  "epocas": [
+   55,
+   55
+  ],
+  "val_top1": [
+   0.9800000190734863,
+   0.9800000190734863
+  ],
+  "test_top1": [
+   0.495,
+   0.495
+  ],
+  "test_f1_macro": [
+   0.4578218272955115,
+   0.4578218272955115
+  ],
+  "coincide": true
+ }
+}

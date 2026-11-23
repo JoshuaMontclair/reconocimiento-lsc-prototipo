@@ -1,0 +1,1137 @@
+{
+ "script": "docs/diapositivas_workflow/guiones/prueba_escritorio.py",
+ "fecha": "2026-09-30T16:04:53",
+ "modelo": "models/canonico_holistic_mascara_manos/modelo_canonico.keras",
+ "procedencia": {
+  "modelo": "modelo_canonico.keras",
+  "representacion": "manos",
+  "bloques": [
+   "mano_izq",
+   "mano_der"
+  ],
+  "n_rasgos_por_paso": 126,
+  "velocidades": true,
+  "n_rasgos_entrada": 252,
+  "seq_length": 30,
+  "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+  "mano_ausente": "mascara",
+  "rostro_del_processed": "cejas_labios",
+  "processed_dir": "data/processed_holistic_mascara_rostro",
+  "landmarks_dir": "data/extracted/LSC50_holistic",
+  "script": "src/train_final_100.py",
+  "fecha": "2026-09-15T10:55:41"
+ },
+ "umbral": {
+  "umbral": 0.2,
+  "decision": "D-09",
+  "c": 1.0,
+  "seleccionado_con": "validacion de models/loso_2026-09-15_holistic_mascara_manos (5 pliegues, 500 muestras)",
+  "modelo": "modelo_canonico.keras",
+  "sha256_modelo": "55e170fc6935be3c23315f5f503849e27fa8da8252f5e72e1d0366187c826fc1",
+  "script": "src/umbral_confianza.py",
+  "informe": "models/umbral_D09_2026-09-15.json",
+  "fecha": "2026-09-15T11:33:03"
+ },
+ "figuras": {
+  "esqueleto": "docs/diapositivas_workflow/figuras/escritorio_a_esqueleto_0030_0000_0000.pdf",
+  "trayectoria": "docs/diapositivas_workflow/figuras/escritorio_b_interpolacion_0030_0000_0000.pdf",
+  "matriz": "docs/diapositivas_workflow/figuras/escritorio_c_matriz_entrada_0030_0000_0000.pdf",
+  "probabilidades": "docs/diapositivas_workflow/figuras/escritorio_d_probabilidades_0030_0000_0000.pdf",
+  "duraciones": "docs/diapositivas_workflow/figuras/escritorio_e_duraciones.pdf"
+ },
+ "figura_esqueleto": {
+  "cuadro": 90,
+  "mano_ampliada": "izquierda"
+ },
+ "corridas": [
+  {
+   "muestra": "0030_0000_0000",
+   "sena_id": 30,
+   "glosa": "hola",
+   "senante": "0000",
+   "repeticion": "0000",
+   "particion": {
+    "aleatoria": "train",
+    "excluida_duplicado": false,
+    "loso_pliegue_de_prueba": 0
+   },
+   "video": {
+    "fps": 24.0,
+    "fps_valido": true,
+    "ancho": 1920,
+    "alto": 1080,
+    "fotogramas_cabecera": 135,
+    "codec": "FMP4",
+    "cuadros_decodificados": 135,
+    "duracion_s": 5.625
+   },
+   "extraccion": {
+    "task_sha256": "e2dab61191e2dcd0a15f943d8e3ed1dce13c82dfa597b9dd39f562975a50c3f8",
+    "opciones": {
+     "min_face_detection_confidence": 0.5,
+     "min_face_suppression_threshold": 0.5,
+     "min_face_landmarks_confidence": 0.5,
+     "min_pose_detection_confidence": 0.5,
+     "min_pose_suppression_threshold": 0.5,
+     "min_pose_landmarks_confidence": 0.5,
+     "min_hand_landmarks_confidence": 0.5,
+     "output_face_blendshapes": false,
+     "output_segmentation_mask": false
+    },
+    "opciones_iguales_al_prototipo": true,
+    "formas": {
+     "postura": [
+      135,
+      99
+     ],
+     "mano_izq": [
+      135,
+      63
+     ],
+     "mano_der": [
+      135,
+      63
+     ],
+     "rostro": [
+      135,
+      1404
+     ]
+    },
+    "puntos_por_cuadro": 543,
+    "detecciones": {
+     "pose_detectada": 135,
+     "mano_izq_detectada": 134,
+     "mano_der_detectada": 135,
+     "rostro_detectado": 135
+    },
+    "holistic_ms_media": 11.672407407407409,
+    "holistic_ms_mediana": 11.365,
+    "segundos": 1.934331917000236,
+    "dif_max_vs_extraccion_guardada": 0.0
+   },
+   "fila": {
+    "forma": [
+     135,
+     405
+    ],
+    "bloques": [
+     [
+      "postura",
+      0,
+      99
+     ],
+     [
+      "mano_izq",
+      99,
+      162
+     ],
+     [
+      "mano_der",
+      162,
+      225
+     ],
+     [
+      "rostro",
+      225,
+      405
+     ]
+    ]
+   },
+   "normalizacion": {
+    "fotogramas_sin_postura": 0,
+    "fotogramas_sin_mano_izq": 1,
+    "fotogramas_sin_mano_der": 0,
+    "bloques_enmascarados": 1,
+    "escala_hombros_media": 0.1124383807182312,
+    "escala_hombros_min": 0.10565564036369324,
+    "escala_hombros_max": 0.11438877135515213,
+    "ejemplo": {
+     "cuadro": 67,
+     "x_crudo": 0.4522612392902374,
+     "y_crudo": 0.8851789832115173,
+     "ref_x": 0.5246551632881165,
+     "ref_y": 0.5704942941665649,
+     "escala": 0.11389987915754318,
+     "x_norm": -0.6355926394462585,
+     "y_norm": 2.7628185749053955
+    },
+    "dif_max_vs_processed_samples": 0.0
+   },
+   "formas": {
+    "video": [
+     135,
+     1080,
+     1920,
+     3
+    ],
+    "puntos_por_cuadro": [
+     135,
+     543,
+     3
+    ],
+    "fila": [
+     135,
+     405
+    ],
+    "manos": [
+     135,
+     126
+    ],
+    "remuestreo": [
+     30,
+     126
+    ],
+    "entrada_modelo": [
+     1,
+     30,
+     252
+    ]
+   },
+   "entrenador": {
+    "T_guardado": 135,
+    "dif_max": 0.0,
+    "forma": [
+     1,
+     30,
+     252
+    ]
+   },
+   "T": 135,
+   "top3": [
+    {
+     "id": 30,
+     "glosa": "hola",
+     "p": 0.9020166993141174
+    },
+    {
+     "id": 45,
+     "glosa": "¿por qué?",
+     "p": 0.008899491280317307
+    },
+    {
+     "id": 14,
+     "glosa": "niño",
+     "p": 0.005097283516079187
+    }
+   ],
+   "decision": "aceptada",
+   "enunciado": "Hola",
+   "umbral": 0.2,
+   "acierto": true,
+   "rango_real": 1,
+   "ejemplo": {
+    "mano": "izquierda",
+    "movimiento": {
+     "izquierda": 9.275097846984863,
+     "derecha": 1.1335885524749756
+    },
+    "punto": "muñeca (0)",
+    "coordenada": "x normalizada",
+    "columna_en_126": 0,
+    "paso": 19,
+    "T": 135,
+    "posicion": 87.79310344827586,
+    "cuadro_a": 87,
+    "cuadro_b": 88,
+    "fraccion": 0.7931034482758577,
+    "x_a": 0.5575635433197021,
+    "x_b": 0.5954689979553223,
+    "x_interpolado": 0.5876264900996766,
+    "x_resample_sequence": 0.5876265168190002,
+    "dif": 2.6719323642510062e-08,
+    "paso_anterior_x": 0.7029030323028564,
+    "velocidad": -0.1152765154838562
+   },
+   "prototipo": {
+    "reloj_real": {
+     "estado": "aceptada",
+     "clase": "hola",
+     "id_clase": 30,
+     "confianza": 0.8991310596466064,
+     "top3": [
+      {
+       "id": 30,
+       "glosa": "hola",
+       "p": 0.8991310596466064
+      },
+      {
+       "id": 45,
+       "glosa": "¿por qué?",
+       "p": 0.009181912988424301
+      },
+      {
+       "id": 14,
+       "glosa": "niño",
+       "p": 0.0053186616860330105
+      }
+     ],
+     "umbral": 0.2,
+     "umbral_origen": "models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json",
+     "representacion": "manos",
+     "mano_ausente": "mascara",
+     "forma_entrada": [
+      1,
+      30,
+      252
+     ],
+     "dif_max_entrada_vs_corpus": 0.17523419857025146,
+     "dif_max_prob_vs_corpus": 0.0028856396675109863,
+     "misma_clase": true,
+     "pasos_con_presencia_de_mano_distinta": 0,
+     "cuadros_sin_manos_ventana": 0,
+     "extractor_ms_media": 11.679959237037037,
+     "inferencia_ms": 19.573084
+    },
+    "reloj_del_video": {
+     "estado": "aceptada",
+     "clase": "hola",
+     "id_clase": 30,
+     "confianza": 0.9020166993141174,
+     "top3": [
+      {
+       "id": 30,
+       "glosa": "hola",
+       "p": 0.9020166993141174
+      },
+      {
+       "id": 45,
+       "glosa": "¿por qué?",
+       "p": 0.008899491280317307
+      },
+      {
+       "id": 14,
+       "glosa": "niño",
+       "p": 0.005097283516079187
+      }
+     ],
+     "umbral": 0.2,
+     "umbral_origen": "models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json",
+     "representacion": "manos",
+     "mano_ausente": "mascara",
+     "forma_entrada": [
+      1,
+      30,
+      252
+     ],
+     "dif_max_entrada_vs_corpus": 0.0,
+     "dif_max_prob_vs_corpus": 0.0,
+     "misma_clase": true,
+     "pasos_con_presencia_de_mano_distinta": 0,
+     "cuadros_sin_manos_ventana": 0,
+     "extractor_ms_media": 11.535341666666666,
+     "inferencia_ms": 19.333333
+    }
+   },
+   "posiciones_remuestreo": [
+    0.0,
+    4.620689655172414,
+    9.241379310344827,
+    13.862068965517242,
+    18.482758620689655,
+    23.103448275862068,
+    27.724137931034484,
+    32.3448275862069,
+    36.96551724137931,
+    41.58620689655172,
+    46.206896551724135,
+    50.82758620689655,
+    55.44827586206897,
+    60.06896551724138,
+    64.6896551724138,
+    69.3103448275862,
+    73.93103448275862,
+    78.55172413793103,
+    83.17241379310344,
+    87.79310344827586,
+    92.41379310344827,
+    97.03448275862068,
+    101.6551724137931,
+    106.27586206896551,
+    110.89655172413794,
+    115.51724137931035,
+    120.13793103448276,
+    124.75862068965517,
+    129.3793103448276,
+    134.0
+   ],
+   "probabilidades": [
+    0.0006883915630169213,
+    0.0032175248488783836,
+    0.0014811076689511538,
+    0.0014649631921201944,
+    0.0017863957909867167,
+    0.0014060589019209146,
+    0.0011723567731678486,
+    0.002442209515720606,
+    0.0022701893467456102,
+    0.0018649916164577007,
+    0.003269852139055729,
+    0.0007252249633893371,
+    0.001180082093924284,
+    0.004219571128487587,
+    0.005097283516079187,
+    0.0008296894957311451,
+    0.0034964110236614943,
+    0.0018208418041467667,
+    0.0011095856316387653,
+    0.002016706857830286,
+    0.0009628619882278144,
+    0.0025355590041726828,
+    0.001759065198712051,
+    0.0006317713996395469,
+    0.004237382672727108,
+    0.0021531162783503532,
+    0.0006195713067427278,
+    0.0018078852444887161,
+    0.002305156784132123,
+    0.0012684040702879429,
+    0.9020166993141174,
+    0.0019319847924634814,
+    0.00284758023917675,
+    0.0016736022662371397,
+    0.0007116799242794514,
+    0.001436245976947248,
+    0.0025377797428518534,
+    0.0024850694462656975,
+    0.0014773058937862515,
+    0.0007148477016016841,
+    0.0013988211285322905,
+    0.0011899343226104975,
+    0.0006821739370934665,
+    0.0007460226188413799,
+    0.0021397073287516832,
+    0.008899491280317307,
+    0.0020212202798575163,
+    0.0023137079551815987,
+    0.0023401351645588875,
+    0.0005958762485533953
+   ]
+  },
+  {
+   "muestra": "0030_0000_0003",
+   "sena_id": 30,
+   "glosa": "hola",
+   "senante": "0000",
+   "repeticion": "0003",
+   "particion": {
+    "aleatoria": "test",
+    "excluida_duplicado": false,
+    "loso_pliegue_de_prueba": 0
+   },
+   "video": {
+    "fps": 24.0,
+    "fps_valido": true,
+    "ancho": 1920,
+    "alto": 1080,
+    "fotogramas_cabecera": 69,
+    "codec": "FMP4",
+    "cuadros_decodificados": 69,
+    "duracion_s": 2.875
+   },
+   "extraccion": {
+    "task_sha256": "e2dab61191e2dcd0a15f943d8e3ed1dce13c82dfa597b9dd39f562975a50c3f8",
+    "opciones": {
+     "min_face_detection_confidence": 0.5,
+     "min_face_suppression_threshold": 0.5,
+     "min_face_landmarks_confidence": 0.5,
+     "min_pose_detection_confidence": 0.5,
+     "min_pose_suppression_threshold": 0.5,
+     "min_pose_landmarks_confidence": 0.5,
+     "min_hand_landmarks_confidence": 0.5,
+     "output_face_blendshapes": false,
+     "output_segmentation_mask": false
+    },
+    "opciones_iguales_al_prototipo": true,
+    "formas": {
+     "postura": [
+      69,
+      99
+     ],
+     "mano_izq": [
+      69,
+      63
+     ],
+     "mano_der": [
+      69,
+      63
+     ],
+     "rostro": [
+      69,
+      1404
+     ]
+    },
+    "puntos_por_cuadro": 543,
+    "detecciones": {
+     "pose_detectada": 69,
+     "mano_izq_detectada": 65,
+     "mano_der_detectada": 64,
+     "rostro_detectado": 69
+    },
+    "holistic_ms_media": 11.399579710144929,
+    "holistic_ms_mediana": 11.364,
+    "segundos": 1.0432817089895252,
+    "dif_max_vs_extraccion_guardada": 0.0
+   },
+   "fila": {
+    "forma": [
+     69,
+     405
+    ],
+    "bloques": [
+     [
+      "postura",
+      0,
+      99
+     ],
+     [
+      "mano_izq",
+      99,
+      162
+     ],
+     [
+      "mano_der",
+      162,
+      225
+     ],
+     [
+      "rostro",
+      225,
+      405
+     ]
+    ]
+   },
+   "normalizacion": {
+    "fotogramas_sin_postura": 0,
+    "fotogramas_sin_mano_izq": 4,
+    "fotogramas_sin_mano_der": 5,
+    "bloques_enmascarados": 9,
+    "escala_hombros_media": 0.12458288669586182,
+    "escala_hombros_min": 0.117640420794487,
+    "escala_hombros_max": 0.13103972375392914,
+    "ejemplo": {
+     "cuadro": 34,
+     "x_crudo": 0.4394778907299042,
+     "y_crudo": 0.8355768918991089,
+     "ref_x": 0.5101169347763062,
+     "ref_y": 0.4776090979576111,
+     "escala": 0.11789701133966446,
+     "x_norm": -0.5991588830947876,
+     "y_norm": 3.0362753868103027
+    },
+    "dif_max_vs_processed_samples": 0.0
+   },
+   "formas": {
+    "video": [
+     69,
+     1080,
+     1920,
+     3
+    ],
+    "puntos_por_cuadro": [
+     69,
+     543,
+     3
+    ],
+    "fila": [
+     69,
+     405
+    ],
+    "manos": [
+     69,
+     126
+    ],
+    "remuestreo": [
+     30,
+     126
+    ],
+    "entrada_modelo": [
+     1,
+     30,
+     252
+    ]
+   },
+   "entrenador": {
+    "T_guardado": 69,
+    "dif_max": 0.0,
+    "forma": [
+     1,
+     30,
+     252
+    ]
+   },
+   "T": 69,
+   "top3": [
+    {
+     "id": 30,
+     "glosa": "hola",
+     "p": 0.8761957883834839
+    },
+    {
+     "id": 45,
+     "glosa": "¿por qué?",
+     "p": 0.013003797270357609
+    },
+    {
+     "id": 13,
+     "glosa": "hombre",
+     "p": 0.012144285254180431
+    }
+   ],
+   "decision": "aceptada",
+   "enunciado": "Hola",
+   "umbral": 0.2,
+   "acierto": true,
+   "rango_real": 1,
+   "ejemplo": {
+    "mano": "izquierda",
+    "movimiento": {
+     "izquierda": 8.51694107055664,
+     "derecha": 4.030513763427734
+    },
+    "punto": "muñeca (0)",
+    "coordenada": "x normalizada",
+    "columna_en_126": 0,
+    "paso": 18,
+    "T": 69,
+    "posicion": 42.206896551724135,
+    "cuadro_a": 42,
+    "cuadro_b": 43,
+    "fraccion": 0.20689655172413524,
+    "x_a": 0.6873937249183655,
+    "x_b": 0.5688043832778931,
+    "x_interpolado": 0.6628579990617164,
+    "x_resample_sequence": 0.6628580093383789,
+    "dif": 1.0276662520958268e-08,
+    "paso_anterior_x": 0.7483571767807007,
+    "velocidad": -0.08549916744232178
+   },
+   "prototipo": {
+    "reloj_real": {
+     "estado": "aceptada",
+     "clase": "hola",
+     "id_clase": 30,
+     "confianza": 0.8012341856956482,
+     "top3": [
+      {
+       "id": 30,
+       "glosa": "hola",
+       "p": 0.8012341856956482
+      },
+      {
+       "id": 13,
+       "glosa": "hombre",
+       "p": 0.023111606016755104
+      },
+      {
+       "id": 45,
+       "glosa": "¿por qué?",
+       "p": 0.01646311767399311
+      }
+     ],
+     "umbral": 0.2,
+     "umbral_origen": "models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json",
+     "representacion": "manos",
+     "mano_ausente": "mascara",
+     "forma_entrada": [
+      1,
+      30,
+      252
+     ],
+     "dif_max_entrada_vs_corpus": 2.4134585857391357,
+     "dif_max_prob_vs_corpus": 0.0749616026878357,
+     "misma_clase": true,
+     "pasos_con_presencia_de_mano_distinta": 1,
+     "cuadros_sin_manos_ventana": 1,
+     "extractor_ms_media": 11.605620144927537,
+     "inferencia_ms": 19.85275
+    },
+    "reloj_del_video": {
+     "estado": "aceptada",
+     "clase": "hola",
+     "id_clase": 30,
+     "confianza": 0.8761957883834839,
+     "top3": [
+      {
+       "id": 30,
+       "glosa": "hola",
+       "p": 0.8761957883834839
+      },
+      {
+       "id": 45,
+       "glosa": "¿por qué?",
+       "p": 0.013003797270357609
+      },
+      {
+       "id": 13,
+       "glosa": "hombre",
+       "p": 0.012144285254180431
+      }
+     ],
+     "umbral": 0.2,
+     "umbral_origen": "models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json",
+     "representacion": "manos",
+     "mano_ausente": "mascara",
+     "forma_entrada": [
+      1,
+      30,
+      252
+     ],
+     "dif_max_entrada_vs_corpus": 0.0,
+     "dif_max_prob_vs_corpus": 0.0,
+     "misma_clase": true,
+     "pasos_con_presencia_de_mano_distinta": 0,
+     "cuadros_sin_manos_ventana": 0,
+     "extractor_ms_media": 11.673582072463768,
+     "inferencia_ms": 19.395417
+    }
+   },
+   "posiciones_remuestreo": [
+    0.0,
+    2.3448275862068964,
+    4.689655172413793,
+    7.034482758620689,
+    9.379310344827585,
+    11.724137931034482,
+    14.068965517241377,
+    16.413793103448274,
+    18.75862068965517,
+    21.103448275862068,
+    23.448275862068964,
+    25.79310344827586,
+    28.137931034482754,
+    30.48275862068965,
+    32.82758620689655,
+    35.172413793103445,
+    37.51724137931034,
+    39.86206896551724,
+    42.206896551724135,
+    44.55172413793103,
+    46.89655172413793,
+    49.241379310344826,
+    51.58620689655172,
+    53.93103448275862,
+    56.27586206896551,
+    58.620689655172406,
+    60.9655172413793,
+    63.3103448275862,
+    65.6551724137931,
+    68.0
+   ],
+   "probabilidades": [
+    0.0009561479091644287,
+    0.003338809125125408,
+    0.0016367462230846286,
+    0.0018177347956225276,
+    0.0024226445239037275,
+    0.0013535777106881142,
+    0.0015417956747114658,
+    0.0035238831769675016,
+    0.0018382928101345897,
+    0.0020457443315535784,
+    0.0039845178835093975,
+    0.0010299842106178403,
+    0.001683547510765493,
+    0.012144285254180431,
+    0.004840416368097067,
+    0.0013765793992206454,
+    0.0028416533023118973,
+    0.002263097558170557,
+    0.0013429204700514674,
+    0.0025056798476725817,
+    0.0009834065567702055,
+    0.0019585643894970417,
+    0.0018831765046343207,
+    0.0007838591700419784,
+    0.0036141301970928907,
+    0.0018146871589124203,
+    0.0007377424626611173,
+    0.0025669492315500975,
+    0.0032566809095442295,
+    0.0016247400781139731,
+    0.8761957883834839,
+    0.002409017877653241,
+    0.0031790274661034346,
+    0.0018252137815579772,
+    0.0008546055178157985,
+    0.0014465657295659184,
+    0.003375937230885029,
+    0.0026648135390132666,
+    0.0020161448046565056,
+    0.0007043556543067098,
+    0.0011396390618756413,
+    0.002170918509364128,
+    0.00109585071913898,
+    0.0012099811574444175,
+    0.00294465571641922,
+    0.013003797270357609,
+    0.0030647562816739082,
+    0.002922140061855316,
+    0.003415138926357031,
+    0.0006495348061434925
+   ]
+  },
+  {
+   "muestra": "0033_0000_0001",
+   "sena_id": 33,
+   "glosa": "con gusto",
+   "senante": "0000",
+   "repeticion": "0001",
+   "particion": {
+    "aleatoria": "val",
+    "excluida_duplicado": false,
+    "loso_pliegue_de_prueba": 0
+   },
+   "video": {
+    "fps": 24.0,
+    "fps_valido": true,
+    "ancho": 1920,
+    "alto": 1080,
+    "fotogramas_cabecera": 53,
+    "codec": "FMP4",
+    "cuadros_decodificados": 53,
+    "duracion_s": 2.2083333333333335
+   },
+   "extraccion": {
+    "task_sha256": "e2dab61191e2dcd0a15f943d8e3ed1dce13c82dfa597b9dd39f562975a50c3f8",
+    "opciones": {
+     "min_face_detection_confidence": 0.5,
+     "min_face_suppression_threshold": 0.5,
+     "min_face_landmarks_confidence": 0.5,
+     "min_pose_detection_confidence": 0.5,
+     "min_pose_suppression_threshold": 0.5,
+     "min_pose_landmarks_confidence": 0.5,
+     "min_hand_landmarks_confidence": 0.5,
+     "output_face_blendshapes": false,
+     "output_segmentation_mask": false
+    },
+    "opciones_iguales_al_prototipo": true,
+    "formas": {
+     "postura": [
+      53,
+      99
+     ],
+     "mano_izq": [
+      53,
+      63
+     ],
+     "mano_der": [
+      53,
+      63
+     ],
+     "rostro": [
+      53,
+      1404
+     ]
+    },
+    "puntos_por_cuadro": 543,
+    "detecciones": {
+     "pose_detectada": 53,
+     "mano_izq_detectada": 51,
+     "mano_der_detectada": 49,
+     "rostro_detectado": 53
+    },
+    "holistic_ms_media": 11.476226415094338,
+    "holistic_ms_mediana": 11.426,
+    "segundos": 0.89710891598952,
+    "dif_max_vs_extraccion_guardada": 0.0
+   },
+   "fila": {
+    "forma": [
+     53,
+     405
+    ],
+    "bloques": [
+     [
+      "postura",
+      0,
+      99
+     ],
+     [
+      "mano_izq",
+      99,
+      162
+     ],
+     [
+      "mano_der",
+      162,
+      225
+     ],
+     [
+      "rostro",
+      225,
+      405
+     ]
+    ]
+   },
+   "normalizacion": {
+    "fotogramas_sin_postura": 0,
+    "fotogramas_sin_mano_izq": 2,
+    "fotogramas_sin_mano_der": 4,
+    "bloques_enmascarados": 6,
+    "escala_hombros_media": 0.12447143346071243,
+    "escala_hombros_min": 0.12031282484531403,
+    "escala_hombros_max": 0.13049252331256866,
+    "ejemplo": {
+     "cuadro": 26,
+     "x_crudo": 0.43991902470588684,
+     "y_crudo": 0.8316001296043396,
+     "ref_x": 0.5134027004241943,
+     "ref_y": 0.4793417453765869,
+     "escala": 0.12334957718849182,
+     "x_norm": -0.5957351326942444,
+     "y_norm": 2.8557729721069336
+    },
+    "dif_max_vs_processed_samples": 0.0
+   },
+   "formas": {
+    "video": [
+     53,
+     1080,
+     1920,
+     3
+    ],
+    "puntos_por_cuadro": [
+     53,
+     543,
+     3
+    ],
+    "fila": [
+     53,
+     405
+    ],
+    "manos": [
+     53,
+     126
+    ],
+    "remuestreo": [
+     30,
+     126
+    ],
+    "entrada_modelo": [
+     1,
+     30,
+     252
+    ]
+   },
+   "entrenador": {
+    "T_guardado": 53,
+    "dif_max": 0.0,
+    "forma": [
+     1,
+     30,
+     252
+    ]
+   },
+   "T": 53,
+   "top3": [
+    {
+     "id": 33,
+     "glosa": "con gusto",
+     "p": 0.370083212852478
+    },
+    {
+     "id": 28,
+     "glosa": "sentir",
+     "p": 0.33024507761001587
+    },
+    {
+     "id": 19,
+     "glosa": "hambre",
+     "p": 0.01961737684905529
+    }
+   ],
+   "decision": "aceptada",
+   "enunciado": "Con gusto",
+   "umbral": 0.2,
+   "acierto": true,
+   "rango_real": 1,
+   "ejemplo": {
+    "mano": "izquierda",
+    "movimiento": {
+     "izquierda": 5.8695268630981445,
+     "derecha": 3.103450059890747
+    },
+    "punto": "muñeca (0)",
+    "coordenada": "x normalizada",
+    "columna_en_126": 0,
+    "paso": 26,
+    "T": 53,
+    "posicion": 46.62068965517241,
+    "cuadro_a": 46,
+    "cuadro_b": 47,
+    "fraccion": 0.6206896551724128,
+    "x_a": 0.25974005460739136,
+    "x_b": 0.22467820346355438,
+    "x_interpolado": 0.2379775263112167,
+    "x_resample_sequence": 0.2379775196313858,
+    "dif": 6.6798309106275156e-09,
+    "paso_anterior_x": 0.23204663395881653,
+    "velocidad": 0.005930885672569275
+   },
+   "prototipo": {
+    "reloj_real": {
+     "estado": "aceptada",
+     "clase": "con gusto",
+     "id_clase": 33,
+     "confianza": 0.5648115873336792,
+     "top3": [
+      {
+       "id": 33,
+       "glosa": "con gusto",
+       "p": 0.5648115873336792
+      },
+      {
+       "id": 28,
+       "glosa": "sentir",
+       "p": 0.17140480875968933
+      },
+      {
+       "id": 19,
+       "glosa": "hambre",
+       "p": 0.01221228577196598
+      }
+     ],
+     "umbral": 0.2,
+     "umbral_origen": "models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json",
+     "representacion": "manos",
+     "mano_ausente": "mascara",
+     "forma_entrada": [
+      1,
+      30,
+      252
+     ],
+     "dif_max_entrada_vs_corpus": 2.4968864917755127,
+     "dif_max_prob_vs_corpus": 0.19472837448120117,
+     "misma_clase": true,
+     "pasos_con_presencia_de_mano_distinta": 1,
+     "cuadros_sin_manos_ventana": 0,
+     "extractor_ms_media": 11.587025264150943,
+     "inferencia_ms": 19.677834
+    },
+    "reloj_del_video": {
+     "estado": "aceptada",
+     "clase": "con gusto",
+     "id_clase": 33,
+     "confianza": 0.370083212852478,
+     "top3": [
+      {
+       "id": 33,
+       "glosa": "con gusto",
+       "p": 0.370083212852478
+      },
+      {
+       "id": 28,
+       "glosa": "sentir",
+       "p": 0.33024507761001587
+      },
+      {
+       "id": 19,
+       "glosa": "hambre",
+       "p": 0.01961737684905529
+      }
+     ],
+     "umbral": 0.2,
+     "umbral_origen": "models/canonico_holistic_mascara_manos/modelo_canonico.umbral.json",
+     "representacion": "manos",
+     "mano_ausente": "mascara",
+     "forma_entrada": [
+      1,
+      30,
+      252
+     ],
+     "dif_max_entrada_vs_corpus": 0.0,
+     "dif_max_prob_vs_corpus": 0.0,
+     "misma_clase": true,
+     "pasos_con_presencia_de_mano_distinta": 0,
+     "cuadros_sin_manos_ventana": 0,
+     "extractor_ms_media": 11.647666622641509,
+     "inferencia_ms": 19.619041
+    }
+   },
+   "posiciones_remuestreo": [
+    0.0,
+    1.793103448275862,
+    3.586206896551724,
+    5.379310344827586,
+    7.172413793103448,
+    8.96551724137931,
+    10.758620689655173,
+    12.551724137931036,
+    14.344827586206897,
+    16.137931034482758,
+    17.93103448275862,
+    19.724137931034484,
+    21.517241379310345,
+    23.310344827586206,
+    25.10344827586207,
+    26.896551724137932,
+    28.689655172413794,
+    30.482758620689655,
+    32.275862068965516,
+    34.06896551724138,
+    35.86206896551724,
+    37.6551724137931,
+    39.44827586206897,
+    41.241379310344826,
+    43.03448275862069,
+    44.827586206896555,
+    46.62068965517241,
+    48.41379310344828,
+    50.20689655172414,
+    52.0
+   ],
+   "probabilidades": [
+    0.0037999185733497143,
+    0.006973309442400932,
+    0.005565241910517216,
+    0.003993576392531395,
+    0.004085869994014502,
+    0.007430861704051495,
+    0.003464810084551573,
+    0.003466903930529952,
+    0.006811917759478092,
+    0.007161518093198538,
+    0.0052832625806331635,
+    0.0019567012786865234,
+    0.007757927756756544,
+    0.0056659565307199955,
+    0.010003562085330486,
+    0.009928137063980103,
+    0.005502356681972742,
+    0.007002091035246849,
+    0.0052461810410022736,
+    0.01961737684905529,
+    0.005627007689327002,
+    0.009314335882663727,
+    0.005219123791903257,
+    0.0029826813843101263,
+    0.006666642148047686,
+    0.006085424218326807,
+    0.008653219789266586,
+    0.0032880520448088646,
+    0.33024507761001587,
+    0.00884139072149992,
+    0.0057958392426371574,
+    0.004485228098928928,
+    0.008776260539889336,
+    0.370083212852478,
+    0.002765038749203086,
+    0.004357652738690376,
+    0.010207143612205982,
+    0.006670671049505472,
+    0.00853456649929285,
+    0.0039716665633022785,
+    0.0021001992281526327,
+    0.007103197276592255,
+    0.007713089231401682,
+    0.00807024072855711,
+    0.008326512761414051,
+    0.004349349066615105,
+    0.002165786223486066,
+    0.005219567101448774,
+    0.004930449184030294,
+    0.006733920890837908
+   ]
+  }
+ ]
+}

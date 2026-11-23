@@ -1,0 +1,10 @@
+{
+  "all_accuracies": {
+    "neural_ensemble": 0.97,
+    "best_knn": 0.62,
+    "smart_override": 0.93
+  },
+  "best_method": "neural_ensemble",
+  "best_accuracy": 0.97,
+  "n_models": 30
+}

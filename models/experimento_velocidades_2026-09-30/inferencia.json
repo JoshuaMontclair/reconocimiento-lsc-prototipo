@@ -1,0 +1,427 @@
+{
+ "fecha": "2026-10-01T01:41:51",
+ "metodo": "model.predict(verbose=0) de un lote de 1 como translator.py; 20 llamadas de calentamiento y 100 medidas por modelo; ademas lote de 200 (5 medidas). CPU, sin otros entrenamientos corriendo. Solo la red: sin MediaPipe ni remuestreo.",
+ "entorno": {
+  "fecha": "2026-10-01T01:41:51",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.287583493161947,
+   "ms_lote1_p90": 12.682679208228365,
+   "ms_por_muestra_lote200_mediana": 0.2131599999847822
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.25979148875922,
+   "ms_lote1_p90": 12.610254198079929,
+   "ms_por_muestra_lote200_mediana": 0.21711812500143424
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.681853986578062,
+   "ms_lote1_p90": 13.187274694791995,
+   "ms_por_muestra_lote200_mediana": 0.2163231250597164
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2026/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.21408300625626,
+   "ms_lote1_p90": 12.695295512094162,
+   "ms_por_muestra_lote200_mediana": 0.20963395509170368
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2026/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.185541505459696,
+   "ms_lote1_p90": 13.280566706089303,
+   "ms_por_muestra_lote200_mediana": 0.20910083010676317
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2027/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.268541497178376,
+   "ms_lote1_p90": 12.995299405883998,
+   "ms_por_muestra_lote200_mediana": 0.20932853993144818
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2027/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.424042011843994,
+   "ms_lote1_p90": 13.29437919484917,
+   "ms_por_muestra_lote200_mediana": 0.2124133351026103
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2027/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.241708507644944,
+   "ms_lote1_p90": 12.668062502052635,
+   "ms_por_muestra_lote200_mediana": 0.20851395500358194
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2027/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.267271013115533,
+   "ms_lote1_p90": 13.267270903452301,
+   "ms_por_muestra_lote200_mediana": 0.21144375001313165
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2027/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.270208491827361,
+   "ms_lote1_p90": 12.722521394607611,
+   "ms_por_muestra_lote200_mediana": 0.21716249990276992
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2028/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.267604004591703,
+   "ms_lote1_p90": 12.635429098736495,
+   "ms_por_muestra_lote200_mediana": 0.2083964600751642
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2028/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.32514598814305,
+   "ms_lote1_p90": 13.186799999675713,
+   "ms_por_muestra_lote200_mediana": 0.2082218749274034
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2028/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.370374985039234,
+   "ms_lote1_p90": 13.18269551557023,
+   "ms_por_muestra_lote200_mediana": 0.2090714601217769
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2028/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.444146006600931,
+   "ms_lote1_p90": 13.198937207926065,
+   "ms_por_muestra_lote200_mediana": 0.21104229002958164
+  },
+  {
+   "brazo": "A",
+   "modelo": "models/experimento_velocidades_2026-09-30/A_con_velocidades/semilla_2028/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "ms_lote1_mediana": 12.325645497185178,
+   "ms_lote1_p90": 12.952049385057762,
+   "ms_por_muestra_lote200_mediana": 0.21510042002773844
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.3093959846301,
+   "ms_lote1_p90": 12.706121188239194,
+   "ms_por_muestra_lote200_mediana": 0.20881541509879753
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.38997899054084,
+   "ms_lote1_p90": 12.952374707674608,
+   "ms_por_muestra_lote200_mediana": 0.20586667000316083
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.348813004791737,
+   "ms_lote1_p90": 12.704483306151815,
+   "ms_por_muestra_lote200_mediana": 0.20476896010222845
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2026/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.444291496649384,
+   "ms_lote1_p90": 12.798966909758747,
+   "ms_por_muestra_lote200_mediana": 0.2124135399935767
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2026/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.398291990393773,
+   "ms_lote1_p90": 12.745900615118444,
+   "ms_por_muestra_lote200_mediana": 0.20394729494000785
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2027/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.365396003588103,
+   "ms_lote1_p90": 12.725620795390569,
+   "ms_por_muestra_lote200_mediana": 0.20696374995168298
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2027/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.440687511116266,
+   "ms_lote1_p90": 13.190554498578422,
+   "ms_por_muestra_lote200_mediana": 0.2069633299834095
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2027/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.581583490828052,
+   "ms_lote1_p90": 13.27341219293885,
+   "ms_por_muestra_lote200_mediana": 0.2113545850443188
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2027/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.452374503482133,
+   "ms_lote1_p90": 13.137520221062005,
+   "ms_por_muestra_lote200_mediana": 0.21032729011494666
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2027/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.403832995914854,
+   "ms_lote1_p90": 13.113908999366686,
+   "ms_por_muestra_lote200_mediana": 0.20835916497162543
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2028/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.796104492736049,
+   "ms_lote1_p90": 13.663191616069525,
+   "ms_por_muestra_lote200_mediana": 0.20954624997102655
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2028/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.399458486470394,
+   "ms_lote1_p90": 12.867850012844428,
+   "ms_por_muestra_lote200_mediana": 0.20525020503555425
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2028/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.39239600545261,
+   "ms_lote1_p90": 12.819000289891846,
+   "ms_por_muestra_lote200_mediana": 0.2066245800233446
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2028/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.413791992003098,
+   "ms_lote1_p90": 13.11109189700801,
+   "ms_por_muestra_lote200_mediana": 0.20545228995615616
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2028/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.495146002038382,
+   "ms_lote1_p90": 12.92575060215313,
+   "ms_por_muestra_lote200_mediana": 0.2078810399689246
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.438978999853134,
+   "ms_lote1_p90": 12.830692293937318,
+   "ms_por_muestra_lote200_mediana": 0.20610271007171832
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.488937994930893,
+   "ms_lote1_p90": 12.945361877791584,
+   "ms_por_muestra_lote200_mediana": 0.20660208494518884
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.439166981494054,
+   "ms_lote1_p90": 13.021533301798627,
+   "ms_por_muestra_lote200_mediana": 0.20581729506375268
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2026/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.44810399657581,
+   "ms_lote1_p90": 12.954678595997393,
+   "ms_por_muestra_lote200_mediana": 0.2080397900135722
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2026/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.519375013653189,
+   "ms_lote1_p90": 12.99652500601951,
+   "ms_por_muestra_lote200_mediana": 0.20567625004332513
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2027/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.45364650094416,
+   "ms_lote1_p90": 12.797396114910953,
+   "ms_por_muestra_lote200_mediana": 0.21345957997255027
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2027/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.47129199327901,
+   "ms_lote1_p90": 12.797383315046318,
+   "ms_por_muestra_lote200_mediana": 0.20634104002965614
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2027/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.413937511155382,
+   "ms_lote1_p90": 12.763591893599369,
+   "ms_por_muestra_lote200_mediana": 0.20468708491534926
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2027/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.458145487471484,
+   "ms_lote1_p90": 12.77201309276279,
+   "ms_por_muestra_lote200_mediana": 0.2069233350630384
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2027/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.507895997259766,
+   "ms_lote1_p90": 13.178916880860925,
+   "ms_por_muestra_lote200_mediana": 0.20589333507814445
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2028/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.472062502638437,
+   "ms_lote1_p90": 12.960303903673777,
+   "ms_por_muestra_lote200_mediana": 0.206251460040221
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2028/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.56406249012798,
+   "ms_lote1_p90": 12.923042313195765,
+   "ms_por_muestra_lote200_mediana": 0.20795416494365782
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2028/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.49625050695613,
+   "ms_lote1_p90": 12.879308685660362,
+   "ms_por_muestra_lote200_mediana": 0.20711437507998198
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2028/pliegue_3/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.491186993429437,
+   "ms_lote1_p90": 12.893561908276752,
+   "ms_por_muestra_lote200_mediana": 0.20591708496795036
+  },
+  {
+   "brazo": "C",
+   "modelo": "models/experimento_velocidades_2026-09-30/C_solo_velocidades/semilla_2028/pliegue_4/modelo.keras",
+   "n_rasgos_entrada": 126,
+   "n_parametros": 665907,
+   "ms_lote1_mediana": 12.668771014432423,
+   "ms_lote1_p90": 13.392103905789554,
+   "ms_por_muestra_lote200_mediana": 0.21046353998826817
+  }
+ ],
+ "ms_construir_entrada_mediana": {
+  "A": 0.0024590117391198874,
+  "B": 4.100729711353779e-05,
+  "C": 0.0026659981813281775
+ }
+}

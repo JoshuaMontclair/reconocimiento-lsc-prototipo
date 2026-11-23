@@ -1,0 +1,38 @@
+{
+  "model": "CNN+BiLSTM+Attention",
+  "split_seed": 0,
+  "n_models": 5,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1024
+  ],
+  "seq_length": 30,
+  "n_features": 450,
+  "n_classes": 50,
+  "augmentation": "10x",
+  "velocity_features": true,
+  "individual_accuracies": [
+    0.93,
+    0.93,
+    0.94,
+    0.96,
+    0.91
+  ],
+  "ensemble_accuracy": 0.96,
+  "ensemble_tta_accuracy": 0.96,
+  "best_method": "Ensemble",
+  "best_accuracy": 0.96,
+  "f1_macro": 0.9586666666666668,
+  "f1_weighted": 0.9586666666666668,
+  "test_accuracy": 0.96,
+  "model_paths": [
+    "G:\\My Drive\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\final_0.keras",
+    "G:\\My Drive\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\final_1.keras",
+    "G:\\My Drive\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\final_2.keras",
+    "G:\\My Drive\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\final_3.keras",
+    "G:\\My Drive\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\final_4.keras"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+ "fecha": "2026-10-02T21:51",
+ "lugar": "carpeta temporal (no en models/)",
+ "pliegue": 0,
+ "semilla": 2026,
+ "corridas": [
+  {
+   "brazo": "R1",
+   "epochs_max": 3,
+   "epocas_ejecutadas": 3,
+   "val_top1": 0.5099999904632568,
+   "test_top1": 0.215,
+   "n_parametros": 389811,
+   "s_por_epoca": 1.79,
+   "tiempo_total_s": 6.6,
+   "alpha": null
+  },
+  {
+   "brazo": "T",
+   "epochs_max": 3,
+   "epocas_ejecutadas": 3,
+   "val_top1": 0.46000000834465027,
+   "test_top1": 0.24,
+   "n_parametros": 156402,
+   "s_por_epoca": 1.51,
+   "tiempo_total_s": 5.8,
+   "alpha": null
+  },
+  {
+   "brazo": "G",
+   "epochs_max": 3,
+   "epocas_ejecutadas": 3,
+   "val_top1": 0.28999999165534973,
+   "test_top1": 0.11,
+   "n_parametros": 97858,
+   "s_por_epoca": 6.26,
+   "tiempo_total_s": 20.1,
+   "alpha": null
+  },
+  {
+   "brazo": "M",
+   "epochs_max": null,
+   "epocas_ejecutadas": null,
+   "val_top1": 0.75,
+   "test_top1": 0.17,
+   "n_parametros": 519842,
+   "s_por_epoca": null,
+   "tiempo_total_s": 35.2,
+   "alpha": 10000.0
+  }
+ ],
+ "comprobaciones": [
+  "ridge espectral = sklearn RidgeClassifier (3 alphas)",
+  "modelos .keras guardados y recargados (G con ConvGrafo)",
+  "latencia de M medible"
+ ],
+ "nota": "R1, T y G con 3 epocas (solo prueba de codigo); M con la configuracion completa (su resultado se vio antes del criterio; la configuracion no se cambio)"
+}

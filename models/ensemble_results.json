@@ -1,0 +1,28 @@
+{
+  "n_models": 5,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1024
+  ],
+  "individual_accuracies": [
+    0.93,
+    0.96,
+    0.91,
+    0.93,
+    0.93
+  ],
+  "ensemble_accuracy": 0.94,
+  "ensemble_tta_accuracy": 0.96,
+  "best_method": "Ensemble+TTA",
+  "best_accuracy": 0.96,
+  "model_paths": [
+    "G:\\Mi unidad\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\ensemble_0.keras",
+    "G:\\Mi unidad\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\ensemble_1.keras",
+    "G:\\Mi unidad\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\ensemble_2.keras",
+    "G:\\Mi unidad\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\ensemble_3.keras",
+    "G:\\Mi unidad\\Javeriana\\8vo Semestre\\Tesis\\Tesis\\models\\ensemble_4.keras"
+  ]
+}

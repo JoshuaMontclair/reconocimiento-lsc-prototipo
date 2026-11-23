@@ -1,0 +1,19 @@
+{
+ "corrida": "B_s2027_pliegue_4",
+ "n_train_original": 697,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "top1": 0.695,
+ "top3": 0.855,
+ "precision_macro": 0.6441139971139971,
+ "recall_macro": 0.695,
+ "f1_macro": 0.6364043734043733,
+ "n_errores": 61,
+ "mejor_val_accuracy": 0.9200000166893005,
+ "epocas_ejecutadas": 92,
+ "mejor_epoca": 67,
+ "tiempo_entrenamiento_s": 264.8,
+ "tiempo_total_s": 266.5,
+ "modelo": "models/experimento_velocidades_2026-09-30/B_sin_velocidades/semilla_2027/pliegue_4/modelo.keras"
+}

@@ -1,0 +1,169 @@
+{
+ "fecha": "2026-10-03T01:35:09",
+ "metodo": "model.predict(verbose=0) con lote de 1, como translator.py, y llamada directa model(x, training=False); 10 llamadas de calentamiento y 100 medidas por modelo; mediana y p90. Solo la red (sin MediaPipe ni remuestreo). CPU. Modelos de la semilla 2026.",
+ "procesos_de_entrenamiento_activos_al_inicio": [],
+ "procesos_de_entrenamiento_activos_al_final": [],
+ "entorno": {
+  "fecha": "2026-10-03T01:35:09",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.3,
+   "ms_predict_lote1_mediana": 13.446707976981997,
+   "ms_predict_lote1_p90": 14.354054816067219,
+   "ms_llamada_directa_mediana": 61.237208487000316,
+   "ms_llamada_directa_p90": 63.37353341514245
+  },
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.3,
+   "ms_predict_lote1_mediana": 13.244438014226034,
+   "ms_predict_lote1_p90": 13.564816978760064,
+   "ms_llamada_directa_mediana": 61.2707499822136,
+   "ms_llamada_directa_p90": 61.753979534842074
+  },
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.3,
+   "ms_predict_lote1_mediana": 13.27043745550327,
+   "ms_predict_lote1_p90": 13.62088689347729,
+   "ms_llamada_directa_mediana": 61.42235451261513,
+   "ms_llamada_directa_p90": 62.152575311483815
+  },
+  {
+   "brazo": "T",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.74,
+   "ms_predict_lote1_mediana": 11.710166989360005,
+   "ms_predict_lote1_p90": 12.098233099095523,
+   "ms_llamada_directa_mediana": 7.309875509236008,
+   "ms_llamada_directa_p90": 7.489728910150006
+  },
+  {
+   "brazo": "T",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.74,
+   "ms_predict_lote1_mediana": 11.6749165172223,
+   "ms_predict_lote1_p90": 12.057374382857233,
+   "ms_llamada_directa_mediana": 7.271750015206635,
+   "ms_llamada_directa_p90": 7.450462528504431
+  },
+  {
+   "brazo": "T",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.74,
+   "ms_predict_lote1_mediana": 11.636333976639435,
+   "ms_predict_lote1_p90": 12.044883298221976,
+   "ms_llamada_directa_mediana": 7.24793752306141,
+   "ms_llamada_directa_p90": 7.38229617709294
+  },
+  {
+   "brazo": "X",
+   "modelo": "models/arquitecturas_2_2026-10-03/X_transformer/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 187890,
+   "tamano_archivo_mb": 0.83,
+   "ms_predict_lote1_mediana": 11.9045419851318,
+   "ms_predict_lote1_p90": 12.403050012653694,
+   "ms_llamada_directa_mediana": 7.612624991452321,
+   "ms_llamada_directa_p90": 7.8625122027006
+  },
+  {
+   "brazo": "X",
+   "modelo": "models/arquitecturas_2_2026-10-03/X_transformer/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 187890,
+   "tamano_archivo_mb": 0.83,
+   "ms_predict_lote1_mediana": 11.822478496469557,
+   "ms_predict_lote1_p90": 12.201578787062317,
+   "ms_llamada_directa_mediana": 7.589020999148488,
+   "ms_llamada_directa_p90": 7.771358068566769
+  },
+  {
+   "brazo": "X",
+   "modelo": "models/arquitecturas_2_2026-10-03/X_transformer/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 187890,
+   "tamano_archivo_mb": 0.83,
+   "ms_predict_lote1_mediana": 11.829771508928388,
+   "ms_predict_lote1_p90": 12.251788104185836,
+   "ms_llamada_directa_mediana": 7.586520980112255,
+   "ms_llamada_directa_p90": 7.7861961151938885
+  },
+  {
+   "brazo": "I",
+   "modelo": "models/arquitecturas_2_2026-10-03/I_resnet1d/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 315954,
+   "tamano_archivo_mb": 1.34,
+   "ms_predict_lote1_mediana": 11.72770804259926,
+   "ms_predict_lote1_p90": 12.063712801318616,
+   "ms_llamada_directa_mediana": 7.076562469592318,
+   "ms_llamada_directa_p90": 7.233817043015733
+  },
+  {
+   "brazo": "I",
+   "modelo": "models/arquitecturas_2_2026-10-03/I_resnet1d/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 315954,
+   "tamano_archivo_mb": 1.34,
+   "ms_predict_lote1_mediana": 11.629104003077373,
+   "ms_predict_lote1_p90": 11.977087805280462,
+   "ms_llamada_directa_mediana": 7.043791993055493,
+   "ms_llamada_directa_p90": 7.253638072870672
+  },
+  {
+   "brazo": "I",
+   "modelo": "models/arquitecturas_2_2026-10-03/I_resnet1d/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 315954,
+   "tamano_archivo_mb": 1.34,
+   "ms_predict_lote1_mediana": 11.649874999420717,
+   "ms_predict_lote1_p90": 12.04930390813388,
+   "ms_llamada_directa_mediana": 7.069562008837238,
+   "ms_llamada_directa_p90": 7.270883407909423
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/arquitecturas_2_2026-10-03/B_bigru/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 341171,
+   "tamano_archivo_mb": 1.38,
+   "ms_predict_lote1_mediana": 12.759958510287106,
+   "ms_predict_lote1_p90": 13.16213367972523,
+   "ms_llamada_directa_mediana": 41.93429197766818,
+   "ms_llamada_directa_p90": 42.309075297089294
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/arquitecturas_2_2026-10-03/B_bigru/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 341171,
+   "tamano_archivo_mb": 1.38,
+   "ms_predict_lote1_mediana": 12.686687521636486,
+   "ms_predict_lote1_p90": 13.947070483118296,
+   "ms_llamada_directa_mediana": 41.646770492661744,
+   "ms_llamada_directa_p90": 44.815821218071505
+  },
+  {
+   "brazo": "B",
+   "modelo": "models/arquitecturas_2_2026-10-03/B_bigru/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 341171,
+   "tamano_archivo_mb": 1.38,
+   "ms_predict_lote1_mediana": 12.583937466843054,
+   "ms_predict_lote1_p90": 13.121116673573852,
+   "ms_llamada_directa_mediana": 41.56418750062585,
+   "ms_llamada_directa_p90": 42.15687120449729
+  }
+ ]
+}

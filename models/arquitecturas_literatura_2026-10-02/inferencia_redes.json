@@ -1,0 +1,138 @@
+{
+ "fecha": "2026-10-02T23:46:08",
+ "metodo": "model.predict(verbose=0) con lote de 1, como translator.py, y llamada directa model(x, training=False); 10 llamadas de calentamiento y 100 medidas por modelo; mediana y p90. Solo la red (sin MediaPipe ni remuestreo). CPU. Modelos de la semilla 2026.",
+ "procesos_de_entrenamiento_activos": [],
+ "entorno": {
+  "fecha": "2026-10-02T23:46:08",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.3,
+   "ms_predict_lote1_mediana": 14.004062482854351,
+   "ms_predict_lote1_p90": 14.650487463222817,
+   "ms_llamada_directa_mediana": 61.984291998669505,
+   "ms_llamada_directa_p90": 63.2326077669859
+  },
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.3,
+   "ms_predict_lote1_mediana": 13.845770998159423,
+   "ms_predict_lote1_p90": 14.648020605091006,
+   "ms_llamada_directa_mediana": 62.255166471004486,
+   "ms_llamada_directa_p90": 64.34102150378749
+  },
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.3,
+   "ms_predict_lote1_mediana": 14.028270496055484,
+   "ms_predict_lote1_p90": 15.501896082423627,
+   "ms_llamada_directa_mediana": 62.75679200189188,
+   "ms_llamada_directa_p90": 68.83942091371864
+  },
+  {
+   "brazo": "R1",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/R1_c07/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 389811,
+   "tamano_archivo_mb": 1.56,
+   "ms_predict_lote1_mediana": 13.278020516736433,
+   "ms_predict_lote1_p90": 14.581366698257625,
+   "ms_llamada_directa_mediana": 33.0099789716769,
+   "ms_llamada_directa_p90": 36.04395450092853
+  },
+  {
+   "brazo": "R1",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/R1_c07/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 389811,
+   "tamano_archivo_mb": 1.56,
+   "ms_predict_lote1_mediana": 13.306249980814755,
+   "ms_predict_lote1_p90": 13.926957704825327,
+   "ms_llamada_directa_mediana": 33.09431200614199,
+   "ms_llamada_directa_p90": 34.670670522609726
+  },
+  {
+   "brazo": "R1",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/R1_c07/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 389811,
+   "tamano_archivo_mb": 1.56,
+   "ms_predict_lote1_mediana": 13.296937482664362,
+   "ms_predict_lote1_p90": 14.168920792872088,
+   "ms_llamada_directa_mediana": 33.131833508377895,
+   "ms_llamada_directa_p90": 34.72258271067403
+  },
+  {
+   "brazo": "T",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.74,
+   "ms_predict_lote1_mediana": 12.41287449374795,
+   "ms_predict_lote1_p90": 13.254491129191594,
+   "ms_llamada_directa_mediana": 7.651562511455268,
+   "ms_llamada_directa_p90": 8.005528571084142
+  },
+  {
+   "brazo": "T",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.74,
+   "ms_predict_lote1_mediana": 12.307229015277699,
+   "ms_predict_lote1_p90": 13.09698722907342,
+   "ms_llamada_directa_mediana": 7.570249523269013,
+   "ms_llamada_directa_p90": 8.063329220749438
+  },
+  {
+   "brazo": "T",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.74,
+   "ms_predict_lote1_mediana": 12.337395484792069,
+   "ms_predict_lote1_p90": 13.349491416011007,
+   "ms_llamada_directa_mediana": 7.613833498908207,
+   "ms_llamada_directa_p90": 8.10525028500706
+  },
+  {
+   "brazo": "G",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/G_stgcn/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 97858,
+   "tamano_archivo_mb": 0.5,
+   "ms_predict_lote1_mediana": 13.407770515186712,
+   "ms_predict_lote1_p90": 14.153724734205753,
+   "ms_llamada_directa_mediana": 6.9740414910484105,
+   "ms_llamada_directa_p90": 7.383108406793326
+  },
+  {
+   "brazo": "G",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/G_stgcn/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 97858,
+   "tamano_archivo_mb": 0.5,
+   "ms_predict_lote1_mediana": 13.140124996425584,
+   "ms_predict_lote1_p90": 13.938846188830212,
+   "ms_llamada_directa_mediana": 6.853458529803902,
+   "ms_llamada_directa_p90": 7.182659022510052
+  },
+  {
+   "brazo": "G",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/G_stgcn/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 97858,
+   "tamano_archivo_mb": 0.5,
+   "ms_predict_lote1_mediana": 12.997582991374657,
+   "ms_predict_lote1_p90": 13.821387803182006,
+   "ms_llamada_directa_mediana": 6.678083474980667,
+   "ms_llamada_directa_p90": 7.172387815080583
+  }
+ ]
+}

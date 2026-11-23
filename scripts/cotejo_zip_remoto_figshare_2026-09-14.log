@@ -1,0 +1,51 @@
+Cotejo parcial contra el depósito figshare (artículo 27383016, versión 1, publicado 2024-10-31) · 14-sep-2026
+Método: lectura del índice central de cada ZIP por rangos HTTP; comparación CRC-32/tamaño de las entradas; extracción solo de las entradas objetivo y SHA-1 frente a data/raw/LSC50. Sin descargar los ZIP completos (66,8 MB transferidos en total).
+
+
+===== LANDMARKS.zip (2,770,068,538 bytes, md5 publicado 996d3e9ee1d3fb39866ce395efd23214) =====
+  entradas en el ZIP: 4,005 | índice leído con 1 peticiones (1.8 MB)
+  entradas objetivo: 18
+    LANDMARKS/BODY_LANDMARKS                                0002_0001_0000 vs 0002_0001_0001: CRC 71013d21/71013d21 · 152,051/152,051 bytes → IDÉNTICOS EN EL DEPÓSITO
+    LANDMARKS/BODY_LANDMARKS                                0008_0002_0000 vs 0008_0002_0001: CRC 8b3b54e9/8b3b54e9 · 90,395/90,395 bytes → IDÉNTICOS EN EL DEPÓSITO
+    LANDMARKS/BODY_LANDMARKS                                0016_0002_0000 vs 0016_0002_0001: CRC dbf301ae/dbf301ae · 72,893/72,893 bytes → IDÉNTICOS EN EL DEPÓSITO
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS           0002_0001_0000 vs 0002_0001_0001: CRC cb7af741/cb7af741 · 99,143/99,143 bytes → IDÉNTICOS EN EL DEPÓSITO
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS           0008_0002_0000 vs 0008_0002_0001: CRC 135e6d6f/135e6d6f · 59,149/59,149 bytes → IDÉNTICOS EN EL DEPÓSITO
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS           0016_0002_0000 vs 0016_0002_0001: CRC e29b84cd/e29b84cd · 46,399/46,399 bytes → IDÉNTICOS EN EL DEPÓSITO
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS          0002_0001_0000 vs 0002_0001_0001: CRC 4d73d6a6/4d73d6a6 · 99,072/99,072 bytes → IDÉNTICOS EN EL DEPÓSITO
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS          0008_0002_0000 vs 0008_0002_0001: CRC aa40d7d6/aa40d7d6 · 59,221/59,221 bytes → IDÉNTICOS EN EL DEPÓSITO
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS          0016_0002_0000 vs 0016_0002_0001: CRC e66110e0/e66110e0 · 46,325/46,325 bytes → IDÉNTICOS EN EL DEPÓSITO
+  --- extracción parcial y cotejo con data/raw/LSC50 ---
+    LANDMARKS/BODY_LANDMARKS/0002_0001_0000.csv                               152,051 B  sha1 d4002a46b662  local: IGUAL
+    LANDMARKS/BODY_LANDMARKS/0002_0001_0001.csv                               152,051 B  sha1 d4002a46b662  local: IGUAL
+    LANDMARKS/BODY_LANDMARKS/0008_0002_0000.csv                                90,395 B  sha1 66a64a9c9ec2  local: IGUAL
+    LANDMARKS/BODY_LANDMARKS/0008_0002_0001.csv                                90,395 B  sha1 66a64a9c9ec2  local: IGUAL
+    LANDMARKS/BODY_LANDMARKS/0016_0002_0000.csv                                72,893 B  sha1 3190d7a8874f  local: IGUAL
+    LANDMARKS/BODY_LANDMARKS/0016_0002_0001.csv                                72,893 B  sha1 3190d7a8874f  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS/0002_0001_0000.csv           99,143 B  sha1 feaf366e1d0d  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS/0002_0001_0001.csv           99,143 B  sha1 feaf366e1d0d  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS/0008_0002_0000.csv           59,149 B  sha1 c7c7c923968d  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS/0008_0002_0001.csv           59,149 B  sha1 c7c7c923968d  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS/0016_0002_0000.csv           46,399 B  sha1 84b524b4ae6d  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/LEFT_HAND_LANDMARKS/0016_0002_0001.csv           46,399 B  sha1 84b524b4ae6d  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS/0002_0001_0000.csv          99,072 B  sha1 2606ca7fa339  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS/0002_0001_0001.csv          99,072 B  sha1 2606ca7fa339  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS/0008_0002_0000.csv          59,221 B  sha1 b6fcbfb75c29  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS/0008_0002_0001.csv          59,221 B  sha1 b6fcbfb75c29  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS/0016_0002_0000.csv          46,325 B  sha1 61ca82d18cea  local: IGUAL
+    LANDMARKS/HANDS_LANDMARKS/RIGHT_HAND_LANDMARKS/0016_0002_0001.csv          46,325 B  sha1 61ca82d18cea  local: IGUAL
+  peticiones HTTP totales: 10 | descargado 39.6 MB
+
+===== VIDEOS.zip (6,247,307,413 bytes, md5 publicado 26003107442257c7947352b18e3c2597) =====
+  entradas en el ZIP: 4,004 | índice leído con 1 peticiones (2.0 MB)
+  entradas objetivo: 6
+    VIDEOS/COLOR_BODY                                       0002_0001_0000 vs 0002_0001_0001: CRC 428735ff/428735ff · 2,400,014/2,400,014 bytes → IDÉNTICOS EN EL DEPÓSITO
+    VIDEOS/COLOR_BODY                                       0008_0002_0000 vs 0008_0002_0001: CRC 8d7be858/8d7be858 · 2,147,318/2,147,318 bytes → IDÉNTICOS EN EL DEPÓSITO
+    VIDEOS/COLOR_BODY                                       0016_0002_0000 vs 0016_0002_0001: CRC ea59f528/ea59f528 · 2,191,306/2,191,306 bytes → IDÉNTICOS EN EL DEPÓSITO
+  --- extracción parcial y cotejo con data/raw/LSC50 ---
+    VIDEOS/COLOR_BODY/0002_0001_0000.avi                                    2,400,014 B  sha1 295b353d7cea  local: IGUAL
+    VIDEOS/COLOR_BODY/0002_0001_0001.avi                                    2,400,014 B  sha1 295b353d7cea  local: IGUAL
+    VIDEOS/COLOR_BODY/0008_0002_0000.avi                                    2,147,318 B  sha1 c6baf04019bd  local: IGUAL
+    VIDEOS/COLOR_BODY/0008_0002_0001.avi                                    2,147,318 B  sha1 c6baf04019bd  local: IGUAL
+    VIDEOS/COLOR_BODY/0016_0002_0000.avi                                    2,191,306 B  sha1 d2e246662a2e  local: IGUAL
+    VIDEOS/COLOR_BODY/0016_0002_0001.avi                                    2,191,306 B  sha1 d2e246662a2e  local: IGUAL
+  peticiones HTTP totales: 7 | descargado 27.2 MB

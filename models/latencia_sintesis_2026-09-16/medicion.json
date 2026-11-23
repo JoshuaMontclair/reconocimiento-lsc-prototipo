@@ -1,0 +1,492 @@
+{
+  "que_es": "Medición y reducción del coste de la síntesis de voz del prototipo (etapa «síntesis», t5 - t4), pendiente declarado en N-34. Ninguna cifra viene de memoria ni de otro registro: todas se midieron el 2026-09-16 en este equipo con los guiones de scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/. No se reprodujo audio.",
+  "fecha": "2026-09-16",
+  "equipo": {
+    "sistema": "Darwin 25.6.0 (arm64)",
+    "python": "3.12.13",
+    "voz": "Paulina",
+    "voz_id": "com.apple.voice.compact.es-MX.Paulina",
+    "ritmo_ppm": 150,
+    "modo_tts": "offline",
+    "ejecutor_offline": "say",
+    "nota": "Sin reproducir audio: la orden de reproducción se emite pero el hilo no llama a afplay."
+  },
+  "que_se_mide": {
+    "magnitud": "etapa «síntesis» del prototipo = t5 - t4, tal como la ejecuta src/translator.py::_emitir_audio: prepare(texto) + esperar_preparado(tope) + play_prepared_async(). La reproducción queda fuera, como en N-34.",
+    "t5_no_cambia": "§2.2.7: «devolución del audio por el motor de síntesis y la emisión de la orden de reproducción». Con cache, el audio está devuelto y disponible cuando se emite la orden; lo que cambia es CUÁNDO se sintetizó, y eso queda declarado en el JSONL.",
+    "frases": {
+      "total": 62,
+      "glosas_sueltas": 50,
+      "fuente_glosas": "las 50 señas de src/grammar_mapper.py pasadas por GrammarMapper.translate([glosa])",
+      "modo_oracion": 12,
+      "ejemplos": [
+        "Gracias",
+        "El hermano trabaja",
+        "¿Dónde vives?",
+        "Hola, ¿cómo estás?"
+      ]
+    },
+    "pases": 3
+  },
+  "criterio_fijado_antes_de_medir": {
+    "registrado": "2026-09-16 11:42:12 (antes de la primera medición de este frente)",
+    "archivo": "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/CRITERIO_ANTES_DE_MEDIR.txt",
+    "C1": "la mediana de t5 - t4 baja al menos un 50 % respecto de la situación actual medida hoy, y el percentil 90 de la vía queda por debajo de la MEDIANA actual",
+    "C2": "no añade ninguna dependencia que no esté ya en requirements.txt",
+    "C3": "mismo audio: misma voz y mismo ritmo, comprobado por sha256 del archivo sintetizado",
+    "C4": "el JSONL puede declarar cuándo la síntesis no se hizo en ese instante (campo nuevo)",
+    "C5": "coste acotado: tope de entradas y de bytes, y todo desaparece con cleanup() (N-36)",
+    "C6": "no toca las marcas t0..t5 ni los campos existentes del JSONL, ni reentrena, ni instala nada"
+  },
+  "antes": {
+    "etapa_sintesis_ms": {
+      "n": 186,
+      "min_ms": 443.09,
+      "p25_ms": 455.974,
+      "mediana_ms": 458.342,
+      "p75_ms": 460.354,
+      "p90_ms": 462.647,
+      "max_ms": 953.335,
+      "media_ms": 463.529,
+      "desv_ms": 51.309
+    },
+    "solo_50_glosas_ms": {
+      "n": 150,
+      "min_ms": 443.09,
+      "p25_ms": 455.736,
+      "mediana_ms": 458.342,
+      "p75_ms": 460.754,
+      "p90_ms": 463.236,
+      "max_ms": 953.335,
+      "media_ms": 464.782,
+      "desv_ms": 57.087
+    },
+    "solo_modo_oracion_ms": {
+      "n": 36,
+      "min_ms": 452.875,
+      "p25_ms": 456.623,
+      "mediana_ms": 458.188,
+      "p75_ms": 459.801,
+      "p90_ms": 462.366,
+      "max_ms": 463.325,
+      "media_ms": 458.312,
+      "desv_ms": 2.551
+    },
+    "sintetizar_una_frase_con_say_ms": {
+      "n": 62,
+      "min_ms": 445.587,
+      "p25_ms": 456.211,
+      "mediana_ms": 458.439,
+      "p75_ms": 460.612,
+      "p90_ms": 462.788,
+      "max_ms": 509.178,
+      "media_ms": 460.151,
+      "desv_ms": 11.598
+    },
+    "calentar_50_glosas_con_say_ms": 23024.6,
+    "bytes_50_glosas": 1720222,
+    "bytes_62_frases": 2508992,
+    "determinismo_de_say": {
+      "mismo_texto_misma_voz_mismo_ritmo_da_el_mismo_archivo": true,
+      "frases_comprobadas": 4,
+      "cambia_con_el_ritmo_150_a_200": true,
+      "cambia_con_la_voz_Paulina_a_Monica": true,
+      "conclusion": "la cache puede reutilizar audio del mismo texto, pero la voz y el ritmo tienen que formar parte de la clave: si cambian, el audio guardado ya no vale"
+    },
+    "coincide_con_N-34": "N-34 declaró 445-463 ms (mediana 459) y una verificación independiente 442 ms (428-490) en 18 frases; hoy, mediana 458,3 ms en 186 medidas"
+  },
+  "vias_evaluadas": {
+    "a_cache_de_audio": {
+      "que_es": "guardar el audio ya sintetizado por texto y reutilizarlo; calentarla al arrancar con las 50 glosas",
+      "medido_antes_de_implementar_ms": {
+        "n": 186,
+        "min_ms": 0.113,
+        "p25_ms": 0.125,
+        "mediana_ms": 0.137,
+        "p75_ms": 0.155,
+        "p90_ms": 0.174,
+        "max_ms": 3.038,
+        "media_ms": 0.176,
+        "desv_ms": 0.261
+      },
+      "medido_ya_implementado_ms": {
+        "n": 150,
+        "min_ms": 0.119,
+        "p25_ms": 0.135,
+        "mediana_ms": 0.144,
+        "p75_ms": 0.151,
+        "p90_ms": 0.164,
+        "max_ms": 0.31,
+        "media_ms": 0.146,
+        "desv_ms": 0.02
+      },
+      "aciertos": "150/150",
+      "cumple": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true
+      }
+    },
+    "b_sintetizador_persistente": {
+      "que_es": "un NSSpeechSynthesizer vivo entre frases en vez de arrancar el proceso `say` cada vez",
+      "persistente_hilo_principal_ms": {
+        "n": 186,
+        "min_ms": 13.055,
+        "mediana_ms": 15.201,
+        "p25_ms": 14.519,
+        "p75_ms": 17.411,
+        "p90_ms": 18.826,
+        "max_ms": 519.617,
+        "media_ms": 26.616,
+        "desv_ms": 72.979
+      },
+      "persistente_desde_hilos_nuevos_ms": {
+        "n": 186,
+        "min_ms": 11.815,
+        "p25_ms": 13.473,
+        "mediana_ms": 14.162,
+        "p75_ms": 16.13,
+        "p90_ms": 17.678,
+        "max_ms": 515.332,
+        "media_ms": 21.144,
+        "desv_ms": 53.26
+      },
+      "objeto_nuevo_en_cada_frase_ms": {
+        "n": 20,
+        "min_ms": 98.925,
+        "mediana_ms": 120.65,
+        "p25_ms": 119.461,
+        "p75_ms": 122.157,
+        "p90_ms": 122.486,
+        "max_ms": 124.256,
+        "media_ms": 119.756,
+        "desv_ms": 5.149
+      },
+      "ya_implementado_sin_cache_ms": {
+        "n": 186,
+        "min_ms": 11.836,
+        "p25_ms": 13.529,
+        "mediana_ms": 14.172,
+        "p75_ms": 16.19,
+        "p90_ms": 17.277,
+        "max_ms": 189.551,
+        "media_ms": 15.776,
+        "desv_ms": 12.95
+      },
+      "bytes_iguales_a_say": {
+        "frases_comprobadas_una_a_una": 4,
+        "todas_iguales": true,
+        "frases_comprobadas_en_serie": 186,
+        "distintas_en_serie": [],
+        "a_150_y_200_ppm": [
+          {
+            "ritmo": 150,
+            "sintetizador": "nsspeech",
+            "sha_persistente": "f9a5f872b392da220a03efeae8e32822cafb5909f1bca97e5bb51dbecabf9d41",
+            "sha_say": "f9a5f872b392da220a03efeae8e32822cafb5909f1bca97e5bb51dbecabf9d41",
+            "iguales": true,
+            "bytes": 39208
+          },
+          {
+            "ritmo": 200,
+            "sintetizador": "nsspeech",
+            "sha_persistente": "e372cb2a47d23e2ab172e5332680cd311b89ffb97f8f6f60dc00b05b8ceb3427",
+            "sha_say": "e372cb2a47d23e2ab172e5332680cd311b89ffb97f8f6f60dc00b05b8ceb3427",
+            "iguales": true,
+            "bytes": 32710
+          }
+        ]
+      },
+      "hace_falta_candado": {
+        "cuatro_a_la_vez_con_candado": [
+          {
+            "j": 0,
+            "ms": 14.5,
+            "igual": true
+          },
+          {
+            "j": 1,
+            "ms": 28.92,
+            "igual": true
+          },
+          {
+            "j": 2,
+            "ms": 44.44,
+            "igual": true
+          },
+          {
+            "j": 3,
+            "ms": 58.95,
+            "igual": true
+          }
+        ],
+        "dos_a_la_vez_sin_candado": [
+          {
+            "j": 5,
+            "startSpeaking": true,
+            "bytes": 4096,
+            "igual": false
+          },
+          {
+            "j": 6,
+            "startSpeaking": true,
+            "bytes": 37376,
+            "igual": false
+          }
+        ],
+        "conclusion": "sin candado, dos hilos sobre el mismo objeto producen archivos truncados o mezclados (4 096 y 37 376 bytes, ninguno igual al de `say`); con candado, las cuatro peticiones simultáneas salen correctas y en fila"
+      },
+      "cumple": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": "no aplica",
+        "C5": "no aplica",
+        "C6": true
+      }
+    },
+    "c_pyobjc": {
+      "esta_instalado": true,
+      "version": "pyobjc 12.2.2 (pyobjc-core y los frameworks, incluido AppKit)",
+      "en_requirements": "sí: requirements.txt trae `pyobjc==12.2.2; sys_platform == \"darwin\"` porque es la dependencia de pyttsx3 en macOS",
+      "conclusion": "no hay que instalar nada; la vía (b) se apoya en pyobjc y no añade dependencias",
+      "comprobado_con": "pip list del intérprete del proyecto e import de AppKit/Foundation"
+    }
+  },
+  "despues": {
+    "control_mismo_codigo_con_todo_apagado_ms": {
+      "n": 186,
+      "min_ms": 442.997,
+      "p25_ms": 455.447,
+      "mediana_ms": 457.672,
+      "p75_ms": 460.025,
+      "p90_ms": 462.327,
+      "max_ms": 947.426,
+      "media_ms": 460.642,
+      "desv_ms": 36.465
+    },
+    "solo_sintetizador_persistente_ms": {
+      "n": 186,
+      "min_ms": 11.836,
+      "p25_ms": 13.529,
+      "mediana_ms": 14.172,
+      "p75_ms": 16.19,
+      "p90_ms": 17.277,
+      "max_ms": 189.551,
+      "media_ms": 15.776,
+      "desv_ms": 12.95
+    },
+    "cache_caliente_50_glosas_ms": {
+      "n": 150,
+      "min_ms": 0.119,
+      "p25_ms": 0.135,
+      "mediana_ms": 0.144,
+      "p75_ms": 0.151,
+      "p90_ms": 0.164,
+      "max_ms": 0.31,
+      "media_ms": 0.146,
+      "desv_ms": 0.02
+    },
+    "modo_oracion_frase_nueva_ms": {
+      "n": 12,
+      "min_ms": 14.285,
+      "p25_ms": 16.165,
+      "mediana_ms": 16.652,
+      "p75_ms": 17.558,
+      "p90_ms": 17.655,
+      "max_ms": 19.408,
+      "media_ms": 16.726,
+      "desv_ms": 1.497
+    },
+    "modo_oracion_frase_repetida_ms": {
+      "n": 24,
+      "min_ms": 0.136,
+      "p25_ms": 0.15,
+      "mediana_ms": 0.161,
+      "p75_ms": 0.179,
+      "p90_ms": 0.18,
+      "max_ms": 0.208,
+      "media_ms": 0.165,
+      "desv_ms": 0.021
+    },
+    "precalentar_50_glosas": {
+      "arrancado": true,
+      "total_ms": 795.7,
+      "precalentadas": 50,
+      "fallos": 0,
+      "bytes": 1720222,
+      "entradas": 50,
+      "sintetizador": "nsspeech"
+    },
+    "audio_identico_al_de_hoy": {
+      "cache_vs_say": [
+        {
+          "frase": "Gracias",
+          "desde_cache": true,
+          "sha_cache": "f9a5f872b392da220a03efeae8e32822cafb5909f1bca97e5bb51dbecabf9d41",
+          "sha_say": "f9a5f872b392da220a03efeae8e32822cafb5909f1bca97e5bb51dbecabf9d41",
+          "iguales": true
+        },
+        {
+          "frase": "Buenos días",
+          "desde_cache": true,
+          "sha_cache": "ed02b25e01106331105c3f686e547b5a3e3a6cdff0ad41d78f20050080ca91b1",
+          "sha_say": "ed02b25e01106331105c3f686e547b5a3e3a6cdff0ad41d78f20050080ca91b1",
+          "iguales": true
+        },
+        {
+          "frase": "Hola, ¿cómo estás?",
+          "desde_cache": true,
+          "sha_cache": "bf680a849a633e85781ad9433d7305fc8c7008847dd5f89a6f3f4546c8b3008d",
+          "sha_say": "bf680a849a633e85781ad9433d7305fc8c7008847dd5f89a6f3f4546c8b3008d",
+          "iguales": true
+        }
+      ],
+      "persistente_vs_say": [
+        {
+          "ritmo": 150,
+          "sintetizador": "nsspeech",
+          "sha_persistente": "f9a5f872b392da220a03efeae8e32822cafb5909f1bca97e5bb51dbecabf9d41",
+          "sha_say": "f9a5f872b392da220a03efeae8e32822cafb5909f1bca97e5bb51dbecabf9d41",
+          "iguales": true,
+          "bytes": 39208
+        },
+        {
+          "ritmo": 200,
+          "sintetizador": "nsspeech",
+          "sha_persistente": "e372cb2a47d23e2ab172e5332680cd311b89ffb97f8f6f60dc00b05b8ceb3427",
+          "sha_say": "e372cb2a47d23e2ab172e5332680cd311b89ffb97f8f6f60dc00b05b8ceb3427",
+          "iguales": true,
+          "bytes": 32710
+        }
+      ]
+    },
+    "estado_final_de_la_cache": {
+      "activa": true,
+      "entradas": 62,
+      "bytes": 2508992,
+      "max_entradas": 64,
+      "max_bytes": 8388608,
+      "aciertos": 174,
+      "fallos": 12,
+      "errores": 0,
+      "desalojos": 0,
+      "precalentadas": 50,
+      "precalentado_fallos": 0,
+      "precalentando": false,
+      "ultima_preparacion_desde_cache": true,
+      "sintetizador": "cache",
+      "sintetizador_persistente": true,
+      "ultimo_error_sintetizador": null
+    }
+  },
+  "resultado": {
+    "modo_sena_tras_precalentar": {
+      "antes_mediana_ms": 458.342,
+      "despues_mediana_ms": 0.144,
+      "reduccion_pct": 99.969,
+      "p90_despues_ms": 0.164
+    },
+    "modo_oracion_frase_nueva": {
+      "antes_mediana_ms": 458.188,
+      "despues_mediana_ms": 16.652,
+      "reduccion_pct": 96.366,
+      "p90_despues_ms": 17.655
+    },
+    "C1_se_cumple": true,
+    "efecto_en_L_resp_y_L_total": "N-34 declaró que L_resp y L_total subían ≈0,46 s al meter la síntesis dentro de t5. Con la cache caliente ese sumando vuelve a ser ≈0,0001 s en el modo seña y ≈0,017 s en una frase nueva del modo oración, SIN cambiar qué significa t5: el audio está hecho cuando se emite la orden. Por eso el JSONL tiene que declarar de dónde salió el audio."
+  },
+  "limites_y_ciclo_de_vida_de_la_cache": {
+    "tope_entradas": 64,
+    "tope_bytes": 8388608,
+    "justificacion_topes": "64 entradas cubren las 50 glosas con margen; las 62 frases medidas ocupan 2508992 bytes (2,4 MiB), así que 8 MiB es unas tres veces lo que se espera usar",
+    "desalojo": "por antigüedad de uso (LRU), al pasarse cualquiera de los dos topes; el audio desalojado se borra",
+    "audio_mas_grande_que_el_tope": "no entra en la cache (no vacía la cache por su culpa)",
+    "donde_vive": "subcarpeta «cache» de la carpeta temporal del módulo (lsc_tts_*/cache)",
+    "cuando_muere": "cleanup() borra la carpeta temporal entera, así que la cache muere con ella; nada sobrevive al proceso ni se escribe fuera de TMPDIR (cierre de temporales de N-36)",
+    "invalidacion": "la clave es el texto y la cache lleva firma (modo, voz, ritmo, ejecutor, extensión); si cambia la firma se vacía",
+    "nunca_entrega_el_original": "prepare() entrega una COPIA: el hilo que reproduce sigue siendo el dueño del archivo que borra al terminar, como exige N-36",
+    "si_el_proceso_muere_sin_cleanup": {
+      "que_pasa": "la carpeta lsc_tts_* queda en TMPDIR, como las ~895 que contó N-36, pero ahora puede contener hasta el tope de la cache (8 MiB) en vez de estar casi vacía",
+      "medido_hoy": {
+        "carpetas_creadas_en_la_sesion_de_trabajo": 120,
+        "con_algun_archivo": 50,
+        "bytes_totales_kb": 1924,
+        "mayor_kb": 104,
+        "cache_llena_con_las_50_glosas_bytes": 1720222
+      },
+      "que_hacer": "barrer TMPDIR cuando no corra ningún prototipo ni prueba (lo mismo que ya pedía N-36)"
+    }
+  },
+  "registro_jsonl": {
+    "campo_nuevo": "tts_sintesis_desde_cache",
+    "valores": "true (el audio ya estaba hecho), false (se sintetizó en ese instante)",
+    "cuando_no_aparece": "si no hubo audio o si el motor no informa de su cache (dobles de prueba y motores inyectados): la clave NO se escribe, para no afirmar nada de un motor que no lo dice",
+    "donde": "en el registro de ensayo (tras los contadores de voz) y en el de turno (antes de ellos)",
+    "no_mueve_nada": "se lee DESPUÉS de sellar t5 (o t_c en el turno); las 48 claves del ensayo y las 14 del turno siguen iguales y en el mismo orden",
+    "por_que": "sin este campo, una sesión con la cache caliente mostraría síntesis ≈ 0 ms y parecería contradecir los ~0,46 s de N-34 sin aviso"
+  },
+  "decision": {
+    "se_adopta": [
+      "a) cache de audio por texto, calentada al arrancar con las 50 glosas",
+      "b) sintetizador persistente para lo que la cache no tiene"
+    ],
+    "por_que_las_dos": "son complementarias y las dos cumplen C1-C6: la cache resuelve el modo seña (vocabulario cerrado de 50 frases: 100 % de aciertos tras calentar, 0,14 ms) y el sintetizador persistente resuelve lo que la cache no puede tener de antemano —las combinaciones del modo oración—, que pasan de 458 ms a 17 ms. El sintetizador persistente además abarata el propio precalentado: las 50 glosas tardan 795.7 ms en vez de 23024.6 ms.",
+    "reversible": "TTSModule(cache=False) y TTSModule(sintetizador_persistente=False) devuelven el comportamiento de N-34 exacto (medido como control: mediana 457,7 ms); LSCTranslator(tts_precalentar=False) no calienta la cache",
+    "riesgos_asumidos": [
+      "si el sintetizador persistente falla una vez, se apaga para el resto de la sesión y se vuelve a `say`: el audio sale igual, más lento",
+      "la etapa «síntesis» deja de medir la síntesis cuando hay acierto de cache; el JSONL lo declara y src/latencia_resumen.py todavía no separa por ese campo (pendiente)",
+      "el máximo del sintetizador persistente fue de 0,19-0,52 s en 186 medidas (un caso), aún por debajo de la mediana de `say`"
+    ]
+  },
+  "pruebas": {
+    "suite_completa": "472 pruebas OK (436 de referencia + 36 nuevas en tests/test_tts.py)",
+    "nuevas": "cache: acierto, fallo, copia propia para quien reproduce, cambio de voz, cambio de ritmo, tope de entradas con desalojo LRU, tope de bytes, audio mayor que el tope, cache apagada, cleanup, audio de la cache que desaparece; precalentado: llenado, no repetir, esperar a la preparación en curso, no arrancar dos veces, fallo de una frase, corte por cleanup; sintetizador persistente con dobles de pyobjc: uso, reutilización del objeto, un hilo a la vez, caída a `say` (no arranca / tope de tiempo / sin pyobjc / voz nula / audio vacío), apagado por parámetro; registro: el campo llega al ensayo y al turno, no aparece si el motor no informa, no desordena las claves, no mueve las marcas y el precalentado usa los 50 enunciados, no las glosas",
+    "sin_audio_y_sin_camara": true,
+    "mutantes": {
+      "detectados": 12,
+      "total": 12,
+      "detalle": [
+        "la cache ignora la firma (voz y ritmo)",
+        "no se desaloja: la cache crece sin tope",
+        "la cache entrega su propio archivo en vez de una copia",
+        "el acierto de cache no se declara",
+        "el precalentado no espera a la preparación en curso",
+        "se libera el paso al precalentado con una preparación todavía viva",
+        "el sintetizador persistente sin candado",
+        "un fallo del sintetizador persistente se reintenta cada vez",
+        "el precalentado repite lo que ya está en la cache",
+        "la clave se escribe siempre, aunque el motor no informe",
+        "no se precalienta la voz al arrancar",
+        "se precalienta con la glosa, no con el enunciado"
+      ]
+    },
+    "comando": "python -m unittest tests.test_prototipo tests.test_tts tests.test_reextract tests.test_representacion tests.test_umbral tests.test_analisis_errores tests.test_latencia_resumen tests.test_linea_base tests.test_tasa_extractor tests.test_exactitud_bloque1 tests.test_grammar_mapper tests.test_cotejo_integridad"
+  },
+  "archivos_de_evidencia": {
+    "criterio": "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/CRITERIO_ANTES_DE_MEDIR.txt",
+    "medicion_antes": "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/medicion_antes.json",
+    "sondeo_nsspeech": "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/medicion_nsspeech.json",
+    "sondeo_nsspeech_hilos": "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/medicion_ns_hilos.json",
+    "medicion_despues": "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/medicion_despues.json",
+    "mutantes": "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/mutantes.json",
+    "guiones": [
+      "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/medir_antes.py",
+      "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/probe_nsspeech.py",
+      "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/probe_ns_hilos.py",
+      "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/medir_despues.py",
+      "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/mutantes.py",
+      "scratch_tesis/lote_4e_2026-09-16/latencia_sintesis/frases.py"
+    ]
+  },
+  "pendientes": [
+    "src/latencia_resumen.py no separa todavía los ensayos con tts_sintesis_desde_cache true de los demás: mientras no lo haga, la etapa «síntesis» promediada mezcla aciertos de cache con síntesis reales",
+    "no hay ninguna sesión real con cámara y audio desde este cambio: falta confirmar con audio que lo que suena es lo esperado y que el precalentado no estorba al bucle de captura",
+    "el precalentado de las 50 glosas ocupa el sintetizador ~0,8 s al arrancar; con cámara hay que ver si conviene lanzarlo antes de abrir la primera ventana",
+    "queda sin medir el efecto del cambio sobre los fotogramas acumulados tras la pausa de la síntesis (pendiente de N-34, necesita cámara)",
+    "un proceso que muere sin cleanup() deja ahora hasta 8 MiB de audio en su carpeta de TMPDIR; el módulo no registra ningún cierre automático al terminar el proceso (sería una decisión aparte)"
+  ]
+}

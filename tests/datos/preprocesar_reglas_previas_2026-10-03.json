@@ -1,0 +1,318 @@
+{
+ "descripcion": "Entradas de LSCTranslator._preprocesar con las reglas previas a «imputacion» (tests/test_tcn_imputacion.casos_reglas_previas), calculadas con src/translator.py del commit 1ba6f93 (git show HEAD:src/translator.py). Huella = forma y sha256 de los bytes float32.",
+ "commit": "1ba6f93",
+ "casos": {
+  "s12_manos_ceros": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "f9e27eac887300c7c409f2576f63edf2b7dfa0d660aedda3954f73d9ab2be534"
+  },
+  "s12_manos_descartar": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "1b906494921afcecf912d8e0d1be5bf9486faf3e22beeb99ae3e9d2ad10ad476"
+  },
+  "s12_manos_mascara": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "106a6749114b04e37e1c07316377f57acdd62d3892958c18f945a7d58740c3f3"
+  },
+  "s12_manos_mascara_indicada_ceros": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "f9e27eac887300c7c409f2576f63edf2b7dfa0d660aedda3954f73d9ab2be534"
+  },
+  "s12_manos_postura_ceros": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "9c45a785531c2b8ed006e4e2f8e1ea8bf04ea35b0a27e39b1d7b993e559ac4fd"
+  },
+  "s12_manos_postura_descartar": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "c408d8d49c82c86d2e175d8d3cf8579a76ed7be13cf147a53b9c6364e5174365"
+  },
+  "s12_manos_postura_mascara": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "92f512db3030ef251412a0f6702b7fc75418da224c4df94d7b4061c7bea4c4b8"
+  },
+  "s12_manos_postura_rostro_ceros": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "be77a07df7b011f000f56e508acae1557e6d278c06b063eca01441e45098cf94"
+  },
+  "s12_manos_postura_rostro_descartar": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "3c6c1a902166f51b088c9ad8380a49ae7dd644e8ec91c9411fa1c92355437a37"
+  },
+  "s12_manos_postura_rostro_mascara": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "088d8a3b5c0dc2f86b5d6877c950bce1762ceb71e3e0a982e3edfbc038689f45"
+  },
+  "s12_sin_procedencia_225": {
+   "forma": [
+    1,
+    30,
+    225
+   ],
+   "sha256": "ed29de8c2f72ddab626abc2154ba57b0490cb886f0cbacedd22c9566a78366b0"
+  },
+  "s12_sin_procedencia_252": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "106a6749114b04e37e1c07316377f57acdd62d3892958c18f945a7d58740c3f3"
+  },
+  "s12_sin_procedencia_450": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "92f512db3030ef251412a0f6702b7fc75418da224c4df94d7b4061c7bea4c4b8"
+  },
+  "s40_manos_ceros": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "e950abd421db9205b095eb97ae70c3c969a10d81f7115b746a4b86706a2c1bfb"
+  },
+  "s40_manos_descartar": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "e950abd421db9205b095eb97ae70c3c969a10d81f7115b746a4b86706a2c1bfb"
+  },
+  "s40_manos_mascara": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "f5bc0596194523dce767091825dcf8a2662bf1e12d2ba9a0559da73e0de14d8c"
+  },
+  "s40_manos_mascara_indicada_ceros": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "e950abd421db9205b095eb97ae70c3c969a10d81f7115b746a4b86706a2c1bfb"
+  },
+  "s40_manos_postura_ceros": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "ac62aba95e64c84853f40c28f6d4c1d0b6ab573ed2d7ae85105cbadb3ac5d295"
+  },
+  "s40_manos_postura_descartar": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "ac62aba95e64c84853f40c28f6d4c1d0b6ab573ed2d7ae85105cbadb3ac5d295"
+  },
+  "s40_manos_postura_mascara": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "1b6470f7c9650629ddeb8ef7fb95a2e2cc8ee480c4394f1adf63d8f4b8df7813"
+  },
+  "s40_manos_postura_rostro_ceros": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "bf0a2e09bd2777db0f0f20779fc66d4bc9b0dbd83fbedf62800327ab05f8168e"
+  },
+  "s40_manos_postura_rostro_descartar": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "bf0a2e09bd2777db0f0f20779fc66d4bc9b0dbd83fbedf62800327ab05f8168e"
+  },
+  "s40_manos_postura_rostro_mascara": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "52b523d5311f2ed181ab3cebb01504f5235b320964443461aee0c4a84ed79c58"
+  },
+  "s40_sin_procedencia_225": {
+   "forma": [
+    1,
+    30,
+    225
+   ],
+   "sha256": "1e56ed89ed790f60aecfb11b658a376e124d505c8f5e92db3e3a83877a4c58f3"
+  },
+  "s40_sin_procedencia_252": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "f5bc0596194523dce767091825dcf8a2662bf1e12d2ba9a0559da73e0de14d8c"
+  },
+  "s40_sin_procedencia_450": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "1b6470f7c9650629ddeb8ef7fb95a2e2cc8ee480c4394f1adf63d8f4b8df7813"
+  },
+  "s45_manos_ceros": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "981c148150f691db17d45e0bc4df773f27a0baaf04fd5335d29616844358ebf7"
+  },
+  "s45_manos_descartar": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "25306a45fac46dfa657f989628cc61bbf2a1125182503742f1b6d45f71521d03"
+  },
+  "s45_manos_mascara": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "e3ea591732e935d07f96fbd5f14f4ea078849c4d89422adb53245fbd790ea536"
+  },
+  "s45_manos_mascara_indicada_ceros": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "981c148150f691db17d45e0bc4df773f27a0baaf04fd5335d29616844358ebf7"
+  },
+  "s45_manos_postura_ceros": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "a75c0edd091b44e9674240ed7649e6dc20d69ba593d1333e403e7865ef5bd107"
+  },
+  "s45_manos_postura_descartar": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "ef63749f1059c876d65d32499b942c380d9963a290b640780b0b1bba62491ace"
+  },
+  "s45_manos_postura_mascara": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "82f0d78fb0d3ad94204e18e52244cce56d189d9b331a3e559dc22ce9b34d3e80"
+  },
+  "s45_manos_postura_rostro_ceros": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "4fa09c798a6c31564fbe17d3889362a816125ad52d30c663160d5ec4c0e19ef4"
+  },
+  "s45_manos_postura_rostro_descartar": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "75394154d08633ed3454b424195dbb4ce0b3598c7a8927b94393d6631e28e22c"
+  },
+  "s45_manos_postura_rostro_mascara": {
+   "forma": [
+    1,
+    30,
+    810
+   ],
+   "sha256": "f636ab357a2c36d5008e36e90dfc3a0f42227cc9cd0d6ac5d279133091017737"
+  },
+  "s45_sin_procedencia_225": {
+   "forma": [
+    1,
+    30,
+    225
+   ],
+   "sha256": "5d0e5daca5ff0c171cb50692c4ffa38f4bf1f3a9cadb6db95dc97bb932902efe"
+  },
+  "s45_sin_procedencia_252": {
+   "forma": [
+    1,
+    30,
+    252
+   ],
+   "sha256": "e3ea591732e935d07f96fbd5f14f4ea078849c4d89422adb53245fbd790ea536"
+  },
+  "s45_sin_procedencia_450": {
+   "forma": [
+    1,
+    30,
+    450
+   ],
+   "sha256": "82f0d78fb0d3ad94204e18e52244cce56d189d9b331a3e559dc22ce9b34d3e80"
+  }
+ }
+}

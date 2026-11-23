@@ -1,0 +1,19 @@
+{
+ "corrida": "pliegue_4",
+ "n_train_original": 720,
+ "n_train_aumentado": 7200,
+ "n_val": 80,
+ "n_test": 200,
+ "top1": 0.63,
+ "top3": 0.83,
+ "precision_macro": 0.6060388091440723,
+ "recall_macro": 0.63,
+ "f1_macro": 0.5773622271448358,
+ "n_errores": 74,
+ "mejor_val_accuracy": 0.862500011920929,
+ "epocas_ejecutadas": 59,
+ "mejor_epoca": 34,
+ "tiempo_entrenamiento_s": 196.4,
+ "tiempo_total_s": 198.3,
+ "modelo": "models/loso/pliegue_4/modelo.keras"
+}

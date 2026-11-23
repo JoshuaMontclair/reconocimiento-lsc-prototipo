@@ -1,0 +1,11 @@
+{
+ "config": "c02",
+ "val_media_pliegues_corte": 0.8449999988079071,
+ "val_media_canonica": 0.9249999821186066,
+ "pliegues": [
+  0,
+  1
+ ],
+ "regla": "val < canonica - 0.05",
+ "fecha": "2026-10-01T02:22:44"
+}

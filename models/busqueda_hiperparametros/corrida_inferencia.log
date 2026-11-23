@@ -1,0 +1,12 @@
+  c00 models/busqueda_hiperparametros/fase2/c00/semilla_2031/pliegue_0/modelo.keras: 714,291 param | predict(1) mediana 13.04 ms (p90 13.78) | model(x) 61.12 ms
+  c00 models/busqueda_hiperparametros/fase2/c00/semilla_2031/pliegue_1/modelo.keras: 714,291 param | predict(1) mediana 12.87 ms (p90 13.44) | model(x) 61.04 ms
+  c00 models/busqueda_hiperparametros/fase2/c00/semilla_2031/pliegue_2/modelo.keras: 714,291 param | predict(1) mediana 12.93 ms (p90 13.50) | model(x) 61.14 ms
+  c07 models/busqueda_hiperparametros/fase2/c07/semilla_2031/pliegue_0/modelo.keras: 389,811 param | predict(1) mediana 12.28 ms (p90 12.74) | model(x) 32.06 ms
+  c07 models/busqueda_hiperparametros/fase2/c07/semilla_2031/pliegue_1/modelo.keras: 389,811 param | predict(1) mediana 12.35 ms (p90 12.81) | model(x) 32.08 ms
+  c07 models/busqueda_hiperparametros/fase2/c07/semilla_2031/pliegue_2/modelo.keras: 389,811 param | predict(1) mediana 12.28 ms (p90 12.61) | model(x) 32.06 ms
+  c17 models/busqueda_hiperparametros/fase2/c17/semilla_2031/pliegue_0/modelo.keras: 370,163 param | predict(1) mediana 12.30 ms (p90 12.98) | model(x) 32.60 ms
+  c17 models/busqueda_hiperparametros/fase2/c17/semilla_2031/pliegue_1/modelo.keras: 370,163 param | predict(1) mediana 12.37 ms (p90 12.84) | model(x) 32.63 ms
+  c17 models/busqueda_hiperparametros/fase2/c17/semilla_2031/pliegue_2/modelo.keras: 370,163 param | predict(1) mediana 12.45 ms (p90 14.53) | model(x) 32.74 ms
+  c05 models/busqueda_hiperparametros/fase2/c05/semilla_2031/pliegue_0/modelo.keras: 473,139 param | predict(1) mediana 12.76 ms (p90 13.26) | model(x) 60.02 ms
+  c05 models/busqueda_hiperparametros/fase2/c05/semilla_2031/pliegue_1/modelo.keras: 473,139 param | predict(1) mediana 12.77 ms (p90 13.18) | model(x) 59.88 ms
+  c05 models/busqueda_hiperparametros/fase2/c05/semilla_2031/pliegue_2/modelo.keras: 473,139 param | predict(1) mediana 12.77 ms (p90 13.21) | model(x) 59.84 ms

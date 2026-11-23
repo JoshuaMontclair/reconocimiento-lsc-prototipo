@@ -1,0 +1,108 @@
+==============================================================================
+  LSC50 - Linea base clasica sobre caracteristicas agregadas (D-10, actividad 4.d)
+==============================================================================
+
+[1] Red de referencia (models/loso_2026-09-15_holistic_mascara_manos): LOSO top-1 0,5797 ± 0,0860 (N-30 declara 0,580 ± 0,086) | agregado 0.5797 sobre 997 muestras
+
+[2] Datos (data/processed_holistic_mascara_rostro, representacion manos): 1000 muestras, secuencias (1000, 30, 126) -> tensor por muestra (30, 252)
+    Verificado contra el entrenador de la red en: 0000_0000_0000, 0025_0000_0000, 0049_0004_0003
+    Particiones D-06: data/partitions/loso_5_pliegues.json (5 pliegues) y data/partitions/aleatoria_80_10_10.json
+
+    Aumentacion del entrenamiento: completa: las mismas nueve transformaciones de la red (src/train_loso.py, importar_pipeline_canonico), factor 10
+
+[3] LOSO, 5 pliegues x 1 modo(s) x 10 configuraciones
+    pliegue_0 | aumentacion completa (factor 10) | entrenamiento 6970 x 2016 rasgos | validacion 100
+      svm_rbf        C=1,gamma=scale      val top-1 0.5800 (50 s)
+      svm_rbf        C=1,gamma=0.01       val top-1 0.1600 (108 s)
+      svm_rbf        C=10,gamma=scale     val top-1 0.5900 (44 s)
+      svm_rbf        C=10,gamma=0.01      val top-1 0.1600 (108 s)
+      svm_rbf        C=100,gamma=scale    val top-1 0.5900 (44 s)
+      svm_rbf        C=100,gamma=0.01     val top-1 0.1600 (108 s)
+      random_forest  min_samples_leaf=1   val top-1 0.8400 (30 s)
+      random_forest  min_samples_leaf=2   val top-1 0.8500 (29 s)
+      mlp            alpha=1e-4           val top-1 0.6400 (2 s)
+      mlp            alpha=1e-2           val top-1 0.6500 (2 s)
+      -> svm_rbf        [C=10,gamma=scale] prueba top-1 0.0250 | top-3 0.0750 | F1 0.0088
+      -> random_forest  [min_samples_leaf=2] prueba top-1 0.2150 | top-3 0.3650 | F1 0.1909
+      -> mlp            [alpha=1e-2] prueba top-1 0.0950 | top-3 0.1750 | F1 0.0717
+    pliegue_1 | aumentacion completa (factor 10) | entrenamiento 6980 x 2016 rasgos | validacion 100
+      svm_rbf        C=1,gamma=scale      val top-1 0.4500 (53 s)
+      svm_rbf        C=1,gamma=0.01       val top-1 0.2400 (107 s)
+      svm_rbf        C=10,gamma=scale     val top-1 0.5600 (47 s)
+      svm_rbf        C=10,gamma=0.01      val top-1 0.2400 (107 s)
+      svm_rbf        C=100,gamma=scale    val top-1 0.5600 (47 s)
+      svm_rbf        C=100,gamma=0.01     val top-1 0.2400 (107 s)
+      random_forest  min_samples_leaf=1   val top-1 0.8000 (31 s)
+      random_forest  min_samples_leaf=2   val top-1 0.7700 (31 s)
+      mlp            alpha=1e-4           val top-1 0.5800 (3 s)
+      mlp            alpha=1e-2           val top-1 0.5600 (3 s)
+      -> svm_rbf        [C=10,gamma=scale] prueba top-1 0.2211 | top-3 0.4121 | F1 0.1781
+      -> random_forest  [min_samples_leaf=1] prueba top-1 0.3367 | top-3 0.5930 | F1 0.2713
+      -> mlp            [alpha=1e-4] prueba top-1 0.2563 | top-3 0.4221 | F1 0.2022
+    pliegue_2 | aumentacion completa (factor 10) | entrenamiento 6990 x 2016 rasgos | validacion 100
+      svm_rbf        C=1,gamma=scale      val top-1 0.5800 (53 s)
+      svm_rbf        C=1,gamma=0.01       val top-1 0.3000 (108 s)
+      svm_rbf        C=10,gamma=scale     val top-1 0.5700 (47 s)
+      svm_rbf        C=10,gamma=0.01      val top-1 0.2900 (108 s)
+      svm_rbf        C=100,gamma=scale    val top-1 0.5700 (47 s)
+      svm_rbf        C=100,gamma=0.01     val top-1 0.2900 (108 s)
+      random_forest  min_samples_leaf=1   val top-1 0.7700 (34 s)
+      random_forest  min_samples_leaf=2   val top-1 0.7700 (34 s)
+      mlp            alpha=1e-4           val top-1 0.5900 (4 s)
+      mlp            alpha=1e-2           val top-1 0.6000 (2 s)
+      -> svm_rbf        [C=1,gamma=scale] prueba top-1 0.3030 | top-3 0.4343 | F1 0.3009
+      -> random_forest  [min_samples_leaf=1] prueba top-1 0.5556 | top-3 0.7374 | F1 0.5026
+      -> mlp            [alpha=1e-2] prueba top-1 0.3030 | top-3 0.5051 | F1 0.3021
+    pliegue_3 | aumentacion completa (factor 10) | entrenamiento 6970 x 2016 rasgos | validacion 100
+      svm_rbf        C=1,gamma=scale      val top-1 0.6300 (54 s)
+      svm_rbf        C=1,gamma=0.01       val top-1 0.3500 (105 s)
+      svm_rbf        C=10,gamma=scale     val top-1 0.6200 (48 s)
+      svm_rbf        C=10,gamma=0.01      val top-1 0.3600 (106 s)
+      svm_rbf        C=100,gamma=scale    val top-1 0.6200 (48 s)
+      svm_rbf        C=100,gamma=0.01     val top-1 0.3600 (106 s)
+      random_forest  min_samples_leaf=1   val top-1 0.8100 (33 s)
+      random_forest  min_samples_leaf=2   val top-1 0.8000 (33 s)
+      mlp            alpha=1e-4           val top-1 0.6200 (3 s)
+      mlp            alpha=1e-2           val top-1 0.6800 (2 s)
+      -> svm_rbf        [C=1,gamma=scale] prueba top-1 0.3550 | top-3 0.5700 | F1 0.3322
+      -> random_forest  [min_samples_leaf=1] prueba top-1 0.5250 | top-3 0.7750 | F1 0.4792
+      -> mlp            [alpha=1e-2] prueba top-1 0.3500 | top-3 0.5900 | F1 0.3177
+    pliegue_4 | aumentacion completa (factor 10) | entrenamiento 6970 x 2016 rasgos | validacion 100
+      svm_rbf        C=1,gamma=scale      val top-1 0.4400 (56 s)
+      svm_rbf        C=1,gamma=0.01       val top-1 0.2200 (108 s)
+      svm_rbf        C=10,gamma=scale     val top-1 0.4700 (50 s)
+      svm_rbf        C=10,gamma=0.01      val top-1 0.2200 (108 s)
+      svm_rbf        C=100,gamma=scale    val top-1 0.4700 (50 s)
+      svm_rbf        C=100,gamma=0.01     val top-1 0.2200 (108 s)
+      random_forest  min_samples_leaf=1   val top-1 0.7800 (32 s)
+      random_forest  min_samples_leaf=2   val top-1 0.8000 (32 s)
+      mlp            alpha=1e-4           val top-1 0.5300 (3 s)
+      mlp            alpha=1e-2           val top-1 0.5200 (3 s)
+      -> svm_rbf        [C=10,gamma=scale] prueba top-1 0.4600 | top-3 0.6600 | F1 0.4070
+      -> random_forest  [min_samples_leaf=2] prueba top-1 0.5800 | top-3 0.8200 | F1 0.5248
+      -> mlp            [alpha=1e-4] prueba top-1 0.4350 | top-3 0.6500 | F1 0.3922
+
+[4] Esquema aleatorio omitido (--solo-loso)
+
+[5] McNemar frente a la red (997 predicciones LOSO agregadas, alfa = 0,05)
+    red 578 aciertos vs SVM RBF 272 | solo red 345 | solo base 39 | chi2 con corrección de continuidad p = 1.27e-54 | significativo
+    red 578 aciertos vs Random Forest 441 | solo red 217 | solo base 80 | chi2 con corrección de continuidad p = 2.99e-15 | significativo
+    red 578 aciertos vs MLP 287 | solo red 333 | solo base 42 | chi2 con corrección de continuidad p = 1.06e-50 | significativo
+
+    La arquitectura temporal QUEDA JUSTIFICADA empíricamente según el criterio de D-10: top-1 agregado de la red 0,580 > 0,442 de la mejor línea base (Random Forest) y McNemar p = 2,99e-15 < 0,05.
+    Mejor línea base por top-1 LOSO agregado: Random Forest (0,442); red 0,580.
+    Concordancia: 361 muestras las aciertan los dos, 339 las fallan los dos, 217 solo la red y 80 solo la línea base.
+    La red supera a Random Forest en 5 de los 5 pliegues LOSO, así que la ventaja no viene de un solo señante.
+    Orden de las tres familias por top-1 LOSO agregado: Random Forest 0,442, MLP 0,288, SVM RBF 0,273. Los árboles resisten mejor los 2.016 rasgos que el SVM y el MLP; los tres pierden lo mismo en el señante 0000, el difícil desde N-23.
+    La aumentación de espejo aporta como mucho — de top-1 agregado: la distancia con la red no se explica por la aumentación.
+    Lectura prudente: esto NO dice que un clasificador clásico no sirva para LSC; dice que, con esta entrada (ocho estadísticos por columna, que borran el orden temporal) y este corpus, resumir la secuencia cuesta caro. Sigue en pie la brecha entre señantes vistos y no vistos: en el esquema aleatorio la línea base también sube mucho, así que el problema de fondo (generalizar a un señante nuevo con 5 señantes) lo tienen los dos sistemas.
+
+[6] Salidas
+    models/linea_base_4d_2026-09-15/control_aumentacion_completa/predicciones_svm_rbf.json (997 filas)
+    models/linea_base_4d_2026-09-15/control_aumentacion_completa/predicciones_random_forest.json (997 filas)
+    models/linea_base_4d_2026-09-15/control_aumentacion_completa/predicciones_mlp.json (997 filas)
+    models/linea_base_4d_2026-09-15/control_aumentacion_completa/resultados.json
+    models/linea_base_4d_2026-09-15/control_aumentacion_completa/comparacion.md
+    models/linea_base_4d_2026-09-15/control_aumentacion_completa/comparacion_red_vs_linea_base.png
+
+Tiempo total: 2709 s

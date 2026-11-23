@@ -1,0 +1,52 @@
+{
+ "brazo": "I",
+ "semilla": 2026,
+ "pliegue": 4,
+ "senante_test": "0004",
+ "hiperparametros": {
+  "lr": 0.001,
+  "batch": 64,
+  "label_smoothing": 0.1,
+  "arquitectura": {
+   "filtros": 64,
+   "ventanas": [
+    8,
+    5,
+    3
+   ],
+   "bloques": 3,
+   "padding": "same",
+   "dropout_final": 0.3,
+   "pooling": "GAP"
+  }
+ },
+ "n_parametros": 315954,
+ "val_top1": 0.9399999976158142,
+ "val_top1_checkpoint_reevaluado": 0.94,
+ "val_top3": 0.98,
+ "val_f1_macro": 0.9373333333333334,
+ "val_loss": 1.0287067890167236,
+ "test_top1": 0.75,
+ "test_top3": 0.91,
+ "test_f1_macro": 0.7345670995670995,
+ "test_precision_macro": 0.8191298701298702,
+ "test_recall_macro": 0.75,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "epocas_ejecutadas": 57,
+ "mejor_epoca": 32,
+ "tiempo_entrenamiento_s": 128.1,
+ "tiempo_total_s": 131.2,
+ "s_por_epoca": 2.25,
+ "epochs_max": 200,
+ "aug": 10,
+ "patience": 25,
+ "processed": "data/processed_holistic_mascara_rostro",
+ "representacion": "manos",
+ "seq_length": 30,
+ "modelo": "models/arquitecturas_2_2026-10-03/I_resnet1d/semilla_2026/pliegue_4/modelo.keras",
+ "fecha_fin": "2026-10-03T01:15:57",
+ "constructor": "arquitecturas_2.construir_resnet1d",
+ "script": "src/experimento_arquitecturas_2.py"
+}

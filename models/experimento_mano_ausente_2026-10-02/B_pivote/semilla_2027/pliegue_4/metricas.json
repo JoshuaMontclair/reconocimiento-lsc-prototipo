@@ -1,0 +1,19 @@
+{
+ "corrida": "B_s2027_pliegue_4",
+ "n_train_original": 697,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "top1": 0.7,
+ "top3": 0.875,
+ "precision_macro": 0.6779316239316239,
+ "recall_macro": 0.7,
+ "f1_macro": 0.6504093227034404,
+ "n_errores": 60,
+ "mejor_val_accuracy": 0.9100000262260437,
+ "epocas_ejecutadas": 60,
+ "mejor_epoca": 35,
+ "tiempo_entrenamiento_s": 273.1,
+ "tiempo_total_s": 275.8,
+ "modelo": "models/experimento_mano_ausente_2026-10-02/B_pivote/semilla_2027/pliegue_4/modelo.keras"
+}

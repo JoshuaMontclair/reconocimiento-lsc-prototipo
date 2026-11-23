@@ -1,0 +1,7648 @@
+{
+ "descripcion": "Análisis de errores del modelo final D-14 (TCN + imputación + 252), actividad 4.d. Solo reporte.",
+ "fecha": "2026-11-08T21:26:15",
+ "script": "src/analisis_errores_tcn.py",
+ "fuentes": {
+  "loso_tcn": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252",
+  "loso_heredada": "models/experimento_mano_ausente_2026-10-02/A_mascara",
+  "resultados_guardados": "models/confirmacion_tcn_2026-10-03/resultados_confirmacion_tcn.json",
+  "aleatoria_tcn": "models/tcn_imputacion/evaluacion_modelo_seleccionado",
+  "aleatoria_heredada": "models/canonico_holistic_mascara_manos/evaluacion_modelo_seleccionado",
+  "processed": "data/processed_holistic_mascara_rostro",
+  "metricas_fotograma": "data/extracted/LSC50_holistic/METRICAS_FOTOGRAMA",
+  "informe_previo": "models/analisis_errores_manos_2026-09-15/analisis.json"
+ },
+ "parametros": {
+  "semillas": [
+   2026,
+   2027,
+   2028
+  ],
+  "permutaciones": 10000,
+  "semilla_permutaciones": 2026,
+  "umbral_manos": 0.5,
+  "tramos_confianza": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "tramos_mano_ausente": [
+   0.0,
+   0.05,
+   0.15
+  ]
+ },
+ "controles": {
+  "corridas": [
+   {
+    "modelo": "heredada",
+    "semilla": 2026,
+    "pliegue": 0,
+    "top1": 0.46,
+    "top3": 0.65,
+    "f1": 0.4207369804108934,
+    "top1_guardado": 0.46,
+    "top3_guardado": 0.65,
+    "f1_guardado": 0.4207369804108934,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2026,
+    "pliegue": 1,
+    "top1": 0.5326633165829145,
+    "top3": 0.7135678391959799,
+    "f1": 0.46291330112382745,
+    "top1_guardado": 0.5326633165829145,
+    "top3_guardado": 0.7135678391959799,
+    "f1_guardado": 0.4629133011238274,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2026,
+    "pliegue": 2,
+    "top1": 0.6060606060606061,
+    "top3": 0.7878787878787878,
+    "f1": 0.5728167388167388,
+    "top1_guardado": 0.6060606060606061,
+    "top3_guardado": 0.7878787878787878,
+    "f1_guardado": 0.5728167388167388,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2026,
+    "pliegue": 3,
+    "top1": 0.615,
+    "top3": 0.83,
+    "f1": 0.5851647592173908,
+    "top1_guardado": 0.615,
+    "top3_guardado": 0.83,
+    "f1_guardado": 0.5851647592173908,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2026,
+    "pliegue": 4,
+    "top1": 0.685,
+    "top3": 0.87,
+    "f1": 0.6454877344877346,
+    "top1_guardado": 0.685,
+    "top3_guardado": 0.87,
+    "f1_guardado": 0.6454877344877346,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2027,
+    "pliegue": 0,
+    "top1": 0.48,
+    "top3": 0.64,
+    "f1": 0.4136678058783322,
+    "top1_guardado": 0.48,
+    "top3_guardado": 0.64,
+    "f1_guardado": 0.4136678058783322,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2027,
+    "pliegue": 1,
+    "top1": 0.49246231155778897,
+    "top3": 0.6984924623115578,
+    "f1": 0.4188964651905829,
+    "top1_guardado": 0.49246231155778897,
+    "top3_guardado": 0.6984924623115578,
+    "f1_guardado": 0.4188964651905829,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2027,
+    "pliegue": 2,
+    "top1": 0.6060606060606061,
+    "top3": 0.7474747474747475,
+    "f1": 0.5756037851037852,
+    "top1_guardado": 0.6060606060606061,
+    "top3_guardado": 0.7474747474747475,
+    "f1_guardado": 0.5756037851037852,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2027,
+    "pliegue": 3,
+    "top1": 0.65,
+    "top3": 0.84,
+    "f1": 0.609005772005772,
+    "top1_guardado": 0.65,
+    "top3_guardado": 0.84,
+    "f1_guardado": 0.6090057720057719,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2027,
+    "pliegue": 4,
+    "top1": 0.73,
+    "top3": 0.885,
+    "f1": 0.6779639249639249,
+    "top1_guardado": 0.73,
+    "top3_guardado": 0.885,
+    "f1_guardado": 0.6779639249639249,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2028,
+    "pliegue": 0,
+    "top1": 0.415,
+    "top3": 0.59,
+    "f1": 0.36446817933024833,
+    "top1_guardado": 0.415,
+    "top3_guardado": 0.59,
+    "f1_guardado": 0.36446817933024833,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2028,
+    "pliegue": 1,
+    "top1": 0.5829145728643216,
+    "top3": 0.7336683417085427,
+    "f1": 0.5348534354534354,
+    "top1_guardado": 0.5829145728643216,
+    "top3_guardado": 0.7336683417085427,
+    "f1_guardado": 0.5348534354534354,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2028,
+    "pliegue": 2,
+    "top1": 0.6818181818181818,
+    "top3": 0.8232323232323232,
+    "f1": 0.6634300144300143,
+    "top1_guardado": 0.6818181818181818,
+    "top3_guardado": 0.8232323232323232,
+    "f1_guardado": 0.6634300144300143,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2028,
+    "pliegue": 3,
+    "top1": 0.655,
+    "top3": 0.81,
+    "f1": 0.6151082251082252,
+    "top1_guardado": 0.655,
+    "top3_guardado": 0.81,
+    "f1_guardado": 0.6151082251082252,
+    "coincide": true
+   },
+   {
+    "modelo": "heredada",
+    "semilla": 2028,
+    "pliegue": 4,
+    "top1": 0.645,
+    "top3": 0.835,
+    "f1": 0.5940808080808081,
+    "top1_guardado": 0.645,
+    "top3_guardado": 0.835,
+    "f1_guardado": 0.5940808080808081,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2026,
+    "pliegue": 0,
+    "top1": 0.54,
+    "top3": 0.735,
+    "f1": 0.5284233327059414,
+    "top1_guardado": 0.54,
+    "top3_guardado": 0.735,
+    "f1_guardado": 0.5284233327059414,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2026,
+    "pliegue": 1,
+    "top1": 0.6130653266331658,
+    "top3": 0.8291457286432161,
+    "f1": 0.5683432461258549,
+    "top1_guardado": 0.6130653266331658,
+    "top3_guardado": 0.8291457286432161,
+    "f1_guardado": 0.5683432461258549,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2026,
+    "pliegue": 2,
+    "top1": 0.7171717171717171,
+    "top3": 0.8535353535353535,
+    "f1": 0.6757251082251082,
+    "top1_guardado": 0.7171717171717171,
+    "top3_guardado": 0.8535353535353535,
+    "f1_guardado": 0.6757251082251082,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2026,
+    "pliegue": 3,
+    "top1": 0.74,
+    "top3": 0.92,
+    "f1": 0.7130095003036179,
+    "top1_guardado": 0.74,
+    "top3_guardado": 0.92,
+    "f1_guardado": 0.7130095003036179,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2026,
+    "pliegue": 4,
+    "top1": 0.83,
+    "top3": 0.975,
+    "f1": 0.8035158175158175,
+    "top1_guardado": 0.83,
+    "top3_guardado": 0.975,
+    "f1_guardado": 0.8035158175158175,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2027,
+    "pliegue": 0,
+    "top1": 0.39,
+    "top3": 0.545,
+    "f1": 0.36434977507192917,
+    "top1_guardado": 0.39,
+    "top3_guardado": 0.545,
+    "f1_guardado": 0.36434977507192917,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2027,
+    "pliegue": 1,
+    "top1": 0.6331658291457286,
+    "top3": 0.7989949748743719,
+    "f1": 0.5882915155020418,
+    "top1_guardado": 0.6331658291457286,
+    "top3_guardado": 0.7989949748743719,
+    "f1_guardado": 0.5882915155020418,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2027,
+    "pliegue": 2,
+    "top1": 0.696969696969697,
+    "top3": 0.8888888888888888,
+    "f1": 0.666995670995671,
+    "top1_guardado": 0.696969696969697,
+    "top3_guardado": 0.8888888888888888,
+    "f1_guardado": 0.666995670995671,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2027,
+    "pliegue": 3,
+    "top1": 0.84,
+    "top3": 0.93,
+    "f1": 0.8209642579642578,
+    "top1_guardado": 0.84,
+    "top3_guardado": 0.93,
+    "f1_guardado": 0.8209642579642578,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2027,
+    "pliegue": 4,
+    "top1": 0.73,
+    "top3": 0.92,
+    "f1": 0.7074221334221333,
+    "top1_guardado": 0.73,
+    "top3_guardado": 0.92,
+    "f1_guardado": 0.7074221334221333,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2028,
+    "pliegue": 0,
+    "top1": 0.535,
+    "top3": 0.7,
+    "f1": 0.5139458874458874,
+    "top1_guardado": 0.535,
+    "top3_guardado": 0.7,
+    "f1_guardado": 0.5139458874458874,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2028,
+    "pliegue": 1,
+    "top1": 0.5879396984924623,
+    "top3": 0.7939698492462312,
+    "f1": 0.5383202645307908,
+    "top1_guardado": 0.5879396984924623,
+    "top3_guardado": 0.7939698492462312,
+    "f1_guardado": 0.5383202645307908,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2028,
+    "pliegue": 2,
+    "top1": 0.7474747474747475,
+    "top3": 0.9242424242424242,
+    "f1": 0.7137619047619047,
+    "top1_guardado": 0.7474747474747475,
+    "top3_guardado": 0.9242424242424242,
+    "f1_guardado": 0.7137619047619047,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2028,
+    "pliegue": 3,
+    "top1": 0.73,
+    "top3": 0.955,
+    "f1": 0.7000808080808081,
+    "top1_guardado": 0.73,
+    "top3_guardado": 0.955,
+    "f1_guardado": 0.7000808080808081,
+    "coincide": true
+   },
+   {
+    "modelo": "tcn",
+    "semilla": 2028,
+    "pliegue": 4,
+    "top1": 0.825,
+    "top3": 0.93,
+    "f1": 0.7975887445887446,
+    "top1_guardado": 0.825,
+    "top3_guardado": 0.93,
+    "f1_guardado": 0.7975887445887444,
+    "coincide": true
+   }
+  ],
+  "resumen": {
+   "heredada": {
+    "top1": 0.5891319729962947,
+    "top3": 0.7636209667867959,
+    "f1": 0.5436131953067809,
+    "senante_0000": 0.45166666666666666,
+    "coincide_con_registro_3_decimales": true,
+    "aleatoria": {
+     "top1": 0.88,
+     "errores": 12,
+     "top1_guardado": 0.88,
+     "errores_guardados": 12,
+     "sistema": "modelo seleccionado (semilla 2026)",
+     "coincide": true
+    }
+   },
+   "tcn": {
+    "top1": 0.6770524677258346,
+    "top3": 0.8465851479620323,
+    "f1": 0.6467158644827005,
+    "senante_0000": 0.48833333333333334,
+    "coincide_con_registro_3_decimales": true,
+    "aleatoria": {
+     "top1": 0.94,
+     "errores": 6,
+     "top1_guardado": 0.94,
+     "errores_guardados": 6,
+     "sistema": "modelo seleccionado (semilla 2030)",
+     "coincide": true
+    }
+   }
+  },
+  "todo_coincide": true,
+  "mcnemar_voto": {
+   "calculado": {
+    "n": 997,
+    "ambos_aciertan": 551,
+    "solo_tcn": 163,
+    "solo_heredada": 56,
+    "ambos_fallan": 227,
+    "neto_tcn": 107,
+    "p_mcnemar_exacto": 2.6098445095294297e-13
+   },
+   "guardado": {
+    "solo_T1": 163,
+    "solo_R0": 56,
+    "p": 2.609844509529414e-13
+   },
+   "coincide": true
+  },
+  "heredada_semilla_2026_vs_loso_informe_previo": {
+   "disponible": true,
+   "n": 997,
+   "predicciones_iguales": 997,
+   "identicas": true
+  },
+  "propiedades": {
+   "metricas_fotograma_disponible": true,
+   "coinciden_bloques_vs_metricas": true,
+   "discrepancias": 0
+  }
+ },
+ "global": {
+  "heredada": {
+   "n_3_semillas": 2991,
+   "exactitud_3_semillas": 0.5891006352390504,
+   "top3_3_semillas": 0.7636242059511869,
+   "errores_3_semillas": 1229,
+   "exactitud_voto": 0.6088264794383149,
+   "errores_voto": 390,
+   "f1_voto": 0.6057892076786202
+  },
+  "tcn": {
+   "n_3_semillas": 2991,
+   "exactitud_3_semillas": 0.6770310932798396,
+   "top3_3_semillas": 0.8465396188565697,
+   "errores_3_semillas": 966,
+   "exactitud_voto": 0.7161484453360081,
+   "errores_voto": 283,
+   "f1_voto": 0.7187144499232361
+  }
+ },
+ "pares": {
+  "heredada": {
+   "pares_3_semillas": [
+    {
+     "real": 15,
+     "predicha": 14,
+     "conteo": 20,
+     "conteo_inverso": 18,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.9,
+     "simetrica": true,
+     "por_semilla": [
+      6,
+      5,
+      9
+     ]
+    },
+    {
+     "real": 27,
+     "predicha": 9,
+     "conteo": 19,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.2631578947368421,
+     "simetrica": false,
+     "por_semilla": [
+      8,
+      6,
+      5
+     ]
+    },
+    {
+     "real": 30,
+     "predicha": 13,
+     "conteo": 19,
+     "conteo_inverso": 4,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.21052631578947367,
+     "simetrica": false,
+     "por_semilla": [
+      6,
+      7,
+      6
+     ]
+    },
+    {
+     "real": 44,
+     "predicha": 26,
+     "conteo": 19,
+     "conteo_inverso": 18,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.9473684210526315,
+     "simetrica": true,
+     "por_semilla": [
+      5,
+      7,
+      7
+     ]
+    },
+    {
+     "real": 14,
+     "predicha": 15,
+     "conteo": 18,
+     "conteo_inverso": 20,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.9,
+     "simetrica": true,
+     "por_semilla": [
+      5,
+      8,
+      5
+     ]
+    },
+    {
+     "real": 26,
+     "predicha": 44,
+     "conteo": 18,
+     "conteo_inverso": 19,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.9473684210526315,
+     "simetrica": true,
+     "por_semilla": [
+      6,
+      6,
+      6
+     ]
+    },
+    {
+     "real": 41,
+     "predicha": 43,
+     "conteo": 17,
+     "conteo_inverso": 7,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.4117647058823529,
+     "simetrica": false,
+     "por_semilla": [
+      6,
+      8,
+      3
+     ]
+    },
+    {
+     "real": 18,
+     "predicha": 17,
+     "conteo": 15,
+     "conteo_inverso": 7,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.4666666666666667,
+     "simetrica": false,
+     "por_semilla": [
+      4,
+      4,
+      7
+     ]
+    },
+    {
+     "real": 31,
+     "predicha": 16,
+     "conteo": 14,
+     "conteo_inverso": 1,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.07142857142857142,
+     "simetrica": false,
+     "por_semilla": [
+      3,
+      5,
+      6
+     ]
+    },
+    {
+     "real": 39,
+     "predicha": 14,
+     "conteo": 14,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.35714285714285715,
+     "simetrica": false,
+     "por_semilla": [
+      5,
+      4,
+      5
+     ]
+    },
+    {
+     "real": 40,
+     "predicha": 11,
+     "conteo": 14,
+     "conteo_inverso": 3,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.21428571428571427,
+     "simetrica": false,
+     "por_semilla": [
+      3,
+      8,
+      3
+     ]
+    },
+    {
+     "real": 42,
+     "predicha": 36,
+     "conteo": 14,
+     "conteo_inverso": 11,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.7857142857142857,
+     "simetrica": true,
+     "por_semilla": [
+      5,
+      3,
+      6
+     ]
+    },
+    {
+     "real": 27,
+     "predicha": 38,
+     "conteo": 13,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.38461538461538464,
+     "simetrica": false,
+     "por_semilla": [
+      8,
+      3,
+      2
+     ]
+    },
+    {
+     "real": 30,
+     "predicha": 16,
+     "conteo": 12,
+     "conteo_inverso": 9,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.75,
+     "simetrica": true,
+     "por_semilla": [
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "real": 41,
+     "predicha": 44,
+     "conteo": 12,
+     "conteo_inverso": 9,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.75,
+     "simetrica": true,
+     "por_semilla": [
+      3,
+      4,
+      5
+     ]
+    }
+   ],
+   "parejas_3_semillas": [
+    {
+     "a": 14,
+     "b": 15,
+     "a_a_b": 18,
+     "b_a_a": 20,
+     "total": 38
+    },
+    {
+     "a": 26,
+     "b": 44,
+     "a_a_b": 18,
+     "b_a_a": 19,
+     "total": 37
+    },
+    {
+     "a": 36,
+     "b": 42,
+     "a_a_b": 11,
+     "b_a_a": 14,
+     "total": 25
+    },
+    {
+     "a": 9,
+     "b": 27,
+     "a_a_b": 5,
+     "b_a_a": 19,
+     "total": 24
+    },
+    {
+     "a": 41,
+     "b": 43,
+     "a_a_b": 17,
+     "b_a_a": 7,
+     "total": 24
+    },
+    {
+     "a": 13,
+     "b": 30,
+     "a_a_b": 4,
+     "b_a_a": 19,
+     "total": 23
+    },
+    {
+     "a": 17,
+     "b": 18,
+     "a_a_b": 7,
+     "b_a_a": 15,
+     "total": 22
+    },
+    {
+     "a": 12,
+     "b": 36,
+     "a_a_b": 10,
+     "b_a_a": 11,
+     "total": 21
+    },
+    {
+     "a": 16,
+     "b": 30,
+     "a_a_b": 9,
+     "b_a_a": 12,
+     "total": 21
+    },
+    {
+     "a": 41,
+     "b": 44,
+     "a_a_b": 12,
+     "b_a_a": 9,
+     "total": 21
+    },
+    {
+     "a": 14,
+     "b": 39,
+     "a_a_b": 5,
+     "b_a_a": 14,
+     "total": 19
+    },
+    {
+     "a": 27,
+     "b": 28,
+     "a_a_b": 11,
+     "b_a_a": 7,
+     "total": 18
+    },
+    {
+     "a": 27,
+     "b": 38,
+     "a_a_b": 13,
+     "b_a_a": 5,
+     "total": 18
+    },
+    {
+     "a": 7,
+     "b": 16,
+     "a_a_b": 8,
+     "b_a_a": 9,
+     "total": 17
+    },
+    {
+     "a": 11,
+     "b": 40,
+     "a_a_b": 3,
+     "b_a_a": 14,
+     "total": 17
+    }
+   ],
+   "pares_voto": [
+    {
+     "real": 14,
+     "predicha": 15,
+     "conteo": 8,
+     "conteo_inverso": 7,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.875,
+     "simetrica": true,
+     "senantes": [
+      "0002",
+      "0004"
+     ]
+    },
+    {
+     "real": 30,
+     "predicha": 13,
+     "conteo": 8,
+     "conteo_inverso": 1,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.125,
+     "simetrica": false,
+     "senantes": [
+      "0000",
+      "0002",
+      "0003"
+     ]
+    },
+    {
+     "real": 15,
+     "predicha": 14,
+     "conteo": 7,
+     "conteo_inverso": 8,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.875,
+     "simetrica": true,
+     "senantes": [
+      "0000",
+      "0003"
+     ]
+    },
+    {
+     "real": 27,
+     "predicha": 9,
+     "conteo": 7,
+     "conteo_inverso": 1,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.14285714285714285,
+     "simetrica": false,
+     "senantes": [
+      "0001",
+      "0003"
+     ]
+    },
+    {
+     "real": 26,
+     "predicha": 44,
+     "conteo": 6,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.8333333333333334,
+     "simetrica": true,
+     "senantes": [
+      "0002",
+      "0003"
+     ]
+    },
+    {
+     "real": 39,
+     "predicha": 14,
+     "conteo": 6,
+     "conteo_inverso": 1,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.16666666666666666,
+     "simetrica": false,
+     "senantes": [
+      "0000",
+      "0004"
+     ]
+    },
+    {
+     "real": 31,
+     "predicha": 16,
+     "conteo": 5,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "senantes": [
+      "0001",
+      "0002"
+     ]
+    },
+    {
+     "real": 41,
+     "predicha": 43,
+     "conteo": 5,
+     "conteo_inverso": 3,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.6,
+     "simetrica": true,
+     "senantes": [
+      "0001",
+      "0003",
+      "0004"
+     ]
+    },
+    {
+     "real": 41,
+     "predicha": 44,
+     "conteo": 5,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 1.0,
+     "simetrica": true,
+     "senantes": [
+      "0002",
+      "0003"
+     ]
+    },
+    {
+     "real": 42,
+     "predicha": 36,
+     "conteo": 5,
+     "conteo_inverso": 4,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.8,
+     "simetrica": true,
+     "senantes": [
+      "0001",
+      "0004"
+     ]
+    },
+    {
+     "real": 44,
+     "predicha": 26,
+     "conteo": 5,
+     "conteo_inverso": 6,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.8333333333333334,
+     "simetrica": true,
+     "senantes": [
+      "0001",
+      "0002",
+      "0003"
+     ]
+    },
+    {
+     "real": 44,
+     "predicha": 41,
+     "conteo": 5,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 1.0,
+     "simetrica": true,
+     "senantes": [
+      "0000",
+      "0001",
+      "0004"
+     ]
+    },
+    {
+     "real": 0,
+     "predicha": 35,
+     "conteo": 4,
+     "conteo_inverso": 2,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.5,
+     "simetrica": true,
+     "senantes": [
+      "0000",
+      "0001"
+     ]
+    },
+    {
+     "real": 7,
+     "predicha": 36,
+     "conteo": 4,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "senantes": [
+      "0004"
+     ]
+    },
+    {
+     "real": 12,
+     "predicha": 15,
+     "conteo": 4,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "senantes": [
+      "0000",
+      "0002"
+     ]
+    }
+   ],
+   "parejas_voto": [
+    {
+     "a": 14,
+     "b": 15,
+     "a_a_b": 8,
+     "b_a_a": 7,
+     "total": 15
+    },
+    {
+     "a": 26,
+     "b": 44,
+     "a_a_b": 6,
+     "b_a_a": 5,
+     "total": 11
+    },
+    {
+     "a": 41,
+     "b": 44,
+     "a_a_b": 5,
+     "b_a_a": 5,
+     "total": 10
+    },
+    {
+     "a": 13,
+     "b": 30,
+     "a_a_b": 1,
+     "b_a_a": 8,
+     "total": 9
+    },
+    {
+     "a": 36,
+     "b": 42,
+     "a_a_b": 4,
+     "b_a_a": 5,
+     "total": 9
+    },
+    {
+     "a": 9,
+     "b": 27,
+     "a_a_b": 1,
+     "b_a_a": 7,
+     "total": 8
+    },
+    {
+     "a": 12,
+     "b": 36,
+     "a_a_b": 4,
+     "b_a_a": 4,
+     "total": 8
+    },
+    {
+     "a": 27,
+     "b": 28,
+     "a_a_b": 4,
+     "b_a_a": 4,
+     "total": 8
+    },
+    {
+     "a": 41,
+     "b": 43,
+     "a_a_b": 5,
+     "b_a_a": 3,
+     "total": 8
+    },
+    {
+     "a": 14,
+     "b": 39,
+     "a_a_b": 1,
+     "b_a_a": 6,
+     "total": 7
+    },
+    {
+     "a": 16,
+     "b": 30,
+     "a_a_b": 3,
+     "b_a_a": 4,
+     "total": 7
+    },
+    {
+     "a": 17,
+     "b": 18,
+     "a_a_b": 3,
+     "b_a_a": 4,
+     "total": 7
+    },
+    {
+     "a": 0,
+     "b": 35,
+     "a_a_b": 4,
+     "b_a_a": 2,
+     "total": 6
+    },
+    {
+     "a": 7,
+     "b": 16,
+     "a_a_b": 2,
+     "b_a_a": 3,
+     "total": 5
+    },
+    {
+     "a": 11,
+     "b": 40,
+     "a_a_b": 1,
+     "b_a_a": 4,
+     "total": 5
+    }
+   ],
+   "n_pares_distintos_3_semillas": 333,
+   "n_pares_distintos_voto": 190,
+   "errores_3_semillas": 1229,
+   "proporcion_errores_en_10_parejas_principales": 0.2082994304312449
+  },
+  "tcn": {
+   "pares_3_semillas": [
+    {
+     "real": 26,
+     "predicha": 44,
+     "conteo": 19,
+     "conteo_inverso": 14,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.7368421052631579,
+     "simetrica": true,
+     "por_semilla": [
+      7,
+      6,
+      6
+     ]
+    },
+    {
+     "real": 45,
+     "predicha": 30,
+     "conteo": 17,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "por_semilla": [
+      6,
+      7,
+      4
+     ]
+    },
+    {
+     "real": 14,
+     "predicha": 15,
+     "conteo": 16,
+     "conteo_inverso": 15,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.9375,
+     "simetrica": true,
+     "por_semilla": [
+      4,
+      11,
+      1
+     ]
+    },
+    {
+     "real": 41,
+     "predicha": 43,
+     "conteo": 16,
+     "conteo_inverso": 10,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.625,
+     "simetrica": true,
+     "por_semilla": [
+      4,
+      5,
+      7
+     ]
+    },
+    {
+     "real": 42,
+     "predicha": 12,
+     "conteo": 16,
+     "conteo_inverso": 4,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.25,
+     "simetrica": false,
+     "por_semilla": [
+      4,
+      6,
+      6
+     ]
+    },
+    {
+     "real": 15,
+     "predicha": 14,
+     "conteo": 15,
+     "conteo_inverso": 16,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.9375,
+     "simetrica": true,
+     "por_semilla": [
+      6,
+      5,
+      4
+     ]
+    },
+    {
+     "real": 44,
+     "predicha": 26,
+     "conteo": 14,
+     "conteo_inverso": 19,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.7368421052631579,
+     "simetrica": true,
+     "por_semilla": [
+      2,
+      3,
+      9
+     ]
+    },
+    {
+     "real": 18,
+     "predicha": 17,
+     "conteo": 13,
+     "conteo_inverso": 2,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.15384615384615385,
+     "simetrica": false,
+     "por_semilla": [
+      4,
+      5,
+      4
+     ]
+    },
+    {
+     "real": 23,
+     "predicha": 14,
+     "conteo": 13,
+     "conteo_inverso": 2,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.15384615384615385,
+     "simetrica": false,
+     "por_semilla": [
+      2,
+      5,
+      6
+     ]
+    },
+    {
+     "real": 44,
+     "predicha": 41,
+     "conteo": 13,
+     "conteo_inverso": 11,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.8461538461538461,
+     "simetrica": true,
+     "por_semilla": [
+      2,
+      6,
+      5
+     ]
+    },
+    {
+     "real": 0,
+     "predicha": 36,
+     "conteo": 12,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.4166666666666667,
+     "simetrica": false,
+     "por_semilla": [
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "real": 27,
+     "predicha": 9,
+     "conteo": 12,
+     "conteo_inverso": 3,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.25,
+     "simetrica": false,
+     "por_semilla": [
+      4,
+      5,
+      3
+     ]
+    },
+    {
+     "real": 30,
+     "predicha": 16,
+     "conteo": 12,
+     "conteo_inverso": 2,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.16666666666666666,
+     "simetrica": false,
+     "por_semilla": [
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "real": 28,
+     "predicha": 36,
+     "conteo": 11,
+     "conteo_inverso": 4,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.36363636363636365,
+     "simetrica": false,
+     "por_semilla": [
+      8,
+      0,
+      3
+     ]
+    },
+    {
+     "real": 31,
+     "predicha": 16,
+     "conteo": 11,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "por_semilla": [
+      3,
+      4,
+      4
+     ]
+    }
+   ],
+   "parejas_3_semillas": [
+    {
+     "a": 26,
+     "b": 44,
+     "a_a_b": 19,
+     "b_a_a": 14,
+     "total": 33
+    },
+    {
+     "a": 14,
+     "b": 15,
+     "a_a_b": 16,
+     "b_a_a": 15,
+     "total": 31
+    },
+    {
+     "a": 41,
+     "b": 43,
+     "a_a_b": 16,
+     "b_a_a": 10,
+     "total": 26
+    },
+    {
+     "a": 41,
+     "b": 44,
+     "a_a_b": 11,
+     "b_a_a": 13,
+     "total": 24
+    },
+    {
+     "a": 12,
+     "b": 42,
+     "a_a_b": 4,
+     "b_a_a": 16,
+     "total": 20
+    },
+    {
+     "a": 0,
+     "b": 36,
+     "a_a_b": 12,
+     "b_a_a": 5,
+     "total": 17
+    },
+    {
+     "a": 30,
+     "b": 45,
+     "a_a_b": 0,
+     "b_a_a": 17,
+     "total": 17
+    },
+    {
+     "a": 7,
+     "b": 12,
+     "a_a_b": 10,
+     "b_a_a": 6,
+     "total": 16
+    },
+    {
+     "a": 20,
+     "b": 21,
+     "a_a_b": 6,
+     "b_a_a": 10,
+     "total": 16
+    },
+    {
+     "a": 9,
+     "b": 27,
+     "a_a_b": 3,
+     "b_a_a": 12,
+     "total": 15
+    },
+    {
+     "a": 14,
+     "b": 23,
+     "a_a_b": 2,
+     "b_a_a": 13,
+     "total": 15
+    },
+    {
+     "a": 17,
+     "b": 18,
+     "a_a_b": 2,
+     "b_a_a": 13,
+     "total": 15
+    },
+    {
+     "a": 28,
+     "b": 36,
+     "a_a_b": 11,
+     "b_a_a": 4,
+     "total": 15
+    },
+    {
+     "a": 16,
+     "b": 30,
+     "a_a_b": 2,
+     "b_a_a": 12,
+     "total": 14
+    },
+    {
+     "a": 15,
+     "b": 16,
+     "a_a_b": 9,
+     "b_a_a": 4,
+     "total": 13
+    }
+   ],
+   "pares_voto": [
+    {
+     "real": 44,
+     "predicha": 41,
+     "conteo": 7,
+     "conteo_inverso": 4,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.5714285714285714,
+     "simetrica": true,
+     "senantes": [
+      "0000",
+      "0001",
+      "0004"
+     ]
+    },
+    {
+     "real": 23,
+     "predicha": 14,
+     "conteo": 6,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "senantes": [
+      "0000",
+      "0001"
+     ]
+    },
+    {
+     "real": 26,
+     "predicha": 44,
+     "conteo": 6,
+     "conteo_inverso": 4,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.6666666666666666,
+     "simetrica": true,
+     "senantes": [
+      "0002",
+      "0003",
+      "0004"
+     ]
+    },
+    {
+     "real": 41,
+     "predicha": 43,
+     "conteo": 6,
+     "conteo_inverso": 4,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.6666666666666666,
+     "simetrica": true,
+     "senantes": [
+      "0001",
+      "0004"
+     ]
+    },
+    {
+     "real": 42,
+     "predicha": 12,
+     "conteo": 6,
+     "conteo_inverso": 1,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.16666666666666666,
+     "simetrica": false,
+     "senantes": [
+      "0003",
+      "0004"
+     ]
+    },
+    {
+     "real": 45,
+     "predicha": 30,
+     "conteo": 6,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "senantes": [
+      "0002",
+      "0004"
+     ]
+    },
+    {
+     "real": 14,
+     "predicha": 15,
+     "conteo": 5,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 1.0,
+     "simetrica": true,
+     "senantes": [
+      "0000",
+      "0002"
+     ]
+    },
+    {
+     "real": 15,
+     "predicha": 14,
+     "conteo": 5,
+     "conteo_inverso": 5,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 1.0,
+     "simetrica": true,
+     "senantes": [
+      "0003",
+      "0004"
+     ]
+    },
+    {
+     "real": 18,
+     "predicha": 17,
+     "conteo": 5,
+     "conteo_inverso": 1,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.2,
+     "simetrica": false,
+     "senantes": [
+      "0001",
+      "0004"
+     ]
+    },
+    {
+     "real": 28,
+     "predicha": 36,
+     "conteo": 5,
+     "conteo_inverso": 2,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.4,
+     "simetrica": false,
+     "senantes": [
+      "0000",
+      "0001",
+      "0003"
+     ]
+    },
+    {
+     "real": 7,
+     "predicha": 12,
+     "conteo": 4,
+     "conteo_inverso": 2,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.5,
+     "simetrica": true,
+     "senantes": [
+      "0000",
+      "0002",
+      "0004"
+     ]
+    },
+    {
+     "real": 16,
+     "predicha": 12,
+     "conteo": 4,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "senantes": [
+      "0000",
+      "0003"
+     ]
+    },
+    {
+     "real": 21,
+     "predicha": 20,
+     "conteo": 4,
+     "conteo_inverso": 1,
+     "en_ambos_sentidos": true,
+     "cociente_menor_mayor": 0.25,
+     "simetrica": false,
+     "senantes": [
+      "0004"
+     ]
+    },
+    {
+     "real": 24,
+     "predicha": 28,
+     "conteo": 4,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "senantes": [
+      "0000",
+      "0004"
+     ]
+    },
+    {
+     "real": 30,
+     "predicha": 16,
+     "conteo": 4,
+     "conteo_inverso": 0,
+     "en_ambos_sentidos": false,
+     "cociente_menor_mayor": 0.0,
+     "simetrica": false,
+     "senantes": [
+      "0001"
+     ]
+    }
+   ],
+   "parejas_voto": [
+    {
+     "a": 41,
+     "b": 44,
+     "a_a_b": 4,
+     "b_a_a": 7,
+     "total": 11
+    },
+    {
+     "a": 14,
+     "b": 15,
+     "a_a_b": 5,
+     "b_a_a": 5,
+     "total": 10
+    },
+    {
+     "a": 26,
+     "b": 44,
+     "a_a_b": 6,
+     "b_a_a": 4,
+     "total": 10
+    },
+    {
+     "a": 41,
+     "b": 43,
+     "a_a_b": 6,
+     "b_a_a": 4,
+     "total": 10
+    },
+    {
+     "a": 12,
+     "b": 42,
+     "a_a_b": 1,
+     "b_a_a": 6,
+     "total": 7
+    },
+    {
+     "a": 28,
+     "b": 36,
+     "a_a_b": 5,
+     "b_a_a": 2,
+     "total": 7
+    },
+    {
+     "a": 7,
+     "b": 12,
+     "a_a_b": 4,
+     "b_a_a": 2,
+     "total": 6
+    },
+    {
+     "a": 14,
+     "b": 23,
+     "a_a_b": 0,
+     "b_a_a": 6,
+     "total": 6
+    },
+    {
+     "a": 17,
+     "b": 18,
+     "a_a_b": 1,
+     "b_a_a": 5,
+     "total": 6
+    },
+    {
+     "a": 30,
+     "b": 45,
+     "a_a_b": 0,
+     "b_a_a": 6,
+     "total": 6
+    },
+    {
+     "a": 8,
+     "b": 41,
+     "a_a_b": 2,
+     "b_a_a": 3,
+     "total": 5
+    },
+    {
+     "a": 20,
+     "b": 21,
+     "a_a_b": 1,
+     "b_a_a": 4,
+     "total": 5
+    },
+    {
+     "a": 9,
+     "b": 27,
+     "a_a_b": 1,
+     "b_a_a": 3,
+     "total": 4
+    },
+    {
+     "a": 9,
+     "b": 39,
+     "a_a_b": 0,
+     "b_a_a": 4,
+     "total": 4
+    },
+    {
+     "a": 12,
+     "b": 16,
+     "a_a_b": 0,
+     "b_a_a": 4,
+     "total": 4
+    }
+   ],
+   "n_pares_distintos_3_semillas": 292,
+   "n_pares_distintos_voto": 134,
+   "errores_3_semillas": 966,
+   "proporcion_errores_en_10_parejas_principales": 0.2225672877846791
+  },
+  "parejas_top10_comunes": [
+   [
+    26,
+    44
+   ],
+   [
+    14,
+    15
+   ],
+   [
+    41,
+    43
+   ],
+   [
+    41,
+    44
+   ],
+   [
+    9,
+    27
+   ]
+  ]
+ },
+ "por_clase": {
+  "heredada": [
+   {
+    "id": 0,
+    "nombre": "gracias",
+    "categoria": "cortesia",
+    "categoria_conversor": "CORT",
+    "recall": 0.5,
+    "precision": 0.6382978723404256,
+    "f1": 0.5607476635514019,
+    "soporte": 60,
+    "veces_predicha": 47,
+    "recall_por_semilla": [
+     0.5,
+     0.4,
+     0.6
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.6470588235294118
+   },
+   {
+    "id": 1,
+    "nombre": "buenos días",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "soporte": 60,
+    "veces_predicha": 60,
+    "recall_por_semilla": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 2,
+    "nombre": "buenas tardes",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 0.9824561403508771,
+    "precision": 0.835820895522388,
+    "f1": 0.9032258064516129,
+    "soporte": 57,
+    "veces_predicha": 67,
+    "recall_por_semilla": [
+     1.0,
+     0.9473684210526315,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.8260869565217391
+   },
+   {
+    "id": 3,
+    "nombre": "buenas noches",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 0.9833333333333333,
+    "precision": 0.9365079365079365,
+    "f1": 0.9593495934959351,
+    "soporte": 60,
+    "veces_predicha": 63,
+    "recall_por_semilla": [
+     1.0,
+     0.95,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 4,
+    "nombre": "seña",
+    "categoria": "objeto",
+    "categoria_conversor": "NOM_ABS",
+    "recall": 0.9666666666666667,
+    "precision": 0.8169014084507042,
+    "f1": 0.8854961832061069,
+    "soporte": 60,
+    "veces_predicha": 71,
+    "recall_por_semilla": [
+     1.0,
+     0.95,
+     0.95
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.8
+   },
+   {
+    "id": 5,
+    "nombre": "nombre",
+    "categoria": "objeto",
+    "categoria_conversor": "NOM_ABS",
+    "recall": 0.9333333333333333,
+    "precision": 0.8888888888888888,
+    "f1": 0.9105691056910569,
+    "soporte": 60,
+    "veces_predicha": 63,
+    "recall_por_semilla": [
+     0.95,
+     0.9,
+     0.95
+    ],
+    "recall_voto": 0.95,
+    "precision_voto": 0.9047619047619048
+   },
+   {
+    "id": 6,
+    "nombre": "trabajar",
+    "categoria": "verbo",
+    "categoria_conversor": "VERBO",
+    "recall": 0.6666666666666666,
+    "precision": 0.975609756097561,
+    "f1": 0.7920792079207921,
+    "soporte": 60,
+    "veces_predicha": 41,
+    "recall_por_semilla": [
+     0.6,
+     0.7,
+     0.7
+    ],
+    "recall_voto": 0.65,
+    "precision_voto": 0.9285714285714286
+   },
+   {
+    "id": 7,
+    "nombre": "comer",
+    "categoria": "verbo",
+    "categoria_conversor": "VERBO",
+    "recall": 0.016666666666666666,
+    "precision": 0.03333333333333333,
+    "f1": 0.02222222222222222,
+    "soporte": 60,
+    "veces_predicha": 30,
+    "recall_por_semilla": [
+     0.05,
+     0.0,
+     0.0
+    ],
+    "recall_voto": 0.0,
+    "precision_voto": 0.0
+   },
+   {
+    "id": 8,
+    "nombre": "vivir",
+    "categoria": "verbo",
+    "categoria_conversor": "VERBO",
+    "recall": 0.6491228070175439,
+    "precision": 0.5692307692307692,
+    "f1": 0.6065573770491803,
+    "soporte": 57,
+    "veces_predicha": 65,
+    "recall_por_semilla": [
+     0.6842105263157895,
+     0.5263157894736842,
+     0.7368421052631579
+    ],
+    "recall_voto": 0.7368421052631579,
+    "precision_voto": 0.7777777777777778
+   },
+   {
+    "id": 9,
+    "nombre": "poco",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_CANT",
+    "recall": 0.36666666666666664,
+    "precision": 0.4230769230769231,
+    "f1": 0.3928571428571428,
+    "soporte": 60,
+    "veces_predicha": 52,
+    "recall_por_semilla": [
+     0.35,
+     0.4,
+     0.35
+    ],
+    "recall_voto": 0.35,
+    "precision_voto": 0.4117647058823529
+   },
+   {
+    "id": 10,
+    "nombre": "familia",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.95,
+    "precision": 0.8260869565217391,
+    "f1": 0.8837209302325583,
+    "soporte": 60,
+    "veces_predicha": 69,
+    "recall_por_semilla": [
+     0.95,
+     1.0,
+     0.9
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.8695652173913043
+   },
+   {
+    "id": 11,
+    "nombre": "personas",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.5,
+    "precision": 0.46875,
+    "f1": 0.4838709677419355,
+    "soporte": 60,
+    "veces_predicha": 64,
+    "recall_por_semilla": [
+     0.55,
+     0.55,
+     0.4
+    ],
+    "recall_voto": 0.6,
+    "precision_voto": 0.5714285714285714
+   },
+   {
+    "id": 12,
+    "nombre": "mujer",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.25,
+    "precision": 0.30612244897959184,
+    "f1": 0.27522935779816515,
+    "soporte": 60,
+    "veces_predicha": 49,
+    "recall_por_semilla": [
+     0.25,
+     0.15,
+     0.35
+    ],
+    "recall_voto": 0.25,
+    "precision_voto": 0.35714285714285715
+   },
+   {
+    "id": 13,
+    "nombre": "hombre",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.8833333333333333,
+    "precision": 0.5353535353535354,
+    "f1": 0.6666666666666666,
+    "soporte": 60,
+    "veces_predicha": 99,
+    "recall_por_semilla": [
+     0.9,
+     0.9,
+     0.85
+    ],
+    "recall_voto": 0.95,
+    "precision_voto": 0.5135135135135135
+   },
+   {
+    "id": 14,
+    "nombre": "niño",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.35,
+    "precision": 0.25301204819277107,
+    "f1": 0.2937062937062937,
+    "soporte": 60,
+    "veces_predicha": 83,
+    "recall_por_semilla": [
+     0.15,
+     0.35,
+     0.55
+    ],
+    "recall_voto": 0.35,
+    "precision_voto": 0.25
+   },
+   {
+    "id": 15,
+    "nombre": "niña",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.4,
+    "precision": 0.24,
+    "f1": 0.3,
+    "soporte": 60,
+    "veces_predicha": 100,
+    "recall_por_semilla": [
+     0.35,
+     0.55,
+     0.3
+    ],
+    "recall_voto": 0.45,
+    "precision_voto": 0.23684210526315788
+   },
+   {
+    "id": 16,
+    "nombre": "abuelo",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.45614035087719296,
+    "precision": 0.2708333333333333,
+    "f1": 0.3398692810457516,
+    "soporte": 57,
+    "veces_predicha": 96,
+    "recall_por_semilla": [
+     0.3684210526315789,
+     0.42105263157894735,
+     0.5789473684210527
+    ],
+    "recall_voto": 0.47368421052631576,
+    "precision_voto": 0.2727272727272727
+   },
+   {
+    "id": 17,
+    "nombre": "tío",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.8,
+    "precision": 0.75,
+    "f1": 0.7741935483870969,
+    "soporte": 60,
+    "veces_predicha": 64,
+    "recall_por_semilla": [
+     0.85,
+     0.7,
+     0.85
+    ],
+    "recall_voto": 0.8,
+    "precision_voto": 0.8
+   },
+   {
+    "id": 18,
+    "nombre": "hermano",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.7333333333333333,
+    "precision": 0.8148148148148148,
+    "f1": 0.7719298245614035,
+    "soporte": 60,
+    "veces_predicha": 54,
+    "recall_por_semilla": [
+     0.8,
+     0.8,
+     0.6
+    ],
+    "recall_voto": 0.8,
+    "precision_voto": 0.8
+   },
+   {
+    "id": 19,
+    "nombre": "hambre",
+    "categoria": "objeto",
+    "categoria_conversor": "NOM_TENER",
+    "recall": 0.85,
+    "precision": 0.6986301369863014,
+    "f1": 0.7669172932330827,
+    "soporte": 60,
+    "veces_predicha": 73,
+    "recall_por_semilla": [
+     0.9,
+     0.9,
+     0.75
+    ],
+    "recall_voto": 0.9,
+    "precision_voto": 0.8181818181818182
+   },
+   {
+    "id": 20,
+    "nombre": "feliz",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.85,
+    "precision": 0.7611940298507462,
+    "f1": 0.8031496062992126,
+    "soporte": 60,
+    "veces_predicha": 67,
+    "recall_por_semilla": [
+     0.9,
+     0.85,
+     0.8
+    ],
+    "recall_voto": 0.85,
+    "precision_voto": 0.7391304347826086
+   },
+   {
+    "id": 21,
+    "nombre": "contento",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.6833333333333333,
+    "precision": 0.803921568627451,
+    "f1": 0.7387387387387387,
+    "soporte": 60,
+    "veces_predicha": 51,
+    "recall_por_semilla": [
+     0.65,
+     0.75,
+     0.65
+    ],
+    "recall_voto": 0.65,
+    "precision_voto": 0.9285714285714286
+   },
+   {
+    "id": 22,
+    "nombre": "triste",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.7,
+    "precision": 0.8235294117647058,
+    "f1": 0.7567567567567567,
+    "soporte": 60,
+    "veces_predicha": 51,
+    "recall_por_semilla": [
+     0.65,
+     0.7,
+     0.75
+    ],
+    "recall_voto": 0.75,
+    "precision_voto": 0.8333333333333334
+   },
+   {
+    "id": 23,
+    "nombre": "aburrido",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.6,
+    "precision": 0.72,
+    "f1": 0.6545454545454547,
+    "soporte": 60,
+    "veces_predicha": 50,
+    "recall_por_semilla": [
+     0.55,
+     0.8,
+     0.45
+    ],
+    "recall_voto": 0.6,
+    "precision_voto": 0.8
+   },
+   {
+    "id": 24,
+    "nombre": "bien",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_EST",
+    "recall": 0.4166666666666667,
+    "precision": 0.6578947368421053,
+    "f1": 0.5102040816326531,
+    "soporte": 60,
+    "veces_predicha": 38,
+    "recall_por_semilla": [
+     0.3,
+     0.65,
+     0.3
+    ],
+    "recall_voto": 0.4,
+    "precision_voto": 0.7272727272727273
+   },
+   {
+    "id": 25,
+    "nombre": "mal",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_EST",
+    "recall": 0.5833333333333334,
+    "precision": 0.603448275862069,
+    "f1": 0.5932203389830508,
+    "soporte": 60,
+    "veces_predicha": 58,
+    "recall_por_semilla": [
+     0.55,
+     0.7,
+     0.5
+    ],
+    "recall_voto": 0.65,
+    "precision_voto": 0.7222222222222222
+   },
+   {
+    "id": 26,
+    "nombre": "¿cómo estás?",
+    "categoria": "pregunta",
+    "categoria_conversor": "PREG_FIJA",
+    "recall": 0.3,
+    "precision": 0.2608695652173913,
+    "f1": 0.27906976744186046,
+    "soporte": 60,
+    "veces_predicha": 69,
+    "recall_por_semilla": [
+     0.15,
+     0.4,
+     0.35
+    ],
+    "recall_voto": 0.4,
+    "precision_voto": 0.3333333333333333
+   },
+   {
+    "id": 27,
+    "nombre": "más o menos",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_EST",
+    "recall": 0.11666666666666667,
+    "precision": 0.23333333333333334,
+    "f1": 0.15555555555555559,
+    "soporte": 60,
+    "veces_predicha": 30,
+    "recall_por_semilla": [
+     0.0,
+     0.1,
+     0.25
+    ],
+    "recall_voto": 0.1,
+    "precision_voto": 0.2
+   },
+   {
+    "id": 28,
+    "nombre": "sentir",
+    "categoria": "verbo",
+    "categoria_conversor": "VERBO_SENTIR",
+    "recall": 0.4666666666666667,
+    "precision": 0.4666666666666667,
+    "f1": 0.4666666666666667,
+    "soporte": 60,
+    "veces_predicha": 60,
+    "recall_por_semilla": [
+     0.3,
+     0.55,
+     0.55
+    ],
+    "recall_voto": 0.45,
+    "precision_voto": 0.5625
+   },
+   {
+    "id": 29,
+    "nombre": "juicioso",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 1.0,
+    "precision": 0.8695652173913043,
+    "f1": 0.9302325581395349,
+    "soporte": 60,
+    "veces_predicha": 69,
+    "recall_por_semilla": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.8695652173913043
+   },
+   {
+    "id": 30,
+    "nombre": "hola",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 0.38333333333333336,
+    "precision": 0.359375,
+    "f1": 0.3709677419354839,
+    "soporte": 60,
+    "veces_predicha": 64,
+    "recall_por_semilla": [
+     0.5,
+     0.35,
+     0.3
+    ],
+    "recall_voto": 0.4,
+    "precision_voto": 0.36363636363636365
+   },
+   {
+    "id": 31,
+    "nombre": "adiós",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 0.4,
+    "precision": 0.46153846153846156,
+    "f1": 0.42857142857142855,
+    "soporte": 60,
+    "veces_predicha": 52,
+    "recall_por_semilla": [
+     0.4,
+     0.4,
+     0.4
+    ],
+    "recall_voto": 0.45,
+    "precision_voto": 0.47368421052631576
+   },
+   {
+    "id": 32,
+    "nombre": "por favor",
+    "categoria": "cortesia",
+    "categoria_conversor": "CORT",
+    "recall": 0.8333333333333334,
+    "precision": 0.5617977528089888,
+    "f1": 0.6711409395973154,
+    "soporte": 60,
+    "veces_predicha": 89,
+    "recall_por_semilla": [
+     0.85,
+     0.85,
+     0.8
+    ],
+    "recall_voto": 0.85,
+    "precision_voto": 0.5151515151515151
+   },
+   {
+    "id": 33,
+    "nombre": "con gusto",
+    "categoria": "cortesia",
+    "categoria_conversor": "CORT",
+    "recall": 0.6166666666666667,
+    "precision": 0.7115384615384616,
+    "f1": 0.6607142857142857,
+    "soporte": 60,
+    "veces_predicha": 52,
+    "recall_por_semilla": [
+     0.65,
+     0.65,
+     0.55
+    ],
+    "recall_voto": 0.65,
+    "precision_voto": 0.8666666666666667
+   },
+   {
+    "id": 34,
+    "nombre": "bienvenido",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.7333333333333333,
+    "precision": 0.8979591836734694,
+    "f1": 0.8073394495412844,
+    "soporte": 60,
+    "veces_predicha": 49,
+    "recall_por_semilla": [
+     0.7,
+     0.8,
+     0.7
+    ],
+    "recall_voto": 0.7,
+    "precision_voto": 0.9333333333333333
+   },
+   {
+    "id": 35,
+    "nombre": "perdón",
+    "categoria": "cortesia",
+    "categoria_conversor": "CORT",
+    "recall": 0.8,
+    "precision": 0.6575342465753424,
+    "f1": 0.7218045112781954,
+    "soporte": 60,
+    "veces_predicha": 73,
+    "recall_por_semilla": [
+     0.75,
+     0.75,
+     0.9
+    ],
+    "recall_voto": 0.8,
+    "precision_voto": 0.6666666666666666
+   },
+   {
+    "id": 36,
+    "nombre": "permiso",
+    "categoria": "objeto",
+    "categoria_conversor": "CORT",
+    "recall": 0.2,
+    "precision": 0.17647058823529413,
+    "f1": 0.18750000000000003,
+    "soporte": 60,
+    "veces_predicha": 68,
+    "recall_por_semilla": [
+     0.15,
+     0.2,
+     0.25
+    ],
+    "recall_voto": 0.25,
+    "precision_voto": 0.18518518518518517
+   },
+   {
+    "id": 37,
+    "nombre": "nunca",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_FREC",
+    "recall": 0.5666666666666667,
+    "precision": 0.7083333333333334,
+    "f1": 0.6296296296296297,
+    "soporte": 60,
+    "veces_predicha": 48,
+    "recall_por_semilla": [
+     0.5,
+     0.6,
+     0.6
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.7333333333333333
+   },
+   {
+    "id": 38,
+    "nombre": "yo",
+    "categoria": "sujeto",
+    "categoria_conversor": "PRON",
+    "recall": 0.4166666666666667,
+    "precision": 0.5434782608695652,
+    "f1": 0.4716981132075472,
+    "soporte": 60,
+    "veces_predicha": 46,
+    "recall_por_semilla": [
+     0.4,
+     0.4,
+     0.45
+    ],
+    "recall_voto": 0.4,
+    "precision_voto": 0.6666666666666666
+   },
+   {
+    "id": 39,
+    "nombre": "tú",
+    "categoria": "sujeto",
+    "categoria_conversor": "PRON",
+    "recall": 0.38333333333333336,
+    "precision": 0.6571428571428571,
+    "f1": 0.4842105263157894,
+    "soporte": 60,
+    "veces_predicha": 35,
+    "recall_por_semilla": [
+     0.35,
+     0.5,
+     0.3
+    ],
+    "recall_voto": 0.35,
+    "precision_voto": 0.7777777777777778
+   },
+   {
+    "id": 40,
+    "nombre": "ustedes",
+    "categoria": "sujeto",
+    "categoria_conversor": "PRON",
+    "recall": 0.4166666666666667,
+    "precision": 0.625,
+    "f1": 0.5,
+    "soporte": 60,
+    "veces_predicha": 40,
+    "recall_por_semilla": [
+     0.5,
+     0.15,
+     0.6
+    ],
+    "recall_voto": 0.45,
+    "precision_voto": 0.6923076923076923
+   },
+   {
+    "id": 41,
+    "nombre": "¿qué?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.36666666666666664,
+    "precision": 0.30985915492957744,
+    "f1": 0.3358778625954198,
+    "soporte": 60,
+    "veces_predicha": 71,
+    "recall_por_semilla": [
+     0.35,
+     0.2,
+     0.55
+    ],
+    "recall_voto": 0.4,
+    "precision_voto": 0.25
+   },
+   {
+    "id": 42,
+    "nombre": "¿cuándo?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.25,
+    "precision": 0.2830188679245283,
+    "f1": 0.26548672566371684,
+    "soporte": 60,
+    "veces_predicha": 53,
+    "recall_por_semilla": [
+     0.2,
+     0.25,
+     0.3
+    ],
+    "recall_voto": 0.3,
+    "precision_voto": 0.3333333333333333
+   },
+   {
+    "id": 43,
+    "nombre": "¿dónde?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.6166666666666667,
+    "precision": 0.5068493150684932,
+    "f1": 0.5563909774436091,
+    "soporte": 60,
+    "veces_predicha": 73,
+    "recall_por_semilla": [
+     0.55,
+     0.65,
+     0.65
+    ],
+    "recall_voto": 0.7,
+    "precision_voto": 0.5384615384615384
+   },
+   {
+    "id": 44,
+    "nombre": "¿cómo?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.3333333333333333,
+    "precision": 0.37735849056603776,
+    "f1": 0.35398230088495575,
+    "soporte": 60,
+    "veces_predicha": 53,
+    "recall_por_semilla": [
+     0.4,
+     0.3,
+     0.3
+    ],
+    "recall_voto": 0.35,
+    "precision_voto": 0.3684210526315789
+   },
+   {
+    "id": 45,
+    "nombre": "¿por qué?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.5333333333333333,
+    "precision": 0.6666666666666666,
+    "f1": 0.5925925925925926,
+    "soporte": 60,
+    "veces_predicha": 48,
+    "recall_por_semilla": [
+     0.5,
+     0.6,
+     0.5
+    ],
+    "recall_voto": 0.45,
+    "precision_voto": 0.6428571428571429
+   },
+   {
+    "id": 46,
+    "nombre": "¿quién?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.45,
+    "precision": 0.5,
+    "f1": 0.4736842105263158,
+    "soporte": 60,
+    "veces_predicha": 54,
+    "recall_por_semilla": [
+     0.5,
+     0.35,
+     0.5
+    ],
+    "recall_voto": 0.4,
+    "precision_voto": 0.5333333333333333
+   },
+   {
+    "id": 47,
+    "nombre": "diferente",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 1.0,
+    "precision": 0.8108108108108109,
+    "f1": 0.8955223880597014,
+    "soporte": 60,
+    "veces_predicha": 74,
+    "recall_por_semilla": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.8333333333333334
+   },
+   {
+    "id": 48,
+    "nombre": "todos",
+    "categoria": "sujeto",
+    "categoria_conversor": "CUANT_PRON",
+    "recall": 0.9166666666666666,
+    "precision": 0.9322033898305084,
+    "f1": 0.9243697478991596,
+    "soporte": 60,
+    "veces_predicha": 59,
+    "recall_por_semilla": [
+     1.0,
+     0.85,
+     0.9
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 49,
+    "nombre": "mucho",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_CANT",
+    "recall": 0.3,
+    "precision": 0.4864864864864865,
+    "f1": 0.3711340206185567,
+    "soporte": 60,
+    "veces_predicha": 37,
+    "recall_por_semilla": [
+     0.5,
+     0.15,
+     0.25
+    ],
+    "recall_voto": 0.35,
+    "precision_voto": 0.5384615384615384
+   }
+  ],
+  "tcn": [
+   {
+    "id": 0,
+    "nombre": "gracias",
+    "categoria": "cortesia",
+    "categoria_conversor": "CORT",
+    "recall": 0.6666666666666666,
+    "precision": 0.7547169811320755,
+    "f1": 0.7079646017699115,
+    "soporte": 60,
+    "veces_predicha": 53,
+    "recall_por_semilla": [
+     0.8,
+     0.65,
+     0.55
+    ],
+    "recall_voto": 0.7,
+    "precision_voto": 0.9333333333333333
+   },
+   {
+    "id": 1,
+    "nombre": "buenos días",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "soporte": 60,
+    "veces_predicha": 60,
+    "recall_por_semilla": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 2,
+    "nombre": "buenas tardes",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 0.9649122807017544,
+    "precision": 1.0,
+    "f1": 0.9821428571428572,
+    "soporte": 57,
+    "veces_predicha": 55,
+    "recall_por_semilla": [
+     1.0,
+     0.9473684210526315,
+     0.9473684210526315
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 3,
+    "nombre": "buenas noches",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 1.0,
+    "precision": 0.9090909090909091,
+    "f1": 0.9523809523809523,
+    "soporte": 60,
+    "veces_predicha": 66,
+    "recall_por_semilla": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.9523809523809523
+   },
+   {
+    "id": 4,
+    "nombre": "seña",
+    "categoria": "objeto",
+    "categoria_conversor": "NOM_ABS",
+    "recall": 0.9,
+    "precision": 0.8307692307692308,
+    "f1": 0.8640000000000001,
+    "soporte": 60,
+    "veces_predicha": 65,
+    "recall_por_semilla": [
+     0.9,
+     0.9,
+     0.9
+    ],
+    "recall_voto": 0.95,
+    "precision_voto": 0.8260869565217391
+   },
+   {
+    "id": 5,
+    "nombre": "nombre",
+    "categoria": "objeto",
+    "categoria_conversor": "NOM_ABS",
+    "recall": 0.9333333333333333,
+    "precision": 0.9180327868852459,
+    "f1": 0.9256198347107439,
+    "soporte": 60,
+    "veces_predicha": 61,
+    "recall_por_semilla": [
+     0.95,
+     0.9,
+     0.95
+    ],
+    "recall_voto": 0.95,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 6,
+    "nombre": "trabajar",
+    "categoria": "verbo",
+    "categoria_conversor": "VERBO",
+    "recall": 0.7333333333333333,
+    "precision": 0.9166666666666666,
+    "f1": 0.8148148148148148,
+    "soporte": 60,
+    "veces_predicha": 48,
+    "recall_por_semilla": [
+     0.7,
+     0.65,
+     0.85
+    ],
+    "recall_voto": 0.85,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 7,
+    "nombre": "comer",
+    "categoria": "verbo",
+    "categoria_conversor": "VERBO",
+    "recall": 0.35,
+    "precision": 0.5833333333333334,
+    "f1": 0.4375,
+    "soporte": 60,
+    "veces_predicha": 36,
+    "recall_por_semilla": [
+     0.3,
+     0.35,
+     0.4
+    ],
+    "recall_voto": 0.35,
+    "precision_voto": 0.6363636363636364
+   },
+   {
+    "id": 8,
+    "nombre": "vivir",
+    "categoria": "verbo",
+    "categoria_conversor": "VERBO",
+    "recall": 0.6491228070175439,
+    "precision": 0.74,
+    "f1": 0.6915887850467289,
+    "soporte": 57,
+    "veces_predicha": 50,
+    "recall_por_semilla": [
+     0.5789473684210527,
+     0.5789473684210527,
+     0.7894736842105263
+    ],
+    "recall_voto": 0.6842105263157895,
+    "precision_voto": 0.7222222222222222
+   },
+   {
+    "id": 9,
+    "nombre": "poco",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_CANT",
+    "recall": 0.55,
+    "precision": 0.4520547945205479,
+    "f1": 0.49624060150375937,
+    "soporte": 60,
+    "veces_predicha": 73,
+    "recall_por_semilla": [
+     0.6,
+     0.55,
+     0.5
+    ],
+    "recall_voto": 0.6,
+    "precision_voto": 0.6
+   },
+   {
+    "id": 10,
+    "nombre": "familia",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.9166666666666666,
+    "precision": 1.0,
+    "f1": 0.9565217391304348,
+    "soporte": 60,
+    "veces_predicha": 55,
+    "recall_por_semilla": [
+     0.95,
+     1.0,
+     0.8
+    ],
+    "recall_voto": 0.95,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 11,
+    "nombre": "personas",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.5166666666666667,
+    "precision": 0.5081967213114754,
+    "f1": 0.5123966942148761,
+    "soporte": 60,
+    "veces_predicha": 61,
+    "recall_por_semilla": [
+     0.4,
+     0.65,
+     0.5
+    ],
+    "recall_voto": 0.6,
+    "precision_voto": 0.6666666666666666
+   },
+   {
+    "id": 12,
+    "nombre": "mujer",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.48333333333333334,
+    "precision": 0.38666666666666666,
+    "f1": 0.42962962962962964,
+    "soporte": 60,
+    "veces_predicha": 75,
+    "recall_por_semilla": [
+     0.6,
+     0.4,
+     0.45
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.39285714285714285
+   },
+   {
+    "id": 13,
+    "nombre": "hombre",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.9166666666666666,
+    "precision": 0.8333333333333334,
+    "f1": 0.8730158730158729,
+    "soporte": 60,
+    "veces_predicha": 66,
+    "recall_por_semilla": [
+     1.0,
+     0.9,
+     0.85
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.9523809523809523
+   },
+   {
+    "id": 14,
+    "nombre": "niño",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.5833333333333334,
+    "precision": 0.40229885057471265,
+    "f1": 0.4761904761904762,
+    "soporte": 60,
+    "veces_predicha": 87,
+    "recall_por_semilla": [
+     0.6,
+     0.45,
+     0.7
+    ],
+    "recall_voto": 0.75,
+    "precision_voto": 0.46875
+   },
+   {
+    "id": 15,
+    "nombre": "niña",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.55,
+    "precision": 0.3548387096774194,
+    "f1": 0.43137254901960786,
+    "soporte": 60,
+    "veces_predicha": 93,
+    "recall_por_semilla": [
+     0.5,
+     0.55,
+     0.6
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.36666666666666664
+   },
+   {
+    "id": 16,
+    "nombre": "abuelo",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.5789473684210527,
+    "precision": 0.36666666666666664,
+    "f1": 0.44897959183673464,
+    "soporte": 57,
+    "veces_predicha": 90,
+    "recall_por_semilla": [
+     0.5789473684210527,
+     0.6842105263157895,
+     0.47368421052631576
+    ],
+    "recall_voto": 0.5789473684210527,
+    "precision_voto": 0.4074074074074074
+   },
+   {
+    "id": 17,
+    "nombre": "tío",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.85,
+    "precision": 0.796875,
+    "f1": 0.8225806451612903,
+    "soporte": 60,
+    "veces_predicha": 64,
+    "recall_por_semilla": [
+     0.85,
+     0.95,
+     0.75
+    ],
+    "recall_voto": 0.9,
+    "precision_voto": 0.782608695652174
+   },
+   {
+    "id": 18,
+    "nombre": "hermano",
+    "categoria": "sujeto",
+    "categoria_conversor": "NOM_PERS",
+    "recall": 0.75,
+    "precision": 0.9375,
+    "f1": 0.8333333333333334,
+    "soporte": 60,
+    "veces_predicha": 48,
+    "recall_por_semilla": [
+     0.8,
+     0.7,
+     0.75
+    ],
+    "recall_voto": 0.75,
+    "precision_voto": 0.8823529411764706
+   },
+   {
+    "id": 19,
+    "nombre": "hambre",
+    "categoria": "objeto",
+    "categoria_conversor": "NOM_TENER",
+    "recall": 0.9666666666666667,
+    "precision": 0.6590909090909091,
+    "f1": 0.7837837837837838,
+    "soporte": 60,
+    "veces_predicha": 88,
+    "recall_por_semilla": [
+     0.95,
+     0.95,
+     1.0
+    ],
+    "recall_voto": 0.95,
+    "precision_voto": 0.6785714285714286
+   },
+   {
+    "id": 20,
+    "nombre": "feliz",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.8166666666666667,
+    "precision": 0.7777777777777778,
+    "f1": 0.7967479674796747,
+    "soporte": 60,
+    "veces_predicha": 63,
+    "recall_por_semilla": [
+     0.85,
+     0.65,
+     0.95
+    ],
+    "recall_voto": 0.9,
+    "precision_voto": 0.782608695652174
+   },
+   {
+    "id": 21,
+    "nombre": "contento",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.6666666666666666,
+    "precision": 0.851063829787234,
+    "f1": 0.7476635514018691,
+    "soporte": 60,
+    "veces_predicha": 47,
+    "recall_por_semilla": [
+     0.6,
+     0.7,
+     0.7
+    ],
+    "recall_voto": 0.65,
+    "precision_voto": 0.9285714285714286
+   },
+   {
+    "id": 22,
+    "nombre": "triste",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.7,
+    "precision": 0.8235294117647058,
+    "f1": 0.7567567567567567,
+    "soporte": 60,
+    "veces_predicha": 51,
+    "recall_por_semilla": [
+     0.65,
+     0.8,
+     0.65
+    ],
+    "recall_voto": 0.8,
+    "precision_voto": 0.8
+   },
+   {
+    "id": 23,
+    "nombre": "aburrido",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.6,
+    "precision": 0.6,
+    "f1": 0.6,
+    "soporte": 60,
+    "veces_predicha": 60,
+    "recall_por_semilla": [
+     0.75,
+     0.5,
+     0.55
+    ],
+    "recall_voto": 0.6,
+    "precision_voto": 0.7058823529411765
+   },
+   {
+    "id": 24,
+    "nombre": "bien",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_EST",
+    "recall": 0.4666666666666667,
+    "precision": 0.9032258064516129,
+    "f1": 0.6153846153846154,
+    "soporte": 60,
+    "veces_predicha": 31,
+    "recall_por_semilla": [
+     0.4,
+     0.45,
+     0.55
+    ],
+    "recall_voto": 0.45,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 25,
+    "nombre": "mal",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_EST",
+    "recall": 0.6,
+    "precision": 0.7346938775510204,
+    "f1": 0.6605504587155964,
+    "soporte": 60,
+    "veces_predicha": 49,
+    "recall_por_semilla": [
+     0.75,
+     0.4,
+     0.65
+    ],
+    "recall_voto": 0.75,
+    "precision_voto": 0.7894736842105263
+   },
+   {
+    "id": 26,
+    "nombre": "¿cómo estás?",
+    "categoria": "pregunta",
+    "categoria_conversor": "PREG_FIJA",
+    "recall": 0.43333333333333335,
+    "precision": 0.40625,
+    "f1": 0.41935483870967744,
+    "soporte": 60,
+    "veces_predicha": 64,
+    "recall_por_semilla": [
+     0.35,
+     0.45,
+     0.5
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.4583333333333333
+   },
+   {
+    "id": 27,
+    "nombre": "más o menos",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_EST",
+    "recall": 0.4666666666666667,
+    "precision": 0.45161290322580644,
+    "f1": 0.45901639344262296,
+    "soporte": 60,
+    "veces_predicha": 62,
+    "recall_por_semilla": [
+     0.5,
+     0.4,
+     0.5
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.55
+   },
+   {
+    "id": 28,
+    "nombre": "sentir",
+    "categoria": "verbo",
+    "categoria_conversor": "VERBO_SENTIR",
+    "recall": 0.5166666666666667,
+    "precision": 0.5961538461538461,
+    "f1": 0.5535714285714286,
+    "soporte": 60,
+    "veces_predicha": 52,
+    "recall_por_semilla": [
+     0.5,
+     0.65,
+     0.4
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.6111111111111112
+   },
+   {
+    "id": 29,
+    "nombre": "juicioso",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.95,
+    "precision": 0.9661016949152542,
+    "f1": 0.957983193277311,
+    "soporte": 60,
+    "veces_predicha": 59,
+    "recall_por_semilla": [
+     0.95,
+     0.95,
+     0.95
+    ],
+    "recall_voto": 0.95,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 30,
+    "nombre": "hola",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 0.6666666666666666,
+    "precision": 0.6666666666666666,
+    "f1": 0.6666666666666666,
+    "soporte": 60,
+    "veces_predicha": 60,
+    "recall_por_semilla": [
+     0.75,
+     0.6,
+     0.65
+    ],
+    "recall_voto": 0.75,
+    "precision_voto": 0.7142857142857143
+   },
+   {
+    "id": 31,
+    "nombre": "adiós",
+    "categoria": "saludo",
+    "categoria_conversor": "SAL",
+    "recall": 0.6666666666666666,
+    "precision": 0.7692307692307693,
+    "f1": 0.7142857142857142,
+    "soporte": 60,
+    "veces_predicha": 52,
+    "recall_por_semilla": [
+     0.6,
+     0.75,
+     0.65
+    ],
+    "recall_voto": 0.75,
+    "precision_voto": 0.8823529411764706
+   },
+   {
+    "id": 32,
+    "nombre": "por favor",
+    "categoria": "cortesia",
+    "categoria_conversor": "CORT",
+    "recall": 0.8166666666666667,
+    "precision": 0.7777777777777778,
+    "f1": 0.7967479674796747,
+    "soporte": 60,
+    "veces_predicha": 63,
+    "recall_por_semilla": [
+     0.8,
+     0.75,
+     0.9
+    ],
+    "recall_voto": 0.95,
+    "precision_voto": 0.7916666666666666
+   },
+   {
+    "id": 33,
+    "nombre": "con gusto",
+    "categoria": "cortesia",
+    "categoria_conversor": "CORT",
+    "recall": 0.8666666666666667,
+    "precision": 0.5652173913043478,
+    "f1": 0.6842105263157895,
+    "soporte": 60,
+    "veces_predicha": 92,
+    "recall_por_semilla": [
+     0.85,
+     0.8,
+     0.95
+    ],
+    "recall_voto": 0.9,
+    "precision_voto": 0.5806451612903226
+   },
+   {
+    "id": 34,
+    "nombre": "bienvenido",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.9166666666666666,
+    "precision": 0.5392156862745098,
+    "f1": 0.6790123456790124,
+    "soporte": 60,
+    "veces_predicha": 102,
+    "recall_por_semilla": [
+     1.0,
+     0.9,
+     0.85
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.6666666666666666
+   },
+   {
+    "id": 35,
+    "nombre": "perdón",
+    "categoria": "cortesia",
+    "categoria_conversor": "CORT",
+    "recall": 0.7833333333333333,
+    "precision": 0.9038461538461539,
+    "f1": 0.8392857142857143,
+    "soporte": 60,
+    "veces_predicha": 52,
+    "recall_por_semilla": [
+     0.7,
+     0.75,
+     0.9
+    ],
+    "recall_voto": 0.85,
+    "precision_voto": 0.9444444444444444
+   },
+   {
+    "id": 36,
+    "nombre": "permiso",
+    "categoria": "objeto",
+    "categoria_conversor": "CORT",
+    "recall": 0.4166666666666667,
+    "precision": 0.423728813559322,
+    "f1": 0.42016806722689076,
+    "soporte": 60,
+    "veces_predicha": 59,
+    "recall_por_semilla": [
+     0.5,
+     0.25,
+     0.5
+    ],
+    "recall_voto": 0.5,
+    "precision_voto": 0.5263157894736842
+   },
+   {
+    "id": 37,
+    "nombre": "nunca",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_FREC",
+    "recall": 0.7333333333333333,
+    "precision": 0.8461538461538461,
+    "f1": 0.7857142857142856,
+    "soporte": 60,
+    "veces_predicha": 52,
+    "recall_por_semilla": [
+     0.85,
+     0.65,
+     0.7
+    ],
+    "recall_voto": 0.7,
+    "precision_voto": 0.875
+   },
+   {
+    "id": 38,
+    "nombre": "yo",
+    "categoria": "sujeto",
+    "categoria_conversor": "PRON",
+    "recall": 0.5333333333333333,
+    "precision": 0.7804878048780488,
+    "f1": 0.6336633663366336,
+    "soporte": 60,
+    "veces_predicha": 41,
+    "recall_por_semilla": [
+     0.55,
+     0.55,
+     0.5
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.7857142857142857
+   },
+   {
+    "id": 39,
+    "nombre": "tú",
+    "categoria": "sujeto",
+    "categoria_conversor": "PRON",
+    "recall": 0.5,
+    "precision": 0.8571428571428571,
+    "f1": 0.631578947368421,
+    "soporte": 60,
+    "veces_predicha": 35,
+    "recall_por_semilla": [
+     0.5,
+     0.35,
+     0.65
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 40,
+    "nombre": "ustedes",
+    "categoria": "sujeto",
+    "categoria_conversor": "PRON",
+    "recall": 0.5166666666666667,
+    "precision": 0.9393939393939394,
+    "f1": 0.6666666666666667,
+    "soporte": 60,
+    "veces_predicha": 33,
+    "recall_por_semilla": [
+     0.55,
+     0.5,
+     0.5
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 41,
+    "nombre": "¿qué?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.2833333333333333,
+    "precision": 0.18478260869565216,
+    "f1": 0.22368421052631576,
+    "soporte": 60,
+    "veces_predicha": 92,
+    "recall_por_semilla": [
+     0.2,
+     0.45,
+     0.2
+    ],
+    "recall_voto": 0.2,
+    "precision_voto": 0.13333333333333333
+   },
+   {
+    "id": 42,
+    "nombre": "¿cuándo?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.3333333333333333,
+    "precision": 0.5,
+    "f1": 0.4,
+    "soporte": 60,
+    "veces_predicha": 40,
+    "recall_por_semilla": [
+     0.4,
+     0.3,
+     0.3
+    ],
+    "recall_voto": 0.3,
+    "precision_voto": 0.4
+   },
+   {
+    "id": 43,
+    "nombre": "¿dónde?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.65,
+    "precision": 0.65,
+    "f1": 0.65,
+    "soporte": 60,
+    "veces_predicha": 60,
+    "recall_por_semilla": [
+     0.75,
+     0.55,
+     0.65
+    ],
+    "recall_voto": 0.65,
+    "precision_voto": 0.6190476190476191
+   },
+   {
+    "id": 44,
+    "nombre": "¿cómo?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.45,
+    "precision": 0.4153846153846154,
+    "f1": 0.43200000000000005,
+    "soporte": 60,
+    "veces_predicha": 65,
+    "recall_por_semilla": [
+     0.6,
+     0.5,
+     0.25
+    ],
+    "recall_voto": 0.4,
+    "precision_voto": 0.4
+   },
+   {
+    "id": 45,
+    "nombre": "¿por qué?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.4666666666666667,
+    "precision": 0.9333333333333333,
+    "f1": 0.6222222222222223,
+    "soporte": 60,
+    "veces_predicha": 30,
+    "recall_por_semilla": [
+     0.4,
+     0.4,
+     0.6
+    ],
+    "recall_voto": 0.4,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 46,
+    "nombre": "¿quién?",
+    "categoria": "pregunta",
+    "categoria_conversor": "INTERR",
+    "recall": 0.7666666666666667,
+    "precision": 0.8070175438596491,
+    "f1": 0.7863247863247863,
+    "soporte": 60,
+    "veces_predicha": 57,
+    "recall_por_semilla": [
+     0.6,
+     0.8,
+     0.9
+    ],
+    "recall_voto": 0.85,
+    "precision_voto": 0.85
+   },
+   {
+    "id": 47,
+    "nombre": "diferente",
+    "categoria": "adjetivo",
+    "categoria_conversor": "ADJ",
+    "recall": 0.9833333333333333,
+    "precision": 0.8676470588235294,
+    "f1": 0.9218749999999999,
+    "soporte": 60,
+    "veces_predicha": 68,
+    "recall_por_semilla": [
+     1.0,
+     0.95,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 0.8333333333333334
+   },
+   {
+    "id": 48,
+    "nombre": "todos",
+    "categoria": "sujeto",
+    "categoria_conversor": "CUANT_PRON",
+    "recall": 0.9166666666666666,
+    "precision": 1.0,
+    "f1": 0.9565217391304348,
+    "soporte": 60,
+    "veces_predicha": 55,
+    "recall_por_semilla": [
+     0.9,
+     0.85,
+     1.0
+    ],
+    "recall_voto": 1.0,
+    "precision_voto": 1.0
+   },
+   {
+    "id": 49,
+    "nombre": "mucho",
+    "categoria": "adverbio",
+    "categoria_conversor": "ADV_CANT",
+    "recall": 0.5166666666666667,
+    "precision": 0.6078431372549019,
+    "f1": 0.5585585585585585,
+    "soporte": 60,
+    "veces_predicha": 51,
+    "recall_por_semilla": [
+     0.55,
+     0.55,
+     0.45
+    ],
+    "recall_voto": 0.55,
+    "precision_voto": 0.6111111111111112
+   }
+  ],
+  "diferencias": [
+   {
+    "id": 27,
+    "nombre": "más o menos",
+    "recall_heredada": 0.11666666666666667,
+    "recall_tcn": 0.4666666666666667,
+    "diferencia": 0.35
+   },
+   {
+    "id": 7,
+    "nombre": "comer",
+    "recall_heredada": 0.016666666666666666,
+    "recall_tcn": 0.35,
+    "diferencia": 0.3333333333333333
+   },
+   {
+    "id": 46,
+    "nombre": "¿quién?",
+    "recall_heredada": 0.45,
+    "recall_tcn": 0.7666666666666667,
+    "diferencia": 0.3166666666666667
+   },
+   {
+    "id": 30,
+    "nombre": "hola",
+    "recall_heredada": 0.38333333333333336,
+    "recall_tcn": 0.6666666666666666,
+    "diferencia": 0.28333333333333327
+   },
+   {
+    "id": 31,
+    "nombre": "adiós",
+    "recall_heredada": 0.4,
+    "recall_tcn": 0.6666666666666666,
+    "diferencia": 0.2666666666666666
+   },
+   {
+    "id": 33,
+    "nombre": "con gusto",
+    "recall_heredada": 0.6166666666666667,
+    "recall_tcn": 0.8666666666666667,
+    "diferencia": 0.25
+   },
+   {
+    "id": 14,
+    "nombre": "niño",
+    "recall_heredada": 0.35,
+    "recall_tcn": 0.5833333333333334,
+    "diferencia": 0.2333333333333334
+   },
+   {
+    "id": 12,
+    "nombre": "mujer",
+    "recall_heredada": 0.25,
+    "recall_tcn": 0.48333333333333334,
+    "diferencia": 0.23333333333333334
+   },
+   {
+    "id": 49,
+    "nombre": "mucho",
+    "recall_heredada": 0.3,
+    "recall_tcn": 0.5166666666666667,
+    "diferencia": 0.21666666666666673
+   },
+   {
+    "id": 36,
+    "nombre": "permiso",
+    "recall_heredada": 0.2,
+    "recall_tcn": 0.4166666666666667,
+    "diferencia": 0.21666666666666667
+   },
+   {
+    "id": 9,
+    "nombre": "poco",
+    "recall_heredada": 0.36666666666666664,
+    "recall_tcn": 0.55,
+    "diferencia": 0.1833333333333334
+   },
+   {
+    "id": 34,
+    "nombre": "bienvenido",
+    "recall_heredada": 0.7333333333333333,
+    "recall_tcn": 0.9166666666666666,
+    "diferencia": 0.18333333333333335
+   },
+   {
+    "id": 0,
+    "nombre": "gracias",
+    "recall_heredada": 0.5,
+    "recall_tcn": 0.6666666666666666,
+    "diferencia": 0.16666666666666663
+   },
+   {
+    "id": 37,
+    "nombre": "nunca",
+    "recall_heredada": 0.5666666666666667,
+    "recall_tcn": 0.7333333333333333,
+    "diferencia": 0.16666666666666663
+   },
+   {
+    "id": 15,
+    "nombre": "niña",
+    "recall_heredada": 0.4,
+    "recall_tcn": 0.55,
+    "diferencia": 0.15000000000000002
+   },
+   {
+    "id": 26,
+    "nombre": "¿cómo estás?",
+    "recall_heredada": 0.3,
+    "recall_tcn": 0.43333333333333335,
+    "diferencia": 0.13333333333333336
+   },
+   {
+    "id": 16,
+    "nombre": "abuelo",
+    "recall_heredada": 0.45614035087719296,
+    "recall_tcn": 0.5789473684210527,
+    "diferencia": 0.1228070175438597
+   },
+   {
+    "id": 19,
+    "nombre": "hambre",
+    "recall_heredada": 0.85,
+    "recall_tcn": 0.9666666666666667,
+    "diferencia": 0.1166666666666667
+   },
+   {
+    "id": 44,
+    "nombre": "¿cómo?",
+    "recall_heredada": 0.3333333333333333,
+    "recall_tcn": 0.45,
+    "diferencia": 0.1166666666666667
+   },
+   {
+    "id": 38,
+    "nombre": "yo",
+    "recall_heredada": 0.4166666666666667,
+    "recall_tcn": 0.5333333333333333,
+    "diferencia": 0.11666666666666664
+   },
+   {
+    "id": 39,
+    "nombre": "tú",
+    "recall_heredada": 0.38333333333333336,
+    "recall_tcn": 0.5,
+    "diferencia": 0.11666666666666664
+   },
+   {
+    "id": 40,
+    "nombre": "ustedes",
+    "recall_heredada": 0.4166666666666667,
+    "recall_tcn": 0.5166666666666667,
+    "diferencia": 0.10000000000000003
+   },
+   {
+    "id": 42,
+    "nombre": "¿cuándo?",
+    "recall_heredada": 0.25,
+    "recall_tcn": 0.3333333333333333,
+    "diferencia": 0.08333333333333331
+   },
+   {
+    "id": 6,
+    "nombre": "trabajar",
+    "recall_heredada": 0.6666666666666666,
+    "recall_tcn": 0.7333333333333333,
+    "diferencia": 0.06666666666666665
+   },
+   {
+    "id": 28,
+    "nombre": "sentir",
+    "recall_heredada": 0.4666666666666667,
+    "recall_tcn": 0.5166666666666667,
+    "diferencia": 0.050000000000000044
+   },
+   {
+    "id": 24,
+    "nombre": "bien",
+    "recall_heredada": 0.4166666666666667,
+    "recall_tcn": 0.4666666666666667,
+    "diferencia": 0.04999999999999999
+   },
+   {
+    "id": 17,
+    "nombre": "tío",
+    "recall_heredada": 0.8,
+    "recall_tcn": 0.85,
+    "diferencia": 0.04999999999999993
+   },
+   {
+    "id": 13,
+    "nombre": "hombre",
+    "recall_heredada": 0.8833333333333333,
+    "recall_tcn": 0.9166666666666666,
+    "diferencia": 0.033333333333333326
+   },
+   {
+    "id": 43,
+    "nombre": "¿dónde?",
+    "recall_heredada": 0.6166666666666667,
+    "recall_tcn": 0.65,
+    "diferencia": 0.033333333333333326
+   },
+   {
+    "id": 3,
+    "nombre": "buenas noches",
+    "recall_heredada": 0.9833333333333333,
+    "recall_tcn": 1.0,
+    "diferencia": 0.01666666666666672
+   },
+   {
+    "id": 11,
+    "nombre": "personas",
+    "recall_heredada": 0.5,
+    "recall_tcn": 0.5166666666666667,
+    "diferencia": 0.01666666666666672
+   },
+   {
+    "id": 18,
+    "nombre": "hermano",
+    "recall_heredada": 0.7333333333333333,
+    "recall_tcn": 0.75,
+    "diferencia": 0.01666666666666672
+   },
+   {
+    "id": 25,
+    "nombre": "mal",
+    "recall_heredada": 0.5833333333333334,
+    "recall_tcn": 0.6,
+    "diferencia": 0.016666666666666607
+   },
+   {
+    "id": 1,
+    "nombre": "buenos días",
+    "recall_heredada": 1.0,
+    "recall_tcn": 1.0,
+    "diferencia": 0.0
+   },
+   {
+    "id": 5,
+    "nombre": "nombre",
+    "recall_heredada": 0.9333333333333333,
+    "recall_tcn": 0.9333333333333333,
+    "diferencia": 0.0
+   },
+   {
+    "id": 8,
+    "nombre": "vivir",
+    "recall_heredada": 0.6491228070175439,
+    "recall_tcn": 0.6491228070175439,
+    "diferencia": 0.0
+   },
+   {
+    "id": 22,
+    "nombre": "triste",
+    "recall_heredada": 0.7,
+    "recall_tcn": 0.7,
+    "diferencia": 0.0
+   },
+   {
+    "id": 23,
+    "nombre": "aburrido",
+    "recall_heredada": 0.6,
+    "recall_tcn": 0.6,
+    "diferencia": 0.0
+   },
+   {
+    "id": 48,
+    "nombre": "todos",
+    "recall_heredada": 0.9166666666666666,
+    "recall_tcn": 0.9166666666666666,
+    "diferencia": 0.0
+   },
+   {
+    "id": 21,
+    "nombre": "contento",
+    "recall_heredada": 0.6833333333333333,
+    "recall_tcn": 0.6666666666666666,
+    "diferencia": -0.01666666666666672
+   },
+   {
+    "id": 32,
+    "nombre": "por favor",
+    "recall_heredada": 0.8333333333333334,
+    "recall_tcn": 0.8166666666666667,
+    "diferencia": -0.01666666666666672
+   },
+   {
+    "id": 35,
+    "nombre": "perdón",
+    "recall_heredada": 0.8,
+    "recall_tcn": 0.7833333333333333,
+    "diferencia": -0.01666666666666672
+   },
+   {
+    "id": 47,
+    "nombre": "diferente",
+    "recall_heredada": 1.0,
+    "recall_tcn": 0.9833333333333333,
+    "diferencia": -0.01666666666666672
+   },
+   {
+    "id": 2,
+    "nombre": "buenas tardes",
+    "recall_heredada": 0.9824561403508771,
+    "recall_tcn": 0.9649122807017544,
+    "diferencia": -0.01754385964912275
+   },
+   {
+    "id": 10,
+    "nombre": "familia",
+    "recall_heredada": 0.95,
+    "recall_tcn": 0.9166666666666666,
+    "diferencia": -0.033333333333333326
+   },
+   {
+    "id": 20,
+    "nombre": "feliz",
+    "recall_heredada": 0.85,
+    "recall_tcn": 0.8166666666666667,
+    "diferencia": -0.033333333333333326
+   },
+   {
+    "id": 29,
+    "nombre": "juicioso",
+    "recall_heredada": 1.0,
+    "recall_tcn": 0.95,
+    "diferencia": -0.050000000000000044
+   },
+   {
+    "id": 4,
+    "nombre": "seña",
+    "recall_heredada": 0.9666666666666667,
+    "recall_tcn": 0.9,
+    "diferencia": -0.06666666666666665
+   },
+   {
+    "id": 45,
+    "nombre": "¿por qué?",
+    "recall_heredada": 0.5333333333333333,
+    "recall_tcn": 0.4666666666666667,
+    "diferencia": -0.06666666666666665
+   },
+   {
+    "id": 41,
+    "nombre": "¿qué?",
+    "recall_heredada": 0.36666666666666664,
+    "recall_tcn": 0.2833333333333333,
+    "diferencia": -0.08333333333333331
+   }
+  ],
+  "ganan": 33,
+  "pierden": 11,
+  "recall_0_tcn_voto": [],
+  "recall_0_heredada_voto": [
+   7
+  ]
+ },
+ "por_senante": {
+  "heredada": {
+   "0000": {
+    "top1": 0.45166666666666666,
+    "top3": 0.6266666666666666,
+    "f1": 0.39962432187315794,
+    "top1_por_semilla": [
+     0.46,
+     0.48,
+     0.415
+    ],
+    "exactitud_voto": 0.47,
+    "senas_recall_0_voto": [
+     0,
+     7,
+     9,
+     12,
+     16,
+     22,
+     23,
+     27,
+     36,
+     37,
+     38,
+     39,
+     40,
+     43,
+     44,
+     46,
+     49
+    ],
+    "pares_principales_3_semillas": [
+     [
+      39,
+      14,
+      9
+     ],
+     [
+      7,
+      45,
+      8
+     ],
+     [
+      15,
+      14,
+      8
+     ],
+     [
+      27,
+      41,
+      8
+     ],
+     [
+      36,
+      42,
+      8
+     ],
+     [
+      49,
+      35,
+      8
+     ]
+    ],
+    "confianza_media_aciertos": 0.5218053702196291,
+    "confianza_media_errores": 0.23393289862613909
+   },
+   "0001": {
+    "top1": 0.5360134003350083,
+    "top3": 0.7152428810720268,
+    "f1": 0.4722210672559486,
+    "top1_por_semilla": [
+     0.5326633165829145,
+     0.49246231155778897,
+     0.5829145728643216
+    ],
+    "exactitud_voto": 0.5376884422110553,
+    "senas_recall_0_voto": [
+     7,
+     14,
+     15,
+     23,
+     25,
+     27,
+     28,
+     30,
+     31,
+     33,
+     35,
+     36,
+     37,
+     38,
+     40,
+     44
+    ],
+    "pares_principales_3_semillas": [
+     [
+      30,
+      16,
+      12
+     ],
+     [
+      27,
+      9,
+      11
+     ],
+     [
+      33,
+      32,
+      10
+     ],
+     [
+      18,
+      17,
+      9
+     ],
+     [
+      31,
+      16,
+      9
+     ],
+     [
+      38,
+      32,
+      9
+     ]
+    ],
+    "confianza_media_aciertos": 0.7025029476499185,
+    "confianza_media_errores": 0.471718637817388
+   },
+   "0002": {
+    "top1": 0.6313131313131314,
+    "top3": 0.7861952861952862,
+    "f1": 0.6039501794501795,
+    "top1_por_semilla": [
+     0.6060606060606061,
+     0.6060606060606061,
+     0.6818181818181818
+    ],
+    "exactitud_voto": 0.6666666666666666,
+    "senas_recall_0_voto": [
+     7,
+     9,
+     14,
+     27,
+     31,
+     34,
+     41,
+     46
+    ],
+    "pares_principales_3_semillas": [
+     [
+      41,
+      44,
+      11
+     ],
+     [
+      14,
+      15,
+      8
+     ],
+     [
+      42,
+      26,
+      8
+     ],
+     [
+      7,
+      16,
+      7
+     ],
+     [
+      26,
+      44,
+      7
+     ],
+     [
+      27,
+      28,
+      7
+     ]
+    ],
+    "confianza_media_aciertos": 0.6462346505026023,
+    "confianza_media_errores": 0.37093418683499507
+   },
+   "0003": {
+    "top1": 0.64,
+    "top3": 0.8266666666666667,
+    "f1": 0.6030929187771293,
+    "top1_por_semilla": [
+     0.615,
+     0.65,
+     0.655
+    ],
+    "exactitud_voto": 0.655,
+    "senas_recall_0_voto": [
+     7,
+     12,
+     15,
+     26,
+     28,
+     30,
+     36,
+     39,
+     41,
+     42,
+     46
+    ],
+    "pares_principales_3_semillas": [
+     [
+      26,
+      44,
+      11
+     ],
+     [
+      30,
+      13,
+      11
+     ],
+     [
+      36,
+      12,
+      11
+     ],
+     [
+      15,
+      14,
+      10
+     ],
+     [
+      8,
+      49,
+      8
+     ],
+     [
+      27,
+      9,
+      8
+     ]
+    ],
+    "confianza_media_aciertos": 0.7086240637193745,
+    "confianza_media_errores": 0.4331306305679458
+   },
+   "0004": {
+    "top1": 0.6866666666666666,
+    "top3": 0.8633333333333333,
+    "f1": 0.6391774891774892,
+    "top1_por_semilla": [
+     0.685,
+     0.73,
+     0.645
+    ],
+    "exactitud_voto": 0.715,
+    "senas_recall_0_voto": [
+     7,
+     9,
+     12,
+     14,
+     16,
+     21,
+     26,
+     42
+    ],
+    "pares_principales_3_semillas": [
+     [
+      42,
+      36,
+      11
+     ],
+     [
+      12,
+      36,
+      10
+     ],
+     [
+      14,
+      15,
+      10
+     ],
+     [
+      21,
+      20,
+      10
+     ],
+     [
+      27,
+      38,
+      9
+     ],
+     [
+      7,
+      36,
+      8
+     ]
+    ],
+    "confianza_media_aciertos": 0.7228349415965162,
+    "confianza_media_errores": 0.44894240277403213
+   }
+  },
+  "tcn": {
+   "0000": {
+    "top1": 0.48833333333333334,
+    "top3": 0.66,
+    "f1": 0.46890633174125274,
+    "top1_por_semilla": [
+     0.54,
+     0.39,
+     0.535
+    ],
+    "exactitud_voto": 0.58,
+    "senas_recall_0_voto": [
+     7,
+     12,
+     16,
+     28,
+     37,
+     38,
+     39,
+     42,
+     44,
+     45
+    ],
+    "pares_principales_3_semillas": [
+     [
+      39,
+      15,
+      8
+     ],
+     [
+      44,
+      41,
+      8
+     ],
+     [
+      43,
+      41,
+      7
+     ],
+     [
+      27,
+      41,
+      6
+     ],
+     [
+      9,
+      15,
+      5
+     ],
+     [
+      16,
+      14,
+      5
+     ]
+    ],
+    "confianza_media_aciertos": 0.7025731191191656,
+    "confianza_media_errores": 0.45461318802076367
+   },
+   "0001": {
+    "top1": 0.611390284757119,
+    "top3": 0.8073701842546064,
+    "f1": 0.5649850087195625,
+    "top1_por_semilla": [
+     0.6130653266331658,
+     0.6331658291457286,
+     0.5879396984924623
+    ],
+    "exactitud_voto": 0.6432160804020101,
+    "senas_recall_0_voto": [
+     15,
+     23,
+     30,
+     31,
+     40,
+     41,
+     44
+    ],
+    "pares_principales_3_semillas": [
+     [
+      30,
+      16,
+      11
+     ],
+     [
+      31,
+      16,
+      11
+     ],
+     [
+      27,
+      9,
+      10
+     ],
+     [
+      15,
+      16,
+      9
+     ],
+     [
+      18,
+      17,
+      8
+     ],
+     [
+      23,
+      14,
+      8
+     ]
+    ],
+    "confianza_media_aciertos": 0.8379209693572293,
+    "confianza_media_errores": 0.6215250302941121
+   },
+   "0002": {
+    "top1": 0.7205387205387206,
+    "top3": 0.8888888888888888,
+    "f1": 0.6854942279942281,
+    "top1_por_semilla": [
+     0.7171717171717171,
+     0.696969696969697,
+     0.7474747474747475
+    ],
+    "exactitud_voto": 0.7474747474747475,
+    "senas_recall_0_voto": [
+     11,
+     14,
+     41,
+     42,
+     49
+    ],
+    "pares_principales_3_semillas": [
+     [
+      14,
+      15,
+      8
+     ],
+     [
+      41,
+      44,
+      8
+     ],
+     [
+      42,
+      26,
+      8
+     ],
+     [
+      44,
+      26,
+      8
+     ],
+     [
+      7,
+      16,
+      5
+     ],
+     [
+      11,
+      31,
+      5
+     ]
+    ],
+    "confianza_media_aciertos": 0.8126889488302937,
+    "confianza_media_errores": 0.46754804554294394
+   },
+   "0003": {
+    "top1": 0.77,
+    "top3": 0.935,
+    "f1": 0.7446848554495613,
+    "top1_por_semilla": [
+     0.74,
+     0.84,
+     0.73
+    ],
+    "exactitud_voto": 0.795,
+    "senas_recall_0_voto": [
+     15,
+     26,
+     36,
+     39,
+     41
+    ],
+    "pares_principales_3_semillas": [
+     [
+      15,
+      14,
+      12
+     ],
+     [
+      26,
+      44,
+      12
+     ],
+     [
+      39,
+      9,
+      9
+     ],
+     [
+      41,
+      8,
+      6
+     ],
+     [
+      42,
+      12,
+      6
+     ],
+     [
+      10,
+      3,
+      5
+     ]
+    ],
+    "confianza_media_aciertos": 0.8449274455056046,
+    "confianza_media_errores": 0.6456681316097578
+   },
+   "0004": {
+    "top1": 0.7949999999999999,
+    "top3": 0.9416666666666668,
+    "f1": 0.7695088985088985,
+    "top1_por_semilla": [
+     0.83,
+     0.73,
+     0.825
+    ],
+    "exactitud_voto": 0.815,
+    "senas_recall_0_voto": [
+     21,
+     42,
+     45
+    ],
+    "pares_principales_3_semillas": [
+     [
+      45,
+      30,
+      11
+     ],
+     [
+      21,
+      20,
+      10
+     ],
+     [
+      42,
+      12,
+      10
+     ],
+     [
+      9,
+      23,
+      8
+     ],
+     [
+      11,
+      47,
+      6
+     ],
+     [
+      18,
+      17,
+      5
+     ]
+    ],
+    "confianza_media_aciertos": 0.8690159369564656,
+    "confianza_media_errores": 0.6355485996095146
+   }
+  }
+ },
+ "transicion": {
+  "global": {
+   "n": 997,
+   "ambos_aciertan": 551,
+   "solo_tcn": 163,
+   "solo_heredada": 56,
+   "ambos_fallan": 227,
+   "neto_tcn": 107,
+   "p_mcnemar_exacto": 2.6098445095294297e-13
+  },
+  "por_senante": {
+   "0000": {
+    "n": 200,
+    "ambos_aciertan": 75,
+    "solo_tcn": 41,
+    "solo_heredada": 19,
+    "ambos_fallan": 65,
+    "neto_tcn": 22,
+    "p_mcnemar_exacto": 0.0062176026593266705
+   },
+   "0001": {
+    "n": 199,
+    "ambos_aciertan": 96,
+    "solo_tcn": 32,
+    "solo_heredada": 11,
+    "ambos_fallan": 60,
+    "neto_tcn": 21,
+    "p_mcnemar_exacto": 0.001913961001264397
+   },
+   "0002": {
+    "n": 198,
+    "ambos_aciertan": 119,
+    "solo_tcn": 29,
+    "solo_heredada": 13,
+    "ambos_fallan": 37,
+    "neto_tcn": 16,
+    "p_mcnemar_exacto": 0.019520472782460274
+   },
+   "0003": {
+    "n": 200,
+    "ambos_aciertan": 126,
+    "solo_tcn": 33,
+    "solo_heredada": 5,
+    "ambos_fallan": 36,
+    "neto_tcn": 28,
+    "p_mcnemar_exacto": 4.255962267052382e-06
+   },
+   "0004": {
+    "n": 200,
+    "ambos_aciertan": 135,
+    "solo_tcn": 28,
+    "solo_heredada": 8,
+    "ambos_fallan": 29,
+    "neto_tcn": 20,
+    "p_mcnemar_exacto": 0.0011932429624721408
+   }
+  },
+  "por_sena": [
+   {
+    "id": 0,
+    "nombre": "gracias",
+    "n": 20,
+    "ambos_aciertan": 9,
+    "solo_tcn": 5,
+    "solo_heredada": 2,
+    "ambos_fallan": 4,
+    "neto_tcn": 3,
+    "p_mcnemar_exacto": 0.453125
+   },
+   {
+    "id": 1,
+    "nombre": "buenos días",
+    "n": 20,
+    "ambos_aciertan": 20,
+    "solo_tcn": 0,
+    "solo_heredada": 0,
+    "ambos_fallan": 0,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 2,
+    "nombre": "buenas tardes",
+    "n": 19,
+    "ambos_aciertan": 19,
+    "solo_tcn": 0,
+    "solo_heredada": 0,
+    "ambos_fallan": 0,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 3,
+    "nombre": "buenas noches",
+    "n": 20,
+    "ambos_aciertan": 20,
+    "solo_tcn": 0,
+    "solo_heredada": 0,
+    "ambos_fallan": 0,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 4,
+    "nombre": "seña",
+    "n": 20,
+    "ambos_aciertan": 19,
+    "solo_tcn": 0,
+    "solo_heredada": 1,
+    "ambos_fallan": 0,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 5,
+    "nombre": "nombre",
+    "n": 20,
+    "ambos_aciertan": 18,
+    "solo_tcn": 1,
+    "solo_heredada": 1,
+    "ambos_fallan": 0,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 6,
+    "nombre": "trabajar",
+    "n": 20,
+    "ambos_aciertan": 13,
+    "solo_tcn": 4,
+    "solo_heredada": 0,
+    "ambos_fallan": 3,
+    "neto_tcn": 4,
+    "p_mcnemar_exacto": 0.125
+   },
+   {
+    "id": 7,
+    "nombre": "comer",
+    "n": 20,
+    "ambos_aciertan": 0,
+    "solo_tcn": 7,
+    "solo_heredada": 0,
+    "ambos_fallan": 13,
+    "neto_tcn": 7,
+    "p_mcnemar_exacto": 0.015625
+   },
+   {
+    "id": 8,
+    "nombre": "vivir",
+    "n": 19,
+    "ambos_aciertan": 11,
+    "solo_tcn": 2,
+    "solo_heredada": 3,
+    "ambos_fallan": 3,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 9,
+    "nombre": "poco",
+    "n": 20,
+    "ambos_aciertan": 7,
+    "solo_tcn": 5,
+    "solo_heredada": 0,
+    "ambos_fallan": 8,
+    "neto_tcn": 5,
+    "p_mcnemar_exacto": 0.0625
+   },
+   {
+    "id": 10,
+    "nombre": "familia",
+    "n": 20,
+    "ambos_aciertan": 19,
+    "solo_tcn": 0,
+    "solo_heredada": 1,
+    "ambos_fallan": 0,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 11,
+    "nombre": "personas",
+    "n": 20,
+    "ambos_aciertan": 9,
+    "solo_tcn": 3,
+    "solo_heredada": 3,
+    "ambos_fallan": 5,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 12,
+    "nombre": "mujer",
+    "n": 20,
+    "ambos_aciertan": 5,
+    "solo_tcn": 6,
+    "solo_heredada": 0,
+    "ambos_fallan": 9,
+    "neto_tcn": 6,
+    "p_mcnemar_exacto": 0.03125
+   },
+   {
+    "id": 13,
+    "nombre": "hombre",
+    "n": 20,
+    "ambos_aciertan": 19,
+    "solo_tcn": 1,
+    "solo_heredada": 0,
+    "ambos_fallan": 0,
+    "neto_tcn": 1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 14,
+    "nombre": "niño",
+    "n": 20,
+    "ambos_aciertan": 6,
+    "solo_tcn": 9,
+    "solo_heredada": 1,
+    "ambos_fallan": 4,
+    "neto_tcn": 8,
+    "p_mcnemar_exacto": 0.021484375
+   },
+   {
+    "id": 15,
+    "nombre": "niña",
+    "n": 20,
+    "ambos_aciertan": 8,
+    "solo_tcn": 3,
+    "solo_heredada": 1,
+    "ambos_fallan": 8,
+    "neto_tcn": 2,
+    "p_mcnemar_exacto": 0.625
+   },
+   {
+    "id": 16,
+    "nombre": "abuelo",
+    "n": 19,
+    "ambos_aciertan": 8,
+    "solo_tcn": 3,
+    "solo_heredada": 1,
+    "ambos_fallan": 7,
+    "neto_tcn": 2,
+    "p_mcnemar_exacto": 0.625
+   },
+   {
+    "id": 17,
+    "nombre": "tío",
+    "n": 20,
+    "ambos_aciertan": 15,
+    "solo_tcn": 3,
+    "solo_heredada": 1,
+    "ambos_fallan": 1,
+    "neto_tcn": 2,
+    "p_mcnemar_exacto": 0.625
+   },
+   {
+    "id": 18,
+    "nombre": "hermano",
+    "n": 20,
+    "ambos_aciertan": 15,
+    "solo_tcn": 0,
+    "solo_heredada": 1,
+    "ambos_fallan": 4,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 19,
+    "nombre": "hambre",
+    "n": 20,
+    "ambos_aciertan": 18,
+    "solo_tcn": 1,
+    "solo_heredada": 0,
+    "ambos_fallan": 1,
+    "neto_tcn": 1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 20,
+    "nombre": "feliz",
+    "n": 20,
+    "ambos_aciertan": 15,
+    "solo_tcn": 3,
+    "solo_heredada": 2,
+    "ambos_fallan": 0,
+    "neto_tcn": 1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 21,
+    "nombre": "contento",
+    "n": 20,
+    "ambos_aciertan": 11,
+    "solo_tcn": 2,
+    "solo_heredada": 2,
+    "ambos_fallan": 5,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 22,
+    "nombre": "triste",
+    "n": 20,
+    "ambos_aciertan": 14,
+    "solo_tcn": 2,
+    "solo_heredada": 1,
+    "ambos_fallan": 3,
+    "neto_tcn": 1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 23,
+    "nombre": "aburrido",
+    "n": 20,
+    "ambos_aciertan": 11,
+    "solo_tcn": 1,
+    "solo_heredada": 1,
+    "ambos_fallan": 7,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 24,
+    "nombre": "bien",
+    "n": 20,
+    "ambos_aciertan": 7,
+    "solo_tcn": 2,
+    "solo_heredada": 1,
+    "ambos_fallan": 10,
+    "neto_tcn": 1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 25,
+    "nombre": "mal",
+    "n": 20,
+    "ambos_aciertan": 12,
+    "solo_tcn": 3,
+    "solo_heredada": 1,
+    "ambos_fallan": 4,
+    "neto_tcn": 2,
+    "p_mcnemar_exacto": 0.625
+   },
+   {
+    "id": 26,
+    "nombre": "¿cómo estás?",
+    "n": 20,
+    "ambos_aciertan": 8,
+    "solo_tcn": 3,
+    "solo_heredada": 0,
+    "ambos_fallan": 9,
+    "neto_tcn": 3,
+    "p_mcnemar_exacto": 0.25
+   },
+   {
+    "id": 27,
+    "nombre": "más o menos",
+    "n": 20,
+    "ambos_aciertan": 2,
+    "solo_tcn": 9,
+    "solo_heredada": 0,
+    "ambos_fallan": 9,
+    "neto_tcn": 9,
+    "p_mcnemar_exacto": 0.00390625
+   },
+   {
+    "id": 28,
+    "nombre": "sentir",
+    "n": 20,
+    "ambos_aciertan": 8,
+    "solo_tcn": 3,
+    "solo_heredada": 1,
+    "ambos_fallan": 8,
+    "neto_tcn": 2,
+    "p_mcnemar_exacto": 0.625
+   },
+   {
+    "id": 29,
+    "nombre": "juicioso",
+    "n": 20,
+    "ambos_aciertan": 19,
+    "solo_tcn": 0,
+    "solo_heredada": 1,
+    "ambos_fallan": 0,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 30,
+    "nombre": "hola",
+    "n": 20,
+    "ambos_aciertan": 8,
+    "solo_tcn": 7,
+    "solo_heredada": 0,
+    "ambos_fallan": 5,
+    "neto_tcn": 7,
+    "p_mcnemar_exacto": 0.015625
+   },
+   {
+    "id": 31,
+    "nombre": "adiós",
+    "n": 20,
+    "ambos_aciertan": 9,
+    "solo_tcn": 6,
+    "solo_heredada": 0,
+    "ambos_fallan": 5,
+    "neto_tcn": 6,
+    "p_mcnemar_exacto": 0.03125
+   },
+   {
+    "id": 32,
+    "nombre": "por favor",
+    "n": 20,
+    "ambos_aciertan": 17,
+    "solo_tcn": 2,
+    "solo_heredada": 0,
+    "ambos_fallan": 1,
+    "neto_tcn": 2,
+    "p_mcnemar_exacto": 0.5
+   },
+   {
+    "id": 33,
+    "nombre": "con gusto",
+    "n": 20,
+    "ambos_aciertan": 11,
+    "solo_tcn": 7,
+    "solo_heredada": 2,
+    "ambos_fallan": 0,
+    "neto_tcn": 5,
+    "p_mcnemar_exacto": 0.1796875
+   },
+   {
+    "id": 34,
+    "nombre": "bienvenido",
+    "n": 20,
+    "ambos_aciertan": 14,
+    "solo_tcn": 6,
+    "solo_heredada": 0,
+    "ambos_fallan": 0,
+    "neto_tcn": 6,
+    "p_mcnemar_exacto": 0.03125
+   },
+   {
+    "id": 35,
+    "nombre": "perdón",
+    "n": 20,
+    "ambos_aciertan": 15,
+    "solo_tcn": 2,
+    "solo_heredada": 1,
+    "ambos_fallan": 2,
+    "neto_tcn": 1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 36,
+    "nombre": "permiso",
+    "n": 20,
+    "ambos_aciertan": 3,
+    "solo_tcn": 7,
+    "solo_heredada": 2,
+    "ambos_fallan": 8,
+    "neto_tcn": 5,
+    "p_mcnemar_exacto": 0.1796875
+   },
+   {
+    "id": 37,
+    "nombre": "nunca",
+    "n": 20,
+    "ambos_aciertan": 11,
+    "solo_tcn": 3,
+    "solo_heredada": 0,
+    "ambos_fallan": 6,
+    "neto_tcn": 3,
+    "p_mcnemar_exacto": 0.25
+   },
+   {
+    "id": 38,
+    "nombre": "yo",
+    "n": 20,
+    "ambos_aciertan": 8,
+    "solo_tcn": 3,
+    "solo_heredada": 0,
+    "ambos_fallan": 9,
+    "neto_tcn": 3,
+    "p_mcnemar_exacto": 0.25
+   },
+   {
+    "id": 39,
+    "nombre": "tú",
+    "n": 20,
+    "ambos_aciertan": 7,
+    "solo_tcn": 4,
+    "solo_heredada": 0,
+    "ambos_fallan": 9,
+    "neto_tcn": 4,
+    "p_mcnemar_exacto": 0.125
+   },
+   {
+    "id": 40,
+    "nombre": "ustedes",
+    "n": 20,
+    "ambos_aciertan": 6,
+    "solo_tcn": 5,
+    "solo_heredada": 3,
+    "ambos_fallan": 6,
+    "neto_tcn": 2,
+    "p_mcnemar_exacto": 0.7265625
+   },
+   {
+    "id": 41,
+    "nombre": "¿qué?",
+    "n": 20,
+    "ambos_aciertan": 2,
+    "solo_tcn": 2,
+    "solo_heredada": 6,
+    "ambos_fallan": 10,
+    "neto_tcn": -4,
+    "p_mcnemar_exacto": 0.2890625
+   },
+   {
+    "id": 42,
+    "nombre": "¿cuándo?",
+    "n": 20,
+    "ambos_aciertan": 3,
+    "solo_tcn": 3,
+    "solo_heredada": 3,
+    "ambos_fallan": 11,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 43,
+    "nombre": "¿dónde?",
+    "n": 20,
+    "ambos_aciertan": 11,
+    "solo_tcn": 2,
+    "solo_heredada": 3,
+    "ambos_fallan": 4,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 44,
+    "nombre": "¿cómo?",
+    "n": 20,
+    "ambos_aciertan": 5,
+    "solo_tcn": 3,
+    "solo_heredada": 2,
+    "ambos_fallan": 10,
+    "neto_tcn": 1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 45,
+    "nombre": "¿por qué?",
+    "n": 20,
+    "ambos_aciertan": 3,
+    "solo_tcn": 5,
+    "solo_heredada": 6,
+    "ambos_fallan": 6,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 46,
+    "nombre": "¿quién?",
+    "n": 20,
+    "ambos_aciertan": 8,
+    "solo_tcn": 9,
+    "solo_heredada": 0,
+    "ambos_fallan": 3,
+    "neto_tcn": 9,
+    "p_mcnemar_exacto": 0.00390625
+   },
+   {
+    "id": 47,
+    "nombre": "diferente",
+    "n": 20,
+    "ambos_aciertan": 20,
+    "solo_tcn": 0,
+    "solo_heredada": 0,
+    "ambos_fallan": 0,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 48,
+    "nombre": "todos",
+    "n": 20,
+    "ambos_aciertan": 20,
+    "solo_tcn": 0,
+    "solo_heredada": 0,
+    "ambos_fallan": 0,
+    "neto_tcn": 0,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 49,
+    "nombre": "mucho",
+    "n": 20,
+    "ambos_aciertan": 5,
+    "solo_tcn": 6,
+    "solo_heredada": 2,
+    "ambos_fallan": 7,
+    "neto_tcn": 4,
+    "p_mcnemar_exacto": 0.2890625
+   }
+  ],
+  "por_categoria": {
+   "saludo": {
+    "n": 99,
+    "ambos_aciertan": 76,
+    "solo_tcn": 13,
+    "solo_heredada": 0,
+    "ambos_fallan": 10,
+    "neto_tcn": 13,
+    "p_mcnemar_exacto": 0.000244140625
+   },
+   "cortesia": {
+    "n": 80,
+    "ambos_aciertan": 52,
+    "solo_tcn": 16,
+    "solo_heredada": 5,
+    "ambos_fallan": 7,
+    "neto_tcn": 11,
+    "p_mcnemar_exacto": 0.02660369873046875
+   },
+   "pregunta": {
+    "n": 140,
+    "ambos_aciertan": 40,
+    "solo_tcn": 27,
+    "solo_heredada": 20,
+    "ambos_fallan": 53,
+    "neto_tcn": 7,
+    "p_mcnemar_exacto": 0.38169339766321286
+   },
+   "sujeto": {
+    "n": 259,
+    "ambos_aciertan": 145,
+    "solo_tcn": 40,
+    "solo_heredada": 12,
+    "ambos_fallan": 62,
+    "neto_tcn": 28,
+    "p_mcnemar_exacto": 0.0001275387838557407
+   },
+   "verbo": {
+    "n": 79,
+    "ambos_aciertan": 32,
+    "solo_tcn": 16,
+    "solo_heredada": 4,
+    "ambos_fallan": 27,
+    "neto_tcn": 12,
+    "p_mcnemar_exacto": 0.01181793212890625
+   },
+   "objeto": {
+    "n": 80,
+    "ambos_aciertan": 58,
+    "solo_tcn": 9,
+    "solo_heredada": 4,
+    "ambos_fallan": 9,
+    "neto_tcn": 5,
+    "p_mcnemar_exacto": 0.266845703125
+   },
+   "adjetivo": {
+    "n": 140,
+    "ambos_aciertan": 104,
+    "solo_tcn": 14,
+    "solo_heredada": 7,
+    "ambos_fallan": 15,
+    "neto_tcn": 7,
+    "p_mcnemar_exacto": 0.18924713134765625
+   },
+   "adverbio": {
+    "n": 120,
+    "ambos_aciertan": 44,
+    "solo_tcn": 28,
+    "solo_heredada": 4,
+    "ambos_fallan": 44,
+    "neto_tcn": 24,
+    "p_mcnemar_exacto": 1.9301194697618484e-05
+   }
+  },
+  "senas_que_mas_ganan": [
+   {
+    "id": 27,
+    "nombre": "más o menos",
+    "n": 20,
+    "ambos_aciertan": 2,
+    "solo_tcn": 9,
+    "solo_heredada": 0,
+    "ambos_fallan": 9,
+    "neto_tcn": 9,
+    "p_mcnemar_exacto": 0.00390625
+   },
+   {
+    "id": 46,
+    "nombre": "¿quién?",
+    "n": 20,
+    "ambos_aciertan": 8,
+    "solo_tcn": 9,
+    "solo_heredada": 0,
+    "ambos_fallan": 3,
+    "neto_tcn": 9,
+    "p_mcnemar_exacto": 0.00390625
+   },
+   {
+    "id": 14,
+    "nombre": "niño",
+    "n": 20,
+    "ambos_aciertan": 6,
+    "solo_tcn": 9,
+    "solo_heredada": 1,
+    "ambos_fallan": 4,
+    "neto_tcn": 8,
+    "p_mcnemar_exacto": 0.021484375
+   },
+   {
+    "id": 7,
+    "nombre": "comer",
+    "n": 20,
+    "ambos_aciertan": 0,
+    "solo_tcn": 7,
+    "solo_heredada": 0,
+    "ambos_fallan": 13,
+    "neto_tcn": 7,
+    "p_mcnemar_exacto": 0.015625
+   },
+   {
+    "id": 30,
+    "nombre": "hola",
+    "n": 20,
+    "ambos_aciertan": 8,
+    "solo_tcn": 7,
+    "solo_heredada": 0,
+    "ambos_fallan": 5,
+    "neto_tcn": 7,
+    "p_mcnemar_exacto": 0.015625
+   },
+   {
+    "id": 12,
+    "nombre": "mujer",
+    "n": 20,
+    "ambos_aciertan": 5,
+    "solo_tcn": 6,
+    "solo_heredada": 0,
+    "ambos_fallan": 9,
+    "neto_tcn": 6,
+    "p_mcnemar_exacto": 0.03125
+   },
+   {
+    "id": 31,
+    "nombre": "adiós",
+    "n": 20,
+    "ambos_aciertan": 9,
+    "solo_tcn": 6,
+    "solo_heredada": 0,
+    "ambos_fallan": 5,
+    "neto_tcn": 6,
+    "p_mcnemar_exacto": 0.03125
+   },
+   {
+    "id": 34,
+    "nombre": "bienvenido",
+    "n": 20,
+    "ambos_aciertan": 14,
+    "solo_tcn": 6,
+    "solo_heredada": 0,
+    "ambos_fallan": 0,
+    "neto_tcn": 6,
+    "p_mcnemar_exacto": 0.03125
+   },
+   {
+    "id": 9,
+    "nombre": "poco",
+    "n": 20,
+    "ambos_aciertan": 7,
+    "solo_tcn": 5,
+    "solo_heredada": 0,
+    "ambos_fallan": 8,
+    "neto_tcn": 5,
+    "p_mcnemar_exacto": 0.0625
+   },
+   {
+    "id": 33,
+    "nombre": "con gusto",
+    "n": 20,
+    "ambos_aciertan": 11,
+    "solo_tcn": 7,
+    "solo_heredada": 2,
+    "ambos_fallan": 0,
+    "neto_tcn": 5,
+    "p_mcnemar_exacto": 0.1796875
+   }
+  ],
+  "senas_que_mas_pierden": [
+   {
+    "id": 41,
+    "nombre": "¿qué?",
+    "n": 20,
+    "ambos_aciertan": 2,
+    "solo_tcn": 2,
+    "solo_heredada": 6,
+    "ambos_fallan": 10,
+    "neto_tcn": -4,
+    "p_mcnemar_exacto": 0.2890625
+   },
+   {
+    "id": 4,
+    "nombre": "seña",
+    "n": 20,
+    "ambos_aciertan": 19,
+    "solo_tcn": 0,
+    "solo_heredada": 1,
+    "ambos_fallan": 0,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 8,
+    "nombre": "vivir",
+    "n": 19,
+    "ambos_aciertan": 11,
+    "solo_tcn": 2,
+    "solo_heredada": 3,
+    "ambos_fallan": 3,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 10,
+    "nombre": "familia",
+    "n": 20,
+    "ambos_aciertan": 19,
+    "solo_tcn": 0,
+    "solo_heredada": 1,
+    "ambos_fallan": 0,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 18,
+    "nombre": "hermano",
+    "n": 20,
+    "ambos_aciertan": 15,
+    "solo_tcn": 0,
+    "solo_heredada": 1,
+    "ambos_fallan": 4,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 29,
+    "nombre": "juicioso",
+    "n": 20,
+    "ambos_aciertan": 19,
+    "solo_tcn": 0,
+    "solo_heredada": 1,
+    "ambos_fallan": 0,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 43,
+    "nombre": "¿dónde?",
+    "n": 20,
+    "ambos_aciertan": 11,
+    "solo_tcn": 2,
+    "solo_heredada": 3,
+    "ambos_fallan": 4,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   },
+   {
+    "id": 45,
+    "nombre": "¿por qué?",
+    "n": 20,
+    "ambos_aciertan": 3,
+    "solo_tcn": 5,
+    "solo_heredada": 6,
+    "ambos_fallan": 6,
+    "neto_tcn": -1,
+    "p_mcnemar_exacto": 1.0
+   }
+  ],
+  "senas_netas": {
+   "ganan": 32,
+   "pierden": 8,
+   "igual": 10
+  },
+  "ambos_fallan_misma_prediccion": 92,
+  "errores_introducidos_pares": [
+   [
+    41,
+    43,
+    4
+   ],
+   [
+    45,
+    42,
+    3
+   ],
+   [
+    0,
+    42,
+    2
+   ],
+   [
+    8,
+    26,
+    2
+   ],
+   [
+    11,
+    27,
+    2
+   ],
+   [
+    21,
+    34,
+    2
+   ],
+   [
+    33,
+    36,
+    2
+   ],
+   [
+    36,
+    28,
+    2
+   ]
+  ],
+  "errores_corregidos_pares_heredada": [
+   [
+    30,
+    13,
+    7
+   ],
+   [
+    14,
+    16,
+    4
+   ],
+   [
+    14,
+    15,
+    4
+   ],
+   [
+    27,
+    9,
+    4
+   ],
+   [
+    33,
+    32,
+    4
+   ],
+   [
+    36,
+    42,
+    4
+   ],
+   [
+    0,
+    35,
+    3
+   ],
+   [
+    7,
+    36,
+    3
+   ]
+  ]
+ },
+ "propiedades": {
+  "definiciones": {
+   "longitud": "fotogramas del video antes de remuestrear a 30 (lengths.npy)",
+   "prop_sin_alguna_mano": "fotogramas en que falta alguna de las dos manos / fotogramas (METRICAS_FOTOGRAMA; es lo que la regla «imputacion» rellena; la heredada lo deja en ceros)",
+   "prop_sin_mano_activa": "fotogramas sin el bloque de mano que más recorre / fotogramas (X_padded en ceros)",
+   "manos": "proxy: «dos» si el recorrido de la muñeca que menos se mueve es ≥ 0,5 veces el de la que más se mueve; no es una anotación lingüística"
+  },
+  "modelos": {
+   "heredada": {
+    "tramos_prop_sin_alguna_mano": [
+     {
+      "tramo": "0 %",
+      "n_videos": 246,
+      "n": 738,
+      "exactitud": 0.5745257452574526
+     },
+     {
+      "tramo": "(0; 5 %]",
+      "n_videos": 261,
+      "n": 783,
+      "exactitud": 0.644955300127714
+     },
+     {
+      "tramo": "(5; 15 %]",
+      "n_videos": 294,
+      "n": 882,
+      "exactitud": 0.5997732426303855
+     },
+     {
+      "tramo": "> 15 %",
+      "n_videos": 196,
+      "n": 588,
+      "exactitud": 0.5170068027210885
+     }
+    ],
+    "quintiles_prop_sin_alguna_mano_nota": "muchos ceros: se usan tramos fijos, no quintiles",
+    "tramos_prop_sin_mano_activa": [
+     {
+      "tramo": "0 %",
+      "n_videos": 344,
+      "n": 1032,
+      "exactitud": 0.6288759689922481
+     },
+     {
+      "tramo": "(0; 5 %]",
+      "n_videos": 323,
+      "n": 969,
+      "exactitud": 0.5975232198142415
+     },
+     {
+      "tramo": "(5; 15 %]",
+      "n_videos": 222,
+      "n": 666,
+      "exactitud": 0.6096096096096096
+     },
+     {
+      "tramo": "> 15 %",
+      "n_videos": 108,
+      "n": 324,
+      "exactitud": 0.3950617283950617
+     }
+    ],
+    "quintiles_prop_sin_mano_activa_nota": "muchos ceros: se usan tramos fijos, no quintiles",
+    "quintiles_longitud": [
+     {
+      "quintil": 1,
+      "desde": 40.0,
+      "hasta": 57.0,
+      "n_videos": 206,
+      "n": 618,
+      "exactitud": 0.6229773462783171
+     },
+     {
+      "quintil": 2,
+      "desde": 57.0,
+      "hasta": 64.0,
+      "n_videos": 211,
+      "n": 633,
+      "exactitud": 0.5276461295418642
+     },
+     {
+      "quintil": 3,
+      "desde": 64.0,
+      "hasta": 70.0,
+      "n_videos": 205,
+      "n": 615,
+      "exactitud": 0.5300813008130081
+     },
+     {
+      "quintil": 4,
+      "desde": 70.0,
+      "hasta": 76.80000000000007,
+      "n_videos": 175,
+      "n": 525,
+      "exactitud": 0.6171428571428571
+     },
+     {
+      "quintil": 5,
+      "desde": 76.80000000000007,
+      "hasta": 135.0,
+      "n_videos": 200,
+      "n": 600,
+      "exactitud": 0.655
+     }
+    ],
+    "manos_video": {
+     "dos": {
+      "n": 1500,
+      "exactitud": 0.678
+     },
+     "una": {
+      "n": 1491,
+      "exactitud": 0.49966465459423204
+     }
+    },
+    "manos_sena": {
+     "dos": {
+      "n": 1374,
+      "exactitud": 0.7387190684133915
+     },
+     "una": {
+      "n": 1617,
+      "exactitud": 0.4619666048237477
+     }
+    },
+    "manos_video_por_senante": {
+     "0000": {
+      "dos": {
+       "n": 387,
+       "exactitud": 0.5503875968992248
+      },
+      "una": {
+       "n": 213,
+       "exactitud": 0.27230046948356806
+      }
+     },
+     "0001": {
+      "dos": {
+       "n": 306,
+       "exactitud": 0.6470588235294118
+      },
+      "una": {
+       "n": 291,
+       "exactitud": 0.41924398625429554
+      }
+     },
+     "0002": {
+      "dos": {
+       "n": 288,
+       "exactitud": 0.7013888888888888
+      },
+      "una": {
+       "n": 306,
+       "exactitud": 0.565359477124183
+      }
+     },
+     "0003": {
+      "dos": {
+       "n": 252,
+       "exactitud": 0.7698412698412699
+      },
+      "una": {
+       "n": 348,
+       "exactitud": 0.5459770114942529
+      }
+     },
+     "0004": {
+      "dos": {
+       "n": 267,
+       "exactitud": 0.7865168539325843
+      },
+      "una": {
+       "n": 333,
+       "exactitud": 0.6066066066066066
+      }
+     }
+    },
+    "fiabilidad_3_semillas": {
+     "n": 2991,
+     "n_bins": 10,
+     "ece": 0.04568221026471687,
+     "mce": 0.1511131560859772,
+     "confianza_media": 0.5500801705404373,
+     "exactitud": 0.5891006352390504,
+     "intervalos": [
+      {
+       "desde": 0.0,
+       "hasta": 0.1,
+       "n": 116,
+       "exactitud": 0.15517241379310345,
+       "confianza_media": 0.07750166509428928,
+       "brecha": -0.07767074869881417
+      },
+      {
+       "desde": 0.1,
+       "hasta": 0.2,
+       "n": 380,
+       "exactitud": 0.24736842105263157,
+       "confianza_media": 0.15155210679298953,
+       "brecha": -0.09581631425964204
+      },
+      {
+       "desde": 0.2,
+       "hasta": 0.3,
+       "n": 312,
+       "exactitud": 0.40064102564102566,
+       "confianza_media": 0.24952786955504846,
+       "brecha": -0.1511131560859772
+      },
+      {
+       "desde": 0.3,
+       "hasta": 0.4,
+       "n": 289,
+       "exactitud": 0.4532871972318339,
+       "confianza_media": 0.3453140219602618,
+       "brecha": -0.10797317527157213
+      },
+      {
+       "desde": 0.4,
+       "hasta": 0.5,
+       "n": 265,
+       "exactitud": 0.4377358490566038,
+       "confianza_media": 0.45021370705568564,
+       "brecha": 0.012477857999081854
+      },
+      {
+       "desde": 0.5,
+       "hasta": 0.6,
+       "n": 202,
+       "exactitud": 0.5396039603960396,
+       "confianza_media": 0.5496374221131353,
+       "brecha": 0.010033461717095626
+      },
+      {
+       "desde": 0.6,
+       "hasta": 0.7,
+       "n": 227,
+       "exactitud": 0.6563876651982379,
+       "confianza_media": 0.6522850890516709,
+       "brecha": -0.00410257614656695
+      },
+      {
+       "desde": 0.7,
+       "hasta": 0.8,
+       "n": 288,
+       "exactitud": 0.7395833333333334,
+       "confianza_media": 0.7553071897062991,
+       "brecha": 0.015723856372965694
+      },
+      {
+       "desde": 0.8,
+       "hasta": 0.9,
+       "n": 564,
+       "exactitud": 0.8563829787234043,
+       "confianza_media": 0.8565616635143334,
+       "brecha": 0.00017868479092908451
+      },
+      {
+       "desde": 0.9,
+       "hasta": 1.0,
+       "n": 348,
+       "exactitud": 0.9310344827586207,
+       "confianza_media": 0.9253735430966848,
+       "brecha": -0.0056609396619358154
+      }
+     ]
+    },
+    "ece_por_semilla": [
+     0.06636709546896372,
+     0.049050673132495164,
+     0.0745837737207367
+    ],
+    "tramos_confianza": [
+     {
+      "desde": 0.0,
+      "hasta": 0.25,
+      "n": 660,
+      "exactitud": 0.26666666666666666,
+      "proporcion_de_predicciones": 0.22066198595787362
+     },
+     {
+      "desde": 0.25,
+      "hasta": 0.5,
+      "n": 702,
+      "exactitud": 0.43874643874643876,
+      "proporcion_de_predicciones": 0.23470411233701102
+     },
+     {
+      "desde": 0.5,
+      "hasta": 0.75,
+      "n": 542,
+      "exactitud": 0.6199261992619927,
+      "proporcion_de_predicciones": 0.1812102975593447
+     },
+     {
+      "desde": 0.75,
+      "hasta": 1.0,
+      "n": 1087,
+      "exactitud": 0.8666053357865685,
+      "proporcion_de_predicciones": 0.36342360414577063
+     }
+    ],
+    "confianza_media_aciertos": 0.6688239664710407,
+    "confianza_media_errores": 0.3798388618099874,
+    "errores_con_confianza_ge_0_5": 351,
+    "errores_con_confianza_ge_0_75": 145,
+    "errores_3_semillas": 1229,
+    "errores_con_real_en_top3": 522,
+    "errores_con_real_en_segundo_lugar": 353,
+    "pruebas_voto": {
+     "longitud": {
+      "senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": -1.7277549640425172,
+       "diferencia_bruta_sin_estratos": -0.7932285726354849,
+       "estratos": 5,
+       "estratos_con_errores_y_aciertos": 5,
+       "p_bilateral": 0.005699430056994301,
+       "media_distribucion_nula": 0.00634082397907006,
+       "permutaciones": 10000,
+       "semilla": 2026,
+       "p_holm": 0.03569643035696431
+      },
+      "sena": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.5520953540207729,
+       "diferencia_bruta_sin_estratos": -0.7932285726354849,
+       "estratos": 50,
+       "estratos_con_errores_y_aciertos": 41,
+       "p_bilateral": 0.5208479152084792,
+       "media_distribucion_nula": -0.01112809244534303,
+       "permutaciones": 10000,
+       "semilla": 2027,
+       "p_holm": 0.5208479152084792
+      },
+      "sena_y_senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 1.5417218543046358,
+       "diferencia_bruta_sin_estratos": -0.7932285726354849,
+       "estratos": 250,
+       "estratos_con_errores_y_aciertos": 78,
+       "p_bilateral": 0.14808519148085192,
+       "media_distribucion_nula": 0.004265960264900661,
+       "permutaciones": 10000,
+       "semilla": 2028,
+       "p_holm": 0.29617038296170384
+      }
+     },
+     "prop_sin_alguna_mano": {
+      "senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.017668608361219376,
+       "diferencia_bruta_sin_estratos": 0.018514625019685635,
+       "estratos": 5,
+       "estratos_con_errores_y_aciertos": 5,
+       "p_bilateral": 0.005099490050994901,
+       "media_distribucion_nula": -3.064251128905079e-05,
+       "permutaciones": 10000,
+       "semilla": 2036,
+       "p_holm": 0.03569643035696431
+      },
+      "sena": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.02524323926000458,
+       "diferencia_bruta_sin_estratos": 0.018514625019685635,
+       "estratos": 50,
+       "estratos_con_errores_y_aciertos": 41,
+       "p_bilateral": 0.000999900009999,
+       "media_distribucion_nula": -2.4337629633267664e-05,
+       "permutaciones": 10000,
+       "semilla": 2037,
+       "p_holm": 0.007999200079992
+      },
+      "sena_y_senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.02544339310887636,
+       "diferencia_bruta_sin_estratos": 0.018514625019685635,
+       "estratos": 250,
+       "estratos_con_errores_y_aciertos": 78,
+       "p_bilateral": 0.0160983901609839,
+       "media_distribucion_nula": -1.265685373249077e-05,
+       "permutaciones": 10000,
+       "semilla": 2038,
+       "p_holm": 0.0804919508049195
+      }
+     },
+     "prop_sin_mano_activa": {
+      "senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.02773508525967553,
+       "diferencia_bruta_sin_estratos": 0.024906906007083403,
+       "estratos": 5,
+       "estratos_con_errores_y_aciertos": 5,
+       "p_bilateral": 9.999000099990002e-05,
+       "media_distribucion_nula": -1.0227506359258367e-05,
+       "permutaciones": 10000,
+       "semilla": 2046,
+       "p_holm": 0.0008999100089991002
+      },
+      "sena": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.01455723342082542,
+       "diferencia_bruta_sin_estratos": 0.024906906007083403,
+       "estratos": 50,
+       "estratos_con_errores_y_aciertos": 41,
+       "p_bilateral": 0.034096590340965904,
+       "media_distribucion_nula": 4.562191148792716e-05,
+       "permutaciones": 10000,
+       "semilla": 2047,
+       "p_holm": 0.13638636136386362
+      },
+      "sena_y_senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.01723866787874454,
+       "diferencia_bruta_sin_estratos": 0.024906906007083403,
+       "estratos": 250,
+       "estratos_con_errores_y_aciertos": 78,
+       "p_bilateral": 0.045995400459954004,
+       "media_distribucion_nula": 0.00016135604775458444,
+       "permutaciones": 10000,
+       "semilla": 2048,
+       "p_holm": 0.137986201379862
+      }
+     }
+    },
+    "entre_senas_manos": {
+     "recall_medio_dos": 0.7390541571319603,
+     "recall_medio_una": 0.46195581546458736,
+     "pearson": 0.5297251407293645,
+     "p_bilateral": 9.999000099990002e-05,
+     "n": 50,
+     "permutaciones": 10000,
+     "semilla": 2103
+    }
+   },
+   "tcn": {
+    "tramos_prop_sin_alguna_mano": [
+     {
+      "tramo": "0 %",
+      "n_videos": 246,
+      "n": 738,
+      "exactitud": 0.6653116531165312
+     },
+     {
+      "tramo": "(0; 5 %]",
+      "n_videos": 261,
+      "n": 783,
+      "exactitud": 0.7215836526181354
+     },
+     {
+      "tramo": "(5; 15 %]",
+      "n_videos": 294,
+      "n": 882,
+      "exactitud": 0.6689342403628118
+     },
+     {
+      "tramo": "> 15 %",
+      "n_videos": 196,
+      "n": 588,
+      "exactitud": 0.6445578231292517
+     }
+    ],
+    "quintiles_prop_sin_alguna_mano_nota": "muchos ceros: se usan tramos fijos, no quintiles",
+    "tramos_prop_sin_mano_activa": [
+     {
+      "tramo": "0 %",
+      "n_videos": 344,
+      "n": 1032,
+      "exactitud": 0.7170542635658915
+     },
+     {
+      "tramo": "(0; 5 %]",
+      "n_videos": 323,
+      "n": 969,
+      "exactitud": 0.6676986584107327
+     },
+     {
+      "tramo": "(5; 15 %]",
+      "n_videos": 222,
+      "n": 666,
+      "exactitud": 0.6936936936936937
+     },
+     {
+      "tramo": "> 15 %",
+      "n_videos": 108,
+      "n": 324,
+      "exactitud": 0.5432098765432098
+     }
+    ],
+    "quintiles_prop_sin_mano_activa_nota": "muchos ceros: se usan tramos fijos, no quintiles",
+    "quintiles_longitud": [
+     {
+      "quintil": 1,
+      "desde": 40.0,
+      "hasta": 57.0,
+      "n_videos": 206,
+      "n": 618,
+      "exactitud": 0.7200647249190939
+     },
+     {
+      "quintil": 2,
+      "desde": 57.0,
+      "hasta": 64.0,
+      "n_videos": 211,
+      "n": 633,
+      "exactitud": 0.65086887835703
+     },
+     {
+      "quintil": 3,
+      "desde": 64.0,
+      "hasta": 70.0,
+      "n_videos": 205,
+      "n": 615,
+      "exactitud": 0.6260162601626016
+     },
+     {
+      "quintil": 4,
+      "desde": 70.0,
+      "hasta": 76.80000000000007,
+      "n_videos": 175,
+      "n": 525,
+      "exactitud": 0.6495238095238095
+     },
+     {
+      "quintil": 5,
+      "desde": 76.80000000000007,
+      "hasta": 135.0,
+      "n_videos": 200,
+      "n": 600,
+      "exactitud": 0.7366666666666667
+     }
+    ],
+    "manos_video": {
+     "dos": {
+      "n": 1500,
+      "exactitud": 0.7206666666666667
+     },
+     "una": {
+      "n": 1491,
+      "exactitud": 0.6331321260898726
+     }
+    },
+    "manos_sena": {
+     "dos": {
+      "n": 1374,
+      "exactitud": 0.7729257641921398
+     },
+     "una": {
+      "n": 1617,
+      "exactitud": 0.5955473098330241
+     }
+    },
+    "manos_video_por_senante": {
+     "0000": {
+      "dos": {
+       "n": 387,
+       "exactitud": 0.5503875968992248
+      },
+      "una": {
+       "n": 213,
+       "exactitud": 0.3755868544600939
+      }
+     },
+     "0001": {
+      "dos": {
+       "n": 306,
+       "exactitud": 0.6895424836601307
+      },
+      "una": {
+       "n": 291,
+       "exactitud": 0.5292096219931272
+      }
+     },
+     "0002": {
+      "dos": {
+       "n": 288,
+       "exactitud": 0.7951388888888888
+      },
+      "una": {
+       "n": 306,
+       "exactitud": 0.6503267973856209
+      }
+     },
+     "0003": {
+      "dos": {
+       "n": 252,
+       "exactitud": 0.8253968253968254
+      },
+      "una": {
+       "n": 348,
+       "exactitud": 0.7298850574712644
+      }
+     },
+     "0004": {
+      "dos": {
+       "n": 267,
+       "exactitud": 0.8239700374531835
+      },
+      "una": {
+       "n": 333,
+       "exactitud": 0.7717717717717718
+      }
+     }
+    },
+    "fiabilidad_3_semillas": {
+     "n": 2991,
+     "n_bins": 10,
+     "ece": 0.062461904217390986,
+     "mce": 0.5118447944521903,
+     "confianza_media": 0.7332165632876454,
+     "exactitud": 0.6770310932798396,
+     "intervalos": [
+      {
+       "desde": 0.0,
+       "hasta": 0.1,
+       "n": 5,
+       "exactitud": 0.6,
+       "confianza_media": 0.0881552055478096,
+       "brecha": -0.5118447944521903
+      },
+      {
+       "desde": 0.1,
+       "hasta": 0.2,
+       "n": 81,
+       "exactitud": 0.2222222222222222,
+       "confianza_media": 0.16158677738757782,
+       "brecha": -0.06063544483464439
+      },
+      {
+       "desde": 0.2,
+       "hasta": 0.3,
+       "n": 145,
+       "exactitud": 0.2689655172413793,
+       "confianza_media": 0.2557537078857422,
+       "brecha": -0.013211809355637094
+      },
+      {
+       "desde": 0.3,
+       "hasta": 0.4,
+       "n": 191,
+       "exactitud": 0.24083769633507854,
+       "confianza_media": 0.35141007266743646,
+       "brecha": 0.11057237633235792
+      },
+      {
+       "desde": 0.4,
+       "hasta": 0.5,
+       "n": 240,
+       "exactitud": 0.3625,
+       "confianza_media": 0.45059745547672114,
+       "brecha": 0.08809745547672115
+      },
+      {
+       "desde": 0.5,
+       "hasta": 0.6,
+       "n": 228,
+       "exactitud": 0.5087719298245614,
+       "confianza_media": 0.5482296308404521,
+       "brecha": 0.039457701015890634
+      },
+      {
+       "desde": 0.6,
+       "hasta": 0.7,
+       "n": 233,
+       "exactitud": 0.5579399141630901,
+       "confianza_media": 0.6495569222986443,
+       "brecha": 0.09161700813555418
+      },
+      {
+       "desde": 0.7,
+       "hasta": 0.8,
+       "n": 247,
+       "exactitud": 0.6882591093117408,
+       "confianza_media": 0.7556418740314993,
+       "brecha": 0.06738276471975846
+      },
+      {
+       "desde": 0.8,
+       "hasta": 0.9,
+       "n": 420,
+       "exactitud": 0.7928571428571428,
+       "confianza_media": 0.8554782539606094,
+       "brecha": 0.06262111110346658
+      },
+      {
+       "desde": 0.9,
+       "hasta": 1.0,
+       "n": 1201,
+       "exactitud": 0.9017485428809325,
+       "confianza_media": 0.9532780238829683,
+       "brecha": 0.051529481002035804
+      }
+     ]
+    },
+    "ece_por_semilla": [
+     0.06308811938870272,
+     0.07606006208938008,
+     0.056505476288056536
+    ],
+    "tramos_confianza": [
+     {
+      "desde": 0.0,
+      "hasta": 0.25,
+      "n": 148,
+      "exactitud": 0.2905405405405405,
+      "proporcion_de_predicciones": 0.04948177866934136
+     },
+     {
+      "desde": 0.25,
+      "hasta": 0.5,
+      "n": 514,
+      "exactitud": 0.2918287937743191,
+      "proporcion_de_predicciones": 0.1718488799732531
+     },
+     {
+      "desde": 0.5,
+      "hasta": 0.75,
+      "n": 562,
+      "exactitud": 0.5551601423487544,
+      "proporcion_de_predicciones": 0.18789702440655298
+     },
+     {
+      "desde": 0.75,
+      "hasta": 1.0,
+      "n": 1767,
+      "exactitud": 0.8602150537634409,
+      "proporcion_de_predicciones": 0.5907723169508525
+     }
+    ],
+    "confianza_media_aciertos": 0.8219274220091325,
+    "confianza_media_errores": 0.5472543594460186,
+    "errores_con_confianza_ge_0_5": 497,
+    "errores_con_confianza_ge_0_75": 247,
+    "errores_3_semillas": 966,
+    "errores_con_real_en_top3": 507,
+    "errores_con_real_en_segundo_lugar": 357,
+    "pruebas_voto": {
+     "longitud": {
+      "senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": -2.0083038844411916,
+       "diferencia_bruta_sin_estratos": -0.5487375162078933,
+       "estratos": 5,
+       "estratos_con_errores_y_aciertos": 5,
+       "p_bilateral": 0.0035996400359964,
+       "media_distribucion_nula": 0.003522845529993113,
+       "permutaciones": 10000,
+       "semilla": 2026,
+       "p_holm": 0.0287971202879712
+      },
+      "sena": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.452856689016337,
+       "diferencia_bruta_sin_estratos": -0.5487375162078933,
+       "estratos": 50,
+       "estratos_con_errores_y_aciertos": 43,
+       "p_bilateral": 0.6053394660533946,
+       "media_distribucion_nula": -0.008516059992976673,
+       "permutaciones": 10000,
+       "semilla": 2027,
+       "p_holm": 1.0
+      },
+      "sena_y_senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": -0.2217090069284065,
+       "diferencia_bruta_sin_estratos": -0.5487375162078933,
+       "estratos": 250,
+       "estratos_con_errores_y_aciertos": 88,
+       "p_bilateral": 0.8354164583541646,
+       "media_distribucion_nula": 0.014140877598152427,
+       "permutaciones": 10000,
+       "semilla": 2028,
+       "p_holm": 1.0
+      }
+     },
+     "prop_sin_alguna_mano": {
+      "senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.01517029726947752,
+       "diferencia_bruta_sin_estratos": 0.018126420687756897,
+       "estratos": 5,
+       "estratos_con_errores_y_aciertos": 5,
+       "p_bilateral": 0.024997500249975,
+       "media_distribucion_nula": 3.166191005644836e-05,
+       "permutaciones": 10000,
+       "semilla": 2036,
+       "p_holm": 0.17498250174982502
+      },
+      "sena": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.015899463426168457,
+       "diferencia_bruta_sin_estratos": 0.018126420687756897,
+       "estratos": 50,
+       "estratos_con_errores_y_aciertos": 43,
+       "p_bilateral": 0.055394460553944605,
+       "media_distribucion_nula": -9.465527968482937e-05,
+       "permutaciones": 10000,
+       "semilla": 2037,
+       "p_holm": 0.33236676332366766
+      },
+      "sena_y_senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.004799761156280298,
+       "diferencia_bruta_sin_estratos": 0.018126420687756897,
+       "estratos": 250,
+       "estratos_con_errores_y_aciertos": 88,
+       "p_bilateral": 0.6148385161483851,
+       "media_distribucion_nula": 1.3214930412651626e-05,
+       "permutaciones": 10000,
+       "semilla": 2038,
+       "p_holm": 1.0
+      }
+     },
+     "prop_sin_mano_activa": {
+      "senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.02520370843526407,
+       "diferencia_bruta_sin_estratos": 0.023525162582360586,
+       "estratos": 5,
+       "estratos_con_errores_y_aciertos": 5,
+       "p_bilateral": 9.999000099990002e-05,
+       "media_distribucion_nula": 1.9825871903140552e-05,
+       "permutaciones": 10000,
+       "semilla": 2046,
+       "p_holm": 0.0008999100089991002
+      },
+      "sena": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.012085255851697852,
+       "diferencia_bruta_sin_estratos": 0.023525162582360586,
+       "estratos": 50,
+       "estratos_con_errores_y_aciertos": 43,
+       "p_bilateral": 0.09679032096790322,
+       "media_distribucion_nula": 9.411713528207884e-05,
+       "permutaciones": 10000,
+       "semilla": 2047,
+       "p_holm": 0.48395160483951605
+      },
+      "sena_y_senante": {
+       "estadistico": "diferencia errores − aciertos dentro de estrato: Σ w_g·d_g / Σ w_g, w_g = errores·aciertos/n (= coeficiente con efectos fijos del estrato); nula por permutación dentro de cada estrato",
+       "diferencia_dentro_de_estratos": 0.0029312803299309715,
+       "diferencia_bruta_sin_estratos": 0.023525162582360586,
+       "estratos": 250,
+       "estratos_con_errores_y_aciertos": 88,
+       "p_bilateral": 0.7151284871512849,
+       "media_distribucion_nula": 2.8980219339671453e-05,
+       "permutaciones": 10000,
+       "semilla": 2048,
+       "p_holm": 1.0
+      }
+     }
+    },
+    "entre_senas_manos": {
+     "recall_medio_dos": 0.7730739893211289,
+     "recall_medio_una": 0.5955165692007798,
+     "pearson": 0.4454164055208164,
+     "p_bilateral": 0.0013998600139986002,
+     "n": 50,
+     "permutaciones": 10000,
+     "semilla": 2103
+    }
+   }
+  },
+  "manos_por_sena": {
+   "dos": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    17,
+    18,
+    19,
+    20,
+    21,
+    26,
+    29,
+    34,
+    35,
+    41,
+    43,
+    44,
+    47,
+    49
+   ],
+   "una": [
+    7,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    22,
+    23,
+    24,
+    25,
+    27,
+    28,
+    30,
+    31,
+    32,
+    33,
+    36,
+    37,
+    38,
+    39,
+    40,
+    42,
+    45,
+    46,
+    48
+   ]
+  },
+  "videos_por_manos": {
+   "dos": 500,
+   "una": 497
+  },
+  "videos_cuya_etiqueta_difiere_de_su_sena": 116,
+  "descriptivo_por_senante": {
+   "0000": {
+    "longitud_media": 72.19,
+    "prop_sin_alguna_mano_media": 0.11607734829827812,
+    "prop_sin_mano_activa_media": 0.05902730115654447,
+    "videos_con_alguna_mano_ausente": 177,
+    "n": 200
+   },
+   "0001": {
+    "longitud_media": 70.39698492462311,
+    "prop_sin_alguna_mano_media": 0.037287078118321944,
+    "prop_sin_mano_activa_media": 0.02463562646974913,
+    "videos_con_alguna_mano_ausente": 115,
+    "n": 199
+   },
+   "0002": {
+    "longitud_media": 66.68686868686869,
+    "prop_sin_alguna_mano_media": 0.1676169853418879,
+    "prop_sin_mano_activa_media": 0.12379155049319064,
+    "videos_con_alguna_mano_ausente": 187,
+    "n": 198
+   },
+   "0003": {
+    "longitud_media": 56.44,
+    "prop_sin_alguna_mano_media": 0.07758785788097575,
+    "prop_sin_mano_activa_media": 0.0540394841509707,
+    "videos_con_alguna_mano_ausente": 163,
+    "n": 200
+   },
+   "0004": {
+    "longitud_media": 71.03,
+    "prop_sin_alguna_mano_media": 0.03620553864051474,
+    "prop_sin_mano_activa_media": 0.024247272014835862,
+    "videos_con_alguna_mano_ausente": 109,
+    "n": 200
+   }
+  },
+  "transicion_por_tramo_sin_alguna_mano": {
+   "0 %": {
+    "n": 246,
+    "ambos_aciertan": 129,
+    "solo_tcn": 44,
+    "solo_heredada": 16,
+    "ambos_fallan": 57,
+    "neto_tcn": 28,
+    "p_mcnemar_exacto": 0.00039404324272610154
+   },
+   "(0; 5 %]": {
+    "n": 261,
+    "ambos_aciertan": 163,
+    "solo_tcn": 37,
+    "solo_heredada": 13,
+    "ambos_fallan": 48,
+    "neto_tcn": 24,
+    "p_mcnemar_exacto": 0.000936222910851825
+   },
+   "(5; 15 %]": {
+    "n": 294,
+    "ambos_aciertan": 163,
+    "solo_tcn": 43,
+    "solo_heredada": 16,
+    "ambos_fallan": 72,
+    "neto_tcn": 27,
+    "p_mcnemar_exacto": 0.0005843646280443461
+   },
+   "> 15 %": {
+    "n": 196,
+    "ambos_aciertan": 96,
+    "solo_tcn": 39,
+    "solo_heredada": 11,
+    "ambos_fallan": 50,
+    "neto_tcn": 28,
+    "p_mcnemar_exacto": 9.021490107130603e-05
+   }
+  },
+  "transicion_por_manos": {
+   "una": {
+    "n": 497,
+    "ambos_aciertan": 232,
+    "solo_tcn": 105,
+    "solo_heredada": 27,
+    "ambos_fallan": 133,
+    "neto_tcn": 78,
+    "p_mcnemar_exacto": 4.65686863837048e-12
+   },
+   "dos": {
+    "n": 500,
+    "ambos_aciertan": 319,
+    "solo_tcn": 58,
+    "solo_heredada": 29,
+    "ambos_fallan": 94,
+    "neto_tcn": 29,
+    "p_mcnemar_exacto": 0.0024794197938160733
+   }
+  }
+ },
+ "consistencia": {
+  "heredada": {
+   "semillas": 3,
+   "distribucion_fallos": {
+    "0": 451,
+    "1": 139,
+    "2": 131,
+    "3": 276
+   },
+   "fallan_todas_misma_clase": 91,
+   "por_senante": {
+    "0000": {
+     "0": 60,
+     "1": 27,
+     "2": 37,
+     "3": 76
+    },
+    "0001": {
+     "0": 83,
+     "1": 19,
+     "2": 33,
+     "3": 64
+    },
+    "0002": {
+     "0": 92,
+     "1": 38,
+     "2": 23,
+     "3": 45
+    },
+    "0003": {
+     "0": 106,
+     "1": 23,
+     "2": 20,
+     "3": 51
+    },
+    "0004": {
+     "0": 110,
+     "1": 32,
+     "2": 18,
+     "3": 40
+    }
+   },
+   "senas_con_mas_fallos_en_las_3": [
+    [
+     7,
+     19
+    ],
+    [
+     27,
+     15
+    ],
+    [
+     36,
+     14
+    ],
+    [
+     42,
+     13
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     26,
+     11
+    ],
+    [
+     38,
+     11
+    ],
+    [
+     12,
+     10
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     15,
+     9
+    ],
+    [
+     30,
+     9
+    ],
+    [
+     31,
+     9
+    ]
+   ],
+   "pares_estables_3_de_3": [
+    [
+     26,
+     44,
+     5
+    ],
+    [
+     18,
+     17,
+     4
+    ],
+    [
+     27,
+     9,
+     4
+    ],
+    [
+     30,
+     16,
+     4
+    ],
+    [
+     15,
+     14,
+     3
+    ],
+    [
+     30,
+     13,
+     3
+    ],
+    [
+     31,
+     16,
+     3
+    ],
+    [
+     36,
+     12,
+     3
+    ],
+    [
+     41,
+     44,
+     3
+    ],
+    [
+     42,
+     36,
+     3
+    ]
+   ],
+   "videos_con_algun_fallo": 546,
+   "proporcion_fallos_estables": 0.5054945054945055
+  },
+  "tcn": {
+   "semillas": 3,
+   "distribucion_fallos": {
+    "0": 537,
+    "1": 143,
+    "2": 128,
+    "3": 189
+   },
+   "fallan_todas_misma_clase": 55,
+   "por_senante": {
+    "0000": {
+     "0": 54,
+     "1": 45,
+     "2": 41,
+     "3": 60
+    },
+    "0001": {
+     "0": 95,
+     "1": 27,
+     "2": 26,
+     "3": 51
+    },
+    "0002": {
+     "0": 118,
+     "1": 26,
+     "2": 22,
+     "3": 32
+    },
+    "0003": {
+     "0": 133,
+     "1": 22,
+     "2": 19,
+     "3": 26
+    },
+    "0004": {
+     "0": 137,
+     "1": 23,
+     "2": 20,
+     "3": 20
+    }
+   },
+   "senas_con_mas_fallos_en_las_3": [
+    [
+     7,
+     10
+    ],
+    [
+     42,
+     10
+    ],
+    [
+     15,
+     8
+    ],
+    [
+     24,
+     8
+    ],
+    [
+     27,
+     8
+    ],
+    [
+     41,
+     8
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     28,
+     7
+    ],
+    [
+     36,
+     7
+    ],
+    [
+     49,
+     7
+    ],
+    [
+     9,
+     6
+    ]
+   ],
+   "pares_estables_3_de_3": [
+    [
+     15,
+     14,
+     4
+    ],
+    [
+     26,
+     44,
+     4
+    ],
+    [
+     15,
+     16,
+     3
+    ],
+    [
+     18,
+     17,
+     3
+    ],
+    [
+     27,
+     9,
+     3
+    ],
+    [
+     30,
+     16,
+     3
+    ],
+    [
+     31,
+     16,
+     3
+    ],
+    [
+     42,
+     12,
+     3
+    ],
+    [
+     45,
+     30,
+     3
+    ],
+    [
+     9,
+     23,
+     2
+    ]
+   ],
+   "videos_con_algun_fallo": 460,
+   "proporcion_fallos_estables": 0.4108695652173913
+  }
+ },
+ "imputacion_t1_vs_t0": {
+  "disponible": true,
+  "fuente": "models/arquitecturas_literatura_2026-10-02/T_tcn",
+  "nota": "en estas tablas «solo_tcn» = solo acierta T1 (imputación) y «solo_heredada» = solo acierta T0 (mascara)",
+  "global_voto": {
+   "n": 997,
+   "ambos_aciertan": 626,
+   "solo_tcn": 88,
+   "solo_heredada": 59,
+   "ambos_fallan": 224,
+   "neto_tcn": 29,
+   "p_mcnemar_exacto": 0.020605148179177937
+  },
+  "por_tramo": {
+   "prop_sin_alguna_mano": {
+    "0 %": {
+     "n": 246,
+     "ambos_aciertan": 157,
+     "solo_tcn": 16,
+     "solo_heredada": 10,
+     "ambos_fallan": 63,
+     "neto_tcn": 6,
+     "p_mcnemar_exacto": 0.32693958282470703,
+     "exactitud_t1_3_semillas": 0.6653116531165312,
+     "exactitud_t0_3_semillas": 0.6395663956639567
+    },
+    "(0; 5 %]": {
+     "n": 261,
+     "ambos_aciertan": 183,
+     "solo_tcn": 17,
+     "solo_heredada": 18,
+     "ambos_fallan": 43,
+     "neto_tcn": -1,
+     "p_mcnemar_exacto": 1.0,
+     "exactitud_t1_3_semillas": 0.7215836526181354,
+     "exactitud_t0_3_semillas": 0.7151979565772669
+    },
+    "(5; 15 %]": {
+     "n": 294,
+     "ambos_aciertan": 179,
+     "solo_tcn": 27,
+     "solo_heredada": 14,
+     "ambos_fallan": 74,
+     "neto_tcn": 13,
+     "p_mcnemar_exacto": 0.05958388801809633,
+     "exactitud_t1_3_semillas": 0.6689342403628118,
+     "exactitud_t0_3_semillas": 0.626984126984127
+    },
+    "> 15 %": {
+     "n": 196,
+     "ambos_aciertan": 107,
+     "solo_tcn": 28,
+     "solo_heredada": 17,
+     "ambos_fallan": 44,
+     "neto_tcn": 11,
+     "p_mcnemar_exacto": 0.1351564508456704,
+     "exactitud_t1_3_semillas": 0.6445578231292517,
+     "exactitud_t0_3_semillas": 0.6156462585034014
+    }
+   },
+   "prop_sin_mano_activa": {
+    "0 %": {
+     "n": 344,
+     "ambos_aciertan": 237,
+     "solo_tcn": 21,
+     "solo_heredada": 12,
+     "ambos_fallan": 74,
+     "neto_tcn": 9,
+     "p_mcnemar_exacto": 0.16275565745308995,
+     "exactitud_t1_3_semillas": 0.7170542635658915,
+     "exactitud_t0_3_semillas": 0.689922480620155
+    },
+    "(0; 5 %]": {
+     "n": 323,
+     "ambos_aciertan": 212,
+     "solo_tcn": 19,
+     "solo_heredada": 23,
+     "ambos_fallan": 69,
+     "neto_tcn": -4,
+     "p_mcnemar_exacto": 0.6439689563703723,
+     "exactitud_t1_3_semillas": 0.6676986584107327,
+     "exactitud_t0_3_semillas": 0.6780185758513931
+    },
+    "(5; 15 %]": {
+     "n": 222,
+     "ambos_aciertan": 133,
+     "solo_tcn": 30,
+     "solo_heredada": 10,
+     "ambos_fallan": 49,
+     "neto_tcn": 20,
+     "p_mcnemar_exacto": 0.0022214337732293643,
+     "exactitud_t1_3_semillas": 0.6936936936936937,
+     "exactitud_t0_3_semillas": 0.6156156156156156
+    },
+    "> 15 %": {
+     "n": 108,
+     "ambos_aciertan": 44,
+     "solo_tcn": 18,
+     "solo_heredada": 14,
+     "ambos_fallan": 32,
+     "neto_tcn": 4,
+     "p_mcnemar_exacto": 0.5966148958541453,
+     "exactitud_t1_3_semillas": 0.5432098765432098,
+     "exactitud_t0_3_semillas": 0.5185185185185185
+    }
+   }
+  }
+ },
+ "conversor": {
+  "modo": "inventario (ConversorGlosas(estricto=True)); una seña aislada → su enunciado fijo de glosa sola",
+  "modelos": {
+   "heredada": {
+    "errores_voto": 390,
+    "misma_categoria": 84,
+    "cambia_categoria": 306,
+    "misma_categoria_distinto_genero": 20,
+    "cambia_modalidad": 82,
+    "misma_categoria_heredada_grammar_mapper": 133,
+    "esperado_misma_categoria_al_azar": 0.07969649398220828,
+    "esperado_misma_categoria_heredada_al_azar": 0.13511250654107795,
+    "errores_3_semillas": 1229,
+    "misma_categoria_3_semillas": 237,
+    "cambia_modalidad_3_semillas": 249,
+    "transiciones_de_categoria_mas_frecuentes": [
+     [
+      "SAL",
+      "NOM_PERS",
+      20
+     ],
+     [
+      "PRON",
+      "NOM_PERS",
+      16
+     ],
+     [
+      "INTERR",
+      "PREG_FIJA",
+      12
+     ],
+     [
+      "CORT",
+      "INTERR",
+      10
+     ],
+     [
+      "ADV_EST",
+      "ADV_CANT",
+      9
+     ],
+     [
+      "PREG_FIJA",
+      "INTERR",
+      9
+     ],
+     [
+      "INTERR",
+      "NOM_PERS",
+      9
+     ],
+     [
+      "NOM_PERS",
+      "SAL",
+      8
+     ],
+     [
+      "ADV_EST",
+      "NOM_PERS",
+      8
+     ],
+     [
+      "INTERR",
+      "CORT",
+      8
+     ]
+    ],
+    "dentro_de_categoria_por_categoria": {
+     "NOM_PERS": 38,
+     "INTERR": 22,
+     "CORT": 15,
+     "ADJ": 5,
+     "ADV_CANT": 3,
+     "VERBO": 1
+    },
+    "enunciados_mas_frecuentes": [
+     [
+      "Niño.",
+      "Niña.",
+      8
+     ],
+     [
+      "Hola.",
+      "Hombre.",
+      8
+     ],
+     [
+      "Niña.",
+      "Niño.",
+      7
+     ],
+     [
+      "Más o menos.",
+      "Poco.",
+      7
+     ],
+     [
+      "¿Cómo estás?",
+      "¿Cómo?",
+      6
+     ],
+     [
+      "Tú.",
+      "Niño.",
+      6
+     ],
+     [
+      "Adiós.",
+      "Abuelo.",
+      5
+     ],
+     [
+      "¿Qué?",
+      "¿Dónde?",
+      5
+     ],
+     [
+      "¿Qué?",
+      "¿Cómo?",
+      5
+     ],
+     [
+      "¿Cuándo?",
+      "Permiso.",
+      5
+     ]
+    ]
+   },
+   "tcn": {
+    "errores_voto": 283,
+    "misma_categoria": 75,
+    "cambia_categoria": 208,
+    "misma_categoria_distinto_genero": 19,
+    "cambia_modalidad": 52,
+    "misma_categoria_heredada_grammar_mapper": 103,
+    "esperado_misma_categoria_al_azar": 0.08098363020119707,
+    "esperado_misma_categoria_heredada_al_azar": 0.13744861902358116,
+    "errores_3_semillas": 966,
+    "misma_categoria_3_semillas": 238,
+    "cambia_modalidad_3_semillas": 186,
+    "transiciones_de_categoria_mas_frecuentes": [
+     [
+      "ADJ",
+      "NOM_PERS",
+      11
+     ],
+     [
+      "PREG_FIJA",
+      "INTERR",
+      9
+     ],
+     [
+      "SAL",
+      "NOM_PERS",
+      9
+     ],
+     [
+      "INTERR",
+      "NOM_PERS",
+      9
+     ],
+     [
+      "INTERR",
+      "PREG_FIJA",
+      9
+     ],
+     [
+      "PRON",
+      "CORT",
+      8
+     ],
+     [
+      "VERBO",
+      "NOM_PERS",
+      7
+     ],
+     [
+      "VERBO_SENTIR",
+      "CORT",
+      7
+     ],
+     [
+      "PRON",
+      "NOM_PERS",
+      6
+     ],
+     [
+      "INTERR",
+      "SAL",
+      6
+     ]
+    ],
+    "dentro_de_categoria_por_categoria": {
+     "NOM_PERS": 29,
+     "INTERR": 28,
+     "ADJ": 9,
+     "CORT": 7,
+     "ADV_EST": 2
+    },
+    "enunciados_mas_frecuentes": [
+     [
+      "¿Cómo?",
+      "¿Qué?",
+      7
+     ],
+     [
+      "Aburrido.",
+      "Niño.",
+      6
+     ],
+     [
+      "¿Cómo estás?",
+      "¿Cómo?",
+      6
+     ],
+     [
+      "¿Qué?",
+      "¿Dónde?",
+      6
+     ],
+     [
+      "¿Cuándo?",
+      "Mujer.",
+      6
+     ],
+     [
+      "¿Por qué?",
+      "Hola.",
+      6
+     ],
+     [
+      "Niño.",
+      "Niña.",
+      5
+     ],
+     [
+      "Niña.",
+      "Niño.",
+      5
+     ],
+     [
+      "Hermano.",
+      "Tío.",
+      5
+     ],
+     [
+      "Sentir.",
+      "Permiso.",
+      5
+     ]
+    ]
+   }
+  },
+  "aleatoria_tcn": [
+   {
+    "real": 4,
+    "predicha": 11,
+    "categoria_real": "NOM_ABS",
+    "categoria_predicha": "NOM_PERS",
+    "misma_categoria": false,
+    "misma_categoria_heredada": false,
+    "cambia_modalidad": false,
+    "misma_categoria_distinto_genero": false,
+    "enunciado_real": "Seña.",
+    "enunciado_predicho": "Personas."
+   },
+   {
+    "real": 7,
+    "predicha": 12,
+    "categoria_real": "VERBO",
+    "categoria_predicha": "NOM_PERS",
+    "misma_categoria": false,
+    "misma_categoria_heredada": false,
+    "cambia_modalidad": false,
+    "misma_categoria_distinto_genero": false,
+    "enunciado_real": "Comer.",
+    "enunciado_predicho": "Mujer."
+   },
+   {
+    "real": 12,
+    "predicha": 38,
+    "categoria_real": "NOM_PERS",
+    "categoria_predicha": "PRON",
+    "misma_categoria": false,
+    "misma_categoria_heredada": true,
+    "cambia_modalidad": false,
+    "misma_categoria_distinto_genero": false,
+    "enunciado_real": "Mujer.",
+    "enunciado_predicho": "Yo."
+   },
+   {
+    "real": 15,
+    "predicha": 14,
+    "categoria_real": "NOM_PERS",
+    "categoria_predicha": "NOM_PERS",
+    "misma_categoria": true,
+    "misma_categoria_heredada": true,
+    "cambia_modalidad": false,
+    "misma_categoria_distinto_genero": true,
+    "enunciado_real": "Niña.",
+    "enunciado_predicho": "Niño."
+   },
+   {
+    "real": 26,
+    "predicha": 44,
+    "categoria_real": "PREG_FIJA",
+    "categoria_predicha": "INTERR",
+    "misma_categoria": false,
+    "misma_categoria_heredada": true,
+    "cambia_modalidad": false,
+    "misma_categoria_distinto_genero": false,
+    "enunciado_real": "¿Cómo estás?",
+    "enunciado_predicho": "¿Cómo?"
+   },
+   {
+    "real": 47,
+    "predicha": 26,
+    "categoria_real": "ADJ",
+    "categoria_predicha": "PREG_FIJA",
+    "misma_categoria": false,
+    "misma_categoria_heredada": false,
+    "cambia_modalidad": true,
+    "misma_categoria_distinto_genero": false,
+    "enunciado_real": "Diferente.",
+    "enunciado_predicho": "¿Cómo estás?"
+   }
+  ]
+ },
+ "aleatoria": {
+  "transicion": {
+   "n": 100,
+   "ambos_aciertan": 86,
+   "solo_tcn": 8,
+   "solo_heredada": 2,
+   "ambos_fallan": 4,
+   "neto_tcn": 6,
+   "p_mcnemar_exacto": 0.109375
+  },
+  "errores": {
+   "tcn": [
+    {
+     "muestra": "0004_0001_0000",
+     "senante": "0001",
+     "real": 4,
+     "predicha": 11,
+     "confianza": 0.11044833809137344,
+     "real_en_top3": false,
+     "posicion_real_en_top3": null,
+     "longitud": 73,
+     "prop_sin_alguna_mano": 0.2876712328767123,
+     "manos": "dos",
+     "el_otro_modelo_predice": 29
+    },
+    {
+     "muestra": "0007_0000_0000",
+     "senante": "0000",
+     "real": 7,
+     "predicha": 12,
+     "confianza": 0.4269392490386963,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 3,
+     "longitud": 81,
+     "prop_sin_alguna_mano": 0.024691358024691357,
+     "manos": "una",
+     "el_otro_modelo_predice": 12
+    },
+    {
+     "muestra": "0012_0000_0003",
+     "senante": "0000",
+     "real": 12,
+     "predicha": 38,
+     "confianza": 0.9536265134811401,
+     "real_en_top3": false,
+     "posicion_real_en_top3": null,
+     "longitud": 84,
+     "prop_sin_alguna_mano": 0.32142857142857145,
+     "manos": "una",
+     "el_otro_modelo_predice": 42
+    },
+    {
+     "muestra": "0015_0003_0001",
+     "senante": "0003",
+     "real": 15,
+     "predicha": 14,
+     "confianza": 0.8654553294181824,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 51,
+     "prop_sin_alguna_mano": 0.09803921568627451,
+     "manos": "una",
+     "el_otro_modelo_predice": 14
+    },
+    {
+     "muestra": "0026_0003_0003",
+     "senante": "0003",
+     "real": 26,
+     "predicha": 44,
+     "confianza": 0.9512813687324524,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 3,
+     "longitud": 59,
+     "prop_sin_alguna_mano": 0.06779661016949153,
+     "manos": "dos",
+     "el_otro_modelo_predice": 26
+    },
+    {
+     "muestra": "0047_0002_0000",
+     "senante": "0002",
+     "real": 47,
+     "predicha": 26,
+     "confianza": 0.48270753026008606,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 62,
+     "prop_sin_alguna_mano": 0.12903225806451613,
+     "manos": "dos",
+     "el_otro_modelo_predice": 47
+    }
+   ],
+   "heredada": [
+    {
+     "muestra": "0004_0001_0000",
+     "senante": "0001",
+     "real": 4,
+     "predicha": 29,
+     "confianza": 0.4972316026687622,
+     "real_en_top3": false,
+     "posicion_real_en_top3": null,
+     "longitud": 73,
+     "prop_sin_alguna_mano": 0.2876712328767123,
+     "manos": "dos",
+     "el_otro_modelo_predice": 11
+    },
+    {
+     "muestra": "0007_0000_0000",
+     "senante": "0000",
+     "real": 7,
+     "predicha": 12,
+     "confianza": 0.5865956544876099,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 3,
+     "longitud": 81,
+     "prop_sin_alguna_mano": 0.024691358024691357,
+     "manos": "una",
+     "el_otro_modelo_predice": 12
+    },
+    {
+     "muestra": "0009_0004_0000",
+     "senante": "0004",
+     "real": 9,
+     "predicha": 27,
+     "confianza": 0.48189374804496765,
+     "real_en_top3": false,
+     "posicion_real_en_top3": null,
+     "longitud": 88,
+     "prop_sin_alguna_mano": 0.0,
+     "manos": "una",
+     "el_otro_modelo_predice": 9
+    },
+    {
+     "muestra": "0012_0000_0003",
+     "senante": "0000",
+     "real": 12,
+     "predicha": 42,
+     "confianza": 0.5398872494697571,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 84,
+     "prop_sin_alguna_mano": 0.32142857142857145,
+     "manos": "una",
+     "el_otro_modelo_predice": 38
+    },
+    {
+     "muestra": "0015_0003_0001",
+     "senante": "0003",
+     "real": 15,
+     "predicha": 14,
+     "confianza": 0.7956149578094482,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 51,
+     "prop_sin_alguna_mano": 0.09803921568627451,
+     "manos": "una",
+     "el_otro_modelo_predice": 14
+    },
+    {
+     "muestra": "0023_0002_0000",
+     "senante": "0002",
+     "real": 23,
+     "predicha": 39,
+     "confianza": 0.1810203194618225,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 3,
+     "longitud": 69,
+     "prop_sin_alguna_mano": 0.057971014492753624,
+     "manos": "una",
+     "el_otro_modelo_predice": 23
+    },
+    {
+     "muestra": "0025_0000_0001",
+     "senante": "0000",
+     "real": 25,
+     "predicha": 9,
+     "confianza": 0.4041169583797455,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 76,
+     "prop_sin_alguna_mano": 0.11842105263157894,
+     "manos": "una",
+     "el_otro_modelo_predice": 25
+    },
+    {
+     "muestra": "0038_0001_0000",
+     "senante": "0001",
+     "real": 38,
+     "predicha": 32,
+     "confianza": 0.8270665407180786,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 63,
+     "prop_sin_alguna_mano": 0.031746031746031744,
+     "manos": "una",
+     "el_otro_modelo_predice": 38
+    },
+    {
+     "muestra": "0041_0002_0002",
+     "senante": "0002",
+     "real": 41,
+     "predicha": 11,
+     "confianza": 0.28574374318122864,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 98,
+     "prop_sin_alguna_mano": 0.07142857142857142,
+     "manos": "dos",
+     "el_otro_modelo_predice": 41
+    },
+    {
+     "muestra": "0042_0004_0002",
+     "senante": "0004",
+     "real": 42,
+     "predicha": 12,
+     "confianza": 0.40547671914100647,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 81,
+     "prop_sin_alguna_mano": 0.037037037037037035,
+     "manos": "una",
+     "el_otro_modelo_predice": 42
+    },
+    {
+     "muestra": "0044_0000_0001",
+     "senante": "0000",
+     "real": 44,
+     "predicha": 26,
+     "confianza": 0.38719642162323,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 68,
+     "prop_sin_alguna_mano": 0.19117647058823528,
+     "manos": "dos",
+     "el_otro_modelo_predice": 44
+    },
+    {
+     "muestra": "0044_0003_0000",
+     "senante": "0003",
+     "real": 44,
+     "predicha": 26,
+     "confianza": 0.7399534583091736,
+     "real_en_top3": true,
+     "posicion_real_en_top3": 2,
+     "longitud": 62,
+     "prop_sin_alguna_mano": 0.16129032258064516,
+     "manos": "dos",
+     "el_otro_modelo_predice": 44
+    }
+   ]
+  },
+  "errores_por_senante_tcn": {
+   "0001": 1,
+   "0000": 2,
+   "0003": 2,
+   "0002": 1
+  },
+  "confianza_media_aciertos_tcn": 0.9392064803458274,
+  "confianza_media_errores_tcn": 0.6317430548369884,
+  "senantes_en_prueba": {
+   "0003": 21,
+   "0004": 26,
+   "0002": 20,
+   "0001": 17,
+   "0000": 16
+  }
+ },
+ "contraste_informe_previo": {
+  "disponible": true,
+  "fuente": "models/analisis_errores_manos_2026-09-15/analisis.json",
+  "parejas": [
+   {
+    "a": 14,
+    "b": 15,
+    "total_informe_previo": 11,
+    "heredada_3_semillas": 38,
+    "tcn_3_semillas": 31
+   },
+   {
+    "a": 26,
+    "b": 44,
+    "total_informe_previo": 11,
+    "heredada_3_semillas": 37,
+    "tcn_3_semillas": 33
+   },
+   {
+    "a": 7,
+    "b": 16,
+    "total_informe_previo": 9,
+    "heredada_3_semillas": 17,
+    "tcn_3_semillas": 9
+   },
+   {
+    "a": 27,
+    "b": 38,
+    "total_informe_previo": 9,
+    "heredada_3_semillas": 18,
+    "tcn_3_semillas": 10
+   },
+   {
+    "a": 41,
+    "b": 43,
+    "total_informe_previo": 9,
+    "heredada_3_semillas": 24,
+    "tcn_3_semillas": 26
+   },
+   {
+    "a": 9,
+    "b": 27,
+    "total_informe_previo": 8,
+    "heredada_3_semillas": 24,
+    "tcn_3_semillas": 15
+   },
+   {
+    "a": 12,
+    "b": 36,
+    "total_informe_previo": 8,
+    "heredada_3_semillas": 21,
+    "tcn_3_semillas": 4
+   },
+   {
+    "a": 14,
+    "b": 39,
+    "total_informe_previo": 8,
+    "heredada_3_semillas": 19,
+    "tcn_3_semillas": 2
+   },
+   {
+    "a": 36,
+    "b": 42,
+    "total_informe_previo": 8,
+    "heredada_3_semillas": 25,
+    "tcn_3_semillas": 5
+   },
+   {
+    "a": 0,
+    "b": 35,
+    "total_informe_previo": 7,
+    "heredada_3_semillas": 16,
+    "tcn_3_semillas": 3
+   }
+  ],
+  "peores_senas": [
+   {
+    "id": 27,
+    "recall_informe_previo": 0.0,
+    "recall_heredada_3_semillas": 0.11666666666666667,
+    "recall_tcn_3_semillas": 0.4666666666666667,
+    "puesto_tcn_de_peor_a_mejor": 7
+   },
+   {
+    "id": 7,
+    "recall_informe_previo": 0.05,
+    "recall_heredada_3_semillas": 0.016666666666666666,
+    "recall_tcn_3_semillas": 0.35,
+    "puesto_tcn_de_peor_a_mejor": 3
+   },
+   {
+    "id": 36,
+    "recall_informe_previo": 0.15,
+    "recall_heredada_3_semillas": 0.2,
+    "recall_tcn_3_semillas": 0.4166666666666667,
+    "puesto_tcn_de_peor_a_mejor": 4
+   },
+   {
+    "id": 14,
+    "recall_informe_previo": 0.15,
+    "recall_heredada_3_semillas": 0.35,
+    "recall_tcn_3_semillas": 0.5833333333333334,
+    "puesto_tcn_de_peor_a_mejor": 20
+   },
+   {
+    "id": 26,
+    "recall_informe_previo": 0.15,
+    "recall_heredada_3_semillas": 0.3,
+    "recall_tcn_3_semillas": 0.43333333333333335,
+    "puesto_tcn_de_peor_a_mejor": 5
+   },
+   {
+    "id": 42,
+    "recall_informe_previo": 0.2,
+    "recall_heredada_3_semillas": 0.25,
+    "recall_tcn_3_semillas": 0.3333333333333333,
+    "puesto_tcn_de_peor_a_mejor": 2
+   },
+   {
+    "id": 12,
+    "recall_informe_previo": 0.25,
+    "recall_heredada_3_semillas": 0.25,
+    "recall_tcn_3_semillas": 0.48333333333333334,
+    "puesto_tcn_de_peor_a_mejor": 10
+   },
+   {
+    "id": 24,
+    "recall_informe_previo": 0.3,
+    "recall_heredada_3_semillas": 0.4166666666666667,
+    "recall_tcn_3_semillas": 0.4666666666666667,
+    "puesto_tcn_de_peor_a_mejor": 8
+   },
+   {
+    "id": 28,
+    "recall_informe_previo": 0.3,
+    "recall_heredada_3_semillas": 0.4666666666666667,
+    "recall_tcn_3_semillas": 0.5166666666666667,
+    "puesto_tcn_de_peor_a_mejor": 13
+   },
+   {
+    "id": 15,
+    "recall_informe_previo": 0.35,
+    "recall_heredada_3_semillas": 0.4,
+    "recall_tcn_3_semillas": 0.55,
+    "puesto_tcn_de_peor_a_mejor": 17
+   }
+  ],
+  "proporcion_dentro_categoria_informe_previo": 0.29594272076372313,
+  "ece_informe_previo": 0.06636709546896372
+ },
+ "comando": "python src/analisis_errores_tcn.py",
+ "figuras": [
+  "docs/figuras_2026-11-08/4d_matriz_confusion_loso_tcn.png",
+  "docs/figuras_2026-11-08/4d_parejas_confundidas_heredada_vs_tcn.png",
+  "docs/figuras_2026-11-08/4d_recall_por_clase_heredada_vs_tcn.png",
+  "docs/figuras_2026-11-08/4d_acierto_vs_propiedades.png"
+ ]
+}

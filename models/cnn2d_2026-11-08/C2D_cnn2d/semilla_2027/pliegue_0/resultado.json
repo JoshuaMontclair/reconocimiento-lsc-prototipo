@@ -1,0 +1,71 @@
+{
+ "brazo": "C2D",
+ "semilla": 2027,
+ "pliegue": 0,
+ "senante_test": "0000",
+ "hiperparametros": {
+  "lr": 0.001,
+  "batch": 64,
+  "label_smoothing": 0.1,
+  "arquitectura": {
+   "imagen": "30 (tiempo) x 21 (puntos MediaPipe) x 12 canales (x,y,z,vx,vy,vz izq + der)",
+   "filtros": [
+    32,
+    64,
+    64
+   ],
+   "convs_por_bloque": 2,
+   "kernel": [
+    3,
+    3
+   ],
+   "padding": "same",
+   "pool_por_bloque": [
+    [
+     2,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    null
+   ],
+   "dropout_espacial": 0.15,
+   "dropout_final": 0.3,
+   "pooling_global": "GlobalAveragePooling2D"
+  }
+ },
+ "n_parametros": 146546,
+ "val_top1": 0.8700000047683716,
+ "val_top1_checkpoint_reevaluado": 0.87,
+ "val_top3": 0.97,
+ "val_f1_macro": 0.8546666666666666,
+ "val_loss": 1.1461912393569946,
+ "test_top1": 0.32,
+ "test_top3": 0.47,
+ "test_f1_macro": 0.2975451144600081,
+ "test_precision_macro": 0.3477691952750092,
+ "test_recall_macro": 0.32,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "epocas_ejecutadas": 59,
+ "mejor_epoca": 34,
+ "tiempo_entrenamiento_s": 436.6,
+ "tiempo_total_s": 438.8,
+ "s_por_epoca": 7.4,
+ "epochs_max": 200,
+ "aug": 10,
+ "patience": 25,
+ "processed": "data/processed_holistic_mascara_rostro",
+ "representacion": "manos",
+ "seq_length": 30,
+ "modelo": "models/cnn2d_2026-11-08/C2D_cnn2d/semilla_2027/pliegue_0/modelo.keras",
+ "fecha_fin": "2026-11-08T15:11:32",
+ "constructor": "arquitectura_cnn2d.construir_cnn2d (CONFIG_C2D)",
+ "script": "src/experimento_cnn2d.py",
+ "regla_mano_ausente": "imputacion",
+ "forma_velocidades": "actual",
+ "n_rasgos_entrada": 252
+}

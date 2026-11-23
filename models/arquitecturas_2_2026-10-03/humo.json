@@ -1,0 +1,28 @@
+{
+ "fecha": "2026-10-03T00:42",
+ "lugar": "carpeta_temporal (no models/)",
+ "corridas": [
+  {
+   "brazo": "X",
+   "epocas": 3,
+   "n_parametros": 187890,
+   "recarga_desde_disco": true,
+   "s_por_epoca": 4.09
+  },
+  {
+   "brazo": "I",
+   "epocas": 3,
+   "n_parametros": 315954,
+   "recarga_desde_disco": true,
+   "s_por_epoca": 2.13
+  },
+  {
+   "brazo": "B",
+   "epocas": 3,
+   "n_parametros": 341171,
+   "recarga_desde_disco": true,
+   "s_por_epoca": 2.36
+  }
+ ],
+ "nota": "1 pliegue (0), semilla 2026, 3 epocas: el codigo corre, los modelos se guardan y se recargan (X con su capa PosicionAprendida). Cifras no usadas."
+}

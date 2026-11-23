@@ -1,0 +1,59 @@
+brazos ['A', 'B', 'C'] | semillas {'A': [2026, 2027, 2028], 'B': [2026, 2027, 2028], 'C': [2026, 2027, 2028]} | pliegues [0, 1, 2, 3, 4]
+
+A (posiciones + velocidades (canonico)): val 0.9200 ± 0.0203 | top-1 0.5891 ± 0.0943 | top-3 0.7636 | F1 0.5436 | epocas 54.5 | params 714291
+   pliegue 0: val [0.949999988079071, 0.9200000166893005, 0.8999999761581421] top-1 [0.46, 0.48, 0.415] epocas [67.0, 57.0, 44.0]
+   pliegue 1: val [0.8999999761581421, 0.8999999761581421, 0.8799999952316284] top-1 [0.533, 0.492, 0.583] epocas [46.0, 38.0, 55.0]
+   pliegue 2: val [0.9100000262260437, 0.9100000262260437, 0.9300000071525574] top-1 [0.606, 0.606, 0.682] epocas [42.0, 58.0, 62.0]
+   pliegue 3: val [0.9599999785423279, 0.9599999785423279, 0.9300000071525574] top-1 [0.615, 0.65, 0.655] epocas [61.0, 76.0, 38.0]
+   pliegue 4: val [0.9399999976158142, 0.8999999761581421, 0.9100000262260437] top-1 [0.685, 0.73, 0.645] epocas [62.0, 68.0, 43.0]
+   semilla 2026: val 0.9320 top-1 0.5797 ± 0.0860 top-3 0.7703 F1 0.5374
+   semilla 2027: val 0.9180 top-1 0.5917 ± 0.1061 top-3 0.7622 F1 0.5390
+   semilla 2028: val 0.9100 top-1 0.5959 ± 0.1074 top-3 0.7584 F1 0.5544
+
+B (solo posiciones): val 0.9227 ± 0.0274 | top-1 0.5741 ± 0.1288 | top-3 0.7447 | F1 0.5292 | epocas 59.1 | params 665907
+   pliegue 0: val [0.9300000071525574, 0.9399999976158142, 0.9100000262260437] top-1 [0.38, 0.385, 0.285] epocas [50.0, 54.0, 41.0]
+   pliegue 1: val [0.8999999761581421, 0.8899999856948853, 0.8799999952316284] top-1 [0.608, 0.598, 0.568] epocas [50.0, 69.0, 40.0]
+   pliegue 2: val [0.9100000262260437, 0.9399999976158142, 0.9300000071525574] top-1 [0.591, 0.641, 0.601] epocas [46.0, 54.0, 70.0]
+   pliegue 3: val [0.9800000190734863, 0.9599999785423279, 0.949999988079071] top-1 [0.665, 0.665, 0.635] epocas [66.0, 82.0, 54.0]
+   pliegue 4: val [0.8899999856948853, 0.9200000166893005, 0.9100000262260437] top-1 [0.64, 0.695, 0.655] epocas [62.0, 92.0, 56.0]
+   semilla 2026: val 0.9220 top-1 0.5768 ± 0.1137 top-3 0.7353 F1 0.5336
+   semilla 2027: val 0.9300 top-1 0.5969 ± 0.1236 top-3 0.7654 F1 0.5481
+   semilla 2028: val 0.9160 top-1 0.5488 ± 0.1512 top-3 0.7333 F1 0.5059
+
+C (solo velocidades): val 0.8673 ± 0.0363 | top-1 0.5667 ± 0.0937 | top-3 0.7372 | F1 0.5316 | epocas 57.1 | params 665907
+   pliegue 0: val [0.9100000262260437, 0.8999999761581421, 0.8799999952316284] top-1 [0.49, 0.41, 0.425] epocas [74.0, 46.0, 46.0]
+   pliegue 1: val [0.8100000023841858, 0.8100000023841858, 0.8299999833106995] top-1 [0.518, 0.538, 0.462] epocas [95.0, 56.0, 51.0]
+   pliegue 2: val [0.8700000047683716, 0.8600000143051147, 0.8199999928474426] top-1 [0.601, 0.581, 0.611] epocas [42.0, 53.0, 50.0]
+   pliegue 3: val [0.8899999856948853, 0.9200000166893005, 0.9100000262260437] top-1 [0.58, 0.595, 0.645] epocas [37.0, 73.0, 53.0]
+   pliegue 4: val [0.8700000047683716, 0.8600000143051147, 0.8700000047683716] top-1 [0.68, 0.655, 0.71] epocas [63.0, 71.0, 47.0]
+   semilla 2026: val 0.8700 top-1 0.5737 ± 0.0746 top-3 0.7472 F1 0.5460
+   semilla 2027: val 0.8700 top-1 0.5557 ± 0.0916 top-3 0.7392 F1 0.5148
+   semilla 2028: val 0.8620 top-1 0.5707 ± 0.1220 top-3 0.7252 F1 0.5339
+
+variacion entre semillas (val, DE combinada A y B): 0.01632992942854905
+
+A_menos_B (semillas [2026, 2027, 2028]):
+   mejor_val_accuracy   dif por pliegue [-0.0033, 0.0033, -0.01, -0.0133, 0.01] | media -0.0027 | a favor 2/5 | signos p=1.0000 | wilcoxon p=0.6250 | pares pliegue-semilla 3/15
+   top1                 dif por pliegue [0.1017, -0.0553, 0.0202, -0.015, 0.0233] | media +0.0150 | a favor 3/5 | signos p=1.0000 | wilcoxon p=0.6250 | pares pliegue-semilla 9/15
+   top3                 dif por pliegue [0.1183, -0.0503, 0.0084, -0.005, 0.0233] | media +0.0190 | a favor 3/5 | signos p=1.0000 | wilcoxon p=0.6250 | pares pliegue-semilla 9/15
+   f1_macro             dif por pliegue [0.073, -0.0458, 0.0192, -0.0111, 0.0368] | media +0.0144 | a favor 3/5 | signos p=1.0000 | wilcoxon p=0.6250 | pares pliegue-semilla 9/15
+
+A_menos_C (semillas [2026, 2027, 2028]):
+   mejor_val_accuracy   dif por pliegue [0.0267, 0.0767, 0.0667, 0.0433, 0.05] | media +0.0527 | a favor 5/5 | signos p=0.0625 | wilcoxon p=0.0625 | pares pliegue-semilla 15/15
+   top1                 dif por pliegue [0.01, 0.0302, 0.0337, 0.0333, 0.005] | media +0.0224 | a favor 5/5 | signos p=0.0625 | wilcoxon p=0.0625 | pares pliegue-semilla 11/15
+   top3                 dif por pliegue [0.0117, 0.0201, 0.037, 0.0417, 0.0217] | media +0.0264 | a favor 5/5 | signos p=0.0625 | wilcoxon p=0.0625 | pares pliegue-semilla 12/15
+   f1_macro             dif por pliegue [-0.0045, 0.0005, 0.0447, 0.0267, -0.0072] | media +0.0120 | a favor 3/5 | signos p=1.0000 | wilcoxon p=0.6250 | pares pliegue-semilla 7/15
+
+B_menos_C (semillas [2026, 2027, 2028]):
+   mejor_val_accuracy   dif por pliegue [0.03, 0.0733, 0.0767, 0.0567, 0.04] | media +0.0553 | a favor 5/5 | signos p=0.0625 | wilcoxon p=0.0625 | pares pliegue-semilla 15/15
+   top1                 dif por pliegue [-0.0917, 0.0854, 0.0135, 0.0483, -0.0183] | media +0.0074 | a favor 3/5 | signos p=1.0000 | wilcoxon p=1.0000 | pares pliegue-semilla 7/15
+   top3                 dif por pliegue [-0.1067, 0.0704, 0.0286, 0.0467, -0.0017] | media +0.0075 | a favor 3/5 | signos p=1.0000 | wilcoxon p=0.8125 | pares pliegue-semilla 11/15
+   f1_macro             dif por pliegue [-0.0774, 0.0462, 0.0255, 0.0377, -0.044] | media -0.0024 | a favor 3/5 | signos p=1.0000 | wilcoxon p=1.0000 | pares pliegue-semilla 8/15
+
+CRITERIO: No hay evidencia (A>B en 2/5, B>A en 3/5, dif media val -0.0027, variacion entre semillas 0.01632992942854905)
+
+reproduccion N-30 (A, semilla 2026): identica = True
+
+inferencia: {"metodo": "model.predict(verbose=0) de un lote de 1 como translator.py; 20 llamadas de calentamiento y 100 medidas por modelo; ademas lote de 200 (5 medidas). CPU, sin otros entrenamientos corriendo. Solo la red: sin MediaPipe ni remuestreo.", "ms_construir_entrada_mediana": {"A": 0.0024590117391198874, "B": 4.100729711353779e-05, "C": 0.0026659981813281775}, "A": {"n_modelos": 15, "n_parametros": 714291, "ms_lote1_mediana_de_medianas": 12.270208491827361, "ms_lote1_min_max": [12.185541505459696, 12.681853986578062], "ms_por_muestra_lote200_mediana": 0.21104229002958164}, "B": {"n_modelos": 15, "n_parametros": 665907, "ms_lote1_mediana_de_medianas": 12.403832995914854, "ms_lote1_min_max": [12.3093959846301, 12.796104492736049], "ms_por_muestra_lote200_mediana": 0.20696374995168298}, "C": {"n_modelos": 15, "n_parametros": 665907, "ms_lote1_mediana_de_medianas": 12.472062502638437, "ms_lote1_min_max": [12.413937511155382, 12.668771014432423], "ms_por_muestra_lote200_mediana": 0.20634104002965614}}
+
+escrito models/experimento_velocidades_2026-09-30/resultados_velocidades.json y docs/EXPERIMENTO_VELOCIDADES.json

@@ -1,0 +1,170 @@
+{
+ "fecha": "2026-10-03T00:22:48",
+ "metodo": "model.predict(verbose=0) con lote de 1, como translator.py, y llamada directa model(x, training=False); 10 llamadas de calentamiento y 100 medidas por modelo; mediana y p90. Solo la red (sin MediaPipe). CPU. Modelos de la semilla 2026 (pliegues 0-2), en orden intercalado R0, T0, T1, T2.",
+ "procesos_de_entrenamiento_activos": [],
+ "entorno": {
+  "fecha": "2026-10-03T00:22:48",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.297,
+   "ms_predict_lote1_mediana": 13.462437491398305,
+   "ms_predict_lote1_p90": 14.28660026867874,
+   "ms_llamada_directa_mediana": 61.26166650210507,
+   "ms_llamada_directa_p90": 62.93654558248818
+  },
+  {
+   "brazo": "T0",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 12.106250011129305,
+   "ms_predict_lote1_p90": 12.607812182977796,
+   "ms_llamada_directa_mediana": 7.3908545018639416,
+   "ms_llamada_directa_p90": 7.671812776243314
+  },
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.715603963239118,
+   "ms_predict_lote1_p90": 12.501229404006153,
+   "ms_llamada_directa_mediana": 7.280958001501858,
+   "ms_llamada_directa_p90": 7.514262525364757
+  },
+  {
+   "brazo": "T2",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.592979484703392,
+   "ms_predict_lote1_p90": 11.939362483099103,
+   "ms_llamada_directa_mediana": 7.175937498686835,
+   "ms_llamada_directa_p90": 7.305624440778047
+  },
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.297,
+   "ms_predict_lote1_mediana": 13.419645983958617,
+   "ms_predict_lote1_p90": 14.02242113254033,
+   "ms_llamada_directa_mediana": 61.44118751399219,
+   "ms_llamada_directa_p90": 62.51746697234921
+  },
+  {
+   "brazo": "T0",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.631083500105888,
+   "ms_predict_lote1_p90": 11.966683604987338,
+   "ms_llamada_directa_mediana": 7.205083529697731,
+   "ms_llamada_directa_p90": 7.326441386248916
+  },
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.970437510171905,
+   "ms_predict_lote1_p90": 12.57023778744042,
+   "ms_llamada_directa_mediana": 7.34931300394237,
+   "ms_llamada_directa_p90": 7.523095927899703
+  },
+  {
+   "brazo": "T2",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.628750537056476,
+   "ms_predict_lote1_p90": 12.123862182488665,
+   "ms_llamada_directa_mediana": 7.185604452388361,
+   "ms_llamada_directa_p90": 7.372417009901255
+  },
+  {
+   "brazo": "R0",
+   "modelo": "models/experimento_mano_ausente_2026-10-02/A_mascara/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 714291,
+   "tamano_archivo_mb": 8.297,
+   "ms_predict_lote1_mediana": 13.20764547563158,
+   "ms_predict_lote1_p90": 13.935441413195804,
+   "ms_llamada_directa_mediana": 61.1786454974208,
+   "ms_llamada_directa_p90": 62.330671394011006
+  },
+  {
+   "brazo": "T0",
+   "modelo": "models/arquitecturas_literatura_2026-10-02/T_tcn/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.91199998720549,
+   "ms_predict_lote1_p90": 12.574562197551131,
+   "ms_llamada_directa_mediana": 7.304541999474168,
+   "ms_llamada_directa_p90": 7.503320882096887
+  },
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 11.793395999120548,
+   "ms_predict_lote1_p90": 12.284358678152785,
+   "ms_llamada_directa_mediana": 7.2335004806518555,
+   "ms_llamada_directa_p90": 7.446808007080108
+  },
+  {
+   "brazo": "T2",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T2_imputacion_132/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 132,
+   "n_parametros": 125682,
+   "tamano_archivo_mb": 0.621,
+   "ms_predict_lote1_mediana": 11.716020992025733,
+   "ms_predict_lote1_p90": 12.194878910668194,
+   "ms_llamada_directa_mediana": 7.195646001491696,
+   "ms_llamada_directa_p90": 7.443216996034607
+  }
+ ],
+ "construccion_de_la_entrada": {
+  "T0": {
+   "ms_mediana": 0.15006298781372607,
+   "ms_p90": 0.15734138432890177,
+   "video": "0030_0000_0003",
+   "n_cuadros": 69
+  },
+  "T1": {
+   "ms_mediana": 0.37297900416888297,
+   "ms_p90": 0.38650003261864185,
+   "video": "0030_0000_0003",
+   "n_cuadros": 69
+  },
+  "T2": {
+   "ms_mediana": 0.3904585028067231,
+   "ms_p90": 0.40534649160690606,
+   "video": "0030_0000_0003",
+   "n_cuadros": 69
+  }
+ }
+}

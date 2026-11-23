@@ -1,0 +1,19 @@
+{
+ "corrida": "C_s2026_pliegue_2",
+ "n_train_original": 699,
+ "n_train_aumentado": 6990,
+ "n_val": 100,
+ "n_test": 198,
+ "top1": 0.6161616161616161,
+ "top3": 0.797979797979798,
+ "precision_macro": 0.6028852258852259,
+ "recall_macro": 0.6183333333333333,
+ "f1_macro": 0.5837010212010212,
+ "n_errores": 76,
+ "mejor_val_accuracy": 0.9300000071525574,
+ "epocas_ejecutadas": 48,
+ "mejor_epoca": 23,
+ "tiempo_entrenamiento_s": 227.8,
+ "tiempo_total_s": 231.0,
+ "modelo": "models/experimento_velocidades_reducidas_2026-10-02/C_por_coordenada_132/semilla_2026/pliegue_2/modelo.keras"
+}

@@ -1,0 +1,19 @@
+{
+ "corrida": "pliegue_0",
+ "n_train_original": 697,
+ "n_train_aumentado": 6970,
+ "n_val": 100,
+ "n_test": 200,
+ "top1": 0.3,
+ "top3": 0.475,
+ "precision_macro": 0.3152857142857143,
+ "recall_macro": 0.3,
+ "f1_macro": 0.28477766677766675,
+ "n_errores": 140,
+ "mejor_val_accuracy": 0.9200000166893005,
+ "epocas_ejecutadas": 49,
+ "mejor_epoca": 24,
+ "tiempo_entrenamiento_s": 236.9,
+ "tiempo_total_s": 240.2,
+ "modelo": "models/loso_2026-09-14_holistic_mascara/pliegue_0/modelo.keras"
+}

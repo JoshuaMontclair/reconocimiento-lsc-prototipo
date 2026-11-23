@@ -1,0 +1,29 @@
+[2026-09-30 20:11:53] inicio de la espera (fase de entrenamiento)
+[2026-09-30 20:11:53] ocupado (0 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 20:21:53] ocupado (10 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 20:31:53] ocupado (20 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 20:41:53] ocupado (30 min): 44027 /bin/zsh -c source ~/.local/trabajo 2>/dev/null || true && setopt NO_EXTENDED_GLOB NO_BARE_GLOB_
+[2026-09-30 20:51:53] ocupado (40 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 21:01:53] ocupado (50 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 21:11:53] ocupado (60 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 21:21:53] ocupado (70 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 21:31:53] ocupado (80 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 21:41:53] ocupado (90 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 21:51:53] ocupado (100 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 22:01:53] ocupado (110 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 22:11:53] ocupado (120 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 22:21:54] ocupado (130 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 22:31:54] ocupado (140 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 22:41:54] ocupado (150 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 22:51:54] ocupado (160 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 23:01:54] ocupado (170 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 23:11:54] ocupado (180 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 23:21:54] ocupado (190 min): 69203 /opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python src/experimento_pasos.py e
+[2026-09-30 23:31:54] sin procesos del otro experimento; confirmo en 5 min
+[2026-09-30 23:36:54] libre tras 205 min de espera
+[2026-09-30 23:36:57] fase 1 (A,B) inicia
+[2026-10-01 00:56:43] fase 1 termina (codigo 0); fase 2 (C) inicia
+[2026-10-01 01:35:13] fase 2 termina (codigo 0); espera para inferencia
+[2026-10-01 01:35:13] sin procesos del otro experimento; confirmo en 5 min
+[2026-10-01 01:40:13] libre tras 5 min de espera
+[2026-10-01 01:41:51] todo terminado

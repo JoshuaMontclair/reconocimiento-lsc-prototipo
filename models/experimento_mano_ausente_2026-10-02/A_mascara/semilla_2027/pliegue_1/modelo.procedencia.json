@@ -1,0 +1,22 @@
+{
+ "modelo": "modelo.keras",
+ "representacion": "manos",
+ "bloques": [
+  "mano_izq",
+  "mano_der"
+ ],
+ "n_rasgos_por_paso": 126,
+ "velocidades": true,
+ "n_rasgos_entrada": 252,
+ "seq_length": 30,
+ "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+ "mano_ausente": "mascara",
+ "rostro_del_processed": "cejas_labios",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "landmarks_dir": "data/extracted/LSC50_holistic",
+ "script": "src/experimento_mano_ausente.py (via train_loso.entrenar_y_evaluar)",
+ "fecha": "2026-10-02T18:22:27",
+ "mano_ausente_base_del_processed": "mascara",
+ "brazo_experimento_mano_ausente": "A",
+ "nota": "modelo del experimento de mano ausente (docs/EXPERIMENTO_MANO_AUSENTE.md); la regla se aplica con src/mano_ausente_variantes.py al construir los 30 pasos. NO es el modelo canonico: translator.py no implementa pivote ni imputacion y no debe cargarlo"
+}

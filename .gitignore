@@ -1,0 +1,52 @@
+# Entornos virtuales (nunca dentro del repositorio; ver N-04 en DECISIONES_TESIS.txt)
+venv/
+.venv/
+
+# Datos: videos crudos, landmarks extraidos, numpy procesado, particiones numpy.
+# Se conservan trackeados: data/processed/metadata.json, data/dataset/dataset_info.json
+# y los PNG de caracterizacion en data/processed/.
+data/raw/
+data/extracted/
+data/processed/samples/
+data/processed/*.npy
+data/dataset/*.npy
+
+# Modelos: todos los .keras (40 archivos, ~430 MB) y los .task de MediaPipe.
+# Se conservan trackeados: models/*.json (resultados) y models/*.png (curvas, matrices).
+models/*.keras
+**/*.keras
+# Pesos publicados (RE7): modelo final y red de partida.
+!models/tcn_imputacion/modelo.keras
+!models/canonico_holistic_mascara_manos/modelo_canonico.keras
+models/mediapipe/*.task
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# SO
+Thumbs.db
+.DS_Store
+
+
+# Caracterización (1.a/1.b): se versionan caracterizacion.md y caracterizacion.json;
+# la bitácora por muestra (6,5 MB, cambia en cada corrida) se regenera con src/caracterizar_lsc50.py
+data/processed/caracterizacion/bitacora_integridad.json
+data/processed/caracterizacion/bitacora_integridad.csv
+
+# Procesados alternativos (D-05/D-07): mismo criterio que data/processed: se versionan metadata.json,
+# los PNG y los logs; los .npy (X_padded 120 MB) y samples/ se regeneran con preprocess_lsc50.py
+data/processed_*/*.npy
+data/processed_*/samples/
+
+# Artefactos binarios de los experimentos (regenerables con sus scripts; ~25 MB):
+# probabilidades por pliegue y modelos de MiniRocket. Los resultados (.json), los
+# registros (.log) y las figuras sí se versionan.
+models/**/*.npz
+models/**/*.pkl
+docs/diapositivas_workflow/guiones/__pycache__/

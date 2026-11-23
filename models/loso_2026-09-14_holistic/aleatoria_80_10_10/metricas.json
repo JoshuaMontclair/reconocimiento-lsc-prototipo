@@ -1,0 +1,19 @@
+{
+ "corrida": "aleatoria_80_10_10",
+ "n_train_original": 797,
+ "n_train_aumentado": 7970,
+ "n_val": 100,
+ "n_test": 100,
+ "top1": 0.84,
+ "top3": 0.97,
+ "precision_macro": 0.8366666666666666,
+ "recall_macro": 0.84,
+ "f1_macro": 0.818,
+ "n_errores": 16,
+ "mejor_val_accuracy": 0.8899999856948853,
+ "epocas_ejecutadas": 94,
+ "mejor_epoca": 69,
+ "tiempo_entrenamiento_s": 381.5,
+ "tiempo_total_s": 383.6,
+ "modelo": "models/loso_2026-09-14_holistic/aleatoria_80_10_10/modelo.keras"
+}

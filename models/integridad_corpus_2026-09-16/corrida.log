@@ -1,0 +1,50 @@
+==============================================================================
+  LSC50 - Integridad del corpus archivo por archivo (actividad 1.a)
+==============================================================================
+
+  Copia local: data/raw/LSC50
+  LANDMARKS.zip: 4.000 entradas | índice leído con 1 petición(es), 1.8 MB | md5 publicado 996d3e9ee1d3fb39866ce395efd23214
+  VIDEOS.zip: 4.000 entradas | índice leído con 1 petición(es), 2.0 MB | md5 publicado 26003107442257c7947352b18e3c2597
+
+  Cotejando LANDMARKS.zip ...
+    LANDMARKS.zip: 250/4000 entradas cotejadas (0.03 GB leídos)
+    LANDMARKS.zip: 500/4000 entradas cotejadas (0.06 GB leídos)
+    LANDMARKS.zip: 750/4000 entradas cotejadas (0.09 GB leídos)
+    LANDMARKS.zip: 1000/4000 entradas cotejadas (0.12 GB leídos)
+    LANDMARKS.zip: 1250/4000 entradas cotejadas (1.60 GB leídos)
+    LANDMARKS.zip: 1500/4000 entradas cotejadas (3.05 GB leídos)
+    LANDMARKS.zip: 1750/4000 entradas cotejadas (4.55 GB leídos)
+    LANDMARKS.zip: 2000/4000 entradas cotejadas (6.02 GB leídos)
+    LANDMARKS.zip: 2250/4000 entradas cotejadas (6.04 GB leídos)
+    LANDMARKS.zip: 2500/4000 entradas cotejadas (6.06 GB leídos)
+    LANDMARKS.zip: 2750/4000 entradas cotejadas (6.08 GB leídos)
+    LANDMARKS.zip: 3000/4000 entradas cotejadas (6.10 GB leídos)
+    LANDMARKS.zip: 3250/4000 entradas cotejadas (6.12 GB leídos)
+    LANDMARKS.zip: 3500/4000 entradas cotejadas (6.14 GB leídos)
+    LANDMARKS.zip: 3750/4000 entradas cotejadas (6.16 GB leídos)
+    LANDMARKS.zip: 4000/4000 entradas cotejadas (6.18 GB leídos)
+    coinciden 4.000 | difieren 0 | ausentes 0 | sobran 0 | 6.18 GB leídos
+
+  Cotejando VIDEOS.zip ...
+    VIDEOS.zip: 250/4000 entradas cotejadas (0.66 GB leídos)
+    VIDEOS.zip: 500/4000 entradas cotejadas (1.30 GB leídos)
+    VIDEOS.zip: 750/4000 entradas cotejadas (1.96 GB leídos)
+    VIDEOS.zip: 1000/4000 entradas cotejadas (2.62 GB leídos)
+    VIDEOS.zip: 1250/4000 entradas cotejadas (2.92 GB leídos)
+    VIDEOS.zip: 1500/4000 entradas cotejadas (3.20 GB leídos)
+    VIDEOS.zip: 1750/4000 entradas cotejadas (3.49 GB leídos)
+    VIDEOS.zip: 2000/4000 entradas cotejadas (3.75 GB leídos)
+    VIDEOS.zip: 2250/4000 entradas cotejadas (4.44 GB leídos)
+    VIDEOS.zip: 2500/4000 entradas cotejadas (5.12 GB leídos)
+    VIDEOS.zip: 2750/4000 entradas cotejadas (5.83 GB leídos)
+    VIDEOS.zip: 3000/4000 entradas cotejadas (6.50 GB leídos)
+    VIDEOS.zip: 3250/4000 entradas cotejadas (6.52 GB leídos)
+    VIDEOS.zip: 3500/4000 entradas cotejadas (6.54 GB leídos)
+    VIDEOS.zip: 3750/4000 entradas cotejadas (6.56 GB leídos)
+    VIDEOS.zip: 4000/4000 entradas cotejadas (6.57 GB leídos)
+    coinciden 4.000 | difieren 0 | ausentes 0 | sobran 0 | 6.57 GB leídos
+
+  TOTAL: 8.000 entradas | coinciden 8.000 | difieren 0 | ausentes 0 | sobran 0
+  COPIA LOCAL FIEL AL DEPOSITO
+  Salidas: models/integridad_corpus_2026-09-16/integridad.json y models/integridad_corpus_2026-09-16/integridad.md
+  Tiempo total: 10 s (12.76 GB leídos)

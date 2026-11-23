@@ -1,0 +1,84 @@
+{
+ "fecha": "2026-11-08T15:47:03",
+ "metodo": "model.predict(verbose=0) con lote de 1, como translator.py, y llamada directa model(x, training=False); 10 llamadas de calentamiento y 100 medidas por modelo; mediana y p90. Solo la red (sin MediaPipe ni armado de la entrada, que es el mismo para los dos brazos). CPU. Modelos de la semilla 2026 (pliegues 0-2), en orden intercalado T1, C2D.",
+ "procesos_de_entrenamiento_activos": [],
+ "entorno": {
+  "fecha": "2026-11-08T15:47:03",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 14.750729023944587,
+   "ms_predict_lote1_p90": 15.893349971156567,
+   "ms_llamada_directa_mediana": 8.598604530561715,
+   "ms_llamada_directa_p90": 9.467808343470097
+  },
+  {
+   "brazo": "C2D",
+   "modelo": "models/cnn2d_2026-11-08/C2D_cnn2d/semilla_2026/pliegue_0/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 146546,
+   "tamano_archivo_mb": 0.658,
+   "ms_predict_lote1_mediana": 15.110625012312084,
+   "ms_predict_lote1_p90": 16.357954498380423,
+   "ms_llamada_directa_mediana": 6.256687513086945,
+   "ms_llamada_directa_p90": 6.934116419870406
+  },
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 14.306687517091632,
+   "ms_predict_lote1_p90": 15.176124416757375,
+   "ms_llamada_directa_mediana": 8.337396022398025,
+   "ms_llamada_directa_p90": 8.734616648871452
+  },
+  {
+   "brazo": "C2D",
+   "modelo": "models/cnn2d_2026-11-08/C2D_cnn2d/semilla_2026/pliegue_1/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 146546,
+   "tamano_archivo_mb": 0.658,
+   "ms_predict_lote1_mediana": 14.536728500388563,
+   "ms_predict_lote1_p90": 15.513950656168163,
+   "ms_llamada_directa_mediana": 5.9697499964386225,
+   "ms_llamada_directa_p90": 6.347962480504066
+  },
+  {
+   "brazo": "T1",
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 14.811125060077757,
+   "ms_predict_lote1_p90": 17.54794092848897,
+   "ms_llamada_directa_mediana": 8.593604434281588,
+   "ms_llamada_directa_p90": 10.531046078540385
+  },
+  {
+   "brazo": "C2D",
+   "modelo": "models/cnn2d_2026-11-08/C2D_cnn2d/semilla_2026/pliegue_2/modelo.keras",
+   "n_rasgos_entrada": 252,
+   "n_parametros": 146546,
+   "tamano_archivo_mb": 0.658,
+   "ms_predict_lote1_mediana": 14.397374994587153,
+   "ms_predict_lote1_p90": 15.218624752014875,
+   "ms_llamada_directa_mediana": 5.919687508139759,
+   "ms_llamada_directa_p90": 6.272233044728637
+  }
+ ]
+}
