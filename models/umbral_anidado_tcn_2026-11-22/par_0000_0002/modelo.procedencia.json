@@ -1,0 +1,24 @@
+{
+ "modelo": "modelo.keras",
+ "representacion": "manos",
+ "bloques": [
+  "mano_izq",
+  "mano_der"
+ ],
+ "n_rasgos_por_paso": 126,
+ "velocidades": "actual",
+ "n_rasgos_entrada": 252,
+ "seq_length": 30,
+ "normalizacion": "centrado en el punto medio de los hombros (postura 11 y 12) y escalado por su distancia en xy",
+ "mano_ausente": "imputacion (mano_ausente_variantes.regla_imputacion sobre el processed «mascara», antes de remuestrear)",
+ "rostro_del_processed": "cejas_labios",
+ "processed_dir": "data/processed_holistic_mascara_rostro",
+ "landmarks_dir": "data/extracted/LSC50_holistic",
+ "script": "src/umbral_anidado_tcn.py (via experimento_arquitecturas.entrenar_corrida, brazo T1)",
+ "fecha": "2026-11-22T23:06:08",
+ "nota": "modelo interno de la validacion anidada del umbral con el modelo final (D-14). NO es el modelo final ni debe cargarse en el prototipo.",
+ "columnas_velocidad": "126 (add_velocity)",
+ "brazo_confirmacion_tcn": "T1",
+ "uso": "modelo interno del par: solo para elegir el umbral de confianza; no es un modelo de entrega",
+ "par_umbral_anidado": "par_0000_0002"
+}

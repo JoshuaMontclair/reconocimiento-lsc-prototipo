@@ -1,0 +1,505 @@
+{
+ "umbral": 0.68,
+ "decision": "pendiente: candidato de la validacion anidada con el modelo final (D-14); sustituiria al 0,00 de N-65 solo si el director lo adopta",
+ "c": 1.0,
+ "seleccionado_con": "validacion anidada por senante: 20 casillas de 10 modelos internos (3 senantes cada uno), 3988 predicciones sobre personas no vistas; t elegido sobre la union de las casillas",
+ "modelo": "modelo.keras",
+ "sha256_modelo": "6970722dd06e2672c812c0b7f74baf135d03912cc1bb79440faab8220b2c1679",
+ "script": "src/umbral_anidado_tcn.py (funciones de src/umbral_anidado.py y src/umbral_confianza.py)",
+ "informe": "models/umbral_anidado_tcn_2026-11-22/informe.md",
+ "fecha": "2026-11-22T23:13:58",
+ "estado": "candidato_no_adoptado",
+ "sustituye_a": "0,00 de models/tcn_imputacion/modelo.umbral.json (N-65, aprobado en N-66 a) si se adopta",
+ "metodo": {
+  "criterio": "D-09, importado de src/umbral_confianza.py: U(t) = aciertos aceptados - c * errores aceptados; aceptada si confianza >= t; rejilla 0,00-0,99; empate -> menor t",
+  "agregacion_principal": "t_k sobre la union de las 4 casillas del pliegue k; t_global sobre la union de las 20 casillas (propuesta §2.1)",
+  "agregacion_robustez": "mediana de los 4 t de casilla por pliegue y mediana de los 5 por pliegue (regla del encargo; no es el candidato)",
+  "sensibilidad_c": [
+   "0.5",
+   "1.0",
+   "2.0"
+  ],
+  "modelos_internos": "10 TCN + imputacion + 252 (brazo T1), una por par de senantes excluidos, semilla de entrenamiento 2026"
+ },
+ "umbrales_por_casilla": [
+  {
+   "pliegue": 0,
+   "senante_test": "0000",
+   "senante_interno": "0001",
+   "par": "par_0000_0001",
+   "n": 199,
+   "t": {
+    "0.5": 0.84,
+    "1.0": 0.85,
+    "2.0": 0.89
+   }
+  },
+  {
+   "pliegue": 0,
+   "senante_test": "0000",
+   "senante_interno": "0002",
+   "par": "par_0000_0002",
+   "n": 198,
+   "t": {
+    "0.5": 0.36,
+    "1.0": 0.4,
+    "2.0": 0.57
+   }
+  },
+  {
+   "pliegue": 0,
+   "senante_test": "0000",
+   "senante_interno": "0003",
+   "par": "par_0000_0003",
+   "n": 200,
+   "t": {
+    "0.5": 0.31,
+    "1.0": 0.49,
+    "2.0": 0.49
+   }
+  },
+  {
+   "pliegue": 0,
+   "senante_test": "0000",
+   "senante_interno": "0004",
+   "par": "par_0000_0004",
+   "n": 200,
+   "t": {
+    "0.5": 0.83,
+    "1.0": 0.83,
+    "2.0": 0.89
+   }
+  },
+  {
+   "pliegue": 1,
+   "senante_test": "0001",
+   "senante_interno": "0000",
+   "par": "par_0000_0001",
+   "n": 200,
+   "t": {
+    "0.5": 0.68,
+    "1.0": 0.87,
+    "2.0": 0.88
+   }
+  },
+  {
+   "pliegue": 1,
+   "senante_test": "0001",
+   "senante_interno": "0002",
+   "par": "par_0001_0002",
+   "n": 198,
+   "t": {
+    "0.5": 0.4,
+    "1.0": 0.42,
+    "2.0": 0.77
+   }
+  },
+  {
+   "pliegue": 1,
+   "senante_test": "0001",
+   "senante_interno": "0003",
+   "par": "par_0001_0003",
+   "n": 200,
+   "t": {
+    "0.5": 0.35,
+    "1.0": 0.53,
+    "2.0": 0.53
+   }
+  },
+  {
+   "pliegue": 1,
+   "senante_test": "0001",
+   "senante_interno": "0004",
+   "par": "par_0001_0004",
+   "n": 200,
+   "t": {
+    "0.5": 0.3,
+    "1.0": 0.7,
+    "2.0": 0.75
+   }
+  },
+  {
+   "pliegue": 2,
+   "senante_test": "0002",
+   "senante_interno": "0000",
+   "par": "par_0000_0002",
+   "n": 200,
+   "t": {
+    "0.5": 0.46,
+    "1.0": 0.68,
+    "2.0": 0.75
+   }
+  },
+  {
+   "pliegue": 2,
+   "senante_test": "0002",
+   "senante_interno": "0001",
+   "par": "par_0001_0002",
+   "n": 199,
+   "t": {
+    "0.5": 0.21,
+    "1.0": 0.67,
+    "2.0": 0.67
+   }
+  },
+  {
+   "pliegue": 2,
+   "senante_test": "0002",
+   "senante_interno": "0003",
+   "par": "par_0002_0003",
+   "n": 200,
+   "t": {
+    "0.5": 0.3,
+    "1.0": 0.57,
+    "2.0": 0.76
+   }
+  },
+  {
+   "pliegue": 2,
+   "senante_test": "0002",
+   "senante_interno": "0004",
+   "par": "par_0002_0004",
+   "n": 200,
+   "t": {
+    "0.5": 0.29,
+    "1.0": 0.36,
+    "2.0": 0.72
+   }
+  },
+  {
+   "pliegue": 3,
+   "senante_test": "0003",
+   "senante_interno": "0000",
+   "par": "par_0000_0003",
+   "n": 200,
+   "t": {
+    "0.5": 0.37,
+    "1.0": 0.74,
+    "2.0": 0.86
+   }
+  },
+  {
+   "pliegue": 3,
+   "senante_test": "0003",
+   "senante_interno": "0001",
+   "par": "par_0001_0003",
+   "n": 199,
+   "t": {
+    "0.5": 0.49,
+    "1.0": 0.66,
+    "2.0": 0.67
+   }
+  },
+  {
+   "pliegue": 3,
+   "senante_test": "0003",
+   "senante_interno": "0002",
+   "par": "par_0002_0003",
+   "n": 198,
+   "t": {
+    "0.5": 0.43,
+    "1.0": 0.62,
+    "2.0": 0.64
+   }
+  },
+  {
+   "pliegue": 3,
+   "senante_test": "0003",
+   "senante_interno": "0004",
+   "par": "par_0003_0004",
+   "n": 200,
+   "t": {
+    "0.5": 0.28,
+    "1.0": 0.28,
+    "2.0": 0.82
+   }
+  },
+  {
+   "pliegue": 4,
+   "senante_test": "0004",
+   "senante_interno": "0000",
+   "par": "par_0000_0004",
+   "n": 200,
+   "t": {
+    "0.5": 0.34,
+    "1.0": 0.74,
+    "2.0": 0.79
+   }
+  },
+  {
+   "pliegue": 4,
+   "senante_test": "0004",
+   "senante_interno": "0001",
+   "par": "par_0001_0004",
+   "n": 199,
+   "t": {
+    "0.5": 0.65,
+    "1.0": 0.65,
+    "2.0": 0.76
+   }
+  },
+  {
+   "pliegue": 4,
+   "senante_test": "0004",
+   "senante_interno": "0002",
+   "par": "par_0002_0004",
+   "n": 198,
+   "t": {
+    "0.5": 0.36,
+    "1.0": 0.45,
+    "2.0": 0.79
+   }
+  },
+  {
+   "pliegue": 4,
+   "senante_test": "0004",
+   "senante_interno": "0003",
+   "par": "par_0003_0004",
+   "n": 200,
+   "t": {
+    "0.5": 0.0,
+    "1.0": 0.74,
+    "2.0": 0.74
+   }
+  }
+ ],
+ "umbrales_por_pliegue": [
+  {
+   "pliegue": 0,
+   "senante_test": "0000",
+   "n": 797,
+   "t": {
+    "0.5": 0.4,
+    "1.0": 0.54,
+    "2.0": 0.85
+   },
+   "t_mediana_casillas": {
+    "0.5": 0.59,
+    "1.0": 0.66,
+    "2.0": 0.73
+   }
+  },
+  {
+   "pliegue": 1,
+   "senante_test": "0001",
+   "n": 798,
+   "t": {
+    "0.5": 0.33,
+    "1.0": 0.62,
+    "2.0": 0.77
+   },
+   "t_mediana_casillas": {
+    "0.5": 0.38,
+    "1.0": 0.61,
+    "2.0": 0.76
+   }
+  },
+  {
+   "pliegue": 2,
+   "senante_test": "0002",
+   "n": 799,
+   "t": {
+    "0.5": 0.3,
+    "1.0": 0.65,
+    "2.0": 0.72
+   },
+   "t_mediana_casillas": {
+    "0.5": 0.29,
+    "1.0": 0.62,
+    "2.0": 0.73
+   }
+  },
+  {
+   "pliegue": 3,
+   "senante_test": "0003",
+   "n": 797,
+   "t": {
+    "0.5": 0.28,
+    "1.0": 0.67,
+    "2.0": 0.82
+   },
+   "t_mediana_casillas": {
+    "0.5": 0.4,
+    "1.0": 0.64,
+    "2.0": 0.74
+   }
+  },
+  {
+   "pliegue": 4,
+   "senante_test": "0004",
+   "n": 797,
+   "t": {
+    "0.5": 0.36,
+    "1.0": 0.74,
+    "2.0": 0.79
+   },
+   "t_mediana_casillas": {
+    "0.5": 0.35,
+    "1.0": 0.7,
+    "2.0": 0.78
+   }
+  }
+ ],
+ "umbral_global": {
+  "0.5": 0.36,
+  "1.0": 0.68,
+  "2.0": 0.76
+ },
+ "umbral_global_mediana_de_pliegues": {
+  "0.5": 0.33,
+  "1.0": 0.65,
+  "2.0": 0.79
+ },
+ "umbral_global_mediana_de_medianas": {
+  "0.5": 0.38,
+  "1.0": 0.64,
+  "2.0": 0.74
+ },
+ "dispersion_t_pliegues": {
+  "min": 0.54,
+  "max": 0.74,
+  "valores": [
+   0.54,
+   0.62,
+   0.65,
+   0.67,
+   0.74
+  ]
+ },
+ "efecto_prueba_loso": {
+  "P1_anidado_por_pliegue_t_k (estimado limpio)": {
+   "n": 997,
+   "exactitud_sin_umbral": 0.6880641925777332,
+   "tasa_rechazo": 0.30892678034102306,
+   "exactitud_entre_aceptadas": 0.8272859216255443,
+   "aciertos_perdidos_por_rechazo": 0.16909620991253643,
+   "errores_evitados_por_rechazo": 0.617363344051447,
+   "aceptadas_correctas": 570,
+   "aceptadas_incorrectas": 119,
+   "utilidad": 451.0,
+   "umbrales": {
+    "0": 0.54,
+    "1": 0.62,
+    "2": 0.65,
+    "3": 0.67,
+    "4": 0.74
+   }
+  },
+  "anidado_global_0.68 (candidato; ligeramente optimista)": {
+   "n": 997,
+   "exactitud_sin_umbral": 0.6880641925777332,
+   "tasa_rechazo": 0.350050150451354,
+   "exactitud_entre_aceptadas": 0.8441358024691358,
+   "aciertos_perdidos_por_rechazo": 0.20262390670553937,
+   "errores_evitados_por_rechazo": 0.6752411575562701,
+   "aceptadas_correctas": 547,
+   "aceptadas_incorrectas": 101,
+   "utilidad": 446.0,
+   "umbrales": {
+    "0": 0.68,
+    "1": 0.68,
+    "2": 0.68,
+    "3": 0.68,
+    "4": 0.68
+   }
+  },
+  "mediana_casillas_por_pliegue (robustez)": {
+   "n": 997,
+   "exactitud_sin_umbral": 0.6880641925777332,
+   "tasa_rechazo": 0.3199598796389167,
+   "exactitud_entre_aceptadas": 0.831858407079646,
+   "aciertos_perdidos_por_rechazo": 0.17784256559766765,
+   "errores_evitados_por_rechazo": 0.6334405144694534,
+   "aceptadas_correctas": 564,
+   "aceptadas_incorrectas": 114,
+   "utilidad": 450.0,
+   "umbrales": {
+    "0": 0.66,
+    "1": 0.61,
+    "2": 0.62,
+    "3": 0.64,
+    "4": 0.7
+   }
+  },
+  "mediana_de_medianas_0.64 (robustez)": {
+   "n": 997,
+   "exactitud_sin_umbral": 0.6880641925777332,
+   "tasa_rechazo": 0.31795386158475425,
+   "exactitud_entre_aceptadas": 0.8308823529411765,
+   "aciertos_perdidos_por_rechazo": 0.17638483965014579,
+   "errores_evitados_por_rechazo": 0.6302250803858521,
+   "aceptadas_correctas": 565,
+   "aceptadas_incorrectas": 115,
+   "utilidad": 450.0,
+   "umbrales": {
+    "0": 0.64,
+    "1": 0.64,
+    "2": 0.64,
+    "3": 0.64,
+    "4": 0.64
+   }
+  },
+  "mediana_de_t_k_0.65 (robustez)": {
+   "n": 997,
+   "exactitud_sin_umbral": 0.6880641925777332,
+   "tasa_rechazo": 0.32698094282848544,
+   "exactitud_entre_aceptadas": 0.834575260804769,
+   "aciertos_perdidos_por_rechazo": 0.1836734693877551,
+   "errores_evitados_por_rechazo": 0.6430868167202572,
+   "aceptadas_correctas": 560,
+   "aceptadas_incorrectas": 111,
+   "utilidad": 449.0,
+   "umbrales": {
+    "0": 0.65,
+    "1": 0.65,
+    "2": 0.65,
+    "3": 0.65,
+    "4": 0.65
+   }
+  },
+  "P0_vigente_0.00 (N-65)": {
+   "n": 997,
+   "exactitud_sin_umbral": 0.6880641925777332,
+   "tasa_rechazo": 0.0,
+   "exactitud_entre_aceptadas": 0.6880641925777332,
+   "aciertos_perdidos_por_rechazo": 0.0,
+   "errores_evitados_por_rechazo": 0.0,
+   "aceptadas_correctas": 686,
+   "aceptadas_incorrectas": 311,
+   "utilidad": 375.0,
+   "umbrales": {
+    "0": 0.0,
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0
+   }
+  },
+  "referencia_0.50": {
+   "n": 997,
+   "exactitud_sin_umbral": 0.6880641925777332,
+   "tasa_rechazo": 0.2106318956870612,
+   "exactitud_entre_aceptadas": 0.795425667090216,
+   "aciertos_perdidos_por_rechazo": 0.08746355685131195,
+   "errores_evitados_por_rechazo": 0.48231511254019294,
+   "aceptadas_correctas": 626,
+   "aceptadas_incorrectas": 161,
+   "utilidad": 465.0,
+   "umbrales": {
+    "0": 0.5,
+    "1": 0.5,
+    "2": 0.5,
+    "3": 0.5,
+    "4": 0.5
+   }
+  }
+ },
+ "regla_1_3": {
+  "i_control": true,
+  "ii_U_P1_mayor_o_igual": true,
+  "iii_menos_errores_aceptados": true,
+  "delta_U": 76.0,
+  "empate_dentro_de_5": false,
+  "recomendacion": "adoptar el umbral anidado (t_global)"
+ }
+}

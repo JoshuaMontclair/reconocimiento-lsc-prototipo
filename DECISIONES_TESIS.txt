@@ -2459,4 +2459,49 @@ PENDIENTE CON EL DIRECTOR
   excluido» (sin caracterización de las personas desde 1.b) y la validación anidada por señante con el
   modelo final (D-14). Suite: 751 pruebas OK.
 
+========================================================================================
+2026-11-22 · N-72 · Título del documento ajustado al modelo final (D-14)
+========================================================================================
+  Decisión del autor. El título del anteproyecto radicado decía «... basado en MediaPipe Holistic y
+  redes LSTM, bajo condiciones controladas»; el modelo final aprobado en D-14 es una TCN. El documento
+  dice ahora «... basado en MediaPipe Holistic y redes convolucionales temporales, bajo condiciones
+  controladas»; el resto del título no cambia. Cambiado en Documento_Tesis/main.tex (\titulotesis), en
+  las secciones del cap. 1, 5 y 6 que lo mencionaban (se quitaron sus 3 marcas \pendiente) y en el
+  README del repositorio público. PENDIENTE: informar al director y, si la facultad lo exige, el
+  trámite de cambio de título.
+
+========================================================================================
+2026-11-22 · N-73 · Sin sesión con la persona señante vinculada: Actividades A, B y Bloque 1 no se hacen
+========================================================================================
+  Decisión del autor. No habrá sesión con la persona señante vinculada antes de la entrega del 28-nov:
+  no se concretó la vinculación (consentimiento firmado y sesiones; actividad 0.c, N-54). Por tanto no
+  se hacen la validación de las 50 glosas (Actividad A, 1.d), la verificación humana de los enunciados
+  del conversor (Actividad B, 3.a / RE4) ni el Bloque 1 en vivo (4.b / RE5).
+  Se aplica la contingencia del protocolo (PROTOCOLO_EXPERIMENTAL_4a.md §4.1): no existe el Bloque 1;
+  la evaluación en línea queda en las sesiones del autor y se reporta sin cifra de exactitud en vivo;
+  el autor no sustituye a la persona. En el documento, las marcas que dependían de la sesión pasan a
+  limitaciones declaradas y trabajo futuro; RE4 y RE5 quedan «Parcial». El protocolo 4.a y sus
+  parámetros (PD-01 a PD-31) quedan diseñados y no ejecutados. El documento no nombra a la persona
+  (no firmó el consentimiento, que incluía la autorización para ser nombrada).
+  El material preparado (consentimiento, hojas de las Actividades A y B, cuadernillo de la sesión) se
+  conserva para trabajo futuro.
+
+========================================================================================
+2026-11-22 · N-74 · Umbral con validación anidada por señante con el modelo final (pendiente de D-14)
+========================================================================================
+  Repetición de N-47 con el modelo final (T1: TCN + imputación + 252, semilla 2026): mismas 10
+  particiones por pares de señantes, selector de D-09 importado, misma rejilla. Criterio escrito antes
+  de entrenar (models/umbral_anidado_tcn_2026-11-22/informe.md §1, 23:00): adoptar t_global si el
+  control reproduce N-65, U(c = 1) de P1 ≥ el de 0,00 y P1 acepta menos errores.
+  Entrenamiento: 10 modelos en 9,4 min. Umbrales: t_k = 0,54 / 0,62 / 0,65 / 0,67 / 0,74; t_global =
+  0,68 (medianas 0,64 y 0,65; por casilla 0,28 a 0,87; c = 0,5 → 0,36; c = 2 → 0,76).
+  Efecto en la prueba LOSO (997, T1 s2026; top-1 0,688 sin cambio): P1 rechaza 30,9 %, exactitud entre
+  aceptadas 0,827, 570 aciertos y 119 errores aceptados, U = 451; 0,00 vigente: 0 %, 0,688, 686 / 311,
+  U = 375. Diferencia en U +76 [+42; +110] (bootstrap pareado). P1 gana en 4 de 5 pliegues (pierde 5
+  en el de 0004); también con las semillas 2027 y 2028. Costo: 116 aciertos menos dichos; el señante
+  0000 queda rechazado entre 39 y 59 %. Aleatoria: 0,68 rechaza 6 % y empata en U.
+  RECOMENDACIÓN (por el criterio): adoptar 0,68. Requiere decisión del director; modelo.umbral.json del
+  modelo final sigue en 0,00. Código: src/umbral_anidado_tcn.py; pruebas: tests/test_umbral_anidado_tcn.py
+  (19). Suite: 814 pruebas OK.
+
 (añadir nuevas entradas debajo de esta línea)
