@@ -2,8 +2,11 @@
 
 Código del trabajo de grado *«Prototipo experimental para el reconocimiento de un vocabulario limitado de
 la Lengua de Señas Colombiana con salida en audio en español, basado en MediaPipe Holistic y redes
-convolucionales temporales, bajo condiciones controladas»*, de Joshua Emmanuel Montclair Ospina
-(Ingeniería de Sistemas y Computación, Pontificia Universidad Javeriana Cali, 2026). Director: Felipe Palta.
+LSTM, bajo condiciones controladas»*, de Joshua Emmanuel Montclair Ospina
+(Ingeniería de Sistemas y Computación, Pontificia Universidad Javeriana Cali, 2026). Director: Felipe Palta, MSc.
+
+El título es el del anteproyecto aprobado. El modelo final es una red convolucional temporal (TCN),
+que generalizó mejor a personas no vistas que la red de partida con LSTM; la tesis explica el cambio.
 
 El prototipo mira a una persona con la cámara del computador, reconoce cuál de 50 señas aisladas de la
 LSC hizo y la dice en voz alta en español:
@@ -136,5 +139,5 @@ la Coqui Public Model License (uso no comercial) y no se incluye: se descarga al
 
 J. E. Montclair Ospina, *Prototipo experimental para el reconocimiento de un vocabulario limitado de la
 Lengua de Señas Colombiana con salida en audio en español, basado en MediaPipe Holistic y redes
-convolucionales temporales, bajo condiciones controladas*, trabajo de grado, Ingeniería de Sistemas y
+LSTM, bajo condiciones controladas*, trabajo de grado, Ingeniería de Sistemas y
 Computación, Pontificia Universidad Javeriana Cali, 2026.

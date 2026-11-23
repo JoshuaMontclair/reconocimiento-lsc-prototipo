@@ -81,6 +81,7 @@ Teclas:
 
 import argparse
 import sys
+import unicodedata
 from pathlib import Path
 
 import cv2
@@ -169,8 +170,14 @@ MENSAJE_ESTADO = {
 }
 
 
+def _ascii(s):
+    """La fuente Hershey de OpenCV solo dibuja ASCII: «días» saldría «d??as». Quita tildes, ñ, ¿ y ¡."""
+    s = unicodedata.normalize("NFKD", str(s)).replace("¿", "").replace("¡", "")
+    return s.encode("ascii", "ignore").decode("ascii")
+
+
 def _texto(frame, s, xy, escala=0.55, color=BLANCO, grosor=1):
-    cv2.putText(frame, s, xy, cv2.FONT_HERSHEY_SIMPLEX, escala, color, grosor, cv2.LINE_AA)
+    cv2.putText(frame, _ascii(s), xy, cv2.FONT_HERSHEY_SIMPLEX, escala, color, grosor, cv2.LINE_AA)
 
 
 def _ms(ns):
