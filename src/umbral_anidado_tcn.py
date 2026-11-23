@@ -416,6 +416,8 @@ def evaluar(out_dir: Path, particion: dict, loso: dict, t1_dir: Path, modelo_fin
     if faltan:
         raise SystemExit(f"faltan {len(faltan)} archivos de pares entrenados, p. ej. {faltan[:3]}")
     vigente = json.loads(_ruta(UMBRAL_VIGENTE_JSON).read_text(encoding="utf-8"))
+    # Desde N-75 el prototipo usa 0,68; el umbral de D-09 (0,00) con que se compara queda guardado aparte.
+    vigente = vigente.get("umbral_d09_validacion_vistos", vigente)
     if float(vigente["umbral"]) != T_VIGENTE:
         raise SystemExit(f"{UMBRAL_VIGENTE_JSON} ya no es {T_VIGENTE}: revisar antes de comparar")
     seleccion = elegir_umbrales(out_dir, particion)

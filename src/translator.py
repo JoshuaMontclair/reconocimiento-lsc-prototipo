@@ -8,7 +8,8 @@ Integra la cadena completa que describe el anteproyecto (§2.2.5-§2.2.7):
          → normalización por hombros → columnas de la representación del modelo (D-08)
          → remuestreo a 30 pasos (resample_sequence)
          → velocidades si el modelo las espera (add_velocity)
-         → modelo CNN+BiLSTM → GrammarMapper → TTS
+         → modelo (por defecto el final, TCN + imputación + 252, D-14; la red heredada CNN+BiLSTM
+           sigue disponible con model_path) → conversor de glosas → TTS
 
 Principios de diseño (todos exigidos por el anteproyecto):
 
@@ -49,6 +50,11 @@ Principios de diseño (todos exigidos por el anteproyecto):
     audio; manos (o pose) no detectadas en una proporción de la ventana mayor que el
     máximo → se indica y NO se infiere; ventana abortada o con menos fotogramas que
     el mínimo → descartada. Cada estado se cuenta y queda en el JSONL.
+
+  * SEÑA CORTADA EN LOS BORDES (N-50, opción B): protocolo de reposo al abrir y al cerrar la
+    ventana, X para abortar si algo falla y, en cada ventana cerrada, un AVISO en el JSONL
+    (clave «bordes»: aviso_inicio, aviso_fin y los valores medidos) que NO rechaza la seña ni
+    cambia su estado. Medida y umbrales de src/analisis_senas_cortadas.py (src/bordes_ventana.py).
 
   * SIN ALMACENAR VIDEO (§1.5): ningún fotograma se escribe a disco. El JSONL guarda
     marcas de tiempo, clase, confianza y contadores; no guarda imágenes ni puntos.
@@ -94,6 +100,11 @@ from src.representacion import (  # D-08: representación de entrada y procedenc
     REPRESENTACIONES, ROSTRO_SUBCONJUNTOS, columnas as columnas_representacion, leer_procedencia,
     n_rasgos as n_rasgos_representacion, ruta_procedencia, leer_umbral,
 )
+# Aviso de seña cortada en los bordes de la ventana (N-50, opción B): la medida de
+# src/analisis_senas_cortadas.py y sus umbrales candidatos; solo avisa, no rechaza.
+from src.bordes_ventana import (  # noqa: E402
+    MODOS_BORDES, UMBRAL_BORDES_CANDIDATO, cargar_umbrales_bordes, evaluar_bordes, medir_bordes,
+)
 
 # ---------------------------------------------------------------------------
 # Constantes
@@ -132,8 +143,12 @@ MANO_AUSENTE_OPCIONES = ("ceros", "descartar", "mascara", "imputacion")
 REPRESENTACION_POR_ANCHO = {n_rasgos_representacion(r) * k: (r, k == 2)
                             for r in REPRESENTACIONES for k in (1, 2)}
 
-# Modelo por defecto del prototipo: el canónico vigente (N-30/N-31: representación «manos»).
-MODELO_POR_DEFECTO = ROOT_DIR / "models" / "canonico_holistic_mascara_manos" / "modelo_canonico.keras"
+# Modelo por defecto del prototipo (decisión del autor del 22-nov-2026, a partir de D-14): el modelo final,
+# TCN + imputación + 252 (N-65; representación «manos», regla «imputacion» y umbral en modelo.umbral.json).
+# La red heredada (canónico CNN+BiLSTM «manos» con «mascara», N-30/N-31) sigue disponible con --model-path.
+MODELO_FINAL = ROOT_DIR / "models" / "tcn_imputacion" / "modelo.keras"
+MODELO_HEREDADO = ROOT_DIR / "models" / "canonico_holistic_mascara_manos" / "modelo_canonico.keras"
+MODELO_POR_DEFECTO = MODELO_FINAL
 
 
 def _ruta_para_el_registro(ruta) -> str:
@@ -151,11 +166,19 @@ def _ruta_para_el_registro(ruta) -> str:
 FPS_SUPUESTA = 30.0   # solo si aún no se ha podido medir la tasa real del bucle
 
 # Conversores de glosas que el prototipo puede usar (3.a, §7.2 de docs/CONVERSOR_3a_ESPECIFICACION.md):
-#   heredado    GrammarMapper (src/grammar_mapper.py), el de siempre y el valor por defecto;
+#   heredado    GrammarMapper (src/grammar_mapper.py), el de siempre;
 #   reglas      ConversorGlosas(): reglas explícitas y plantillas, con respaldo marcado;
 #   inventario  ConversorGlosas(estricto=True): solo dice las glosas solas y las secuencias
-#               previstas; todo lo demás va a respaldo («fuera_de_inventario»).
+#               previstas; todo lo demás va a respaldo («fuera_de_inventario»). Es el procedimiento de
+#               conversión de la tesis (D-15) y el valor por defecto de src/realtime.py (--conversor)
+#               desde el 22-nov-2026 (CONVERSOR_POR_DEFECTO).
+# LSCTranslator, cuando no se le inyecta ningún conversor (grammar_mapper=None), sigue construyendo
+# GrammarMapper: es la interfaz programática que usan las pruebas y los scripts fuera de línea, que pasan el
+# conversor de forma explícita. El defecto del prototipo en vivo lo fija realtime.py con CONVERSOR_POR_DEFECTO.
 CONVERSORES = ("heredado", "reglas", "inventario")
+# Fuentes de audio que el registro acepta de un motor de voz (src/tts.py, FUENTES).
+FUENTES_VOZ = ("pregrabada", "xtts", "local", "edge", "gtts")
+CONVERSOR_POR_DEFECTO = "inventario"
 
 
 def construir_conversor(nombre: str = "heredado", genero_primera: str | None = None,
@@ -419,9 +442,17 @@ class Ensayo:
     # «síntesis» vale casi cero); False si se sintetizó ahora; None si no hubo audio o el motor no
     # tiene cache ni informa de ella (16-sep-2026, pendiente de N-34).
     tts_sintesis_desde_cache: bool | None = None
+    # Qué produjo el audio (23-nov-2026; src/tts.py, docs/VOZ.md): «pregrabada», «xtts» o «local» (o «edge»/
+    # «gtts»), y cuánto tardó el motor en tenerlo listo desde prepare() (ns). None si no hubo audio o si el motor
+    # no lo informa; entonces las claves tts_fuente / tts_tiempo_sintesis_ns NO se escriben en el JSONL.
+    tts_fuente: str | None = None
+    tts_tiempo_sintesis_ns: int | None = None
     # Traza de ConversorGlosas.explicar sin «frase» (3.a, §6). Solo con el conversor por reglas; con el
     # heredado queda en None y la clave «conversion» no se escribe en el JSONL.
     conversion: dict | None = None
+    # Aviso de bordes (N-50, opción B): medidas, banderas aviso_inicio / aviso_fin y costo del cálculo. Se
+    # calcula DESPUÉS de fijar el estado (y de t5): no cambia el estado, ni la inferencia, ni ninguna marca.
+    bordes: dict | None = None
 
     @property
     def n(self) -> int:
@@ -490,10 +521,13 @@ class LSCTranslator:
         mano_ausente: str | None = None,
         representacion: str | None = None,
         procedencia: dict | None = None,
+        bordes: str = "aviso",
+        umbral_bordes: str | Path | None = None,
     ):
         """
         Args:
-            model_path: ruta al .keras. None → MODELO_POR_DEFECTO (canónico vigente). Si junto al
+            model_path: ruta al .keras. None → MODELO_POR_DEFECTO (el modelo final, TCN + imputación;
+                la red heredada es MODELO_HEREDADO). Si junto al
                 modelo hay <modelo>.procedencia.json, de ahí salen la representación y la regla de
                 mano ausente.
             tts_mode: "offline" (local, prioridad del anteproyecto), "edge", "gtts" o "none".
@@ -531,7 +565,22 @@ class LSCTranslator:
             representacion: None → la de la procedencia o, sin ella, la deducida del ancho. Si se da,
                 debe coincidir con el ancho del modelo.
             procedencia: inyección para pruebas (en uso normal se lee junto al model_path).
+            bordes: "aviso" (por defecto; N-50, opción B) mide en cada ventana cerrada si la seña pudo
+                empezar antes o terminar después de la ventana (src/bordes_ventana.py) y lo escribe en el
+                JSONL (clave «bordes»: aviso_inicio, aviso_fin, valores medidos y costo del cálculo) SIN
+                cambiar el estado ni impedir la inferencia; "off" no calcula nada y registra {"modo": "off"}.
+            umbral_bordes: archivo de umbrales del aviso. None → el candidato de N-50
+                (models/senas_cortadas_2026-09-22/umbral_bordes_candidato.json).
         """
+        if bordes not in MODOS_BORDES:
+            raise ValueError(f"bordes debe ser uno de {MODOS_BORDES}, no {bordes!r}")
+        self.bordes_modo = bordes
+        self.umbrales_bordes = (cargar_umbrales_bordes(umbral_bordes if umbral_bordes is not None
+                                                       else UMBRAL_BORDES_CANDIDATO)
+                                if bordes == "aviso" else None)
+        self._umbrales_bordes_registro = (_ruta_para_el_registro(self.umbrales_bordes["ruta"])
+                                          if self.umbrales_bordes is not None else None)
+        self.avisos_bordes = {"inicio": 0, "fin": 0}   # en memoria; no entra en «contadores» (ESTADOS)
         self.reloj = reloj
         umbral_param = umbral
         self.ventana_frames = int(ventana_frames)
@@ -554,7 +603,8 @@ class LSCTranslator:
             if not Path(model_path).exists():
                 por_defecto = Path(model_path).resolve() == Path(MODELO_POR_DEFECTO).resolve()
                 raise FileNotFoundError(f"No existe el modelo {'por defecto ' if por_defecto else ''}{model_path}; "
-                                        f"entrénelo con train_final_100.py o indique --model-path")
+                                        f"entrénelo (train_final_tcn.py el final, train_final_100.py el heredado) "
+                                        f"o indique --model-path")
             print("Cargando modelo...")
             import tensorflow as tf
             modelo = tf.keras.models.load_model(model_path)
@@ -647,6 +697,12 @@ class LSCTranslator:
               f"velocidades={'sí' if self.usa_velocidades else 'no'}, pasos={self.seq_len}, "
               f"mano ausente «{self.mano_ausente}»"
               + ("" if procedencia is not None else " (sin procedencia)"))
+        if self.umbrales_bordes is not None:
+            candidato = "CANDIDATO" in str(self.umbrales_bordes.get("estado") or "")
+            print(f"  Aviso de bordes (N-50, opción B; avisa, no rechaza): umbrales "
+                  f"{'CANDIDATOS ' if candidato else ''}de {self._umbrales_bordes_registro}")
+        else:
+            print("  Aviso de bordes: desactivado")
         if calentar:
             self.modelo.predict(np.zeros((1, self.seq_len, self.n_rasgos), dtype=np.float32), verbose=0)
 
@@ -823,11 +879,43 @@ class LSCTranslator:
         else:
             self._inferir_y_emitir(ens)
 
+        # Aviso de bordes (N-50, opción B): con el estado ya fijado (y t5 ya sellado), así que no cambia el
+        # estado, ni la inferencia, ni ninguna marca t0..t5 ni etapa de §2.2.7.
+        ens.bordes = self._aviso_bordes(ens)
+
         self.contadores[ens.estado] += 1
         registro = self._registro_ensayo(ens, sin_manos=sin_manos, sin_pose=sin_pose)
         self._escribir(registro)
         self.ultimo = registro
         return registro
+
+    def _aviso_bordes(self, ens: Ensayo) -> dict:
+        """Aviso de seña posiblemente cortada en los bordes (N-50, opción B; src/bordes_ventana.py).
+
+        Postura de la ventana (fotogramas sin postura en ceros, como en el corpus) → normalize_sequence →
+        medir_bordes con las marcas c_i → evaluar_bordes con los umbrales. Es independiente de la
+        representación y de la regla de mano ausente del modelo: solo usa la postura, que se extrae siempre.
+        Se calcula para todo cierre con N ≥ 2, también en rechazos; con cierre «abortada» las medidas y
+        las banderas quedan en null. costo_ns es el tiempo del cálculo con time.perf_counter_ns (no con el
+        reloj inyectado, para no mover las marcas de los ensayos siguientes en las pruebas)."""
+        if self.bordes_modo == "off":
+            return {"modo": "off"}
+        u = self.umbrales_bordes
+        inicio = time.perf_counter_ns()
+        if ens.cierre == "abortada" or ens.n < 2:
+            medidas = medir_bordes(np.zeros((0, N_POSE * COORDS), np.float32), np.zeros(0, np.int64), u["borde_s"])
+        else:
+            pose = np.stack([kp[IDX_POSE] for kp in ens.keypoints]).astype(np.float32)   # (N, 99)
+            pose[~np.asarray(ens.pose_flags, dtype=bool)] = 0.0
+            medidas = medir_bordes(normalize_sequence(pose), ens.c, u["borde_s"])
+        avisos = evaluar_bordes(medidas, u)
+        costo_ns = time.perf_counter_ns() - inicio
+        if avisos["aviso_inicio"]:
+            self.avisos_bordes["inicio"] += 1
+        if avisos["aviso_fin"]:
+            self.avisos_bordes["fin"] += 1
+        return {"modo": "aviso", "umbrales": self._umbrales_bordes_registro, **avisos, **medidas,
+                "costo_ns": int(costo_ns)}
 
     def _preprocesar(self, ens: Ensayo) -> np.ndarray:
         """Construye la entrada del modelo con el mismo orden que el entrenamiento: fila completa
@@ -905,6 +993,7 @@ class LSCTranslator:
         ens.tts_sintesis_antes_de_t5 = self._emitir_audio(ens.enunciado)
         ens.t5 = self.ahora()                                     # orden de reproducción emitida
         ens.tts_sintesis_desde_cache = self._sintesis_desde_cache()   # después de t5: no altera marcas
+        ens.tts_fuente, ens.tts_tiempo_sintesis_ns = self._fuente_voz()
 
     # ------------------------------------------------------------------
     # Modo oración: fin de turno explícito
@@ -922,6 +1011,7 @@ class LSCTranslator:
         sintesis_antes = self._emitir_audio(enunciado)
         t_c = self.ahora()
         desde_cache = self._sintesis_desde_cache()     # después de t_c: no altera marcas
+        fuente, tiempo_fuente = self._fuente_voz()
         self.n_turnos += 1
         self.enunciado_turno = enunciado
         self.glosas_turno.clear()
@@ -941,6 +1031,8 @@ class LSCTranslator:
             "tts_modo": self.tts_modo,
             "tts_sintesis_antes_de_orden": sintesis_antes,
             **({"tts_sintesis_desde_cache": desde_cache} if desde_cache is not None else {}),
+            **({"tts_fuente": fuente} if fuente is not None else {}),
+            **({"tts_tiempo_sintesis_ns": tiempo_fuente} if tiempo_fuente is not None else {}),
             **({"conversion": conversion} if conversion is not None else {}),
         }
         voz = self._estado_voz()                       # después de t_c: no altera las marcas
@@ -1042,6 +1134,24 @@ class LSCTranslator:
             return None
         return valor if isinstance(valor, bool) else None
 
+    def _fuente_voz(self) -> tuple[str | None, int | None]:
+        """(fuente, ns) de la locución recién preparada según el motor (src/tts.py: ultima_fuente y
+        ultima_sintesis_ns, 23-nov-2026). Fuente ∈ {"pregrabada", "xtts", "local", "edge", "gtts"}; cualquier
+        otro valor (motor que no informa, doble de prueba) → None y la clave no se escribe. Se lee DESPUÉS de
+        sellar t5 (o t_c), así que no altera ninguna marca."""
+        tts = self.tts
+        if tts is None:
+            return None, None
+        try:
+            fuente = getattr(tts, "ultima_fuente", None)
+            ns = getattr(tts, "ultima_sintesis_ns", None)
+        except Exception:   # noqa: BLE001 — un diagnóstico nunca debe tumbar el registro
+            return None, None
+        if not isinstance(fuente, str) or fuente not in FUENTES_VOZ:
+            return None, None
+        ns = int(ns) if isinstance(ns, int) and not isinstance(ns, bool) and ns >= 0 else None
+        return fuente, ns
+
     def _estado_voz(self) -> dict:
         """Errores de reproducción ACUMULADOS en la sesión hasta este instante (src/tts.py, N-34).
 
@@ -1127,6 +1237,8 @@ class LSCTranslator:
             "tts_ultimo_error_reproduccion": voz["ultimo_error_reproduccion"],
             **({"tts_sintesis_desde_cache": ens.tts_sintesis_desde_cache}
                if ens.tts_sintesis_desde_cache is not None else {}),
+            **({"tts_fuente": ens.tts_fuente} if ens.tts_fuente is not None else {}),
+            **({"tts_tiempo_sintesis_ns": ens.tts_tiempo_sintesis_ns} if ens.tts_tiempo_sintesis_ns is not None else {}),
             "parametros": {
                 "umbral": self.umbral,
                 "umbral_origen": self.umbral_origen,
@@ -1165,6 +1277,8 @@ class LSCTranslator:
             "glosas_turno": list(self.glosas_turno),
             "contadores": dict(self.contadores),
             **({"conversion": ens.conversion} if ens.conversion is not None else {}),
+            # Siempre la última clave (N-50, opción B); las anteriores no cambian ni de nombre ni de orden.
+            "bordes": ens.bordes if ens.bordes is not None else {"modo": self.bordes_modo},
         }
 
     def _escribir(self, registro: dict) -> None:

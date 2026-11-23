@@ -1,0 +1,117 @@
+escrito docs/EXPERIMENTO_PASOS_TCN.json
+semillas [2026, 2027, 2028] | P30 reutilizado True
+
+P30 | 156,402 param | voto 0.7161
+   val_top1               0.9493 (DE pl 0.0166, DE sem 0.0050) [0.96, 0.937, 0.937, 0.973, 0.94] sem [0.95, 0.954, 0.944]
+   val_loss               0.9776 (DE pl 0.0650, DE sem 0.0228) [0.897, 1.012, 1.046, 0.92, 1.013] sem [0.9754, 0.9561, 1.0014]
+   val_nll_sin_suavizado  0.2896 (DE pl 0.0811, DE sem 0.0233) [0.186, 0.324, 0.374, 0.222, 0.343] sem [0.2878, 0.2674, 0.3138]
+   test_top1              0.6771 (DE pl 0.1269, DE sem 0.0165) [0.488, 0.611, 0.721, 0.77, 0.795] sem [0.688, 0.658, 0.6851]
+   test_top3              0.8466 (DE pl 0.1173, DE sem 0.0260) [0.66, 0.807, 0.889, 0.935, 0.942] sem [0.8625, 0.8166, 0.8606]
+   test_f1_macro          0.6467 (DE pl 0.1270, DE sem 0.0150) [0.469, 0.565, 0.685, 0.745, 0.77] sem [0.6578, 0.6296, 0.6527]
+   epocas_ejecutadas      55.8000 (DE pl 6.9506, DE sem 1.0583) [46.0, 52.667, 57.333, 58.333, 64.667] sem [55.0, 57.0, 55.4]
+   mejor_epoca            30.8000 (DE pl 6.9506, DE sem 1.0583) [21.0, 27.667, 32.333, 33.333, 39.667] sem [30.0, 32.0, 30.4]
+   tiempo_total_s         122.9933 (DE pl 19.7374, DE sem 4.9800) [90.133, 119.733, 131.433, 134.233, 139.433] sem [118.02, 127.98, 122.98]
+   s_por_epoca            2.1560 (DE pl 0.1394, DE sem 0.0489) [1.927, 2.23, 2.253, 2.25, 2.12] sem [2.1, 2.19, 2.178]
+
+P60 | 156,402 param | voto 0.7252
+   val_top1               0.9533 (DE pl 0.0187, DE sem 0.0070) [0.973, 0.943, 0.943, 0.973, 0.933] sem [0.96, 0.946, 0.954]
+   val_loss               0.9676 (DE pl 0.0742, DE sem 0.0290) [0.89, 0.996, 1.021, 0.887, 1.044] sem [0.9453, 1.0004, 0.9571]
+   val_nll_sin_suavizado  0.3156 (DE pl 0.0906, DE sem 0.0299) [0.214, 0.354, 0.383, 0.222, 0.404] sem [0.2919, 0.3492, 0.3056]
+   test_top1              0.6904 (DE pl 0.1132, DE sem 0.0165) [0.505, 0.672, 0.717, 0.773, 0.785] sem [0.7071, 0.6901, 0.6741]
+   test_top3              0.8633 (DE pl 0.1073, DE sem 0.0106) [0.682, 0.858, 0.897, 0.932, 0.948] sem [0.8746, 0.8617, 0.8537]
+   test_f1_macro          0.6604 (DE pl 0.1067, DE sem 0.0170) [0.488, 0.642, 0.678, 0.741, 0.754] sem [0.6774, 0.6605, 0.6433]
+   epocas_ejecutadas      59.8667 (DE pl 8.9026, DE sem 2.3180) [51.0, 58.0, 74.0, 54.333, 62.0] sem [57.2, 61.4, 61.0]
+   mejor_epoca            34.8667 (DE pl 8.9026, DE sem 2.3180) [26.0, 33.0, 49.0, 29.333, 37.0] sem [32.2, 36.4, 36.0]
+   tiempo_total_s         215.0533 (DE pl 44.3826, DE sem 7.3554) [175.233, 213.767, 289.433, 188.267, 208.567] sem [206.56, 219.3, 219.3]
+   s_por_epoca            3.5240 (DE pl 0.2354, DE sem 0.0470) [3.387, 3.627, 3.89, 3.4, 3.317] sem [3.578, 3.502, 3.492]
+
+CRITERIO: {
+ "sigma_val_agrupada": 0.006110101277796002,
+ "varianza_val_entre_semillas": {
+  "P30": 2.5333356539505083e-05,
+  "P60": 4.933331871034358e-05
+ },
+ "margen": 0.01,
+ "sigma_val_loss_agrupada": 0.026090801937828124,
+ "varianza_val_loss_entre_semillas": {
+  "P30": 0.0005186094270279313,
+  "P60": 0.0008428504644900201
+ },
+ "media_val": {
+  "P30": 0.9493333339691162,
+  "P60": 0.953333334128062
+ },
+ "media_val_loss": {
+  "P30": 0.9776195605595907,
+  "P60": 0.9675989667574565
+ },
+ "regla1": {
+  "P60_supera_a_P30": {
+   "delta_media": 0.004,
+   "pliegues_mejor": 3,
+   "pliegues_peor": 1,
+   "a_delta_mayor_que_margen": false,
+   "b_mejor_en_4_de_5": false,
+   "cumple": false
+  },
+  "P30_supera_a_P60": {
+   "delta_media": -0.004,
+   "pliegues_mejor": 1,
+   "pliegues_peor": 3,
+   "a_delta_mayor_que_margen": false,
+   "b_mejor_en_4_de_5": false,
+   "cumple": false
+  }
+ },
+ "regla2": {
+  "P60_supera_a_P30": {
+   "reduccion_por_pliegue": [
+    0.007599,
+    0.015969,
+    0.025257,
+    0.032627,
+    -0.031348
+   ],
+   "reduccion_media": 0.0100208,
+   "pliegues_menor": 4,
+   "pliegues_mayor": 1,
+   "a_reduccion_mayor_que_sigma": false,
+   "b_menor_en_4_de_5": true,
+   "cumple": false
+  },
+  "P30_supera_a_P60": {
+   "reduccion_por_pliegue": [
+    -0.007599,
+    -0.015969,
+    -0.025257,
+    -0.032627,
+    0.031348
+   ],
+   "reduccion_media": -0.0100208,
+   "pliegues_menor": 1,
+   "pliegues_mayor": 4,
+   "a_reduccion_mayor_que_sigma": false,
+   "b_menor_en_4_de_5": false,
+   "cumple": false
+  }
+ },
+ "regla3": {
+  "orden_simplicidad": [
+   "P30",
+   "P60"
+  ],
+  "motivo": "empate en validacion: 30 es la longitud vigente y la mas barata"
+ },
+ "decide_en_regla": 3,
+ "configuracion_final": "P30"
+}
+  P60-P30 val_top1: [0.0133, 0.0067, 0.0067, 0.0, -0.0067] +3 -1 =1 | signos 0.6250 | wilcoxon 0.4375
+  P60-P30 val_loss: [0.0076, 0.016, 0.0253, 0.0326, -0.0313] +4 -1 =0 | signos 0.3750 | wilcoxon 0.4375
+  P60-P30 test_top1: [0.0167, 0.0603, -0.0034, 0.0033, -0.01] +3 -2 =0 | signos 1.0000 | wilcoxon 0.6250
+  P60-P30 test_top3: [0.0217, 0.0503, 0.0084, -0.0033, 0.0067] +4 -1 =0 | signos 0.3750 | wilcoxon 0.1250
+  P60-P30 test_f1_macro: [0.0192, 0.0766, -0.0077, -0.0041, -0.0157] +2 -3 =0 | signos 1.0000 | wilcoxon 0.8125
+  McNemar P60 vs P30 2026: 705 vs 686 | solo P60 97 solo P30 78 | p 0.1734
+  McNemar P60 vs P30 2027: 688 vs 656 | solo P60 101 solo P30 69 | p 0.01717
+  McNemar P60 vs P30 2028: 672 vs 683 | solo P60 84 solo P30 95 | p 0.4549
+  McNemar P60 vs P30 voto_semillas: 723 vs 714 | solo P60 74 solo P30 65 | p 0.4976
+persona 0000: {'P30': {'val_top1': 0.96, 'val_loss': 0.897, 'test_top1': 0.488, 'test_top3': 0.66, 'test_f1_macro': 0.469}, 'P60': {'val_top1': 0.973, 'val_loss': 0.89, 'test_top1': 0.505, 'test_top3': 0.682, 'test_f1_macro': 0.488}}

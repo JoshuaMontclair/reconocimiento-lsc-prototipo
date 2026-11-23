@@ -1,11 +1,19 @@
 {
- "umbral": 0.0,
- "decision": "D-09",
+ "umbral": 0.68,
+ "decision": "N-75 (adopta el umbral de la validación anidada por señante, N-74)",
  "c": 1.0,
- "seleccionado_con": "validacion de models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026 (5 pliegues, 500 muestras; TCN + imputacion + 252, misma configuracion que el modelo)",
+ "seleccionado_con": "validación anidada por señante: 10 modelos TCN + imputacion + 252 (uno por par de señantes, entrenados con los otros tres), 20 casillas; t_global con el selector de D-09 (src/umbral_anidado_tcn.py)",
+ "informe": "models/umbral_anidado_tcn_2026-11-22/informe.md",
  "modelo": "modelo.keras",
  "sha256_modelo": "6970722dd06e2672c812c0b7f74baf135d03912cc1bb79440faab8220b2c1679",
- "script": "src/umbral_tcn_imputacion.py (criterio de src/umbral_confianza.py)",
- "informe": "models/tcn_imputacion/umbral_D09_2026-10-03.json",
- "fecha": "2026-10-03T09:03:45"
+ "fecha": "2026-11-22",
+ "umbral_d09_validacion_vistos": {
+  "umbral": 0.0,
+  "decision": "D-09",
+  "c": 1.0,
+  "seleccionado_con": "validacion de models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026 (5 pliegues, 500 muestras; TCN + imputacion + 252, misma configuracion que el modelo)",
+  "script": "src/umbral_tcn_imputacion.py (criterio de src/umbral_confianza.py)",
+  "informe": "models/tcn_imputacion/umbral_D09_2026-10-03.json",
+  "fecha": "2026-10-03T09:03:45"
+ }
 }

@@ -1,0 +1,47 @@
+{
+ "A": {
+  "voz": "Rocko (es_MX)",
+  "motor": "say",
+  "ms_por_frase_mediana": 391.2
+ },
+ "B": {
+  "voz": "Flo (es_MX)",
+  "motor": "say",
+  "ms_por_frase_mediana": 351.4
+ },
+ "C": {
+  "voz": "Eddy (es_MX)",
+  "motor": "say",
+  "ms_por_frase_mediana": 345.7
+ },
+ "D": {
+  "voz": "Google gTTS (en línea, es, tld com.mx)",
+  "motor": "gtts",
+  "ms_por_frase_mediana": 297.6
+ },
+ "E": {
+  "voz": "Paulina (es_MX, la actual)",
+  "motor": "say",
+  "ms_por_frase_mediana": 585.9
+ },
+ "F": {
+  "voz": "Shelley (es_MX)",
+  "motor": "say",
+  "ms_por_frase_mediana": 407.9
+ },
+ "G": {
+  "voz": "Reed (es_MX)",
+  "motor": "say",
+  "ms_por_frase_mediana": 390.1
+ },
+ "H": {
+  "voz": "Sandy (es_MX)",
+  "motor": "say",
+  "ms_por_frase_mediana": 399.3
+ },
+ "I": {
+  "voz": "Mónica (es_ES)",
+  "motor": "say",
+  "ms_por_frase_mediana": 569.6
+ }
+}

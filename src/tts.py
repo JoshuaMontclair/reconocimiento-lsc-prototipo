@@ -101,9 +101,31 @@ Cache de audio y sintetizador persistente (16-sep-2026; pendiente de N-34).
     objeto a la vez producen archivos truncados o mezclados (medido: 4 096 y 37 376 bytes, ninguno igual
     al de `say`); con candado, cuatro peticiones simultáneas salen correctas y en fila.
 
+Voz del prototipo desde el 23-nov-2026 (decisión del autor; docs/VOZ.md).
+  · VOZ LOCAL = Mónica. En modo offline, sin --voice, se usa la voz del sistema llamada «Mónica» si existe
+    (VOZ_LOCAL_PREFERIDA; la eligió el autor en la escucha a ciegas). Si no existe, se aplica la regla de
+    siempre (es-CO > América Latina > es-ES, por calidad). voz_preferida=None vuelve a la regla sola.
+  · MODO «pregrabada» (el del prototipo cuando existe models/voz_pregrabada/indice.json). Cadena por frase:
+      1. «pregrabada»: el enunciado EXACTO está en el índice (src/voz_pregrabada.py) → se publica su WAV tal cual
+         (no se copia ni se sintetiza: la preparación queda lista antes de que prepare() retorne);
+      2. «xtts»: si no está y hay servicio XTTS-v2 (src/voz_xtts_servicio.py, proceso aparte lanzado con el
+         intérprete de python_voz o de la variable TESIS_PYTHON_VOZ) y está listo → sintetiza a WAV. Lo que
+         sintetiza XTTS se guarda en la cache de la sesión (la misma cache por texto de arriba): la segunda vez
+         la frase sale de la cache;
+      3. «local»: si no hay servicio, si aún está cargando, si cayó o si la frase falla → Mónica (mismo camino
+         que el modo offline: sintetizador persistente o `say`). Lo local NO se guarda en la cache en este modo,
+         para que la frase use XTTS en cuanto el servicio esté listo.
+    El servicio se lanza al construir el módulo y carga en segundo plano: el constructor NO espera (el prototipo
+    decide cuánto esperar con esperar_servicio_voz). Cualquier fallo del servicio, en cualquier momento, deja el
+    resto de la sesión con Mónica y se avisa una vez por consola. cleanup() detiene el servicio.
+  · Qué se usó en cada frase: ultima_fuente ∈ {"pregrabada", "xtts", "local", "edge", "gtts"} y
+    ultima_sintesis_ns (desde prepare() hasta que el audio quedó listo). El prototipo los lleva al JSONL como
+    tts_fuente y tts_tiempo_sintesis_ns. estado_voz() da los contadores por fuente y el estado del servicio.
+
 Uso:
     from tts import TTSModule
-    tts = TTSModule()                        # offline, voz en español del sistema
+    tts = TTSModule()                        # offline, voz local (Mónica si existe)
+    tts = TTSModule(mode="pregrabada", python_voz="/ruta/python-con-coqui")   # la del prototipo
     tts.speak("Hola, buenos días")           # bloquea hasta terminar
     tts.speak_async("Yo como mucho")         # no bloquea (hilo aparte); lo usa realtime.py
     print(tts.voice, tts.voice_reason)       # qué voz se eligió y por qué
@@ -111,6 +133,7 @@ Uso:
 CLI:
     python src/tts.py --listar-voces         # voces del sistema y cuál se elegiría; SIN audio
     python src/tts.py --text "Gracias"       # habla con el modo por defecto (offline)
+    python src/tts.py --mode pregrabada --text "Gracias."   # WAV pregrabado (o respaldo)
     python src/tts.py --mode edge --text "Hola"   # opcional: requiere edge-tts e internet
 """
 
@@ -128,9 +151,12 @@ import threading
 import time
 import unicodedata
 
-MODOS: tuple[str, ...] = ("offline", "edge", "gtts")
-MODO_POR_DEFECTO = "offline"
+MODOS: tuple[str, ...] = ("offline", "edge", "gtts", "pregrabada")
+MODO_POR_DEFECTO = "offline"           # del módulo; el del prototipo lo decide modo_tts_prototipo()
 VOZ_EDGE_POR_DEFECTO = "es-CO-SalomeNeural"
+VOZ_LOCAL_PREFERIDA = "Mónica"         # elegida por el autor en la escucha a ciegas (docs/VOZ.md)
+# Qué produjo el audio de una locución (JSONL: tts_fuente).
+FUENTES: tuple[str, ...] = ("pregrabada", "xtts", "local", "edge", "gtts")
 
 # Topes de la cache de audio (16-sep-2026). 64 entradas cubren las 50 glosas del vocabulario con
 # margen; 8 MiB es algo más de tres veces lo que ocupan las 62 frases medidas (2 508 992 bytes,
@@ -297,6 +323,48 @@ def elegir_voz_espanol(voces) -> tuple[object | None, str]:
     return voz, motivo
 
 
+def elegir_voz_local(voces, preferida: str | None = VOZ_LOCAL_PREFERIDA) -> tuple[object | None, str]:
+    """Voz local del prototipo: la llamada `preferida` (sin tildes ni mayúsculas; «Mónica (Spanish (Spain))»
+    cuenta como «Mónica») si el sistema la tiene, con las premium/enhanced antes que las compact; si no está, o
+    si preferida es None, la regla general de elegir_voz_espanol."""
+    if preferida:
+        clave = _sin_acentos(preferida).lower().strip()
+        candidatas = []
+        for indice, voz in enumerate(voces):
+            nombre = _sin_acentos(getattr(voz, "name", "") or "").lower().strip()
+            primera = re.split(r"[\s(]+", nombre, maxsplit=1)[0] if nombre else ""
+            if primera == clave:
+                candidatas.append(((_rango_calidad(getattr(voz, "id", "")), indice), voz))
+        if candidatas:
+            candidatas.sort(key=lambda c: c[0])
+            return candidatas[0][1], f"voz local elegida por el autor («{preferida}», docs/VOZ.md)"
+    elegida, motivo = elegir_voz_espanol(voces)
+    if preferida and elegida is not None:
+        motivo = f"no hay voz «{preferida}» en el sistema; {motivo}"
+    return elegida, motivo
+
+
+def modo_tts_prototipo(indice=None) -> tuple[str, str | None]:
+    """Modo de voz por defecto del prototipo y aviso (o None): «pregrabada» si existe el índice de voz
+    pregrabada (models/voz_pregrabada/indice.json); si no, «offline» (Mónica) con un aviso."""
+    vp = _importar_del_proyecto("voz_pregrabada")
+    if vp.existe_indice(indice):
+        return "pregrabada", None
+    ruta = indice or vp.RUTA_INDICE_POR_DEFECTO
+    return "offline", (f"  [AVISO TTS] no existe el índice de voz pregrabada ({ruta}); se usa la voz local "
+                       f"(modo offline, {VOZ_LOCAL_PREFERIDA} si está instalada). Ver docs/VOZ.md.")
+
+
+def _importar_del_proyecto(nombre: str):
+    """Módulo hermano de src/ (voz_pregrabada, voz_xtts_servicio) tanto si este módulo se importó como
+    src.tts como si se ejecuta src/tts.py directamente."""
+    import importlib
+    try:
+        return importlib.import_module(f"src.{nombre}")
+    except ImportError:
+        return importlib.import_module(nombre)
+
+
 def describir_voz(voz) -> str:
     return f"{getattr(voz, 'id', '?')} | {getattr(voz, 'name', '?')} | {getattr(voz, 'languages', [])}"
 
@@ -363,7 +431,7 @@ def listar_voces_sistema():
     """Voces que ve pyttsx3 y cuál se elegiría. No reproduce audio."""
     motor = _importar_pyttsx3().init()
     voces = list(motor.getProperty("voices"))
-    elegida, motivo = elegir_voz_espanol(voces)
+    elegida, motivo = elegir_voz_local(voces)
     return voces, elegida, motivo
 
 
@@ -421,19 +489,29 @@ def _detectar_reproductor() -> str | None:
 
 
 class TTSModule:
-    """Motor de síntesis de voz con tres modos: offline (por defecto), edge y gtts."""
+    """Motor de síntesis de voz con cuatro modos: offline (por defecto del módulo), edge, gtts y pregrabada."""
 
     def __init__(self, mode: str = MODO_POR_DEFECTO, voice: str | None = None,
                  rate: int = 150, verbose: bool = True, cache: bool = True,
                  cache_max_entradas: int = CACHE_MAX_ENTRADAS,
                  cache_max_bytes: int = CACHE_MAX_BYTES,
-                 sintetizador_persistente: bool = True):
+                 sintetizador_persistente: bool = True,
+                 voz_preferida: str | None = VOZ_LOCAL_PREFERIDA,
+                 indice_pregrabada=None,
+                 python_voz: str | None = None,
+                 xtts_hablante: str | None = None,
+                 xtts_dispositivo: str = "auto",
+                 xtts_motor: str = "xtts",
+                 xtts_argumentos=(),
+                 xtts_tope_arranque_seg: float | None = None,
+                 xtts_tope_sintesis_seg: float | None = None,
+                 servicio_xtts=None):
         """
         Args:
-            mode: "offline" (por defecto), "edge" o "gtts".
-            voice: voz concreta. offline: identificador de voz del sistema (ver --listar-voces);
-                   edge: p. ej. "es-CO-SalomeNeural" o "es-CO-GonzaloNeural"; gtts: se ignora.
-                   Si es None, offline elige una voz en español del sistema y edge usa Salomé.
+            mode: "offline" (por defecto del módulo), "edge", "gtts" o "pregrabada" (el del prototipo).
+            voice: voz concreta. offline y pregrabada (voz local de respaldo): identificador de voz del sistema
+                   (ver --listar-voces); edge: p. ej. "es-CO-SalomeNeural"; gtts: se ignora. Si es None,
+                   offline/pregrabada usan voz_preferida (Mónica) si existe y edge usa Salomé.
             rate: palabras por minuto en modo offline.
             verbose: imprime qué voz se eligió.
             cache: guarda cada audio sintetizado y lo reutiliza si vuelve el mismo texto con la
@@ -442,6 +520,13 @@ class TTSModule:
                    entrada usada hace más tiempo. Los audios se borran con cleanup().
             sintetizador_persistente: en macOS, sintetizar a archivo con un NSSpeechSynthesizer vivo
                    (pyobjc) en vez de arrancar `say` en cada frase. Si falla, se usa `say`.
+            voz_preferida: nombre de la voz local preferida (default «Mónica»); None → regla general.
+            indice_pregrabada: (pregrabada) ruta del indice.json o de su carpeta; None → models/voz_pregrabada.
+            python_voz: (pregrabada) intérprete con coqui-tts para el servicio XTTS. None → variable de entorno
+                   TESIS_PYTHON_VOZ; "" o sin variable → sin servicio (el respaldo es la voz local).
+            xtts_hablante / xtts_dispositivo ("auto", "mps", "cpu") / xtts_motor ("xtts"; "prueba" solo para
+                   pruebas) / xtts_argumentos / topes: opciones del servicio (src/voz_xtts_servicio.py).
+            servicio_xtts: cliente ya construido (pruebas); si se da, no se lanza otro.
         """
         if mode not in MODOS:
             raise ValueError(f"Modo TTS no soportado: {mode!r}; use uno de {MODOS}")
@@ -505,9 +590,24 @@ class TTSModule:
         self._ns_descartado = False
         self._candado_ns = threading.Lock()
         self.ultimo_error_sintetizador: str | None = None
+        # Voz pregrabada y cadena de respaldo (23-nov-2026). ultima_fuente / ultima_sintesis_ns describen la
+        # preparación vigente (None mientras no hay una lista); el prototipo las lleva al JSONL.
+        self.voz_preferida = voz_preferida
+        self.indice = None                              # IndiceVozPregrabada (modo pregrabada)
+        self.local_disponible = mode == "offline"       # en pregrabada, si la voz local arrancó
+        self.xtts = None                                # ServicioXTTS (modo pregrabada, si hay intérprete)
+        self.xtts_hablante = xtts_hablante
+        self.ultima_fuente: str | None = None
+        self.ultima_sintesis_ns: int | None = None
+        self.conteo_fuentes: dict[str, int] = {}
+        self._avisos_voz: set[str] = set()
 
         if mode == "offline":
             self._init_offline(voice, rate, verbose)
+        elif mode == "pregrabada":
+            self._init_pregrabada(voice, rate, verbose, indice_pregrabada, python_voz, xtts_hablante,
+                                  xtts_dispositivo, xtts_motor, xtts_argumentos, xtts_tope_arranque_seg,
+                                  xtts_tope_sintesis_seg, servicio_xtts)
         elif mode == "edge":
             self._init_edge(voice, verbose)
         else:
@@ -537,7 +637,7 @@ class TTSModule:
             self.voice_name = getattr(coincidencias[0], "name", None)
             self.voice_reason = "indicada por la persona usuaria"
         else:
-            elegida, motivo = elegir_voz_espanol(voces)
+            elegida, motivo = elegir_voz_local(voces, self.voz_preferida)
             if elegida is not None:
                 self.engine.setProperty("voice", elegida.id)
                 self.voice = elegida.id
@@ -563,6 +663,82 @@ class TTSModule:
             print(f"  TTS offline (voces por pyttsx3/{getattr(self.engine, 'driver_name', '?')}; "
                   f"locución con {self.ejecutor_offline}): "
                   f"voz {self.voice_name or self.voice or 'del sistema'} — {self.voice_reason}")
+
+    def _init_pregrabada(self, voice, rate, verbose, indice, python_voz, xtts_hablante, xtts_dispositivo,
+                         xtts_motor, xtts_argumentos, tope_arranque, tope_sintesis, servicio) -> None:
+        """Índice de voz pregrabada (obligatorio), voz local de respaldo (Mónica; si falta pyttsx3 se sigue sin
+        ella) y servicio XTTS (si hay intérprete). El servicio se lanza y carga en segundo plano: aquí no se
+        espera."""
+        vp = _importar_del_proyecto("voz_pregrabada")
+        try:
+            self.indice = vp.IndiceVozPregrabada.cargar(indice)
+        except vp.IndiceInvalido as exc:
+            raise TTSDependenciaFaltante(f"El modo 'pregrabada' necesita el índice de voz: {exc}") from exc
+        self._reproductor = None if shutil.which("afplay") else _detectar_reproductor()
+        if not shutil.which("afplay") and self._reproductor is None:
+            raise TTSDependenciaFaltante("El modo 'pregrabada' necesita con qué reproducir WAV: afplay (macOS), "
+                                         "pygame o ffplay.")
+        try:
+            self._init_offline(voice, rate, verbose=False)
+            self.local_disponible = True
+        except TTSDependenciaFaltante as exc:
+            self.local_disponible = False
+            self.voice_reason = f"sin voz local ({exc})"
+            print(f"  [AVISO TTS] sin voz local de respaldo ({exc}); las frases que no estén pregrabadas "
+                  "solo sonarán si el servicio XTTS está listo.")
+        sx = _importar_del_proyecto("voz_xtts_servicio")
+        self.xtts_hablante = xtts_hablante or sx.HABLANTE_POR_DEFECTO
+        if servicio is not None:
+            self.xtts = servicio
+        else:
+            python = sx.python_voz_desde_entorno() if python_voz is None else (python_voz or None)
+            if python:
+                kw = {}
+                if tope_arranque is not None:
+                    kw["tope_arranque_seg"] = tope_arranque
+                if tope_sintesis is not None:
+                    kw["tope_sintesis_seg"] = tope_sintesis
+                self.xtts = sx.ServicioXTTS(python, hablante=self.xtts_hablante, dispositivo=xtts_dispositivo,
+                                            motor=xtts_motor, argumentos_extra=xtts_argumentos,
+                                            al_cambiar=self._al_cambiar_xtts, **kw)
+                try:
+                    self.xtts.iniciar()
+                except sx.ErrorServicioVoz as exc:
+                    print(f"  [AVISO TTS] no se pudo lanzar el servicio XTTS ({exc}); el respaldo es la voz local.")
+        if verbose:
+            print(f"  TTS pregrabada: {self.indice.describir()} ({self.indice.ruta}); "
+                  f"respaldo: {self.describir_respaldo()}")
+
+    def describir_respaldo(self) -> str:
+        """Cadena de respaldo en una línea, para la consola del prototipo."""
+        local = (f"{self.voice_name or self.voice or 'voz del sistema'} ({self.ejecutor_offline})"
+                 if self.local_disponible else "sin voz local")
+        if self.xtts is None:
+            return f"sin servicio XTTS → {local}"
+        e = self.xtts.estado() if hasattr(self.xtts, "estado") else {}
+        return f"XTTS-v2 «{self.xtts_hablante}» ({e.get('estado', '?')}) → {local}"
+
+    def _al_cambiar_xtts(self, estado: str, detalle: str | None) -> None:
+        """Avisos del servicio XTTS por consola (una vez por estado)."""
+        if estado == "listo":
+            print(f"  [voz] servicio XTTS-v2 listo ({detalle}); las frases no pregrabadas usan «{self.xtts_hablante}»")
+        elif estado == "caido" and not self._cerrado:
+            self._avisar_una_vez("xtts_caido", f"  [AVISO TTS] el servicio XTTS no está disponible ({detalle}); "
+                                               f"las frases no pregrabadas usan la voz local en lo que queda de sesión.")
+
+    def _avisar_una_vez(self, clave: str, mensaje: str) -> None:
+        with self._candado_estado:
+            if clave in self._avisos_voz:
+                return
+            self._avisos_voz.add(clave)
+        print(mensaje)
+
+    def esperar_servicio_voz(self, tope_seg: float) -> bool:
+        """Espera como mucho tope_seg a que el servicio XTTS esté listo. True si lo está; False si no hay
+        servicio, si cayó o si sigue cargando (en ese caso se usa la voz local hasta que esté listo)."""
+        if self.xtts is None:
+            return False
+        return bool(self.xtts.esperar_listo(max(0.0, float(tope_seg))))
 
     def _init_edge(self, voice: str | None, verbose: bool) -> None:
         faltan = []
@@ -637,6 +813,8 @@ class TTSModule:
                     self._speak_edge(text)
                 elif self.mode == "gtts":
                     self._speak_gtts(text)
+                elif self.mode == "pregrabada":
+                    self._speak_pregrabada(text)
                 else:
                     self._speak_offline(text)
             finally:
@@ -658,6 +836,7 @@ class TTSModule:
         ultima_preparacion_desde_cache queda en True."""
         if not text:
             return
+        t_ini = time.perf_counter_ns()
         evento = threading.Event()
         with self._candado_estado:
             reemplazado = self._prepared_file         # sintetizado y nunca reproducido: sobra
@@ -667,25 +846,50 @@ class TTSModule:
             cerrado = self._cerrado
             self.error_preparacion = "TTS cerrado con cleanup()" if cerrado else None
             self.ultima_preparacion_desde_cache = None if cerrado else False
+            self.ultima_fuente = None
+            self.ultima_sintesis_ns = None
         self._borrar_audio(reemplazado)
         if cerrado:
             evento.set()
             return
+        if self.mode == "pregrabada":
+            # 1. Enunciado pregrabado: se publica el WAV del índice tal cual (_borrar_audio nunca lo toca: está
+            # fuera de la carpeta temporal). La cache no interviene (ultima_preparacion_desde_cache = None).
+            ruta = self.indice.buscar(text) if self.indice is not None else None
+            if ruta is not None and os.path.exists(ruta):
+                self._publicar(evento, str(ruta), "pregrabada", t_ini, desde_cache=None)
+                evento.set()
+                return
         copia = self._copia_desde_cache(text)
         if copia is not None:
-            sobra = None
-            with self._candado_estado:
-                vigente = evento is self._evento_preparado and not self._cerrado
-                if vigente:
-                    self._prepared_file = copia
-                    self.ultima_preparacion_desde_cache = True
-                    self.ultimo_sintetizador = "cache"
-                else:
-                    sobra = copia
-            self._borrar_audio(sobra)
+            if not self._publicar(evento, copia, self._fuente_de_la_cache(), t_ini, desde_cache=True):
+                self._borrar_audio(copia)
             evento.set()
             return
-        threading.Thread(target=self._prepare_audio, args=(text, evento), daemon=True).start()
+        threading.Thread(target=self._prepare_audio, args=(text, evento, t_ini), daemon=True).start()
+
+    def _publicar(self, evento, archivo: str, fuente: str, t_ini: int, desde_cache) -> bool:
+        """Publica la preparación si sigue vigente. Devuelve False si ya fue reemplazada o el módulo se cerró
+        (quien llama decide qué hacer con el archivo)."""
+        with self._candado_estado:
+            if evento is not self._evento_preparado or self._cerrado:
+                return False
+            self._prepared_file = archivo
+            self.ultima_preparacion_desde_cache = desde_cache
+            self.ultima_fuente = fuente
+            self.ultima_sintesis_ns = time.perf_counter_ns() - t_ini
+            self.conteo_fuentes[fuente] = self.conteo_fuentes.get(fuente, 0) + 1
+            if desde_cache:
+                self.ultimo_sintetizador = "cache"
+            elif fuente == "pregrabada":
+                self.ultimo_sintetizador = "pregrabada"
+            return True
+
+    def _fuente_de_la_cache(self) -> str:
+        """En pregrabada la cache solo guarda lo de XTTS; en los demás modos, lo del propio modo."""
+        if self.mode == "pregrabada":
+            return "xtts"
+        return "local" if self.mode == "offline" else self.mode
 
     def esperar_preparado(self, tope_seg: float) -> bool:
         """Espera a que termine la síntesis iniciada con prepare() (con éxito o con error) o a que venza
@@ -693,26 +897,31 @@ class TTSModule:
         self._evento_preparado.wait(timeout=tope_seg)
         return self.is_prepared
 
-    def _prepare_audio(self, text: str, evento: threading.Event | None = None) -> None:
-        """Sintetiza a archivo sin reproducir, en los tres modos. El audio de una preparación ya
+    def _prepare_audio(self, text: str, evento: threading.Event | None = None, t_ini: int | None = None) -> None:
+        """Sintetiza a archivo sin reproducir, en todos los modos. El audio de una preparación ya
         reemplazada, o de una síntesis que falla, se borra."""
         audio_file = None
+        t_ini = time.perf_counter_ns() if t_ini is None else t_ini
         with self._candado_estado:                    # el precalentado espera a que esto termine
             self._preparaciones_en_curso += 1
             self._evento_sin_preparacion.clear()
         try:
             # La ruta se pide ANTES de sintetizar: si la síntesis falla a medias, el parcial se borra.
             audio_file = self._next_audio_file(self._extension_audio())
-            self._sintetizar_en(text, audio_file)
+            audio_file, fuente = self._sintetizar_con_fuente(text, audio_file)
             if not (os.path.exists(audio_file) and os.path.getsize(audio_file) > 0):
                 raise RuntimeError(f"la síntesis no produjo audio en {audio_file}")
-            self._guardar_en_cache(text, audio_file)  # antes de publicar: el audio puede sobrar y borrarse
+            if self._cacheable(fuente):
+                self._guardar_en_cache(text, audio_file)  # antes de publicar: el audio puede sobrar y borrarse
             with self._candado_estado:
                 # Una preparación ya reemplazada (o terminada tras cleanup) no se publica: su audio sobra.
                 vigente = (evento is None or evento is self._evento_preparado) and not self._cerrado
                 sobrante = self._prepared_file if vigente else audio_file
                 if vigente:
                     self._prepared_file = audio_file
+                    self.ultima_fuente = fuente
+                    self.ultima_sintesis_ns = time.perf_counter_ns() - t_ini
+                    self.conteo_fuentes[fuente] = self.conteo_fuentes.get(fuente, 0) + 1
             self._borrar_audio(sobrante)              # vigente: la anterior no reproducida; si no, la propia
         except Exception as exc:  # noqa: BLE001 — se informa y el prototipo lo registra como no sintetizado
             aviso = f"{type(exc).__name__}: {exc}"
@@ -859,6 +1068,8 @@ class TTSModule:
         """Extensión del audio que produce este modo: .mp3 (edge/gtts), .aiff (`say`) o .wav (pyttsx3)."""
         if self.mode in ("edge", "gtts"):
             return ".mp3"
+        if self.mode == "pregrabada":
+            return ".wav"                 # XTTS escribe WAV; la voz local cambia la extensión al sintetizar
         return ".aiff" if self.ejecutor_offline == "say" else ".wav"
 
     def _sintetizar_en(self, text: str, audio_file: str) -> None:
@@ -878,11 +1089,89 @@ class TTSModule:
         else:
             self._sintetizar_offline_a_archivo(text, audio_file)
 
+    def _sintetizar_con_fuente(self, text: str, audio_file: str, permitir_local: bool = True) -> tuple[str, str]:
+        """Sintetiza y devuelve (ruta_final, fuente). En pregrabada la ruta puede cambiar de extensión (la voz
+        local de macOS escribe AIFF); en los demás modos es audio_file."""
+        if self.mode != "pregrabada":
+            self._sintetizar_en(text, audio_file)
+            return audio_file, self._fuente_de_la_cache()
+        ruta = self.indice.buscar(text) if self.indice is not None else None
+        if ruta is not None and os.path.exists(ruta):
+            shutil.copyfile(ruta, audio_file)
+            return audio_file, "pregrabada"
+        return self._sintetizar_respaldo(text, audio_file, permitir_local=permitir_local)
+
+    def _sintetizar_respaldo(self, text: str, audio_file: str, permitir_local: bool = True) -> tuple[str, str]:
+        """Frase NO pregrabada: XTTS si el servicio está listo; si no (o si falla), la voz local."""
+        cli = self.xtts
+        if cli is not None and getattr(cli, "disponible", False):
+            try:
+                cli.sintetizar(text, audio_file)
+                return audio_file, "xtts"
+            except Exception as exc:  # noqa: BLE001 — cualquier fallo del servicio cae a la voz local
+                self._borrar_audio(audio_file)
+                self.ultimo_error_sintetizador = f"xtts: {type(exc).__name__}: {exc}"
+                if getattr(cli, "caido", False):
+                    self._al_cambiar_xtts("caido", str(exc))
+                else:
+                    print(f"  [AVISO TTS] XTTS no pudo decir {text!r} ({exc}); se usa la voz local para esta frase.")
+        elif cli is not None and getattr(cli, "cargando", False) and permitir_local:
+            self._avisar_una_vez("xtts_cargando", "  [AVISO TTS] el servicio XTTS aún está cargando: las frases "
+                                                  "no pregrabadas usan la voz local hasta que esté listo.")
+        if not permitir_local:
+            raise RuntimeError("servicio XTTS no disponible (y la voz local no se permite aquí)")
+        if not self.local_disponible:
+            raise RuntimeError("frase no pregrabada, sin servicio XTTS y sin voz local")
+        ext = ".aiff" if self.ejecutor_offline == "say" else ".wav"
+        local = os.path.splitext(audio_file)[0] + ext
+        try:
+            self._sintetizar_offline_a_archivo(text, local)
+        except BaseException:
+            self._borrar_audio(local)
+            raise
+        return local, "local"
+
+    def _cacheable(self, fuente: str) -> bool:
+        """En pregrabada solo se guarda lo de XTTS (lo local se rehace con XTTS en cuanto esté listo y lo
+        pregrabado ya está en disco)."""
+        return fuente == "xtts" if self.mode == "pregrabada" else True
+
+    def _speak_pregrabada(self, text: str) -> None:
+        """speak() en modo pregrabada: misma cadena, síntesis y reproducción en el acto."""
+        ruta = self.indice.buscar(text) if self.indice is not None else None
+        if ruta is not None and os.path.exists(ruta):
+            self._play_audio(str(ruta))
+            fuente = "pregrabada"
+        else:
+            audio_file = self._next_audio_file(".wav")
+            final = audio_file
+            try:
+                final, fuente = self._sintetizar_respaldo(text, audio_file)
+                borrar = self._play_audio(final)
+            except BaseException:
+                self._borrar_audio(audio_file)
+                self._borrar_audio(final)
+                raise
+            if borrar:
+                self._borrar_audio(final)
+        with self._candado_estado:
+            self.conteo_fuentes[fuente] = self.conteo_fuentes.get(fuente, 0) + 1
+
+    def estado_voz(self) -> dict:
+        """Modo, índice, servicio XTTS y cuántas locuciones salieron de cada fuente."""
+        with self._candado_estado:
+            conteo = dict(self.conteo_fuentes)
+        return {"modo": self.mode,
+                "indice": {"ruta": str(self.indice.ruta), "enunciados": len(self.indice)} if self.indice else None,
+                "voz_local": self.voice_name if self.local_disponible else None,
+                "xtts": self.xtts.estado() if self.xtts is not None and hasattr(self.xtts, "estado") else None,
+                "fuentes": conteo, "ultima_fuente": self.ultima_fuente, "ultima_sintesis_ns": self.ultima_sintesis_ns}
+
     def _firma_cache(self) -> tuple:
         """Qué hace comparable a un audio guardado: modo, voz, ritmo y ejecutor. Si cambia la voz o el
         ritmo cambia la firma y la cache entera deja de servir (se vacía en el siguiente acceso)."""
         return (self.mode, self.voice, self.voice_name, int(self.rate), self.ejecutor_offline,
-                self._extension_audio())
+                self._extension_audio(), self.xtts_hablante if self.mode == "pregrabada" else None)
 
     def _vaciar_cache_bloqueado(self) -> list[str]:
         """Vacía la cache y devuelve los archivos a borrar. Se llama con _candado_estado tomado."""
@@ -1012,6 +1301,11 @@ class TTSModule:
         if not self.cache_activa or self._cerrado or not self._cache_dir:
             return False
         limpias = list(dict.fromkeys(f for f in (frases or []) if f))
+        if self.mode == "pregrabada":
+            # Lo pregrabado no se sintetiza; lo demás solo con XTTS (lo local no se guarda en este modo).
+            limpias = [f for f in limpias if self.indice is None or f not in self.indice]
+            if self.xtts is None or getattr(self.xtts, "caido", False):
+                return False
         if not limpias:
             return False
         if self._hilo_precalentado is not None and self._hilo_precalentado.is_alive():
@@ -1031,6 +1325,10 @@ class TTSModule:
 
     def _precalentar_en_hilo(self, frases: list[str]) -> None:
         try:
+            if self.mode == "pregrabada":
+                # Espera a que el servicio XTTS termine de cargar (sin bloquear a nadie: es un hilo aparte).
+                if not self.xtts.esperar_listo(getattr(self.xtts, "tope_arranque_seg", 180.0)):
+                    return
             for frase in frases:
                 if self._cerrado:
                     break
@@ -1045,14 +1343,18 @@ class TTSModule:
                 audio_file = None
                 try:
                     audio_file = self._next_audio_file(self._extension_audio())
-                    self._sintetizar_en(frase, audio_file)
+                    audio_file, fuente = self._sintetizar_con_fuente(
+                        frase, audio_file, permitir_local=self.mode != "pregrabada")
                     if not (os.path.exists(audio_file) and os.path.getsize(audio_file) > 0):
                         raise RuntimeError(f"la síntesis no produjo audio en {audio_file}")
-                    self._guardar_en_cache(frase, audio_file)
-                    self.precalentadas += 1
+                    if self._cacheable(fuente):
+                        self._guardar_en_cache(frase, audio_file)
+                        self.precalentadas += 1
                 except Exception as exc:  # noqa: BLE001 — un fallo al precalentar no rompe la sesión
                     self.precalentado_fallos += 1
                     self.ultimo_error_sintetizador = f"precalentado: {type(exc).__name__}: {exc}"
+                    if self.mode == "pregrabada" and getattr(self.xtts, "caido", False):
+                        break
                 finally:
                     self._borrar_audio(audio_file)     # la cache ya tiene su copia
         finally:
@@ -1275,6 +1577,11 @@ class TTSModule:
         self._ns_descartado = True           # el sintetizador persistente no se usa tras cerrar
         self._ns_syn = None
         self._ns_voz = None
+        if self.xtts is not None and hasattr(self.xtts, "detener"):
+            try:
+                self.xtts.detener()          # solo el proceso que lanzó este módulo
+            except Exception:  # noqa: BLE001 — cerrar nunca falla por el servicio
+                pass
         self._evento_sin_preparacion.set()   # el precalentado, si lo hay, sale en la siguiente vuelta
         self._preparaciones_en_curso = 0
         self._evento_precalentado.set()
@@ -1295,7 +1602,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Síntesis de voz del prototipo. Modo por defecto: offline (pyttsx3, sin internet).")
     parser.add_argument("--mode", choices=MODOS, default=MODO_POR_DEFECTO,
-                        help="offline (por defecto, local) | edge | gtts (opcionales, internet)")
+                        help="offline (por defecto, local) | pregrabada (WAV del índice + respaldo) | edge | gtts")
     parser.add_argument("--voice", type=str, default=None,
                         help="offline: identificador de voz del sistema; edge: nombre de voz Edge")
     parser.add_argument("--text", type=str, default=None, help="frase a decir (si no, cinco de prueba)")
@@ -1315,6 +1622,9 @@ def main() -> int:
     print(f"Modo: {args.mode}")
     try:
         tts = TTSModule(mode=args.mode, voice=args.voice, rate=args.rate)
+        if args.mode == "pregrabada" and tts.xtts is not None:
+            print("  esperando al servicio XTTS (hasta 60 s)...")
+            tts.esperar_servicio_voz(60.0)
     except (TTSDependenciaFaltante, ValueError) as exc:
         print(f"ERROR: {exc}")
         return 1
@@ -1329,6 +1639,8 @@ def main() -> int:
     for frase in frases:
         print(f"  Diciendo: {frase}")
         tts.speak(frase)
+    if args.mode == "pregrabada":
+        print(f"  Fuentes: {tts.estado_voz()['fuentes']}")
 
     tts.cleanup()
     print("Listo.")

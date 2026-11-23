@@ -13,14 +13,21 @@ Flujo por ensayo:
      (--ventana-frames; por defecto round(--ventana-seg × tasa medida)) o se cierra
      por tope de tiempo (--ventana-max-seg).
   3. Al cerrarse: normalización → columnas de la representación del modelo (D-08) →
-     remuestreo a 30 pasos (resample_sequence del entrenamiento) → velocidades si el
-     modelo las espera (add_velocity del entrenamiento) → UNA inferencia → GrammarMapper → orden de reproducción (t5).
+     [imputación de la mano ausente si el modelo la usa] → remuestreo a 30 pasos (resample_sequence del
+     entrenamiento) → velocidades si el modelo las espera (add_velocity del entrenamiento) → UNA inferencia
+     → conversor de glosas → orden de reproducción (t5).
   4. Estados: aceptada · rechazada_confianza (< --umbral: «seña no reconocida»,
      sin audio, repita) · rechazada_manos (proporción sin manos o sin pose
      > --max-sin-manos: no se infiere) · rechazada_incompleta (abortada con X o
      menos de --min-frames fotogramas). Contadores en pantalla y en el JSONL.
   5. Un registro por ensayo en registros/latencia_<fecha>.jsonl. Nunca se escribe
      ningún fotograma ni video a disco (§1.5).
+  5b. Seña cortada en los bordes (N-50, opción B): la persona está en REPOSO cuando se pulsa ESPACIO y
+     vuelve al reposo antes del cierre; si algo falla, X aborta (rechazada_incompleta). En cada ventana
+     cerrada se mide si la seña pudo empezar antes o terminar después de la ventana (src/bordes_ventana.py,
+     con la medida y los umbrales candidatos de src/analisis_senas_cortadas.py) y se escribe como AVISO en
+     el JSONL (clave «bordes»: aviso_inicio, aviso_fin, valores medidos y costo_ns del cálculo), en la
+     consola y en pantalla. El aviso NO rechaza la seña ni cambia su estado. --bordes off lo desactiva.
   6. Voz: si el contador acumulado de errores de reproducción (tts_errores_reproduccion,
      N-37) sube de un registro al siguiente, se avisa POR CONSOLA en ese momento; el
      overlay del video no cambia. Al cerrar, el bloque de contadores muestra los
@@ -29,25 +36,43 @@ Flujo por ensayo:
 Modo oración (--modo-oracion o tecla M): cada ventana aceptada añade su glosa;
 ENTER es el fin de turno: convierte la lista con GrammarMapper y sintetiza.
 
-Conversor de glosas (--conversor, actividad 3.a): «heredado» (por defecto) es GrammarMapper, como
-siempre; «reglas» usa src/conversor_glosas.py y «inventario» el mismo en modo estricto (solo las glosas
-solas y las secuencias previstas de docs/CONVERSOR_3a_ESPECIFICACION.md, §4.3). Ninguna de sus reglas está
-revisada todavía por la persona señante.
+Predeterminados (decisión del autor del 22-nov-2026, a partir de D-14 y D-15):
+  · modelo: el final, models/tcn_imputacion/modelo.keras (TCN + imputación + 252); la representación, la
+    regla «imputacion» y el umbral (modelo.umbral.json, 0,68 desde N-75) se leen solos. La red heredada
+    sigue disponible con --model-path models/canonico_holistic_mascara_manos/modelo_canonico.keras.
+  · conversor: «inventario» (D-15). «heredado» (GrammarMapper) y «reglas» siguen disponibles con --conversor.
+  · captura: 1280 × 720 (16:9, la forma del corpus; N-57: con 4:3 la y normalizada queda × 0,75). Si la
+    cámara entrega otra forma, se avisa por consola al arrancar.
+  · voz (decisión del autor del 23-nov-2026; docs/VOZ.md): «pregrabada» si existe
+    models/voz_pregrabada/indice.json (los 142 enunciados del modo inventario, ElevenLabs «Robert - Colombian,
+    Paisa»). Una frase que no esté pregrabada va a XTTS-v2 («Gilberto Mathias») si se dio --python-voz o
+    TESIS_PYTHON_VOZ y el servicio está listo, y si no a la voz local Mónica. Sin índice: «offline» (Mónica),
+    con aviso. Cada registro dice qué se usó (tts_fuente: pregrabada / xtts / local) y cuánto tardó el motor
+    en tener el audio (tts_tiempo_sintesis_ns). El servicio XTTS se lanza antes de cargar el modelo y se le
+    espera como mucho --xtts-espera-seg antes de abrir la cámara; si falla, la sesión sigue con Mónica.
+
+Conversor de glosas (--conversor, actividad 3.a): «inventario» (por defecto) es src/conversor_glosas.py en
+modo estricto (solo las glosas solas y las secuencias previstas de docs/CONVERSOR_3a_ESPECIFICACION.md,
+§4.3); «reglas» es el mismo sin el modo estricto y «heredado» es GrammarMapper. Ninguna de sus reglas está
+revisada por la persona señante (N-73).
 
 Uso:
-    python src/realtime.py                                   # modelo canónico vigente (manos, N-30), voz local
-    python src/realtime.py --model-path models/canonico_holistic_mascara/modelo_canonico.keras   # manos + postura
+    python src/realtime.py                                   # modelo final + inventario, 1280x720, voz pregrabada
+    python src/realtime.py --model-path models/canonico_holistic_mascara_manos/modelo_canonico.keras \
+                           --conversor heredado              # red heredada (N-30) con GrammarMapper, como antes
     python src/realtime.py --tts none                        # sin voz (t5 = t4 + emisión vacía)
+    python src/realtime.py --python-voz <python con coqui-tts>   # voz pregrabada + respaldo XTTS-v2 (docs/VOZ.md)
+    python src/realtime.py --tts offline                     # solo la voz local (Mónica)
     python src/realtime.py --umbral 0.7 --ventana-seg 3.0 --modo-oracion
-    python src/realtime.py --ventana-frames 60               # N fijo, sin medir la tasa
-    python src/realtime.py --modo-oracion --conversor inventario --genero-primera f   # conversor 3.a estricto
-    python src/realtime.py --model-path models/tcn_imputacion/modelo.keras --ancho 1280 --alto 720
-                                     # opción EXPERIMENTAL (N-63): TCN + imputación + 252; la regla
-                                     # «imputacion» se toma sola de su procedencia (docs/MODELO_TCN_IMPUTACION.md)
+    python src/realtime.py --ventana-frames 75               # N fijo, sin medir la tasa (PD-09)
+    python src/realtime.py --modo-oracion --genero-primera f # conversor 3.a estricto, YO femenino
+    python src/realtime.py --ancho 640 --alto 480            # captura 4:3 (se avisa: no es la forma del corpus)
+    python src/realtime.py --bordes off                      # sin el aviso de bordes
 
 Teclas:
-    ESPACIO  abrir la ventana (sella t0)
-    X        abortar la ventana abierta (se cuenta como rechazada_incompleta)
+    ESPACIO  abrir la ventana (sella t0), con la persona ya en reposo
+    X        abortar la ventana abierta (se cuenta como rechazada_incompleta): p. ej. si la seña
+             empezó antes de la tecla o no volvió al reposo antes del cierre
     ENTER    fin de turno: convertir y sintetizar las glosas acumuladas (modo oración)
     M        alternar modo aislado / modo oración
     R        descartar las glosas acumuladas sin sintetizar
@@ -64,7 +89,16 @@ import numpy as np
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
-from src.translator import LSCTranslator, ESTADOS, MODELO_POR_DEFECTO, CONVERSORES, construir_conversor
+from src.translator import (
+    LSCTranslator, ESTADOS, MODELO_POR_DEFECTO, CONVERSORES, CONVERSOR_POR_DEFECTO, construir_conversor,
+)
+from src.bordes_ventana import MODOS_BORDES, UMBRAL_BORDES_CANDIDATO
+from src.voz_xtts_servicio import HABLANTE_POR_DEFECTO as HABLANTE_XTTS, VARIABLE_PYTHON_VOZ
+
+TTS_MODOS_PROTOTIPO = ("pregrabada", "offline", "edge", "gtts", "none")
+# Espera al servicio XTTS tras cargar el modelo y MediaPipe (que ya le dieron unos segundos de ventaja).
+# Medido: el servicio tarda ~16 s en estar listo en MPS (docs/VOZ.md).
+XTTS_ESPERA_SEG = 20.0
 
 # ---------------------------------------------------------------------------
 # Dibujo de puntos característicos (solo en pantalla; nunca a disco)
@@ -143,6 +177,34 @@ def _ms(ns):
     return f"{ns / 1e6:.0f} ms" if ns is not None else "-"
 
 
+def texto_aviso_bordes(registro) -> str | None:
+    """Línea breve (sin tildes: la fuente de OpenCV no las dibuja) del aviso de bordes de un ensayo (N-50,
+    opción B), o None si no hubo aviso. Solo informa: el estado del ensayo no cambia por él."""
+    bordes = registro.get("bordes") if isinstance(registro, dict) else None
+    if not isinstance(bordes, dict):
+        return None
+    ini, fin = bordes.get("aviso_inicio") is True, bordes.get("aviso_fin") is True
+    if ini and fin:
+        return "AVISO: la sena pudo empezar antes y no terminar dentro de la ventana"
+    if ini:
+        return "AVISO: la sena pudo empezar antes de la ventana"
+    if fin:
+        return "AVISO: la sena pudo no terminar dentro de la ventana"
+    return None
+
+
+def aviso_forma_captura(ancho: int, alto: int) -> str | None:
+    """Aviso de consola si la captura efectiva no es 16:9 (N-57): el corpus es 1920x1080 y, con otra forma,
+    la y normalizada por hombros queda escalada (x 0,75 con 4:3), lo que afecta al modelo y a la altura del
+    aviso de bordes. None si es 16:9 (tolerancia 1 %) o si la cámara no informó la resolución."""
+    if not ancho or not alto:
+        return None
+    if abs((ancho / alto) / (16 / 9) - 1.0) <= 0.01:
+        return None
+    return (f"  [AVISO] la camara entrega {ancho}x{alto}, que no es 16:9 como el corpus (1920x1080): la y "
+            f"normalizada queda x {(ancho / alto) / (16 / 9):.2f} (N-57). Pruebe --ancho 1280 --alto 720")
+
+
 def dibujar_ui(frame, tr: LSCTranslator, res, aviso: str, fps_nominal: float):
     h, w = frame.shape[:2]
     ext = res.extraccion
@@ -156,10 +218,10 @@ def dibujar_ui(frame, tr: LSCTranslator, res, aviso: str, fps_nominal: float):
     fps = tr.fps_medida()
     if tr.ventana_abierta:
         ens = tr.ensayo
-        linea = f"VENTANA {ens.n}/{ens.ventana_frames}  (ESPACIO abrio t0; X aborta)"
+        linea = f"VENTANA {ens.n}/{ens.ventana_frames}  (termine en reposo; X aborta)"
         color = AMBAR
     else:
-        linea = "REPOSO: ESPACIO abre la ventana"
+        linea = "REPOSO: desde el reposo, ESPACIO abre la ventana"
         color = GRIS
     _texto(frame, linea, (10, 40), 0.6, color, 2)
     _texto(frame, (f"bucle {fps:.1f} fps" if fps else "bucle: midiendo...")
@@ -208,6 +270,9 @@ def dibujar_ui(frame, tr: LSCTranslator, res, aviso: str, fps_nominal: float):
         _texto(frame, lat, (15, h - 20), 0.45, GRIS)
         if u["enunciado"]:
             _texto(frame, f"Espanol: {u['enunciado']}", (w // 2, h - 38), 0.5, (200, 200, 255))
+        aviso_bordes = texto_aviso_bordes(u)
+        if aviso_bordes:
+            _texto(frame, aviso_bordes, (10, h - 128), 0.5, AMBAR)
     else:
         _texto(frame, "Espanol: (abra una ventana con ESPACIO y ejecute la sena)", (15, h - 60), 0.5, GRIS)
 
@@ -232,8 +297,15 @@ def _resumen_consola(reg: dict) -> str:
         base += (f"  L_total={_ms(reg['L_total_ns'])} L_resp={_ms(reg['L_resp_ns'])}"
                  f" [extr {_ms(e['extraccion'])} prep {_ms(e['preprocesamiento'])} inf {_ms(e['inferencia'])}"
                  f" conv {_ms(e['conversion'])} sint {_ms(e['sintesis'])}]")
+    if reg.get("tts_fuente"):
+        base += f"  voz {reg['tts_fuente']}"
     if reg["motivo"]:
         base += f"  ({reg['motivo']})"
+    bordes = reg.get("bordes")
+    if isinstance(bordes, dict):
+        marcados = [n for n, k in (("inicio", "aviso_inicio"), ("fin", "aviso_fin")) if bordes.get(k) is True]
+        if marcados:
+            base += f"  [aviso borde: {', '.join(marcados)}]"
     return base
 
 
@@ -290,6 +362,10 @@ def imprimir_contadores_sesion(tr) -> None:
     for estado in ESTADOS:
         print(f"  {estado:<22s} {tr.contadores[estado]}")
     print(f"  ensayos {tr.n_ensayos} | turnos {tr.n_turnos}")
+    bordes = getattr(tr, "avisos_bordes", None)          # N-50, opción B; lectura defensiva como la voz
+    if isinstance(bordes, dict) and getattr(tr, "bordes_modo", "aviso") != "off":
+        print(f"  {'avisos de borde':<22s} inicio {bordes.get('inicio', 0)} | fin {bordes.get('fin', 0)} "
+              "(no rechazan)")
     voz = getattr(tr, "estado_voz_al_cerrar", None)
     if isinstance(voz, dict):
         print(f"  {'errores de voz':<22s} {_voz_o_sin_dato(voz.get('errores_reproduccion'))}")
@@ -308,8 +384,10 @@ def crear_parser() -> argparse.ArgumentParser:
         description="Prototipo LSC en vivo: ventana fija por tecla, estados de error e instrumentacion")
     parser.add_argument("--camera", type=int, default=0, help="indice de la camara (default 0)")
     parser.add_argument("--model-path", type=str, default=str(MODELO_POR_DEFECTO),
-                        help="ruta al .keras (defecto: el canónico vigente); la representación y la regla de "
-                             "mano ausente se leen de <modelo>.procedencia.json o, sin ella, se deducen del ancho")
+                        help="ruta al .keras (defecto: el modelo final, models/tcn_imputacion/modelo.keras, D-14; "
+                             "la red heredada es models/canonico_holistic_mascara_manos/modelo_canonico.keras); la "
+                             "representación y la regla de mano ausente se leen de <modelo>.procedencia.json o, sin "
+                             "ella, se deducen del ancho")
     parser.add_argument("--umbral", "--threshold", dest="umbral", type=float, default=None,
                         help="confianza minima para aceptar; parametro de operacion, no meta. Por defecto, el "
                              "elegido por validacion para el modelo (<modelo>.umbral.json, D-09) o 0.5")
@@ -324,34 +402,67 @@ def crear_parser() -> argparse.ArgumentParser:
                         help="ventanas con menos fotogramas se descartan como incompletas (default 15)")
     parser.add_argument("--mano-ausente", choices=["ceros", "descartar", "mascara", "imputacion"], default=None,
                         help="D-07: tratamiento del fotograma sin una mano; por defecto, el del corpus del "
-                             "modelo (procedencia). Indicarlo solo para experimentos. «imputacion» (N-63, "
-                             "experimental) es la del modelo models/tcn_imputacion/modelo.keras")
+                             "modelo (procedencia). Indicarlo solo para experimentos. «imputacion» (N-63, D-14) "
+                             "es la del modelo final models/tcn_imputacion/modelo.keras")
     parser.add_argument("--max-sin-manos", type=float, default=0.5,
                         help="proporcion maxima de fotogramas sin manos (o sin pose); si se supera no se infiere (default 0.5)")
     parser.add_argument("--modo-oracion", action="store_true",
                         help="acumular glosas por ventana y convertir/sintetizar con ENTER")
-    parser.add_argument("--tts", choices=["offline", "edge", "gtts", "none"], default="offline",
-                        help="motor de voz: offline (default; local, pyttsx3, prioridad de §2.2.5), "
-                             "edge/gtts (en linea, de contraste), none (sin audio)")
-    parser.add_argument("--tts-voice", type=str, default=None, help="voz especifica del motor")
+    # Voz (decisión del autor del 23-nov-2026; docs/VOZ.md). Por defecto «pregrabada» si existe el índice
+    # models/voz_pregrabada/indice.json (142 enunciados del modo inventario, ElevenLabs) con respaldo XTTS-v2
+    # (si se da --python-voz o TESIS_PYTHON_VOZ) y, al final, la voz local Mónica; sin índice, «offline» (Mónica).
+    parser.add_argument("--tts", choices=list(TTS_MODOS_PROTOTIPO), default=None,
+                        help="motor de voz: pregrabada (default si existe el indice de voz; WAV pregrabados y "
+                             "respaldo XTTS -> voz local), offline (voz local del sistema, Monica; default sin "
+                             "indice), edge/gtts (en linea, de contraste), none (sin audio)")
+    parser.add_argument("--tts-voice", type=str, default=None,
+                        help="voz local (offline y respaldo de pregrabada): identificador del sistema, ver "
+                             "python src/tts.py --listar-voces (default: Monica si esta instalada); edge: nombre de voz")
+    parser.add_argument("--voz-indice", type=str, default=None,
+                        help="indice de voz pregrabada (default models/voz_pregrabada/indice.json)")
+    parser.add_argument("--python-voz", type=str, default=None,
+                        help="interprete de Python con coqui-tts para el respaldo XTTS-v2 (src/voz_xtts_servicio.py); "
+                             f"default: la variable {VARIABLE_PYTHON_VOZ} o ninguno (respaldo = voz local)")
+    parser.add_argument("--xtts-hablante", type=str, default=HABLANTE_XTTS,
+                        help=f"hablante de XTTS-v2 (default {HABLANTE_XTTS})")
+    parser.add_argument("--xtts-dispositivo", choices=["auto", "mps", "cpu"], default="auto",
+                        help="dispositivo de XTTS: auto (MPS si esta disponible, si no CPU), mps o cpu")
+    parser.add_argument("--xtts-espera-seg", type=float, default=XTTS_ESPERA_SEG,
+                        help="cuanto esperar como mucho, ya cargado el modelo, a que el servicio XTTS este listo "
+                             f"antes de abrir la camara (default {XTTS_ESPERA_SEG:.0f}); si no llega, se usa la voz "
+                             "local hasta que este listo")
     parser.add_argument("--registro-dir", type=str, default=str(ROOT_DIR / "registros"),
                         help="carpeta del JSONL de latencia (default registros/)")
     parser.add_argument("--sin-registro", action="store_true", help="no escribir el JSONL")
     parser.add_argument("--no-draw", action="store_true", help="no dibujar puntos (mas rapido)")
-    parser.add_argument("--ancho", type=int, default=640)
-    parser.add_argument("--alto", type=int, default=480)
-    # Actividad 3.a (docs/CONVERSOR_3a_ESPECIFICACION.md, §7.2): conversor de glosas. El valor por defecto
-    # sigue siendo el heredado (GrammarMapper): sin esta opción el prototipo se comporta como antes.
-    parser.add_argument("--conversor", choices=list(CONVERSORES), default="heredado",
-                        help="conversor de glosas: heredado (default; src/grammar_mapper.py), reglas "
-                             "(src/conversor_glosas.py) o inventario (reglas en modo estricto: solo las glosas "
-                             "solas y las secuencias previstas del inventario). Con reglas/inventario el JSONL gana la "
-                             "clave «conversion» con la traza de la conversion")
+    # 1280 x 720 (16:9) por defecto desde el 22-nov-2026: es la forma del corpus (1920x1080). Con 4:3 la y
+    # normalizada por hombros queda x 0,75 (N-57; simulado: -4 puntos en el LOSO de la red heredada), lo que
+    # también desplaza la altura que mide el aviso de bordes. Las sesiones con el modelo final usaron 1280x720
+    # (N-65; docs/LATENCIA_4c_MODELO_FINAL.md: el extractor tarda ~11 ms por fotograma a esa resolución).
+    parser.add_argument("--ancho", type=int, default=1280,
+                        help="ancho de captura solicitado (default 1280; 16:9 como el corpus, N-57)")
+    parser.add_argument("--alto", type=int, default=720,
+                        help="alto de captura solicitado (default 720)")
+    # Actividad 3.a (docs/CONVERSOR_3a_ESPECIFICACION.md, §7.2): conversor de glosas. Por defecto, desde el
+    # 22-nov-2026, el modo «inventario» (D-15); el heredado (GrammarMapper) sigue con --conversor heredado.
+    parser.add_argument("--conversor", choices=list(CONVERSORES), default=CONVERSOR_POR_DEFECTO,
+                        help="conversor de glosas: inventario (default, D-15; src/conversor_glosas.py en modo "
+                             "estricto: solo las glosas solas y las secuencias previstas del inventario), reglas "
+                             "(el mismo sin modo estricto) o heredado (src/grammar_mapper.py). Con reglas/inventario "
+                             "el JSONL gana la clave «conversion» con la traza de la conversion")
     parser.add_argument("--genero-primera", choices=["m", "f"], default=None,
                         help="genero de quien habla (YO) para la concordancia; solo con --conversor reglas o "
                              "inventario (default m, registrado como supuesto)")
     parser.add_argument("--genero-segunda", choices=["m", "f"], default=None,
                         help="genero de quien escucha (TU); solo con --conversor reglas o inventario (default m)")
+    # N-50, opción B: aviso de seña cortada en los bordes de la ventana; nunca rechaza.
+    parser.add_argument("--bordes", choices=list(MODOS_BORDES), default="aviso",
+                        help="aviso (default): mide en cada ventana si la sena pudo empezar antes o terminar "
+                             "despues y lo escribe en el JSONL (aviso_inicio, aviso_fin) y en pantalla, SIN "
+                             "rechazarla; off: no lo calcula")
+    parser.add_argument("--umbral-bordes", type=str, default=None,
+                        help="archivo de umbrales del aviso de bordes (default: el candidato de N-50, "
+                             f"{UMBRAL_BORDES_CANDIDATO.relative_to(ROOT_DIR).as_posix()})")
     return parser
 
 
@@ -364,14 +475,64 @@ def conversor_desde_args(args, parser: argparse.ArgumentParser):
         parser.error(str(exc))
 
 
+def resolver_modo_tts(args) -> tuple[str, str | None]:
+    """Modo de voz efectivo y aviso: el pedido con --tts o, si no se pidió, «pregrabada» cuando existe el índice
+    de voz y «offline» (Mónica) con aviso cuando no."""
+    if args.tts is not None:
+        return args.tts, None
+    from src.tts import modo_tts_prototipo
+    return modo_tts_prototipo(args.voz_indice)
+
+
+def construir_tts(args, modo: str, constructor=None):
+    """Motor de voz del prototipo, construido ANTES que el traductor para que el servicio XTTS cargue mientras se
+    cargan el modelo y MediaPipe. Nunca tumba el prototipo: pregrabada que falla → offline; offline/edge/gtts que
+    fallan → sin voz, con aviso. Devuelve (tts o None, modo efectivo)."""
+    if modo == "none":
+        return None, "none"
+    if constructor is None:
+        from src.tts import TTSModule as constructor
+    kw = {}
+    if modo == "pregrabada":
+        kw = dict(indice_pregrabada=args.voz_indice, python_voz=args.python_voz, xtts_hablante=args.xtts_hablante,
+                  xtts_dispositivo=args.xtts_dispositivo)
+    try:
+        return constructor(mode=modo, voice=args.tts_voice, **kw), modo
+    except Exception as exc:   # noqa: BLE001 — sin la voz pedida el prototipo sigue con la siguiente
+        if modo == "pregrabada":
+            print(f"  [AVISO TTS] voz pregrabada no disponible ({exc}); se usa la voz local (offline).")
+            return construir_tts(args, "offline", constructor)
+        print(f"  [AVISO] TTS no disponible ({exc}); se continúa sin audio")
+        return None, "none"
+
+
+def esperar_servicio_voz(tts, tope_seg: float) -> str | None:
+    """Espera (como mucho tope_seg) al servicio XTTS si lo hay. Devuelve la línea de estado para la consola."""
+    if tts is None or getattr(tts, "xtts", None) is None:
+        return None
+    if not getattr(tts.xtts, "disponible", False) and not getattr(tts.xtts, "caido", False):
+        print(f"  Esperando al servicio XTTS (hasta {tope_seg:.0f} s)...", flush=True)
+    listo = tts.esperar_servicio_voz(tope_seg)
+    if listo:
+        return "  Respaldo XTTS: listo"
+    if getattr(tts.xtts, "caido", False):
+        return "  Respaldo XTTS: NO disponible; las frases no pregrabadas usan la voz local"
+    return "  Respaldo XTTS: aun cargando; mientras tanto, las frases no pregrabadas usan la voz local"
+
+
 def main():
     parser = crear_parser()
     args = parser.parse_args()
     conversor = conversor_desde_args(args, parser)
+    modo_tts, aviso_tts = resolver_modo_tts(args)
+    if aviso_tts:
+        print(aviso_tts)
+    tts, modo_tts = construir_tts(args, modo_tts)
 
     tr = LSCTranslator(
         model_path=args.model_path,
-        tts_mode=args.tts,
+        tts=tts,
+        tts_mode="none" if tts is None else modo_tts,
         tts_voice=args.tts_voice,
         umbral=args.umbral,
         ventana_frames=args.ventana_frames,
@@ -384,7 +545,11 @@ def main():
         registro_dir=args.registro_dir,
         registro=not args.sin_registro,
         grammar_mapper=conversor,
+        bordes=args.bordes,
+        umbral_bordes=args.umbral_bordes,
     )
+
+    estado_xtts = esperar_servicio_voz(tts, args.xtts_espera_seg)
 
     cap = cv2.VideoCapture(args.camera)
     if not cap.isOpened():
@@ -394,22 +559,33 @@ def main():
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.ancho)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.alto)
     fps_nominal = float(cap.get(cv2.CAP_PROP_FPS) or 0.0)
+    ancho_real, alto_real = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
     print("\n" + "=" * 64)
     print("  LSC - prototipo en vivo (ventana fija por tecla)")
     print(f"  Modelo: {tr.model_path}  ({tr.n_rasgos} rasgos, velocidades={'si' if tr.usa_velocidades else 'no'})")
     print(f"  Representacion (D-08): {tr.representacion}  | procedencia: {tr.procedencia_ruta or '(no declarada; deducida del ancho)'}")
     print(f"  Extractor: {tr.extractor_desc}")
-    print(f"  Camara {args.camera}: {int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))}x{int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))}"
+    print(f"  Camara {args.camera}: {ancho_real}x{alto_real} (pedida {args.ancho}x{args.alto})"
           f", fps nominal {fps_nominal:.0f} (la tasa real del bucle se mide en pantalla)")
+    aviso_forma = aviso_forma_captura(ancho_real, alto_real)
+    if aviso_forma:
+        print(aviso_forma)
     print(f"  Ventana: {args.ventana_frames or 'auto'} fotogramas / objetivo {args.ventana_seg} s / "
           f"tope {tr.ventana_max_seg} s / minimo {args.min_frames}")
     print(f"  Umbral {tr.umbral:.2f} ({tr.umbral_origen}) | max sin manos {args.max_sin_manos} | modo {'oracion' if args.modo_oracion else 'aislado'}")
     print(f"  Mano ausente (D-07): {tr.mano_ausente}  (corpus del modelo: {tr.mano_ausente_modelo or 'no declarado'})")
-    print(f"  TTS: {tr.tts_modo}")
+    print(f"  TTS: {tr.tts_modo}" + (f" | {tts.indice.describir()} | respaldo: {tts.describir_respaldo()}"
+                                       if tts is not None and getattr(tts, "indice", None) is not None else
+                                       (f" | voz {tts.voice_name}" if tts is not None and tts.voice_name else "")))
+    if estado_xtts:
+        print(estado_xtts)
     print(f"  Conversor de glosas: {args.conversor}"
           + ("" if conversor is None else f" (genero yo={conversor.genero_primera}, tu={conversor.genero_segunda}; "
                                           "sin revisar por la persona senante)"))
+    print(f"  Aviso de bordes (N-50, opcion B): {args.bordes}"
+          + (" (no rechaza; protocolo: abrir y cerrar la ventana en reposo, X si algo falla)"
+             if args.bordes == "aviso" else ""))
     print(f"  Registro: {tr.registro_path if tr.registro_activo else '(desactivado)'}")
     print("  Teclas: ESPACIO ventana | X abortar | ENTER fin de turno | M modo | R reiniciar | Q salir")
     print("=" * 64 + "\n")

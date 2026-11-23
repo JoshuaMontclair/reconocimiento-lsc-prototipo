@@ -1,0 +1,3184 @@
+{
+ "version": 1,
+ "descripcion": "Enunciados pregrabados del prototipo: los que el conversor de glosas en modo inventario (src/conversor_glosas.py, estricto, géneros por defecto) puede producir. Ver docs/VOZ.md.",
+ "conversor": {
+  "modulo": "src/conversor_glosas.py",
+  "modo": "inventario (estricto=True)",
+  "generos": {
+   "yo": "m",
+   "tú": "m"
+  },
+  "n_glosas_solas": 50,
+  "n_secuencias": 92,
+  "n_enunciados": 142
+ },
+ "audio": {
+  "formato": "WAV PCM",
+  "combinaciones_canales_hz_bits": [
+   [
+    1,
+    44100,
+    16
+   ]
+  ],
+  "bytes_total": 14711216
+ },
+ "fuente": {
+  "proveedor": "ElevenLabs",
+  "voz": "Robert - Colombian, Paisa",
+  "biblioteca": "biblioteca de voces de ElevenLabs",
+  "generado_por": "el autor de la tesis",
+  "fecha": "2026-11-23",
+  "licencia": "plan de pago de ElevenLabs que permite el uso y la distribución de los audios generados",
+  "atribucion": "Voz «Robert - Colombian, Paisa» de la biblioteca de ElevenLabs",
+  "archivos_origen": [
+   "ElevenLabs_2026-11-23T05_29_16_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3",
+   "ElevenLabs_2026-11-23T05_29_57_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3"
+  ],
+  "formato_origen": "MP3 128 kb/s, 44 100 Hz, mono; dos tomas (frases 1-71 y 72-142) con pausas de 1,5 s"
+ },
+ "corte": {
+  "herramienta": "faster-whisper, modelo «base» (CPU, int8), idioma es, marcas de tiempo por palabra",
+  "pasos": [
+   "MP3 → WAV PCM 16 bits a 44,1 kHz (corte) y a 16 kHz (alineación), con afconvert de macOS",
+   "transcripción de cada toma y alineación de sus palabras con el texto esperado (difflib.SequenceMatcher sobre palabras normalizadas sin tildes ni puntuación)",
+   "corte en el punto medio entre el fin de la última palabra de una frase y el inicio de la primera de la siguiente; si falta una marca, interpolación proporcional a la longitud del texto",
+   "recorte del silencio de los bordes: se conserva desde 60 ms antes de la primera ventana de 10 ms que supera (máximo − 40 dB) hasta 70 ms después de la última",
+   "verificación: re-transcripción de cada corte con el mismo modelo y similitud de caracteres con el texto esperado; dudosos = similitud < 0,8 o duración por carácter fuera de [0,45 ; 2,2] × la mediana",
+   "cortes corregidos a mano (026 y 088): ventana exacta [ini_s, fin_s] con fundido lineal de 10 ms en cada borde y sin recorte de silencio; tiempos comprobados por correlación con la toma"
+  ],
+  "dudosos": 16,
+  "revision_a_oido": "el autor escuchó los 16 dudosos: 14 correctos (la transcripción automática falla en palabras sueltas) y 2 cortados (026 «Mal.» y 088 «Tú comes.»), cuyos tiempos se corrigieron a mano; el autor aprobó los dos cortes rehechos"
+ },
+ "n_revisados_a_oido": 16,
+ "frases": [
+  {
+   "numero": 1,
+   "texto": "Gracias.",
+   "sha256_texto": "b600eea309d5b32ec2bc19cc5b21af1337da6b46aa9b350118aa667577bd2d43",
+   "archivo": "001.wav",
+   "duracion_s": 0.82,
+   "bytes": 72368,
+   "sha256_audio": "be9467df30a7767975a3a4c0bf7756d2c73c899cd4da4b9b5c3424bebfd1cd04",
+   "origen": "seña sola: gracias",
+   "corte": {
+    "toma": 1,
+    "ini_s": 0.0,
+    "fin_s": 0.82,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 2,
+   "texto": "Buenos días.",
+   "sha256_texto": "13fe23bbab5b565e2756214ea723a003fcc2bdd2270dfaed21c034f27a7e3d18",
+   "archivo": "002.wav",
+   "duracion_s": 0.95,
+   "bytes": 83834,
+   "sha256_audio": "9a6622cb5836c6d03a3c3552f25f88fc0e800a4efd3eb67fc357193cd1d5679b",
+   "origen": "seña sola: buenos días",
+   "corte": {
+    "toma": 1,
+    "ini_s": 0.82,
+    "fin_s": 1.77,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Buenos días.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 3,
+   "texto": "Buenas tardes.",
+   "sha256_texto": "877e3ba0ba74eba2ad9444351db78ac64da82fe5fd7dea063486c36fc481723d",
+   "archivo": "003.wav",
+   "duracion_s": 1.18,
+   "bytes": 104120,
+   "sha256_audio": "f20f193c2a0ce1d80c6c5520cac9ce12ec8f625f2d33f9fa9c22b5e6dcd3a46f",
+   "origen": "seña sola: buenas tardes",
+   "corte": {
+    "toma": 1,
+    "ini_s": 1.77,
+    "fin_s": 2.95,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "buenas tardes",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 4,
+   "texto": "Buenas noches.",
+   "sha256_texto": "83ebf07e0976f067cab5329ddaa43319717508453206f3f6482fda6466e415a8",
+   "archivo": "004.wav",
+   "duracion_s": 1.13,
+   "bytes": 99710,
+   "sha256_audio": "453e82b525fef873d393546f00d6535987c2fb28abed59e271b5e371e3f43996",
+   "origen": "seña sola: buenas noches",
+   "corte": {
+    "toma": 1,
+    "ini_s": 2.95,
+    "fin_s": 4.12,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Buenas noches.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 5,
+   "texto": "Seña.",
+   "sha256_texto": "884566daa0e695b9fa96c71753a6d7c199fd71bede3e58839ab48f2fbec7884b",
+   "archivo": "005.wav",
+   "duracion_s": 0.77,
+   "bytes": 67958,
+   "sha256_audio": "767f3f3bae07dae246516d43d9fd92bd22db1b57a97ebe7afe9d8d572c0bdeb7",
+   "origen": "seña sola: seña",
+   "corte": {
+    "toma": 1,
+    "ini_s": 4.12,
+    "fin_s": 4.96,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Señor!",
+    "similitud": 0.667
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 6,
+   "texto": "Nombre.",
+   "sha256_texto": "ab29aad9fb33c7e50217c49a038f44e27ba9bef9547026160666d07b145f41e5",
+   "archivo": "006.wav",
+   "duracion_s": 0.79,
+   "bytes": 69722,
+   "sha256_audio": "bb1be8a419c97150d55a30c6e31599470ec6ff05709222a79ec23e54810b741d",
+   "origen": "seña sola: nombre",
+   "corte": {
+    "toma": 1,
+    "ini_s": 4.96,
+    "fin_s": 5.84,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "NOMBRI",
+    "similitud": 0.833
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 7,
+   "texto": "Trabajar.",
+   "sha256_texto": "ce741dc62e08447ccbbb0d483b19a02437349f93e3f4c059c5a14014de63eb82",
+   "archivo": "007.wav",
+   "duracion_s": 0.85,
+   "bytes": 75014,
+   "sha256_audio": "cf70f876149a64f72f6370782c78c5f56731602c86ce9a0dd475924d5df96a3f",
+   "origen": "seña sola: trabajar",
+   "corte": {
+    "toma": 1,
+    "ini_s": 5.84,
+    "fin_s": 6.81,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Trabajar.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 8,
+   "texto": "Comer.",
+   "sha256_texto": "52e43cc6ab06c3124d34ef2dc46682b35242ea1fd9d9680c537b3fc444ab91b7",
+   "archivo": "008.wav",
+   "duracion_s": 0.66,
+   "bytes": 58256,
+   "sha256_audio": "cfb7c7eb37bee1efeace4d6ed0ed7ba44b5fa19b73bdd59b1bbcc5361cdaf549",
+   "origen": "seña sola: comer",
+   "corte": {
+    "toma": 1,
+    "ini_s": 6.81,
+    "fin_s": 7.58,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "comer",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 9,
+   "texto": "Vivir.",
+   "sha256_texto": "37e0cf59cae1bce229c3257679ede16e15ee455c146423f91f331680df9ffd32",
+   "archivo": "009.wav",
+   "duracion_s": 0.81,
+   "bytes": 71486,
+   "sha256_audio": "d1c981f1d42e3879af5260bfc56725f3e35ab0260a0621ce6db90dae849ec330",
+   "origen": "seña sola: vivir",
+   "corte": {
+    "toma": 1,
+    "ini_s": 7.58,
+    "fin_s": 8.48,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Vivir",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 10,
+   "texto": "Poco.",
+   "sha256_texto": "edcea67a797066a295ad638bb317cc14f8363fc5bc3dae864258a85b76132ffc",
+   "archivo": "010.wav",
+   "duracion_s": 0.58,
+   "bytes": 51200,
+   "sha256_audio": "6fa0d65064cb1085047419e65109b1f84956a030f72b936f8ba0a97579202876",
+   "origen": "seña sola: poco",
+   "corte": {
+    "toma": 1,
+    "ini_s": 8.48,
+    "fin_s": 9.18,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "poco",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 11,
+   "texto": "Familia.",
+   "sha256_texto": "40da9ba24a5bc7c7e52388cb9b9b62c4ff5baf0c6df096619feac1665c217f60",
+   "archivo": "011.wav",
+   "duracion_s": 0.84,
+   "bytes": 74132,
+   "sha256_audio": "23b658276a6211dcc4794cdb4c94463f3b34c9bab064eded38caa83e1b22c738",
+   "origen": "seña sola: familia",
+   "corte": {
+    "toma": 1,
+    "ini_s": 9.18,
+    "fin_s": 10.11,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Familia",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 12,
+   "texto": "Personas.",
+   "sha256_texto": "e3fce66116d017ee8723434f5cfc1fc3026129afd86be88f92884594d5477709",
+   "archivo": "012.wav",
+   "duracion_s": 0.91,
+   "bytes": 80306,
+   "sha256_audio": "1b049118edd7f7f92ae158346fdf3359d8c78211706f814f63a71e24c1226c3b",
+   "origen": "seña sola: personas",
+   "corte": {
+    "toma": 1,
+    "ini_s": 10.11,
+    "fin_s": 11.13,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "personas",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 13,
+   "texto": "Mujer.",
+   "sha256_texto": "d6753241d0c74dbd7873d6a28a3c76a6977f64cdf35314fabae1e6ead8b1aad8",
+   "archivo": "013.wav",
+   "duracion_s": 0.75,
+   "bytes": 66194,
+   "sha256_audio": "cee2dfcba70df0437a8026354ffa1dd3154d023202c8b720a7de87b8d6779858",
+   "origen": "seña sola: mujer",
+   "corte": {
+    "toma": 1,
+    "ini_s": 11.13,
+    "fin_s": 11.9,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Mujer",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 14,
+   "texto": "Hombre.",
+   "sha256_texto": "2b60661c62e34eef059e0406cf42d61661e8e6c9c4a6d1c88c9563d2f69cc982",
+   "archivo": "014.wav",
+   "duracion_s": 0.64,
+   "bytes": 56492,
+   "sha256_audio": "d31ec1ca01302f773fe6f4426b48dd26a5106f38d7896d894fd661da186db501",
+   "origen": "seña sola: hombre",
+   "corte": {
+    "toma": 1,
+    "ini_s": 11.9,
+    "fin_s": 12.68,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Hombri.",
+    "similitud": 0.833
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 15,
+   "texto": "Niño.",
+   "sha256_texto": "0442cf9bcbc93b1b46cfb44d9b8b0e04f4773326131833919570a045f5465a88",
+   "archivo": "015.wav",
+   "duracion_s": 0.69,
+   "bytes": 60902,
+   "sha256_audio": "443d08e5cd8580e8dea2a6504ee2ec09cfc2695fe300d3214df8e356d7bb5aab",
+   "origen": "seña sola: niño",
+   "corte": {
+    "toma": 1,
+    "ini_s": 12.68,
+    "fin_s": 13.42,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Nimio!",
+    "similitud": 0.667
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 16,
+   "texto": "Niña.",
+   "sha256_texto": "8c8ab082a127602ca7107536fba651904a24f62da789bbab4aacbcbfdae42e6b",
+   "archivo": "016.wav",
+   "duracion_s": 0.605,
+   "bytes": 53404,
+   "sha256_audio": "e71221d1af3f6be01fdf987322d3d318e1de1b796c3ee6c5fba59b08f3391e7e",
+   "origen": "seña sola: niña",
+   "corte": {
+    "toma": 1,
+    "ini_s": 13.42,
+    "fin_s": 14.095,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Mínia!",
+    "similitud": 0.667
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 17,
+   "texto": "Abuelo.",
+   "sha256_texto": "3bcb30bc8651bd089c2e865c9aad21a1240c68b80b81ee235c9bd7f807993e30",
+   "archivo": "017.wav",
+   "duracion_s": 0.92,
+   "bytes": 81188,
+   "sha256_audio": "6fa53cecd06964a4bb40b423d7e8daf068aa41faa80e39849ce969d27c1a8be3",
+   "origen": "seña sola: abuelo",
+   "corte": {
+    "toma": 1,
+    "ini_s": 14.095,
+    "fin_s": 15.04,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "A vuelo.",
+    "similitud": 0.769
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 18,
+   "texto": "Tío.",
+   "sha256_texto": "fa6169e2973bc3b92bc928f2a31359be56b06a3ccb9238ea7aedfccc0cebef5a",
+   "archivo": "018.wav",
+   "duracion_s": 0.51,
+   "bytes": 45026,
+   "sha256_audio": "aedda61db2ecd73e48149d4b28b487602599274b5f199861bbc5a44a1d1a28cf",
+   "origen": "seña sola: tío",
+   "corte": {
+    "toma": 1,
+    "ini_s": 15.04,
+    "fin_s": 15.58,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Tío!",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 19,
+   "texto": "Hermano.",
+   "sha256_texto": "bbf2f8ab8bb8b4598dc9d32bccd67459d33274e71bfeaea547cf582b83c061d2",
+   "archivo": "019.wav",
+   "duracion_s": 0.79,
+   "bytes": 69722,
+   "sha256_audio": "5ac930d6f348eb3513cfe456b720925a776303c3298d62d6f1328ce04d0b074b",
+   "origen": "seña sola: hermano",
+   "corte": {
+    "toma": 1,
+    "ini_s": 15.58,
+    "fin_s": 16.49,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "hermano",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 20,
+   "texto": "Hambre.",
+   "sha256_texto": "4adb9fdb4987e7a5d189fc0382727b59f06dcda5ca9575536efd45ab87a6a94e",
+   "archivo": "020.wav",
+   "duracion_s": 0.67,
+   "bytes": 59138,
+   "sha256_audio": "866cfe470bac9fe74ecec843dd42c8cfc8b4622dc93eb0a6f35a086c97eec29a",
+   "origen": "seña sola: hambre",
+   "corte": {
+    "toma": 1,
+    "ini_s": 16.49,
+    "fin_s": 17.287,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Ambri!",
+    "similitud": 0.727
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 21,
+   "texto": "Feliz.",
+   "sha256_texto": "0f67d036a264e6dd40888837a1d4c5716d580cc5c73afc9492c8c0c381b76772",
+   "archivo": "021.wav",
+   "duracion_s": 0.683,
+   "bytes": 60286,
+   "sha256_audio": "d758f5e1d5d7acb6c86deac086175386c9ce86b609be00e823cb953931b287f1",
+   "origen": "seña sola: feliz",
+   "corte": {
+    "toma": 1,
+    "ini_s": 17.287,
+    "fin_s": 17.97,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Feliz",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 22,
+   "texto": "Contento.",
+   "sha256_texto": "6791412328f21189e8a0b1d3e2e63e905555464001e5eca53446ce4e8a2c1e7b",
+   "archivo": "022.wav",
+   "duracion_s": 1.02,
+   "bytes": 90006,
+   "sha256_audio": "a75cd5a49d3cecfd4d145fd0826320951a80705872e3322a98dd4193338e388d",
+   "origen": "seña sola: contento",
+   "corte": {
+    "toma": 1,
+    "ini_s": 17.97,
+    "fin_s": 18.99,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "contento",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 23,
+   "texto": "Triste.",
+   "sha256_texto": "89f8bab256cc8a1b42264c49c9976bc964ac5c9f3d22e949cbbd4cf7ce7b9151",
+   "archivo": "023.wav",
+   "duracion_s": 0.717,
+   "bytes": 63284,
+   "sha256_audio": "82c1b38cecde9431fd6690528d56beed095b09bda8b896a2981b93ad25eccd13",
+   "origen": "seña sola: triste",
+   "corte": {
+    "toma": 1,
+    "ini_s": 18.99,
+    "fin_s": 19.757,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "3",
+    "similitud": 0.0
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 24,
+   "texto": "Aburrido.",
+   "sha256_texto": "d1bb8b77d1967fa3584e3ac751f1d3a0bffaed0ca2badfd62d04cc4b0a7ffcc9",
+   "archivo": "024.wav",
+   "duracion_s": 0.86,
+   "bytes": 75896,
+   "sha256_audio": "f7acc6a02a4b99ad17a7a2f294dc806f5da450f387efded9e71f6c4e34fe276f",
+   "origen": "seña sola: aburrido",
+   "corte": {
+    "toma": 1,
+    "ini_s": 19.757,
+    "fin_s": 20.742,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "aburrido.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 25,
+   "texto": "Bien.",
+   "sha256_texto": "39c60d358cd82b58182fd096f93d49984309183e4e281c9ecf3af8bee5e81578",
+   "archivo": "025.wav",
+   "duracion_s": 0.548,
+   "bytes": 48378,
+   "sha256_audio": "adff847903a28cc755b61b77c2be51d91860a75edbf9b80a9f9b705edc89a10a",
+   "origen": "seña sola: bien",
+   "corte": {
+    "toma": 1,
+    "ini_s": 20.742,
+    "fin_s": 21.29,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Bien.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 26,
+   "texto": "Mal.",
+   "sha256_texto": "0f73e843fa1aa4de6361651fba0ad79ca855a1dc78e28d809a8a8e9eeb9d2a4d",
+   "archivo": "026.wav",
+   "duracion_s": 0.7,
+   "bytes": 61784,
+   "sha256_audio": "2b5288cbd13a503276470d0f3a40d2f0f107cc85946119750a34dd7edc89b4c1",
+   "origen": "seña sola: mal",
+   "corte": {
+    "toma": 1,
+    "ini_s": 21.38,
+    "fin_s": 22.08,
+    "corregido_a_mano": true,
+    "metodo": "ventana exacta corregida a mano, fundido lineal de 10 ms en cada borde, sin recorte de silencio"
+   },
+   "verificacion_whisper": {
+    "transcripcion": "MAL",
+    "similitud": null,
+    "nota": "corte rehecho a mano tras la escucha; transcripción del corte nuevo; aprobado por el autor"
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": true
+  },
+  {
+   "numero": 27,
+   "texto": "¿Cómo estás?",
+   "sha256_texto": "4967d44d913b4ec67fe8ed2bf70dc487eddc5f70b29cd8ee1c9bf032fa20bb72",
+   "archivo": "027.wav",
+   "duracion_s": 1.28,
+   "bytes": 112940,
+   "sha256_audio": "3d805dbb8fe78ae0ca898cc893e3d995434a2cd11d2cfcc4a5c83346973e893d",
+   "origen": "seña sola: ¿cómo estás?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 21.72,
+    "fin_s": 23.0,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Cómo estás?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 28,
+   "texto": "Más o menos.",
+   "sha256_texto": "9114c33da51ec7fac3e900874ffc6728fd3cf749b060e09b6ebdad69ffa2448d",
+   "archivo": "028.wav",
+   "duracion_s": 1.07,
+   "bytes": 94418,
+   "sha256_audio": "e1eba1360b0f5aa6ef6ace76e1fe294a83244b63e51c8b50c0ee488b716ab685",
+   "origen": "seña sola: más o menos",
+   "corte": {
+    "toma": 1,
+    "ini_s": 23.0,
+    "fin_s": 24.07,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "más o menos",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 29,
+   "texto": "Sentir.",
+   "sha256_texto": "0439dc27ff1c237b6f25c41d04392f45d233624b25d1b58a78374ce8f9109bad",
+   "archivo": "029.wav",
+   "duracion_s": 0.73,
+   "bytes": 64430,
+   "sha256_audio": "1e4a0a8f1ab513ae0a0a977d291161b493d5f9dcab33db07c34d04d714b69b34",
+   "origen": "seña sola: sentir",
+   "corte": {
+    "toma": 1,
+    "ini_s": 24.07,
+    "fin_s": 24.86,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "sentir",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 30,
+   "texto": "Juicioso.",
+   "sha256_texto": "f7b3cabff23f9de09d7dedb1b856badccb722cda1a2f2189561e8b1639b45833",
+   "archivo": "030.wav",
+   "duracion_s": 1.02,
+   "bytes": 90008,
+   "sha256_audio": "ec18cddd84a6aa4bf89f715b9546e553b9308b4e7c0186b7eee380d9badb57c5",
+   "origen": "seña sola: juicioso",
+   "corte": {
+    "toma": 1,
+    "ini_s": 24.86,
+    "fin_s": 25.88,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "cuícioso.",
+    "similitud": 0.875
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 31,
+   "texto": "Hola.",
+   "sha256_texto": "ee6494f54a3e6a4605ff8fd710ff6980f656385595777597db72bc71335e659f",
+   "archivo": "031.wav",
+   "duracion_s": 0.48,
+   "bytes": 42380,
+   "sha256_audio": "47601e79c4439634a2f90536dc9f42e439c390fdca7ed351e996c5f7667527fb",
+   "origen": "seña sola: hola",
+   "corte": {
+    "toma": 1,
+    "ini_s": 25.88,
+    "fin_s": 26.5,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Hola",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 32,
+   "texto": "Adiós.",
+   "sha256_texto": "e512c50332cca698129dd37495bd7aa40556c4b1308be9f6f484894427078ddf",
+   "archivo": "032.wav",
+   "duracion_s": 0.85,
+   "bytes": 75014,
+   "sha256_audio": "942b72a26be15a249a6490b02d0082e960c04b10f466d0c39f33b21df1adf61a",
+   "origen": "seña sola: adiós",
+   "corte": {
+    "toma": 1,
+    "ini_s": 26.5,
+    "fin_s": 27.35,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "adiós",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 33,
+   "texto": "Por favor.",
+   "sha256_texto": "a92f88ef3b4c8532c0bf899591ceab73b3705825b2784b62008b92463374ae73",
+   "archivo": "033.wav",
+   "duracion_s": 0.74,
+   "bytes": 65312,
+   "sha256_audio": "0d4be103a5301213bd46d90f4363eb9f7305f82e040476360177ff2c2ff3afc3",
+   "origen": "seña sola: por favor",
+   "corte": {
+    "toma": 1,
+    "ini_s": 27.35,
+    "fin_s": 28.13,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Por favor",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 34,
+   "texto": "Con gusto.",
+   "sha256_texto": "88ad679f90ed8820a3e38294b2be9ca6de786a73136ac28b2a2c73381477f13d",
+   "archivo": "034.wav",
+   "duracion_s": 0.95,
+   "bytes": 83834,
+   "sha256_audio": "ce1f50027f69477604b18d4887b047dc9966fe92784c12977d550bdc08b5ea45",
+   "origen": "seña sola: con gusto",
+   "corte": {
+    "toma": 1,
+    "ini_s": 28.13,
+    "fin_s": 29.08,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "con gusto.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 35,
+   "texto": "Bienvenido.",
+   "sha256_texto": "fd0d16b625360026f48c8c16b61e1f3c4415fe0435e6f236c976ee49995d0033",
+   "archivo": "035.wav",
+   "duracion_s": 0.87,
+   "bytes": 76778,
+   "sha256_audio": "440c0d7bd39ad7d158ed6e9aee31acdf48f6393a7035b2a5f6656b8412573492",
+   "origen": "seña sola: bienvenido",
+   "corte": {
+    "toma": 1,
+    "ini_s": 29.08,
+    "fin_s": 30.01,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "B.M.Benil",
+    "similitud": 0.421
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 36,
+   "texto": "Perdón.",
+   "sha256_texto": "f3795457546ece44579c0e2ac3962bd7328ab2eb5c8d4de93990b6ce0a53313c",
+   "archivo": "036.wav",
+   "duracion_s": 0.63,
+   "bytes": 55610,
+   "sha256_audio": "a54e78672fc1dcb8bc46988df9f58fa5f6faec8ad422d69574abd7a03612088a",
+   "origen": "seña sola: perdón",
+   "corte": {
+    "toma": 1,
+    "ini_s": 30.01,
+    "fin_s": 30.72,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Perdón",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 37,
+   "texto": "Permiso.",
+   "sha256_texto": "a25aab4642b9c528aa94e7b89e0a3b1791403b2ddac250875ad8742cde6fe907",
+   "archivo": "037.wav",
+   "duracion_s": 0.83,
+   "bytes": 73250,
+   "sha256_audio": "53754bc411f970d7704efbcd7f6bf4fb211987966f630b456c19d212c16ceef5",
+   "origen": "seña sola: permiso",
+   "corte": {
+    "toma": 1,
+    "ini_s": 30.72,
+    "fin_s": 31.55,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Permiso.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 38,
+   "texto": "Nunca.",
+   "sha256_texto": "4de0d70364e7d105fccdce85c22db7f985e8c4c2cef0e80948b7bf418f8f17a3",
+   "archivo": "038.wav",
+   "duracion_s": 0.77,
+   "bytes": 67958,
+   "sha256_audio": "b5d1a59a6e808e69c90e0c230c8d0528961dd5fa97301e46ee531a3a2821b022",
+   "origen": "seña sola: nunca",
+   "corte": {
+    "toma": 1,
+    "ini_s": 31.55,
+    "fin_s": 32.37,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Nunca",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 39,
+   "texto": "Yo.",
+   "sha256_texto": "5014bcd76d8b0a333d9c145438d725a7699675cbdd0d34679f7c122d57884302",
+   "archivo": "039.wav",
+   "duracion_s": 0.51,
+   "bytes": 45026,
+   "sha256_audio": "97e2174c294cc19a325b91fbfdf20640ea369762bba605bd7e1b7d2058bd1f67",
+   "origen": "seña sola: yo",
+   "corte": {
+    "toma": 1,
+    "ini_s": 32.37,
+    "fin_s": 32.97,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Yo!",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 40,
+   "texto": "Tú.",
+   "sha256_texto": "dd54ccdb908f9715c814e485d60eff59a485014a357d916ff2e2f3ba96218b0a",
+   "archivo": "040.wav",
+   "duracion_s": 0.53,
+   "bytes": 46790,
+   "sha256_audio": "f3ee12f8a06e4d6e848d6e749d41f609331f9b1918fcfd31ec26f6ecd8cc058d",
+   "origen": "seña sola: tú",
+   "corte": {
+    "toma": 1,
+    "ini_s": 32.97,
+    "fin_s": 33.5,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "2",
+    "similitud": 0.0
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 41,
+   "texto": "Ustedes.",
+   "sha256_texto": "de0b13e6da961d914dfd926a325a33189640758dbf0626677e187e686223d3b5",
+   "archivo": "041.wav",
+   "duracion_s": 0.96,
+   "bytes": 84716,
+   "sha256_audio": "97b666fbc0e8fc7e6fe3df1440c0df54df6cb804fb6923ddad9e57ed692c099a",
+   "origen": "seña sola: ustedes",
+   "corte": {
+    "toma": 1,
+    "ini_s": 33.5,
+    "fin_s": 34.46,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Pustéis.",
+    "similitud": 0.714
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 42,
+   "texto": "¿Qué?",
+   "sha256_texto": "cd0d45b659a870023f42ad87a035b6095620b6a9a52323db380ecd8b572c205a",
+   "archivo": "042.wav",
+   "duracion_s": 0.34,
+   "bytes": 30032,
+   "sha256_audio": "dce3fc77f24a0c5f26c94c1f44952908f59efa89ff7c2e3b74587476cd24b91b",
+   "origen": "seña sola: ¿qué?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 34.46,
+    "fin_s": 34.84,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Qué?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 43,
+   "texto": "¿Cuándo?",
+   "sha256_texto": "7e79e9dc6061bee04881418cc7b67e67151f425118525106eb1880860e35d9a5",
+   "archivo": "043.wav",
+   "duracion_s": 0.81,
+   "bytes": 71486,
+   "sha256_audio": "8e227010ae1d00a5cfbbbfb80a8543f880008686641206eec02c66b6bcacf820",
+   "origen": "seña sola: ¿cuándo?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 34.84,
+    "fin_s": 35.65,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "cuando",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 44,
+   "texto": "¿Dónde?",
+   "sha256_texto": "4cffdefd4cf0e2270f4f87c94d50ea75c71a407acc5f356f45538649e59167af",
+   "archivo": "044.wav",
+   "duracion_s": 0.63,
+   "bytes": 55610,
+   "sha256_audio": "2ad5a60b78462cbc6671d7bfe774bf02c00a5d9f779c30c10bab686e8ec59ad4",
+   "origen": "seña sola: ¿dónde?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 35.65,
+    "fin_s": 36.35,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Dónde?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 45,
+   "texto": "¿Cómo?",
+   "sha256_texto": "526eda71701dc14b224ae016fcd852f8aa63f30e8865446b021c197e9bab35cb",
+   "archivo": "045.wav",
+   "duracion_s": 0.61,
+   "bytes": 53846,
+   "sha256_audio": "4cd11872e74ca0b61b8d0e003b13c58fb85b7c07f0747e31fe828045e260587b",
+   "origen": "seña sola: ¿cómo?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 36.35,
+    "fin_s": 36.96,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Cómo?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 46,
+   "texto": "¿Por qué?",
+   "sha256_texto": "fe5516eff608f82dcecdc9db660d762df51f8e0a7e27ea0aa16327e53f4e0393",
+   "archivo": "046.wav",
+   "duracion_s": 0.71,
+   "bytes": 62666,
+   "sha256_audio": "e75568121d1eb5ce64e543b89b17512805960baf1f7026cb966d70082e5fc56f",
+   "origen": "seña sola: ¿por qué?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 36.96,
+    "fin_s": 37.67,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Por qué?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 47,
+   "texto": "¿Quién?",
+   "sha256_texto": "e3638eed24a09f6d0879427c309bb5c2691c82300b75e0334192111a4e1f25f7",
+   "archivo": "047.wav",
+   "duracion_s": 0.68,
+   "bytes": 60020,
+   "sha256_audio": "66aa1cd09ef8374b86f119759d1f0bd4329df0b45eb3d85a357d12ec97f1c928",
+   "origen": "seña sola: ¿quién?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 37.67,
+    "fin_s": 38.35,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Quién?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 48,
+   "texto": "Diferente.",
+   "sha256_texto": "d0dd06ab58821d3ad713b32c71903d776b7ab998002a9c06bd4b1b8974f26dcf",
+   "archivo": "048.wav",
+   "duracion_s": 0.87,
+   "bytes": 76778,
+   "sha256_audio": "0826e5a58cc330b8e7fac3fc9720cca5b26f700f7a88d012c0e9e84fcd62a098",
+   "origen": "seña sola: diferente",
+   "corte": {
+    "toma": 1,
+    "ini_s": 38.35,
+    "fin_s": 39.28,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Diferente.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 49,
+   "texto": "Todos.",
+   "sha256_texto": "61a6eae0dbadeeafc40ec9136870a0c11c1c0da2d43c94f6bcc948150e58a950",
+   "archivo": "049.wav",
+   "duracion_s": 0.5,
+   "bytes": 44144,
+   "sha256_audio": "08ab67eab42b2877581700f5043ae57e1b9533ec556d4ff39365e36ca335ebd8",
+   "origen": "seña sola: todos",
+   "corte": {
+    "toma": 1,
+    "ini_s": 39.28,
+    "fin_s": 39.86,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Todos",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 50,
+   "texto": "Mucho.",
+   "sha256_texto": "1cbf5b6785992f3f1b261766a3a0716b174d997866f1e67ed357a0231aaea36c",
+   "archivo": "050.wav",
+   "duracion_s": 0.91,
+   "bytes": 80306,
+   "sha256_audio": "5eb3838f8c027185801444ffe81de220c6be33ed82a71d9ebb96cff1d69faed5",
+   "origen": "seña sola: mucho",
+   "corte": {
+    "toma": 1,
+    "ini_s": 39.86,
+    "fin_s": 40.79,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Mucho.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 51,
+   "texto": "Buenos días a todos.",
+   "sha256_texto": "094eb54da854c9e6dfced2be17d6fbc882c19591bae2c722fe4b968cb0b46168",
+   "archivo": "051.wav",
+   "duracion_s": 1.23,
+   "bytes": 108530,
+   "sha256_audio": "bfc51406976ca916cfb7f6c93f153bef8d7037037ec737c075ba6bd24c7d0b47",
+   "origen": "S-01: buenos días + todos",
+   "corte": {
+    "toma": 1,
+    "ini_s": 40.79,
+    "fin_s": 42.1,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Buenos días a todos.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 52,
+   "texto": "Buenas tardes a todos.",
+   "sha256_texto": "547542b4aa482765c0b8c55fe7c783ddaa856a41987577f2c50cd354508abe35",
+   "archivo": "052.wav",
+   "duracion_s": 1.45,
+   "bytes": 127932,
+   "sha256_audio": "a7354f576340c5751ff63cb51fb4ebb201ee925059b7208b8a4b56a47b4186b6",
+   "origen": "S-02: buenas tardes + todos",
+   "corte": {
+    "toma": 1,
+    "ini_s": 42.1,
+    "fin_s": 43.55,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "buenas tardes a todos",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 53,
+   "texto": "El tío es juicioso.",
+   "sha256_texto": "b1f4489c3d0ac92687e3a39d95a704bcc8f6bd65ac4b96341aec283f031abcc0",
+   "archivo": "053.wav",
+   "duracion_s": 1.52,
+   "bytes": 134110,
+   "sha256_audio": "ed0243d9bacfe14801b299c2affa743adb746212ee2939a5a7c4b3959a834403",
+   "origen": "S-03: tío + juicioso",
+   "corte": {
+    "toma": 1,
+    "ini_s": 43.55,
+    "fin_s": 45.07,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "El tío es juicioso.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 54,
+   "texto": "La familia está feliz.",
+   "sha256_texto": "1724e8066f128cd63ee54e2b383ddf0848674b51132c93eb5020cd5c7715092d",
+   "archivo": "054.wav",
+   "duracion_s": 1.59,
+   "bytes": 140280,
+   "sha256_audio": "295c62343376038d46e476927eed375afc5af8c721e86ec6371cc91fbc09a3a0",
+   "origen": "S-04: familia + feliz",
+   "corte": {
+    "toma": 1,
+    "ini_s": 45.07,
+    "fin_s": 46.66,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "La familia está feliz.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 55,
+   "texto": "La seña, por favor.",
+   "sha256_texto": "98f18f46a4d0fafad832c934af68c69c74beeb7d0ffea30ae37ce8a2c7d656c7",
+   "archivo": "055.wav",
+   "duracion_s": 1.33,
+   "bytes": 117352,
+   "sha256_audio": "4464ac96d478b172152882652361ae0afb6cb0ec978b635cfc0ea44ab600d320",
+   "origen": "S-05: por favor + seña",
+   "corte": {
+    "toma": 1,
+    "ini_s": 46.66,
+    "fin_s": 47.99,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "La señal, por favor.",
+    "similitud": 0.971
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 56,
+   "texto": "Hola, bienvenido.",
+   "sha256_texto": "03f0f9c7cdb82568611a2cc59d0c8be810041505be9bd25bfd7fe653d256601b",
+   "archivo": "056.wav",
+   "duracion_s": 1.31,
+   "bytes": 115586,
+   "sha256_audio": "eb3164a6f2f43aae4ffe7a2c6d0dda9c92b9c721630387114bfed8a823bc3d0d",
+   "origen": "S-06: hola + bienvenido",
+   "corte": {
+    "toma": 1,
+    "ini_s": 47.99,
+    "fin_s": 49.3,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Hola, bienvenido.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 57,
+   "texto": "El hermano trabaja.",
+   "sha256_texto": "6477d79f70ee78225cfd39f30d168010c1336e7e3e5c6a9c073fd45f9324b233",
+   "archivo": "057.wav",
+   "duracion_s": 1.24,
+   "bytes": 109412,
+   "sha256_audio": "ffcf5527a38cacc7d7de42f9dd5ae844225f40b533d1d1473fcbaa166f4ac103",
+   "origen": "S-07: hermano + trabajar",
+   "corte": {
+    "toma": 1,
+    "ini_s": 49.3,
+    "fin_s": 50.54,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "el hermano trabaja.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 58,
+   "texto": "¿Dónde vive el hermano?",
+   "sha256_texto": "184985e023121d2911566521a375d194a18f3f181290e7d5ad7b6a4e3cbc55fd",
+   "archivo": "058.wav",
+   "duracion_s": 1.31,
+   "bytes": 115586,
+   "sha256_audio": "a8679caccbbc13f681a29c63a88523facee82fa1cf77a4674492d2f6d67f2568",
+   "origen": "S-08: ¿dónde? + hermano + vivir",
+   "corte": {
+    "toma": 1,
+    "ini_s": 50.54,
+    "fin_s": 51.85,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Dónde vive el hermano?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 59,
+   "texto": "Hola, ¿cómo estás?",
+   "sha256_texto": "ad500b0c49a76ec9484fa973766c85b8d5ee77b6e3c3ded56da1fa9d23d080cd",
+   "archivo": "059.wav",
+   "duracion_s": 1.12,
+   "bytes": 98828,
+   "sha256_audio": "1b92e19c82666c67141c06ef5e235b603cd88dffb8cfbcff821bb1c5fc3ec920",
+   "origen": "S-09: hola + ¿cómo estás?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 51.85,
+    "fin_s": 53.05,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Hola! ¿Cómo estás?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 60,
+   "texto": "Hola a todos.",
+   "sha256_texto": "ab23b030304f234e95edd7bcb19fd47e1841f2c0d8e71013d19a487861e5532c",
+   "archivo": "060.wav",
+   "duracion_s": 1.09,
+   "bytes": 96182,
+   "sha256_audio": "f2c14b1c9aa14af056664ab1c7aa4a8257cbf6cad7969b135802cb572475be8d",
+   "origen": "S-10: hola + todos",
+   "corte": {
+    "toma": 1,
+    "ini_s": 53.05,
+    "fin_s": 54.14,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Hola a todos",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 61,
+   "texto": "Buenas noches a todos.",
+   "sha256_texto": "7a8317c745306a54e68c14285d3baeb3581be2b4c366b533728631f878be664b",
+   "archivo": "061.wav",
+   "duracion_s": 1.36,
+   "bytes": 119996,
+   "sha256_audio": "55da9148a55189ff558249b6904f08700df5f53ef53457f1df6d0f424a98415d",
+   "origen": "S-11: buenas noches + todos",
+   "corte": {
+    "toma": 1,
+    "ini_s": 54.14,
+    "fin_s": 55.5,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "buenas noches a todos",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 62,
+   "texto": "Adiós a todos.",
+   "sha256_texto": "8724384326bf5aa5183ace2955dc46e707f43467b137925cdcde98b7b65ff94a",
+   "archivo": "062.wav",
+   "duracion_s": 1.12,
+   "bytes": 98828,
+   "sha256_audio": "d891b12f790eb8c2125c816d4fd52e03080cefd36b16e59b5be2936552f8d461",
+   "origen": "S-12: adiós + todos",
+   "corte": {
+    "toma": 1,
+    "ini_s": 55.5,
+    "fin_s": 56.62,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Adiós a todos.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 63,
+   "texto": "Hola, buenos días.",
+   "sha256_texto": "e506e5db6ab53e80fa55b17db0e1bb6f4057e66ad1a1d47a413c75f4d953e7d8",
+   "archivo": "063.wav",
+   "duracion_s": 1.18,
+   "bytes": 104120,
+   "sha256_audio": "ee84d6fab9087db198aa891739b604763aa137f405c91305e925633561a5c66d",
+   "origen": "S-13: hola + buenos días",
+   "corte": {
+    "toma": 1,
+    "ini_s": 56.62,
+    "fin_s": 57.91,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Hola, buenos días!",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 64,
+   "texto": "Buenas tardes, ¿cómo estás?",
+   "sha256_texto": "6614c008d5efbe229a4823e6db0ba283329761b98a1db06749801ff548f7628d",
+   "archivo": "064.wav",
+   "duracion_s": 1.54,
+   "bytes": 135872,
+   "sha256_audio": "032f7318f386c323be6753892498247902495832e59722d69ab04927673123d2",
+   "origen": "S-14: buenas tardes + ¿cómo estás?",
+   "corte": {
+    "toma": 1,
+    "ini_s": 57.91,
+    "fin_s": 59.45,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Buenas tardes, ¿cómo estás?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 65,
+   "texto": "Hola, abuelo.",
+   "sha256_texto": "4a07cae447322e9f90203ee29208607e6718a13e647e55ba89c76bf10440422a",
+   "archivo": "065.wav",
+   "duracion_s": 0.91,
+   "bytes": 80306,
+   "sha256_audio": "cffdd0ff1fe6fdd7aa8129ed1f1664a9a7c0f1a51017b0f390e13a1ee5737fd7",
+   "origen": "S-15: hola + abuelo",
+   "corte": {
+    "toma": 1,
+    "ini_s": 59.45,
+    "fin_s": 60.36,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "hola vuelo",
+    "similitud": 0.857
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 66,
+   "texto": "Buenos días, familia.",
+   "sha256_texto": "babdbd3b8d453e740a2af535c00c5e159ede91d00bc783c02ad43c9c36ec1063",
+   "archivo": "066.wav",
+   "duracion_s": 1.44,
+   "bytes": 127052,
+   "sha256_audio": "28996b02e43800e6e499953626b79b78e49f3a5628de1ea1c06eeb29486bc1ca",
+   "origen": "S-16: buenos días + familia",
+   "corte": {
+    "toma": 1,
+    "ini_s": 60.36,
+    "fin_s": 61.8,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "buenos días familia",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 67,
+   "texto": "Hola, ¿cómo está la familia?",
+   "sha256_texto": "1f8eeabbf7c3477e8bd6a00aa44e7e10b441af384c1d6ad7c125433455c2eb05",
+   "archivo": "067.wav",
+   "duracion_s": 1.41,
+   "bytes": 124406,
+   "sha256_audio": "c2a525d21b5902d1f5db4b87818ea756a909d74069427dc48c362dc870a68b2c",
+   "origen": "S-17: hola + ¿cómo estás? + familia",
+   "corte": {
+    "toma": 1,
+    "ini_s": 61.8,
+    "fin_s": 63.26,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Hola, ¿cómo está la familia?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 68,
+   "texto": "¿Cómo están ustedes?",
+   "sha256_texto": "22479830af46aec035c1f9cb87ad432e238c3e96deaaaa1287439006b8a38771",
+   "archivo": "068.wav",
+   "duracion_s": 1.15,
+   "bytes": 101474,
+   "sha256_audio": "8123ce4785979a979e6bdb1a518fe4ba02e9f191092a6ceae07f7a7456504e9a",
+   "origen": "S-18: ¿cómo estás? + ustedes",
+   "corte": {
+    "toma": 1,
+    "ini_s": 63.26,
+    "fin_s": 64.41,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Cómo están ustedes?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 69,
+   "texto": "¿Cómo están todos?",
+   "sha256_texto": "c6b7d9d961cabd499b76cb214984119fbe4f1ff245607297a3792e726ee070c7",
+   "archivo": "069.wav",
+   "duracion_s": 1.32,
+   "bytes": 116468,
+   "sha256_audio": "0222731772e417a7eae16b6be413cd949184f2ef23f97a2fffc308e1a2339a47",
+   "origen": "S-19: ¿cómo estás? + todos",
+   "corte": {
+    "toma": 1,
+    "ini_s": 64.41,
+    "fin_s": 65.73,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Cómo están todos?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 70,
+   "texto": "Buenos días, bienvenido.",
+   "sha256_texto": "51ad04ba6d54d54aab52642106e4964a1ab1ee1ce6e2493239eff99d68876c5c",
+   "archivo": "070.wav",
+   "duracion_s": 1.47,
+   "bytes": 129698,
+   "sha256_audio": "9f21128caf89f4dd5ad4d47e1f19e2b65585f6cfb17e038e6911eba0f45d647b",
+   "origen": "S-20: buenos días + bienvenido",
+   "corte": {
+    "toma": 1,
+    "ini_s": 65.73,
+    "fin_s": 67.22,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Buenos días, bienvenido.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 71,
+   "texto": "El nombre, por favor.",
+   "sha256_texto": "2876ea840b610949a80bf2866c332ab1a23e4e8933565332560036ca9fe210bb",
+   "archivo": "071.wav",
+   "duracion_s": 1.2,
+   "bytes": 105884,
+   "sha256_audio": "e2bab3f0dfff430a3a864be1038c2a213cb6d620201aeb8320082822d9172532",
+   "origen": "S-21: por favor + nombre",
+   "corte": {
+    "toma": 1,
+    "ini_s": 67.22,
+    "fin_s": 68.519,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "El nombre, por favor.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 72,
+   "texto": "¿Cuál es tu nombre?",
+   "sha256_texto": "91fa9bfdb1cc14217665e60e24dab362b9dfdfcfbf75635e9637399e971fef82",
+   "archivo": "072.wav",
+   "duracion_s": 1.06,
+   "bytes": 93536,
+   "sha256_audio": "a1649b41b770958f449e37d817daf3a67c74dc30f47ebeb717820d2f97442958",
+   "origen": "S-22: tú + nombre + ¿qué?",
+   "corte": {
+    "toma": 2,
+    "ini_s": 0.0,
+    "fin_s": 1.08,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Cuál es tu nombre?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 73,
+   "texto": "¿Cuál es tu seña?",
+   "sha256_texto": "0cc14c08636fb18384ab51e5239a9118d9c84364d03195f02bab989c92fa68d9",
+   "archivo": "073.wav",
+   "duracion_s": 1.29,
+   "bytes": 113822,
+   "sha256_audio": "d903eb6fa378d4f7af756b2b07a8f50468fd7f2f5f4a7db35bf5f5296c8b7661",
+   "origen": "S-23: tú + seña + ¿qué?",
+   "corte": {
+    "toma": 2,
+    "ini_s": 1.08,
+    "fin_s": 2.37,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Cuál es tu señal!",
+    "similitud": 0.968
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 74,
+   "texto": "Muchas gracias.",
+   "sha256_texto": "64c0157d046ddb3aa11f9fe3b8ad376778b15144c6a2ab0fa4dfa6123935a8ed",
+   "archivo": "074.wav",
+   "duracion_s": 1.23,
+   "bytes": 108530,
+   "sha256_audio": "12b20df0543ccf982bd64cf073f0824a6fb3f75a45aa1a33cef90aae60f12f75",
+   "origen": "S-24: gracias + mucho",
+   "corte": {
+    "toma": 2,
+    "ini_s": 2.37,
+    "fin_s": 3.6,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Muchas gracias.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 75,
+   "texto": "Con mucho gusto.",
+   "sha256_texto": "4594abc0923838f135ed219e89b4c0b15c321ca592a6de9502a901a373970a2a",
+   "archivo": "075.wav",
+   "duracion_s": 1.29,
+   "bytes": 113822,
+   "sha256_audio": "2e5793d35225f568fa81ee014ee41ebe02d8d0a0ec26c445c0d489f18fa1d84d",
+   "origen": "S-25: con gusto + mucho",
+   "corte": {
+    "toma": 2,
+    "ini_s": 3.6,
+    "fin_s": 4.89,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "con mucho gusto.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 76,
+   "texto": "Gracias a todos.",
+   "sha256_texto": "26c87079c9f112c32cc6cb14df3c14877ea8f6b4b97e231f9062481d6c374b86",
+   "archivo": "076.wav",
+   "duracion_s": 1.12,
+   "bytes": 98828,
+   "sha256_audio": "1baeabb1b01eac31f1fac5b35b440a52030b407d86351d145fba50ebaa8f2465",
+   "origen": "S-26: gracias + todos",
+   "corte": {
+    "toma": 2,
+    "ini_s": 4.89,
+    "fin_s": 6.14,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias a todos.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 77,
+   "texto": "Perdón, con permiso.",
+   "sha256_texto": "57f4a591b80f4542beba67cb1afea722c2c60b57b3a04e819fb4cfc09ad785ba",
+   "archivo": "077.wav",
+   "duracion_s": 1.82,
+   "bytes": 160568,
+   "sha256_audio": "80c5e2bba0fef0fafd8293ea909c0f4b7f94731bc816b338af72dc79a2e42f2f",
+   "origen": "S-27: perdón + permiso",
+   "corte": {
+    "toma": 2,
+    "ini_s": 6.14,
+    "fin_s": 7.96,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Perdón, con permiso.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 78,
+   "texto": "Permiso, por favor.",
+   "sha256_texto": "59cb984c5baa1fa49bb08d012981ca21b3f52365441c5f8d58728025b9e3ab75",
+   "archivo": "078.wav",
+   "duracion_s": 1.41,
+   "bytes": 124404,
+   "sha256_audio": "f950b03007b51c7e7d3b3223e13f108e1833ed8cd36c0cf9bcac4ef4bc3248bc",
+   "origen": "S-28: por favor + permiso",
+   "corte": {
+    "toma": 2,
+    "ini_s": 7.96,
+    "fin_s": 9.37,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Permiso, por favor.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 79,
+   "texto": "Perdón, ¿qué?",
+   "sha256_texto": "1aeec22e7752b5347ba5b333af636990985a1d62414f43c51950537a913cd831",
+   "archivo": "079.wav",
+   "duracion_s": 1.26,
+   "bytes": 111178,
+   "sha256_audio": "215f6f937ba47d5d77004aa28dd43e27d279056ad05b02a471301b3104143df6",
+   "origen": "S-29: perdón + ¿qué?",
+   "corte": {
+    "toma": 2,
+    "ini_s": 9.37,
+    "fin_s": 10.63,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Perdón, ¿qué?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 80,
+   "texto": "Perdón, ¿cómo?",
+   "sha256_texto": "dd6cb372dbaa16a4d2313b2a2fe2501bd9628aadd94b136047eb904faf96c059",
+   "archivo": "080.wav",
+   "duracion_s": 1.34,
+   "bytes": 118232,
+   "sha256_audio": "61aa90a2297cf54b9dadbff702879a56c23274e63573c6a9de4a63a98a4efdc6",
+   "origen": "S-30: perdón + ¿cómo?",
+   "corte": {
+    "toma": 2,
+    "ini_s": 10.63,
+    "fin_s": 11.97,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "perdón como",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 81,
+   "texto": "Bien, gracias.",
+   "sha256_texto": "897d500155bb0852d803cc0a8f9d84d3d0e1bc689460f61d1577985cbc58398c",
+   "archivo": "081.wav",
+   "duracion_s": 1.44,
+   "bytes": 127052,
+   "sha256_audio": "ab6c7b8c99981977fe202c07bdabde3640b011fad2c364796c4170f8d1f1ef0c",
+   "origen": "S-31: bien + gracias",
+   "corte": {
+    "toma": 2,
+    "ini_s": 11.97,
+    "fin_s": 13.41,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Bien, gracias!",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 82,
+   "texto": "Más o menos, gracias.",
+   "sha256_texto": "4585c4b331f058a344c2a29744a43e27916d5acb924d5c939fda486acdcda784",
+   "archivo": "082.wav",
+   "duracion_s": 1.65,
+   "bytes": 145574,
+   "sha256_audio": "35a6b7ec80cf27f3afe92a1d41748c2f3a7d49ae4e3ab3a24ef1369f920a033d",
+   "origen": "S-32: más o menos + gracias",
+   "corte": {
+    "toma": 2,
+    "ini_s": 13.41,
+    "fin_s": 15.06,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Más o menos, gracias!",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 83,
+   "texto": "Yo estoy bien, gracias.",
+   "sha256_texto": "da98961a1261cdfc79a6f25b7ef873eb8f1bedeeccf5e5497f3fec4cc8a46b21",
+   "archivo": "083.wav",
+   "duracion_s": 1.55,
+   "bytes": 136754,
+   "sha256_audio": "4150f0ccf4f6dd738e98e3f9fc4ec4edc52a0e5d14c49f35f1c9a155ed982d64",
+   "origen": "S-33: yo + bien + gracias",
+   "corte": {
+    "toma": 2,
+    "ini_s": 15.06,
+    "fin_s": 16.75,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Justo y bien, gracias.",
+    "similitud": 0.829
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 84,
+   "texto": "Gracias, adiós.",
+   "sha256_texto": "02c43eab90e8b7dfd7ac64b33b3904a56f94752fc47b366df6139232880a79d1",
+   "archivo": "084.wav",
+   "duracion_s": 1.29,
+   "bytes": 113822,
+   "sha256_audio": "1f9c971c4943ddeeea3c79ffee7e77436512d6d8d998cea7836b268f3c972647",
+   "origen": "S-34: gracias + adiós",
+   "corte": {
+    "toma": 2,
+    "ini_s": 16.75,
+    "fin_s": 18.28,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias, adiós.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 85,
+   "texto": "Gracias, buenas noches.",
+   "sha256_texto": "dc559c4415c60ec08b803b26e9620a5caf04e4c8d6caf2544b2778ee884c65e2",
+   "archivo": "085.wav",
+   "duracion_s": 1.4,
+   "bytes": 123524,
+   "sha256_audio": "1b14aa0dd9112cbc9874437694da0fbc4df5c9be8abd7ca51330666c2bfcc7df",
+   "origen": "S-35: gracias + buenas noches",
+   "corte": {
+    "toma": 2,
+    "ini_s": 18.28,
+    "fin_s": 19.87,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias, buenas noches.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 86,
+   "texto": "Muchas gracias a todos.",
+   "sha256_texto": "1fbd93344d05b24dbc48e8c0361b14680d4b81cdd4437cf31ef8ad61a4e401ac",
+   "archivo": "086.wav",
+   "duracion_s": 1.56,
+   "bytes": 137636,
+   "sha256_audio": "81b5a47244b48eb7446a8ff8c4e1e1294a6f9c4ef1222008101aa31c5f40326e",
+   "origen": "S-36: mucho + gracias + todos",
+   "corte": {
+    "toma": 2,
+    "ini_s": 19.87,
+    "fin_s": 21.57,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Muchas gracias a todos.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 87,
+   "texto": "Yo trabajo.",
+   "sha256_texto": "dd1bab5a5978a95bcf0dc911da9a699c2843e117d3ea9439edead321d5db56a1",
+   "archivo": "087.wav",
+   "duracion_s": 1.01,
+   "bytes": 89126,
+   "sha256_audio": "b1ebbba1e2296fa84403bab778bd15c1dc95fd7aa5102d07016ea26aabed68d0",
+   "origen": "S-37: yo + trabajar",
+   "corte": {
+    "toma": 2,
+    "ini_s": 21.57,
+    "fin_s": 22.82,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Dio trao ajo.",
+    "similitud": 0.727
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 88,
+   "texto": "Tú comes.",
+   "sha256_texto": "bb1fab3b3a34e78d4a6354920f093ea62dc0ff2d26742e03d32d3204fc26d02c",
+   "archivo": "088.wav",
+   "duracion_s": 1.03,
+   "bytes": 90890,
+   "sha256_audio": "71a316b431f490b1a01aadd1246c4596b54851e1785fb3f73dc42e16c820073a",
+   "origen": "S-38: tú + comer",
+   "corte": {
+    "toma": 2,
+    "ini_s": 22.95,
+    "fin_s": 23.98,
+    "corregido_a_mano": true,
+    "metodo": "ventana exacta corregida a mano, fundido lineal de 10 ms en cada borde, sin recorte de silencio"
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Tú comis!",
+    "similitud": null,
+    "nota": "corte rehecho a mano tras la escucha; transcripción del corte nuevo; aprobado por el autor"
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": true
+  },
+  {
+   "numero": 89,
+   "texto": "Ustedes trabajan.",
+   "sha256_texto": "0541036173763420692ab5f088ebf83ab8488849fa48a6750c493195d96b31fc",
+   "archivo": "089.wav",
+   "duracion_s": 1.67,
+   "bytes": 147338,
+   "sha256_audio": "09a7352520758bfe38ca618a2f68110bd5089f74f027e9095ffe8a1bae8e50ca",
+   "origen": "S-39: ustedes + trabajar",
+   "corte": {
+    "toma": 2,
+    "ini_s": 23.57,
+    "fin_s": 25.24,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "ustedes trabajan",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 90,
+   "texto": "Las personas comen.",
+   "sha256_texto": "5e0207891d366295ccc39593655fee8f9813f0e54658824862cb4256abe1abdd",
+   "archivo": "090.wav",
+   "duracion_s": 1.4,
+   "bytes": 123524,
+   "sha256_audio": "d9f7f47a8bd99eaee50876129953fbe1bed2a6027d08cff2bc06643f86cffad8",
+   "origen": "S-40: personas + comer",
+   "corte": {
+    "toma": 2,
+    "ini_s": 25.24,
+    "fin_s": 26.64,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "las personas comen.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 91,
+   "texto": "Todos trabajan mucho.",
+   "sha256_texto": "0db5d4013d17d8a3dd7e0613625e5dcbba88024a7777e079c39f0a0e88b7eb16",
+   "archivo": "091.wav",
+   "duracion_s": 1.54,
+   "bytes": 135872,
+   "sha256_audio": "36972190284d14d2001c69fcecf3e67b3f5268f13837c0348179ee3974a38396",
+   "origen": "S-41: todos + trabajar + mucho",
+   "corte": {
+    "toma": 2,
+    "ini_s": 26.64,
+    "fin_s": 28.18,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Todos trabajan mucho.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 92,
+   "texto": "Yo nunca como.",
+   "sha256_texto": "fc4226b0f7965b94463c6d41adcf517c4530129d7929d39f9f5ac9697e6eb754",
+   "archivo": "092.wav",
+   "duracion_s": 1.24,
+   "bytes": 109412,
+   "sha256_audio": "698f4266c0067505ceb6f41b403a2288f468847649a3f9ef344cd9ec870ce885",
+   "origen": "S-42: yo + nunca + comer",
+   "corte": {
+    "toma": 2,
+    "ini_s": 28.18,
+    "fin_s": 29.42,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "yo nunca con",
+    "similitud": 0.88
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 93,
+   "texto": "La familia vive bien.",
+   "sha256_texto": "1f934806f3ab11347e3abb08508c7cce9e6c577abf23dc1ca0f7a4d9983bd973",
+   "archivo": "093.wav",
+   "duracion_s": 1.87,
+   "bytes": 164978,
+   "sha256_audio": "d9a96a007ad23d9933b542afad0ced5dd6ac55b207b7c06de64f4ea003d9ae5c",
+   "origen": "S-43: familia + vivir + bien",
+   "corte": {
+    "toma": 2,
+    "ini_s": 29.42,
+    "fin_s": 31.29,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "La familia B.A.V.",
+    "similitud": 0.667
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 94,
+   "texto": "Yo estoy feliz.",
+   "sha256_texto": "29c04a62c3b05fe43b497459ed6866b90feb55bc2be1c36180ce5e07cdd197d6",
+   "archivo": "094.wav",
+   "duracion_s": 1.18,
+   "bytes": 104120,
+   "sha256_audio": "03112ab1250ae79290b8db8a974dd0562bc0b0a9aa1c56ea2c12d313e35945ed",
+   "origen": "S-44: yo + feliz",
+   "corte": {
+    "toma": 2,
+    "ini_s": 31.29,
+    "fin_s": 32.47,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Yo estoy feliz.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 95,
+   "texto": "La niña está contenta.",
+   "sha256_texto": "b9a5221299f707617e01f45c5aa92483d3c46895472947648a1499ae2e0e7b12",
+   "archivo": "095.wav",
+   "duracion_s": 1.81,
+   "bytes": 159686,
+   "sha256_audio": "43c80c4c202cfb0db670a2f969d2b742b5a18e610cb2bc856662797cf72092c9",
+   "origen": "S-45: niña + contento",
+   "corte": {
+    "toma": 2,
+    "ini_s": 32.47,
+    "fin_s": 34.28,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "La niña está contenta.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 96,
+   "texto": "Ustedes están aburridos.",
+   "sha256_texto": "0ef0371d9e394447db1ab8c85e22bf320ddf4426dc177889d8d3cc62320435b7",
+   "archivo": "096.wav",
+   "duracion_s": 1.71,
+   "bytes": 150866,
+   "sha256_audio": "77e9e7f554baee2b3aa237bc992622d1050dab28ac98aa1483974d17788d028f",
+   "origen": "S-46: ustedes + aburrido",
+   "corte": {
+    "toma": 2,
+    "ini_s": 34.28,
+    "fin_s": 36.0,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "ustedes están aburridos",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 97,
+   "texto": "El hermano es diferente.",
+   "sha256_texto": "a544b9a50cc6ae7bb6eba57e92bac0c66af297f3d31335d5a8407c21d47a0e2a",
+   "archivo": "097.wav",
+   "duracion_s": 1.55,
+   "bytes": 136752,
+   "sha256_audio": "5973161d305b6edf351ea87018cfbb1d7de7c2479dacc072754ccc332a3d5def",
+   "origen": "S-47: hermano + diferente",
+   "corte": {
+    "toma": 2,
+    "ini_s": 36.0,
+    "fin_s": 37.55,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "El hermano es diferente.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 98,
+   "texto": "Yo estoy bien.",
+   "sha256_texto": "fd5caaae7f86bf1aedca68407230155c8ad749d8af974caaa76c12c4d5e194c0",
+   "archivo": "098.wav",
+   "duracion_s": 1.12,
+   "bytes": 98830,
+   "sha256_audio": "28d24511bc76ae35946c03b84e090ae9d4034bf69b75c9fa454f84d5f4c33b7f",
+   "origen": "S-48: yo + bien",
+   "corte": {
+    "toma": 2,
+    "ini_s": 37.55,
+    "fin_s": 38.67,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Dios soy bien!",
+    "similitud": 0.769
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 99,
+   "texto": "El abuelo está mal.",
+   "sha256_texto": "30527841b5c013d05ca8592ead43ff740f9f797eb3f827984dc4588d6ccb8e84",
+   "archivo": "099.wav",
+   "duracion_s": 1.43,
+   "bytes": 126170,
+   "sha256_audio": "fc88cf303677448811b687674c7737d3058c53e2e1782aa4c211625d65b1ea28",
+   "origen": "S-49: abuelo + mal",
+   "corte": {
+    "toma": 2,
+    "ini_s": 38.67,
+    "fin_s": 40.1,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "el abuelo está mal.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 100,
+   "texto": "Yo estoy muy feliz.",
+   "sha256_texto": "8e1a5c41a80b463c92b03b449c5418de46b1e85e09c76b8c5f136de29cbad855",
+   "archivo": "100.wav",
+   "duracion_s": 1.54,
+   "bytes": 135872,
+   "sha256_audio": "43ba8ae58197d254ef20be4e65da63ed42994e7a1cff70b18c13d5e471cac773",
+   "origen": "S-50: yo + mucho + feliz",
+   "corte": {
+    "toma": 2,
+    "ini_s": 40.1,
+    "fin_s": 41.64,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Yo estoy muy feliz.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 101,
+   "texto": "Yo me siento triste.",
+   "sha256_texto": "178e4bd555a5c60aa05286dd7a7ef7813e18dca9e836c0cd8097d64b2a1bcf75",
+   "archivo": "101.wav",
+   "duracion_s": 1.4,
+   "bytes": 123524,
+   "sha256_audio": "f6bd705741f5a85c9293330b70d71ce1adab9633bfc58789cac211901c1618ee",
+   "origen": "S-51: yo + sentir + triste",
+   "corte": {
+    "toma": 2,
+    "ini_s": 41.64,
+    "fin_s": 43.04,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Yo me siento triste.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 102,
+   "texto": "Tú te sientes bien.",
+   "sha256_texto": "0ad93b1f31afa4a669554855a69baad7ae5822a46e650c58cf1ef7b00d48a3d0",
+   "archivo": "102.wav",
+   "duracion_s": 1.34,
+   "bytes": 118232,
+   "sha256_audio": "befe52e1453034ffbb3e1225f7fbe7563a7e8dbbbdbf97c5a10a94ec0a89be33",
+   "origen": "S-52: tú + sentir + bien",
+   "corte": {
+    "toma": 2,
+    "ini_s": 43.04,
+    "fin_s": 44.38,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Tú te sientes bien!",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 103,
+   "texto": "Yo tengo hambre.",
+   "sha256_texto": "9388168883fe30771b02051310fab8e27b5404ef7ea644e21a0904d52023e4a4",
+   "archivo": "103.wav",
+   "duracion_s": 1.27,
+   "bytes": 112058,
+   "sha256_audio": "f905ef281148c632aebd1d3421e215612ba8d3662f6f85e3bd1e6d7d27ad6bd0",
+   "origen": "S-53: yo + hambre",
+   "corte": {
+    "toma": 2,
+    "ini_s": 44.38,
+    "fin_s": 45.65,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "yo tengo hambre.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 104,
+   "texto": "El niño tiene mucha hambre.",
+   "sha256_texto": "7ec3102f417c33a5194aea2153220f3c6c12d5c2947445c95ba24eee8c11e811",
+   "archivo": "104.wav",
+   "duracion_s": 1.9,
+   "bytes": 167622,
+   "sha256_audio": "bd4996fd6c84f5d1a42fa0e6e830016efbb082ce588e72ef80d21fa340202fd9",
+   "origen": "S-54: niño + hambre + mucho",
+   "corte": {
+    "toma": 2,
+    "ini_s": 45.65,
+    "fin_s": 47.55,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "el niño tiene mucha hambre",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 105,
+   "texto": "Todos son bienvenidos.",
+   "sha256_texto": "8110f9226f267fbc3faaa8aaac581d07d3f373cf57453bb3b1e73420bdc5d31e",
+   "archivo": "105.wav",
+   "duracion_s": 1.32,
+   "bytes": 116470,
+   "sha256_audio": "a21c0b9ff61fe97b91245b3a4dbfe341c44bf8375edae31d8a0766c5ab1cd9fe",
+   "origen": "S-55: todos + bienvenido",
+   "corte": {
+    "toma": 2,
+    "ini_s": 47.55,
+    "fin_s": 48.97,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Todos son bienvenidos.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 106,
+   "texto": "Tú eres bienvenido.",
+   "sha256_texto": "fab620b952fee553a8866c67701d6c706f6494628ebc1791476ec6db362c107e",
+   "archivo": "106.wav",
+   "duracion_s": 1.44,
+   "bytes": 127052,
+   "sha256_audio": "d96d105240c3e4000ba356df118dc08d50e8d9026382af0b053d8bb419789aed",
+   "origen": "S-56: tú + bienvenido",
+   "corte": {
+    "toma": 2,
+    "ini_s": 48.97,
+    "fin_s": 50.41,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Tú eres bien venido!",
+    "similitud": 0.973
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 107,
+   "texto": "¿Dónde vives tú?",
+   "sha256_texto": "3f1010f59116e7375800c9289b722a6bca4ff9d571668fb5645aee98f41c5dff",
+   "archivo": "107.wav",
+   "duracion_s": 1.11,
+   "bytes": 97946,
+   "sha256_audio": "310d6e42f6cfe19c80da862f437e04955abc3dddbe072f73820db6a5a517d401",
+   "origen": "S-57: ¿dónde? + tú + vivir",
+   "corte": {
+    "toma": 2,
+    "ini_s": 50.41,
+    "fin_s": 51.52,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Dónde el USB 2!",
+    "similitud": 0.643
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 108,
+   "texto": "¿Cuándo trabaja el hermano?",
+   "sha256_texto": "f291ef169ad5691d9d969df6b4afd2a886e327efef093397b094d0d864b640b3",
+   "archivo": "108.wav",
+   "duracion_s": 1.51,
+   "bytes": 133226,
+   "sha256_audio": "5eb8f05bb6212abb9453dbcd5a4e100d78cb31ee7afd938a3e71320a3ceab4d3",
+   "origen": "S-58: ¿cuándo? + hermano + trabajar",
+   "corte": {
+    "toma": 2,
+    "ini_s": 51.52,
+    "fin_s": 53.03,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Cuándo trabaja el hermano?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 109,
+   "texto": "¿Qué come el niño?",
+   "sha256_texto": "5a2665e4cfe63689b7b848725f381c005a0f47d32ec89fdbad32f1fc15b2d030",
+   "archivo": "109.wav",
+   "duracion_s": 1.07,
+   "bytes": 94418,
+   "sha256_audio": "1eaf27ecccf271254bed566b36cc1d29c9a339155eecede1983467e4fa8c04a4",
+   "origen": "S-59: ¿qué? + niño + comer",
+   "corte": {
+    "toma": 2,
+    "ini_s": 53.03,
+    "fin_s": 54.1,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Qué como el niño?",
+    "similitud": 0.938
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 110,
+   "texto": "¿Quién come?",
+   "sha256_texto": "1453c299adaa6cb61b75a95a68d3d821b25b8587832952cfea6687f137114440",
+   "archivo": "110.wav",
+   "duracion_s": 0.89,
+   "bytes": 78542,
+   "sha256_audio": "aa9c438061a6e1e965503d6fd48c12382e5d3384da0021d361489ee4bf575d53",
+   "origen": "S-60: ¿quién? + comer",
+   "corte": {
+    "toma": 2,
+    "ini_s": 54.1,
+    "fin_s": 54.99,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Quién conmigo?",
+    "similitud": 0.783
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 111,
+   "texto": "¿Quién tiene hambre?",
+   "sha256_texto": "25b4271e7f0d56949a6b5b47be70a09306eac924fa804d3baa84ff10e58766e6",
+   "archivo": "111.wav",
+   "duracion_s": 1.11,
+   "bytes": 97946,
+   "sha256_audio": "1985d33341fe88108f5452c0a8864ac768b0f1c798a82dca8eafbd70def489ce",
+   "origen": "S-61: ¿quién? + hambre",
+   "corte": {
+    "toma": 2,
+    "ini_s": 54.99,
+    "fin_s": 56.1,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Quién tiene hambre?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 112,
+   "texto": "¿Quién eres tú?",
+   "sha256_texto": "ca4555d6974c3cd6769be08b85dbb9b3a56126bb29d58ac00af73751f08cc515",
+   "archivo": "112.wav",
+   "duracion_s": 1.15,
+   "bytes": 101474,
+   "sha256_audio": "a6f611ddfe9524633710db0e1e758d5f7e627ad36d53a18fc02f55cef2efd3e0",
+   "origen": "S-62: ¿quién? + tú",
+   "corte": {
+    "toma": 2,
+    "ini_s": 56.1,
+    "fin_s": 57.25,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Quién eres tú?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 113,
+   "texto": "¿Quiénes son ustedes?",
+   "sha256_texto": "6ad251cd2a7a6da4138f516a1f5cad61ecf8920e35a8636f673f65c81b18a286",
+   "archivo": "113.wav",
+   "duracion_s": 1.01,
+   "bytes": 89126,
+   "sha256_audio": "a7eea98474cccca15a5332e4ca9dd941fb2ecb3dcee0426eea029a56051405bf",
+   "origen": "S-63: ¿quién? + ustedes",
+   "corte": {
+    "toma": 2,
+    "ini_s": 57.25,
+    "fin_s": 58.26,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Quienes son ustedes.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 114,
+   "texto": "¿Cómo está el abuelo?",
+   "sha256_texto": "edd20ebc70b22f9c96ac03b2a7b6100f34628976d9ee6f00ce2ec4e2b9533a01",
+   "archivo": "114.wav",
+   "duracion_s": 1.1,
+   "bytes": 97064,
+   "sha256_audio": "7ab73eb23e2aaa9fe6ffe2e9253e0fbf9a7643f48b52d2b44c0a270d8ab4ec98",
+   "origen": "S-64: ¿cómo? + abuelo",
+   "corte": {
+    "toma": 2,
+    "ini_s": 58.26,
+    "fin_s": 59.36,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Cómo está la vuelo?",
+    "similitud": 0.865
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 115,
+   "texto": "¿Cómo te sientes tú?",
+   "sha256_texto": "81a38c475c0524cf7f8cbcb22849334e35a0d60e786e578df78efd23b36a3def",
+   "archivo": "115.wav",
+   "duracion_s": 1.36,
+   "bytes": 119996,
+   "sha256_audio": "26e1af5cda2260a04d0dd31d52b5f20dcd4caaa1ed6a814c96bf6ad2b37565d7",
+   "origen": "S-65: ¿cómo? + tú + sentir",
+   "corte": {
+    "toma": 2,
+    "ini_s": 59.36,
+    "fin_s": 60.72,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "como te sientes tú.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 116,
+   "texto": "¿Por qué está triste el niño?",
+   "sha256_texto": "a36acc03c6892e4ea4676efe188d96441e7d74f9fa33671aa5bcc5b76e75640e",
+   "archivo": "116.wav",
+   "duracion_s": 1.5,
+   "bytes": 132344,
+   "sha256_audio": "8ac4825c4dd23719f3bc949a75c3870dafeee0c5a9041421c574613ad13e0dc0",
+   "origen": "S-66: ¿por qué? + niño + triste",
+   "corte": {
+    "toma": 2,
+    "ini_s": 60.72,
+    "fin_s": 62.22,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Por qué está triste el niño?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 117,
+   "texto": "¿Por qué trabajas mucho tú?",
+   "sha256_texto": "042f5d7c53b51b03df965d3cd51c8e5e41dfcdfa90716aef51515b17c2bb8032",
+   "archivo": "117.wav",
+   "duracion_s": 1.57,
+   "bytes": 138518,
+   "sha256_audio": "0e85a50be39e760925a5e3d1320c3669243610f977c1d689e4903c59648c31fc",
+   "origen": "S-67: ¿por qué? + tú + trabajar + mucho",
+   "corte": {
+    "toma": 2,
+    "ini_s": 62.22,
+    "fin_s": 63.79,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Por qué trabajas mucho tú?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 118,
+   "texto": "Hola, ¿dónde vive el hermano?",
+   "sha256_texto": "3f390ce19bbf1842f5e1e66d566f68254210190f0c9ccb5ee68d01fed7c53861",
+   "archivo": "118.wav",
+   "duracion_s": 1.73,
+   "bytes": 152630,
+   "sha256_audio": "d1c40826c83e33a40b9a97e50773a7b8ea4c1fd67affdd884e5648741db4da61",
+   "origen": "S-68: hola + ¿dónde? + hermano + vivir",
+   "corte": {
+    "toma": 2,
+    "ini_s": 63.79,
+    "fin_s": 65.64,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Hola, ¿dónde vive el hermano?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 119,
+   "texto": "Buenos días, la familia está feliz.",
+   "sha256_texto": "50cb89e7bc21221da699d97ee51bfd34dca42b530a52dcb5636308f30f9e76c5",
+   "archivo": "119.wav",
+   "duracion_s": 2.4,
+   "bytes": 211724,
+   "sha256_audio": "d192c422143203654928d9f72db47ad167571d24778067fe7618169f5796dfeb",
+   "origen": "S-69: buenos días + familia + feliz",
+   "corte": {
+    "toma": 2,
+    "ini_s": 65.64,
+    "fin_s": 68.04,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Buenos días, la familia está feliz.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 120,
+   "texto": "Hola, ¿cuál es tu nombre?",
+   "sha256_texto": "a8476ac0cbaff441bf9663a56a2ec70f6110e4e593ce9f58176aa82415f0515b",
+   "archivo": "120.wav",
+   "duracion_s": 1.4,
+   "bytes": 123522,
+   "sha256_audio": "ac42e21f5d886df7611a5826b2f9f58890a71ed8b3cf598ddb7d8a12d17202e9",
+   "origen": "S-70: hola + tú + nombre + ¿qué?",
+   "corte": {
+    "toma": 2,
+    "ini_s": 68.04,
+    "fin_s": 69.6,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Hola! ¿Cuál es tu nombre?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 121,
+   "texto": "Hola, buenos días, ¿cómo están ustedes?",
+   "sha256_texto": "be262be4af16113a8761c626178f468c407e8b01601e16bf99221faac13d3fe2",
+   "archivo": "121.wav",
+   "duracion_s": 2.24,
+   "bytes": 197614,
+   "sha256_audio": "7fc517eee39fbd24db7903b3a602ebeb4880c411e87e8538f881eb2feb83051e",
+   "origen": "S-71: hola + buenos días + ¿cómo? + ustedes",
+   "corte": {
+    "toma": 2,
+    "ini_s": 69.6,
+    "fin_s": 71.84,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Hola, buenos días! ¿Cómo están ustedes?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 122,
+   "texto": "Hola, buenos días, ¿cómo estás?",
+   "sha256_texto": "2e1cd5f17dbba7be253fc5e0d7adb161d77e7c9ab5005584ce4e8d84b04028f7",
+   "archivo": "122.wav",
+   "duracion_s": 2.06,
+   "bytes": 181736,
+   "sha256_audio": "6bc3c2bf928625fa0a556d411a070dd5429e1b0bfda4e50b8df2275123cb313b",
+   "origen": "S-72: hola + buenos días + ¿cómo estás?",
+   "corte": {
+    "toma": 2,
+    "ini_s": 71.84,
+    "fin_s": 73.9,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¡Hola, buenos días! ¿Cómo estás?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 123,
+   "texto": "El tío nunca está aburrido.",
+   "sha256_texto": "a1ac3d1511439be075c71c45f87abe33cbcbcf64d62c07e1943bead128577bfd",
+   "archivo": "123.wav",
+   "duracion_s": 2.03,
+   "bytes": 179090,
+   "sha256_audio": "a7344fd0ee90579c4d911bb6e8a0c49471c89b09a9aaf299a7ceef34764c3ae8",
+   "origen": "S-73: tío + aburrido + nunca",
+   "corte": {
+    "toma": 2,
+    "ini_s": 73.9,
+    "fin_s": 75.93,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "el tío nunca está huir.",
+    "similitud": 0.833
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 124,
+   "texto": "Yo nunca tengo hambre.",
+   "sha256_texto": "a02aa9bd78e1814a5e271c650eed37f5547d8bbccaad4921503019a1702a17d1",
+   "archivo": "124.wav",
+   "duracion_s": 1.57,
+   "bytes": 138518,
+   "sha256_audio": "b15041cc4e5c53747231d23685acd67c48040fa1f213d0f1f65bc426328c5b8e",
+   "origen": "S-74: yo + nunca + hambre",
+   "corte": {
+    "toma": 2,
+    "ini_s": 75.93,
+    "fin_s": 77.5,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Yo nunca tengo hambre.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 125,
+   "texto": "Yo nunca me siento diferente.",
+   "sha256_texto": "34825fb29cfe2dfdc44d6694cef59ccc1f9bcfbf0bde46ec18dfb23a8c1ce40d",
+   "archivo": "125.wav",
+   "duracion_s": 1.82,
+   "bytes": 160566,
+   "sha256_audio": "e1ad47e341eba3125eee939edf5d1628cb1cb056134d3c5d264f3e483246acbd",
+   "origen": "S-75: yo + nunca + sentir + diferente",
+   "corte": {
+    "toma": 2,
+    "ini_s": 77.5,
+    "fin_s": 79.32,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "yo nunca me siento diferente.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 126,
+   "texto": "El hermano come poco.",
+   "sha256_texto": "44cf8c743a4aa43f8e9ef5f1e77f33c16e05f7e2a110c09c41f84876c41e9139",
+   "archivo": "126.wav",
+   "duracion_s": 1.61,
+   "bytes": 142048,
+   "sha256_audio": "9810112d3e3e48d596118cbdc61201cb16f6ce3a8699b72c277fcb12217b3de2",
+   "origen": "S-76: hermano + comer + poco",
+   "corte": {
+    "toma": 2,
+    "ini_s": 79.32,
+    "fin_s": 80.93,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "El hermano come poco.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 127,
+   "texto": "Yo tengo poca hambre.",
+   "sha256_texto": "b09fb23048539595fb0acb7908d242958cc6eb40cfc3479647f3461236e301ad",
+   "archivo": "127.wav",
+   "duracion_s": 1.47,
+   "bytes": 129698,
+   "sha256_audio": "2254b76eb7c619807683acc805fe7ca77b3e74d0d1be56bd75993f3dbfc68ff9",
+   "origen": "S-77: yo + hambre + poco",
+   "corte": {
+    "toma": 2,
+    "ini_s": 80.93,
+    "fin_s": 82.4,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "yo tengo poca hambre",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 128,
+   "texto": "¿Quién está feliz?",
+   "sha256_texto": "f20a9c470da2298d6fef4ecb014fd99b8ae52baca81ebd4f0e220485e07866cb",
+   "archivo": "128.wav",
+   "duracion_s": 1.01,
+   "bytes": 89126,
+   "sha256_audio": "be6a7bbbef684b48650f4a7fca01587ff6042b52322a75551eb72ba21b6b4704",
+   "origen": "S-78: ¿quién? + feliz",
+   "corte": {
+    "toma": 2,
+    "ini_s": 82.4,
+    "fin_s": 83.41,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Quién está feliz?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 129,
+   "texto": "¿Quién está mal?",
+   "sha256_texto": "bf6f8363d6861800697e62be1b3d83fd980ce1713f6bead5c3026c6eeb004808",
+   "archivo": "129.wav",
+   "duracion_s": 1.03,
+   "bytes": 90890,
+   "sha256_audio": "c5ae361c55564eb3383cc3b3998ad3e658abc21ba8df47fd16f66d84bb4ae99e",
+   "origen": "S-79: ¿quién? + mal",
+   "corte": {
+    "toma": 2,
+    "ini_s": 83.41,
+    "fin_s": 84.44,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Quién está mal?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 130,
+   "texto": "¿Por qué te sientes triste tú?",
+   "sha256_texto": "ab39a3dca60c4779e961c984eb7a0356c8a6c3998979b1d4241df8e73e2d978b",
+   "archivo": "130.wav",
+   "duracion_s": 1.61,
+   "bytes": 142046,
+   "sha256_audio": "ec2d8526425c88378911443d0f80b8bb5e09480e46052a619550441136ee305e",
+   "origen": "S-80: ¿por qué? + tú + sentir + triste",
+   "corte": {
+    "toma": 2,
+    "ini_s": 84.44,
+    "fin_s": 86.05,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Por qué te sientes triste tú?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 131,
+   "texto": "¿Por qué tiene hambre el niño?",
+   "sha256_texto": "8408d7463aa261d7c9d45c50015236ca1c2ed84009205825938e016eed0da120",
+   "archivo": "131.wav",
+   "duracion_s": 1.43,
+   "bytes": 126170,
+   "sha256_audio": "0bc2101b84b0c919985b8195d9d2d1ee1c05cabd945c0691f04dab91afb17c50",
+   "origen": "S-81: ¿por qué? + niño + hambre",
+   "corte": {
+    "toma": 2,
+    "ini_s": 86.05,
+    "fin_s": 87.48,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Por qué tiene hambre el niño?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 132,
+   "texto": "¿Cómo estás tú?",
+   "sha256_texto": "329567afaee5ada369cc973d9e74e993a00cbe85114f1599a8e4cf1b57e907b3",
+   "archivo": "132.wav",
+   "duracion_s": 0.82,
+   "bytes": 72368,
+   "sha256_audio": "1404acfe8a50aaea3f4b17f24e137fba2979a7d25a629f15e22c437f3e9c8fa5",
+   "origen": "S-82: ¿cómo estás? + tú",
+   "corte": {
+    "toma": 2,
+    "ini_s": 87.48,
+    "fin_s": 88.3,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "¿Cómo estás tú?",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 133,
+   "texto": "El tío trabaja muy bien.",
+   "sha256_texto": "00c4f316cd4f807c2ae3e70bd84827fe5404b06ed63aea5d9612b6fcac84bc54",
+   "archivo": "133.wav",
+   "duracion_s": 1.96,
+   "bytes": 172916,
+   "sha256_audio": "2b40e9f1b46d6029d0f45c076c0d65851030d4581f044b27f73aca5e0b730dc7",
+   "origen": "S-83: tío + trabajar + bien + mucho",
+   "corte": {
+    "toma": 2,
+    "ini_s": 88.3,
+    "fin_s": 90.26,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "el tío trabaja muy bien.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 134,
+   "texto": "Yo me siento bienvenido.",
+   "sha256_texto": "19eccc03e37a6cb27b820c60c490563bf7cb6ad5bfe13260a5946bab277eb951",
+   "archivo": "134.wav",
+   "duracion_s": 1.55,
+   "bytes": 136754,
+   "sha256_audio": "149cb72b4f66cd48c283201d3c06be825c6e1190282fb6600bc6fd15f8274cf1",
+   "origen": "S-84: yo + sentir + bienvenido",
+   "corte": {
+    "toma": 2,
+    "ini_s": 90.26,
+    "fin_s": 91.81,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Yo me siento bien venido.",
+    "similitud": 0.979
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 135,
+   "texto": "Adiós, abuelo.",
+   "sha256_texto": "2b8cc28951cefd1430952a431858fe7bf8ad89c7db8a82a321b9f1ffbd9711e3",
+   "archivo": "135.wav",
+   "duracion_s": 1.09,
+   "bytes": 96182,
+   "sha256_audio": "e3c30f3a8a12188275bc62440f8f6b1ad180834dbc9e15db0936893e00a89543",
+   "origen": "S-85: adiós + abuelo",
+   "corte": {
+    "toma": 2,
+    "ini_s": 91.81,
+    "fin_s": 92.9,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Adiós, abuelo.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 136,
+   "texto": "Gracias, buenos días.",
+   "sha256_texto": "5387842e9eda0e2505d4712a2024eefdaeb8fb12e3bebb17f3c75dc4747387de",
+   "archivo": "136.wav",
+   "duracion_s": 1.4,
+   "bytes": 123524,
+   "sha256_audio": "a761eeae76717ef8c296875d0bc54fdaac39a69d69aca7cd44c44bf8bf22c033",
+   "origen": "S-86: gracias + buenos días",
+   "corte": {
+    "toma": 2,
+    "ini_s": 92.9,
+    "fin_s": 94.34,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias, buenos días.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 137,
+   "texto": "Gracias, buenas tardes.",
+   "sha256_texto": "abc4d93ce3e58916e9233bb19680cac2fc5156e0a51c75db68f47d55166c3420",
+   "archivo": "137.wav",
+   "duracion_s": 1.65,
+   "bytes": 145574,
+   "sha256_audio": "9bb487ee06231bd2a8f4c3eb9e80ca0125bf7b84cf1ca99b9bfa1262347ea97e",
+   "origen": "S-87: gracias + buenas tardes",
+   "corte": {
+    "toma": 2,
+    "ini_s": 94.34,
+    "fin_s": 95.99,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias, buenas tardes.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 138,
+   "texto": "Gracias a ustedes.",
+   "sha256_texto": "6618473691c19ca85d31f4ae42bf9fa41326f1958c7779d5c274d0e7e915f5a2",
+   "archivo": "138.wav",
+   "duracion_s": 1.13,
+   "bytes": 99710,
+   "sha256_audio": "6b2f5479cf2d15ee699662982e7c0a8592b0f5fc956f4915f165a59fa04b823e",
+   "origen": "S-88: gracias + ustedes",
+   "corte": {
+    "toma": 2,
+    "ini_s": 95.99,
+    "fin_s": 97.13,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias a ustedes.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 139,
+   "texto": "Gracias a ti.",
+   "sha256_texto": "c28e6c02bb84910481379268d473ce7a72f07b76a245ef71b285fefbe1f55a35",
+   "archivo": "139.wav",
+   "duracion_s": 1.06,
+   "bytes": 93536,
+   "sha256_audio": "dcff7ba1a4fe4aca7f8d5bd72a1540dc776fbc92a2b4c7b198be30bf65ac1502",
+   "origen": "S-89: gracias + tú",
+   "corte": {
+    "toma": 2,
+    "ini_s": 97.13,
+    "fin_s": 98.19,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias a ti.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 140,
+   "texto": "Mal, gracias.",
+   "sha256_texto": "1df9d6d8efad3d35022bba833e95d68d979970a19c77f83d3b341c7269126d39",
+   "archivo": "140.wav",
+   "duracion_s": 1.28,
+   "bytes": 112940,
+   "sha256_audio": "7218fc044723988bbd90df339073da10f09b1a9113f8979f2fe03e6f0ec807ad",
+   "origen": "S-90: mal + gracias",
+   "corte": {
+    "toma": 2,
+    "ini_s": 98.19,
+    "fin_s": 99.47,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "mal gracias",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 141,
+   "texto": "Gracias, abuelo.",
+   "sha256_texto": "41f46bbba91ec7f471af46c89cdc58b8d66dda60fca689f7f434a92985d758ad",
+   "archivo": "141.wav",
+   "duracion_s": 1.16,
+   "bytes": 102356,
+   "sha256_audio": "1da4221564175b5fad3b536d1ae272cd1e9e3999ddf4016a358bd1d4fbab7385",
+   "origen": "S-91: gracias + abuelo",
+   "corte": {
+    "toma": 2,
+    "ini_s": 99.47,
+    "fin_s": 100.63,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Gracias a vuelo.",
+    "similitud": 0.897
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 142,
+   "texto": "Bienvenida, familia.",
+   "sha256_texto": "ebe8c35d39abb46e6a6ea7209c41b4a7b065b20b95bdefb0e4ebaf00f72ed7de",
+   "archivo": "142.wav",
+   "duracion_s": 1.39,
+   "bytes": 122642,
+   "sha256_audio": "a07a773f736aa137f082a755c9ae132b8a7d2023806f542b5b130f5c581a921e",
+   "origen": "S-92: familia + bienvenido",
+   "corte": {
+    "toma": 2,
+    "ini_s": 100.63,
+    "fin_s": 102.113,
+    "corregido_a_mano": false
+   },
+   "verificacion_whisper": {
+    "transcripcion": "bienvenida familia.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": false,
+   "corte_rehecho": false
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "A": {
+  "voz": "macOS Mónica (es_ES; ganó la ronda 1)",
+  "ms_por_frase_mediana": 1107.5
+ },
+ "B": {
+  "voz": "Kokoro ef_dora",
+  "ms_por_frase_mediana": 669.8
+ },
+ "C": {
+  "voz": "Kokoro em_alex",
+  "ms_por_frase_mediana": 278.3
+ },
+ "D": {
+  "voz": "Piper es_ES sharvard M (medium, hablante 1)",
+  "ms_por_frase_mediana": 62.8
+ },
+ "E": {
+  "voz": "Piper es_MX ald (medium)",
+  "ms_por_frase_mediana": 68.1
+ },
+ "F": {
+  "voz": "Piper es_AR daniela (high)",
+  "ms_por_frase_mediana": 955.5
+ },
+ "G": {
+  "voz": "Piper es_ES davefx (medium)",
+  "ms_por_frase_mediana": 192.0
+ },
+ "H": {
+  "voz": "Piper es_ES sharvard F (medium, hablante 0)",
+  "ms_por_frase_mediana": 148.5
+ },
+ "I": {
+  "voz": "Kokoro em_santa",
+  "ms_por_frase_mediana": 1927.5
+ },
+ "J": {
+  "voz": "macOS Paulina (es_MX; la actual)",
+  "ms_por_frase_mediana": 1169.8
+ }
+}

@@ -1319,15 +1319,17 @@ class TestErroresDeVozEnElRegistro(unittest.TestCase):
         json.dumps(reg)
 
     def test_campos_existentes_no_cambian(self):
-        # Mismas claves y mismo orden que antes, salvo las dos nuevas tras tts_ocupado_en_t5.
+        # Mismas claves y mismo orden que antes, salvo las dos nuevas tras tts_ocupado_en_t5 y «bordes»
+        # (aviso de N-50, opción B, 22-nov-2026), que va siempre al final.
         reg_sin = correr_ventana(construir(self.tmp, tts=TTSFalso()))
         tts = TTSFalsoConErrores()
         tts.fallar()
         reg_con = correr_ventana(construir(self.tmp, tts=tts))
         for reg in (reg_sin, reg_con):
-            self.assertEqual([k for k in reg if k not in CLAVES_VOZ], CLAVES_ENSAYO_ANTES)
+            self.assertEqual([k for k in reg if k not in CLAVES_VOZ + ["bordes"]], CLAVES_ENSAYO_ANTES)
             i = list(reg).index("tts_ocupado_en_t5")
             self.assertEqual(list(reg)[i + 1:i + 3], CLAVES_VOZ)
+            self.assertEqual(list(reg)[-1], "bordes")
         # Y mismos valores con el mismo reloj falso: leer el estado de la voz no altera t0..t5 ni nada más.
         distintos = {k for k in CLAVES_ENSAYO_ANTES if reg_sin[k] != reg_con[k]}
         self.assertEqual(distintos - {"sesion", "fecha_hora"}, set())
@@ -1594,7 +1596,9 @@ class TestConversorGlosasEnElPrototipo(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp(prefix="tesis_proto_")
 
-    def test_por_defecto_sigue_el_heredado_sin_clave_conversion(self):
+    def test_sin_conversor_inyectado_el_traductor_usa_el_heredado_sin_clave_conversion(self):
+        # Interfaz programática de LSCTranslator (grammar_mapper=None). El defecto del PROTOTIPO en vivo es
+        # «inventario» desde el 22-nov-2026: lo fija realtime.py (test_opciones_de_realtime).
         tr = construir(self.tmp, modo_oracion=False)
         self.assertIs(type(tr.grammar_mapper), GrammarMapper)
         reg = correr_ventana(tr)
@@ -1677,7 +1681,15 @@ class TestConversorGlosasEnElPrototipo(unittest.TestCase):
         from src import realtime              # importa cv2; no se abre la cámara
         parser = realtime.crear_parser()
         args = parser.parse_args([])
-        self.assertEqual((args.conversor, args.genero_primera, args.genero_segunda), ("heredado", None, None))
+        # Defecto desde el 22-nov-2026 (D-15): el conversor en modo «inventario», con los géneros por omisión.
+        self.assertEqual((args.conversor, args.genero_primera, args.genero_segunda), ("inventario", None, None))
+        conv = realtime.conversor_desde_args(args, parser)
+        self.assertIsInstance(conv, ConversorGlosas)
+        self.assertEqual((conv.genero_primera, conv.genero_segunda, conv.estricto), ("m", "m", True))
+        args = parser.parse_args(["--genero-primera", "f"])           # inventario + género: válido
+        self.assertEqual(realtime.conversor_desde_args(args, parser).genero_primera, "f")
+        # El heredado sigue disponible con la opción explícita.
+        args = parser.parse_args(["--conversor", "heredado"])
         self.assertIsNone(realtime.conversor_desde_args(args, parser))
         args = parser.parse_args(["--conversor", "reglas", "--genero-primera", "f"])
         conv = realtime.conversor_desde_args(args, parser)
@@ -1685,7 +1697,7 @@ class TestConversorGlosasEnElPrototipo(unittest.TestCase):
         self.assertEqual((conv.genero_primera, conv.genero_segunda, conv.estricto), ("f", "m", False))
         args = parser.parse_args(["--conversor", "inventario"])
         self.assertTrue(realtime.conversor_desde_args(args, parser).estricto)
-        args = parser.parse_args(["--genero-segunda", "f"])          # heredado + género → error
+        args = parser.parse_args(["--conversor", "heredado", "--genero-segunda", "f"])   # heredado + género → error
         with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
             realtime.conversor_desde_args(args, parser)
         with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):

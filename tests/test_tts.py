@@ -170,18 +170,52 @@ class TestEleccionDeVoz(unittest.TestCase):
 class TestTTSModuleOffline(unittest.TestCase):
     """Instancia el modo offline con un pyttsx3 falso: sin audio y sin voces del equipo."""
 
-    def test_elige_paulina_y_la_fija_en_el_motor(self):
-        modulo, motor = pyttsx3_falso([ALBERT, MONICA, PAULINA])
+    def test_elige_monica_y_la_fija_en_el_motor(self):
+        # Desde el 23-nov-2026 la voz local es Mónica (elegida por el autor en la escucha a ciegas, docs/VOZ.md):
+        # gana aunque la regla general prefiera Paulina (es-MX) a Mónica (es-ES).
+        modulo, motor = pyttsx3_falso([ALBERT, PAULINA, MONICA])
         with mock.patch.object(tts, "_importar_pyttsx3", return_value=modulo), \
                 mock.patch.object(tts, "nombres_voces_say", return_value={"Paulina", "Mónica"}):
             t = tts.TTSModule(verbose=False)
         self.assertEqual(t.mode, "offline")
-        self.assertEqual(t.voice, PAULINA.id)
-        self.assertEqual(t.voice_name, "Paulina")
-        self.assertEqual(motor.propiedades["voice"], PAULINA.id)
+        self.assertEqual(t.voice, MONICA.id)
+        self.assertEqual(t.voice_name, "Mónica")
+        self.assertIn("elegida por el autor", t.voice_reason)
+        self.assertEqual(motor.propiedades["voice"], MONICA.id)
         self.assertEqual(motor.propiedades["rate"], 150)
         self.assertIn(t.ejecutor_offline, ("say", "pyttsx3"))
         t.cleanup()
+
+    def test_sin_monica_o_sin_preferida_vale_la_regla_general_y_elige_paulina(self):
+        # Sin Mónica en el sistema, la regla de siempre (variante, luego calidad) elige Paulina y lo dice.
+        modulo, motor = pyttsx3_falso([ALBERT, EDDY_MX, PAULINA])
+        with mock.patch.object(tts, "_importar_pyttsx3", return_value=modulo), \
+                mock.patch.object(tts, "nombres_voces_say", return_value={"Paulina"}):
+            t = tts.TTSModule(verbose=False)
+        self.assertEqual((t.voice, t.voice_name), (PAULINA.id, "Paulina"))
+        self.assertEqual(motor.propiedades["voice"], PAULINA.id)
+        self.assertIn("no hay voz «Mónica»", t.voice_reason)
+        t.cleanup()
+        # Con voz_preferida=None se vuelve a la regla sola aunque Mónica exista.
+        modulo, motor = pyttsx3_falso([ALBERT, MONICA, PAULINA])
+        with mock.patch.object(tts, "_importar_pyttsx3", return_value=modulo), \
+                mock.patch.object(tts, "nombres_voces_say", return_value={"Paulina", "Mónica"}):
+            t = tts.TTSModule(verbose=False, voz_preferida=None)
+        self.assertEqual((t.voice, t.voice_name), (PAULINA.id, "Paulina"))
+        self.assertEqual(motor.propiedades["voice"], PAULINA.id)
+        t.cleanup()
+
+    def test_elegir_voz_local_reconoce_el_nombre_de_macos_y_prefiere_calidad(self):
+        # macOS 26 lista «Mónica (Spanish (Spain))»; dos entradas → la de mejor calidad.
+        compacta = voz("com.apple.voice.compact.es-ES.Monica", "Mónica (Spanish (Spain))", ["es_ES"])
+        mejorada = voz("com.apple.voice.enhanced.es-ES.Monica", "Mónica (Spanish (Spain))", ["es_ES"])
+        carlos = voz("com.apple.voice.compact.es-CO.Carlos", "Carlos", ["es_CO"])
+        elegida, motivo = tts.elegir_voz_local([carlos, compacta, mejorada])
+        self.assertIs(elegida, mejorada)
+        self.assertIn("Mónica", motivo)
+        # «Monicaca» o una voz cuyo nombre solo contiene «monica» más adelante no cuentan.
+        rara = voz("x.Otra", "Otra Mónica", ["es_ES"])
+        self.assertIs(tts.elegir_voz_local([carlos, rara])[0], carlos)
 
     def test_sin_voz_en_espanol_avisa_y_lista(self):
         modulo, motor = pyttsx3_falso([ALBERT, SAMANTHA])
@@ -1547,8 +1581,10 @@ class TestCampoDesdeCacheEnElRegistro(unittest.TestCase):
         # los dos contadores de voz en el ensayo y ANTES de ellos en el turno.
         tr = self.construir(self.tmp, tts=self._motor(True), modo_oracion=False)
         reg = self.correr_ventana(tr)
-        claves = [k for k in reg if k not in self.CLAVES_VOZ and k != "tts_sintesis_desde_cache"]
+        # «bordes» (aviso de N-50, opción B, 22-nov-2026) va siempre al final del registro de ensayo.
+        claves = [k for k in reg if k not in self.CLAVES_VOZ and k not in ("tts_sintesis_desde_cache", "bordes")]
         self.assertEqual(claves, self.CLAVES_ENSAYO_ANTES)
+        self.assertEqual(list(reg)[-1], "bordes")
         i = list(reg).index("tts_ocupado_en_t5")
         self.assertEqual(list(reg)[i + 1:i + 4], self.CLAVES_VOZ + ["tts_sintesis_desde_cache"])
         tr2 = self.construir(self.tmp, tts=self._motor(True), modo_oracion=True)

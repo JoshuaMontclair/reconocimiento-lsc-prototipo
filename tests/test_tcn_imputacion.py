@@ -9,7 +9,8 @@ Pruebas sin cámara de la opción EXPERIMENTAL «imputacion» del prototipo y de
   · Reglas viejas: ceros, descartar y mascara (y el modelo sin procedencia) dan EXACTAMENTE lo mismo que la
     versión de src/translator.py anterior a este cambio (tests/datos/preprocesar_reglas_previas_2026-10-03.json:
     forma y sha256 de cada entrada, generado con `git show HEAD:src/translator.py` el 3-oct-2026, commit 1ba6f93), y el prototipo por defecto
-    sigue cargando el canónico con «mascara» y umbral 0,2.
+    cargaba el canónico con «mascara» y umbral 0,2. Desde el 22-nov-2026 el prototipo carga por defecto el
+    modelo final (TCN + imputación) con su umbral, y la red heredada sigue cargando igual con su ruta.
   · Rechazos: rechazada_manos y rechazada_incompleta siguen valiendo con «imputacion».
   · El modelo nuevo carga con su procedencia y su umbral, elige la imputación solo y, con los puntos y con
     los fotogramas reales del video «hola» (HolisticLandmarker real, sin cámara, nada se escribe a disco
@@ -35,7 +36,8 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
 from src.translator import (  # noqa: E402
-    IDX_MANO_DER, IDX_MANO_IZQ, MANO_AUSENTE_OPCIONES, MODELO_POR_DEFECTO, N_FEATURES, Extraccion, LSCTranslator,
+    IDX_MANO_DER, IDX_MANO_IZQ, MANO_AUSENTE_OPCIONES, MODELO_HEREDADO, MODELO_POR_DEFECTO, N_FEATURES, Extraccion,
+    LSCTranslator,
 )
 from src import mano_ausente_variantes as mav  # noqa: E402
 from src.train_final_100 import add_velocity  # noqa: E402
@@ -204,7 +206,10 @@ class TestReglasPreviasSinCambios(unittest.TestCase):
     def test_opciones_previas_conservadas(self):
         self.assertEqual(MANO_AUSENTE_OPCIONES[:3], ("ceros", "descartar", "mascara"))
         self.assertEqual(MANO_AUSENTE_OPCIONES, ("ceros", "descartar", "mascara", "imputacion"))
-        self.assertEqual(MODELO_POR_DEFECTO,
+        # Desde el 22-nov-2026 el defecto es el modelo final; la red heredada conserva su constante.
+        self.assertEqual(MODELO_POR_DEFECTO, ROOT_DIR / "models" / "tcn_imputacion" / "modelo.keras")
+        self.assertEqual(MODELO_POR_DEFECTO, MODELO_TCN)
+        self.assertEqual(MODELO_HEREDADO,
                          ROOT_DIR / "models" / "canonico_holistic_mascara_manos" / "modelo_canonico.keras")
 
     @unittest.skipUnless(REFERENCIA_REGLAS_PREVIAS.exists(), "falta la referencia de las reglas previas")
@@ -232,12 +237,30 @@ class TestReglasPreviasSinCambios(unittest.TestCase):
         self.assertEqual((tr.mano_ausente, tr.mano_ausente_modelo), ("imputacion", "mascara"))
         self.assertIn("difiere", salida.getvalue())
 
-    @unittest.skipUnless(MODELO_POR_DEFECTO.exists(), "modelo canónico no disponible")
-    def test_prototipo_por_defecto_sigue_siendo_el_canonico(self):
-        with redirect_stdout(io.StringIO()):
+    @unittest.skipUnless(MODELO_POR_DEFECTO.exists(), "modelo final no disponible")
+    def test_prototipo_por_defecto_es_el_modelo_final(self):
+        from src.representacion import leer_umbral
+        with redirect_stdout(io.StringIO()) as salida:
             tr = LSCTranslator(extractor=ExtractorFalso(), tts=None, tts_mode="none", registro=False,
                                calentar=False)
         self.assertEqual(Path(tr.model_path), MODELO_POR_DEFECTO)
+        self.assertEqual((tr.mano_ausente, tr.mano_ausente_modelo, tr.representacion),
+                         ("imputacion", "imputacion", "manos"))
+        self.assertEqual((tr.n_rasgos, tr.usa_velocidades), (252, True))
+        self.assertEqual(tr.umbral, float(leer_umbral(MODELO_POR_DEFECTO)["umbral"]))   # 0,68 desde N-75
+        self.assertEqual(tr.umbral, 0.68)
+        self.assertTrue(tr.umbral_origen.endswith("tcn_imputacion/modelo.umbral.json"), tr.umbral_origen)
+        self.assertNotIn("[AVISO]", salida.getvalue())                 # procedencia y sha256 del umbral en orden
+        # realtime.py pasa la misma ruta de forma explícita.
+        from src import realtime                                           # importa cv2; no abre la cámara
+        self.assertEqual(Path(realtime.crear_parser().parse_args([]).model_path), MODELO_POR_DEFECTO)
+
+    @unittest.skipUnless(MODELO_HEREDADO.exists(), "red heredada no disponible")
+    def test_la_red_heredada_sigue_disponible_con_su_ruta(self):
+        with redirect_stdout(io.StringIO()):
+            tr = LSCTranslator(model_path=str(MODELO_HEREDADO), extractor=ExtractorFalso(), tts=None,
+                               tts_mode="none", registro=False, calentar=False)
+        self.assertEqual(Path(tr.model_path), MODELO_HEREDADO)
         self.assertEqual((tr.mano_ausente, tr.mano_ausente_modelo, tr.representacion), ("mascara", "mascara", "manos"))
         self.assertEqual(tr.umbral, 0.2)
         self.assertTrue(tr.umbral_origen.endswith("modelo_canonico.umbral.json"))

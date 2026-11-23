@@ -1,0 +1,127 @@
+[ok] P30 = T1: las 15 corridas tienen CONFIG_T, lr 1e-3, lote 64, label smoothing 0,1, 200 epocas, paciencia 25, aug x10, 30 pasos, processed_holistic_mascara_rostro, manos, imputacion, 252 rasgos y 156.402 parametros
+[ok] X_seq de 30 pasos = la de experimento_confirmacion_tcn.preparar (la que entreno T1), bit a bit
+[ok] X_seq de 60 pasos = remuestrear_todas_con_regla(·, imputacion, 60) (1000, 60, 126); videos con menos de 60 cuadros (se estiran): 261 de 1000; con menos de 30: 0
+[ok] entrada: add_velocity despues de aumentar -> 30 x 252 y 60 x 252; posiciones intactas
+[ok] parametros {'P30': 156402, 'P60': 156402}; campo receptivo 61 pasos: ventana completa en 30 de 30 posiciones y 2 de 60
+Epoch 1/200
+109/109 - 3s - 30ms/step - accuracy: 0.1274 - loss: 3.6850 - val_accuracy: 0.2300 - val_loss: 3.0265
+Epoch 2/200
+109/109 - 1s - 10ms/step - accuracy: 0.3727 - loss: 2.5451 - val_accuracy: 0.4900 - val_loss: 2.2297
+Epoch 3/200
+109/109 - 1s - 10ms/step - accuracy: 0.5661 - loss: 1.9942 - val_accuracy: 0.5800 - val_loss: 1.7846
+Epoch 4/200
+109/109 - 1s - 10ms/step - accuracy: 0.6944 - loss: 1.6757 - val_accuracy: 0.7000 - val_loss: 1.5188
+Epoch 5/200
+109/109 - 1s - 10ms/step - accuracy: 0.7709 - loss: 1.4843 - val_accuracy: 0.7600 - val_loss: 1.3226
+Epoch 6/200
+109/109 - 1s - 10ms/step - accuracy: 0.8316 - loss: 1.3367 - val_accuracy: 0.9100 - val_loss: 1.1432
+Epoch 7/200
+109/109 - 1s - 10ms/step - accuracy: 0.8693 - loss: 1.2544 - val_accuracy: 0.9200 - val_loss: 1.0629
+Epoch 8/200
+109/109 - 1s - 10ms/step - accuracy: 0.8920 - loss: 1.1924 - val_accuracy: 0.9200 - val_loss: 1.0625
+Epoch 9/200
+109/109 - 1s - 10ms/step - accuracy: 0.9208 - loss: 1.1357 - val_accuracy: 0.9100 - val_loss: 1.0026
+Epoch 10/200
+109/109 - 1s - 10ms/step - accuracy: 0.9344 - loss: 1.0905 - val_accuracy: 0.9300 - val_loss: 0.9767
+Epoch 11/200
+109/109 - 1s - 10ms/step - accuracy: 0.9468 - loss: 1.0570 - val_accuracy: 0.9500 - val_loss: 0.9835
+Epoch 12/200
+109/109 - 1s - 10ms/step - accuracy: 0.9519 - loss: 1.0350 - val_accuracy: 0.9700 - val_loss: 0.9320
+Epoch 13/200
+109/109 - 1s - 10ms/step - accuracy: 0.9585 - loss: 1.0139 - val_accuracy: 0.9600 - val_loss: 0.9129
+Epoch 14/200
+109/109 - 1s - 10ms/step - accuracy: 0.9582 - loss: 1.0048 - val_accuracy: 0.9500 - val_loss: 0.9106
+Epoch 15/200
+109/109 - 1s - 10ms/step - accuracy: 0.9689 - loss: 0.9779 - val_accuracy: 0.9500 - val_loss: 0.9144
+Epoch 16/200
+109/109 - 1s - 10ms/step - accuracy: 0.9720 - loss: 0.9667 - val_accuracy: 0.9300 - val_loss: 0.9450
+Epoch 17/200
+109/109 - 1s - 10ms/step - accuracy: 0.9733 - loss: 0.9551 - val_accuracy: 0.9600 - val_loss: 0.9733
+Epoch 18/200
+109/109 - 1s - 10ms/step - accuracy: 0.9775 - loss: 0.9453 - val_accuracy: 0.9800 - val_loss: 0.8701
+Epoch 19/200
+109/109 - 1s - 10ms/step - accuracy: 0.9831 - loss: 0.9278 - val_accuracy: 0.9500 - val_loss: 0.8900
+Epoch 20/200
+109/109 - 1s - 10ms/step - accuracy: 0.9818 - loss: 0.9286 - val_accuracy: 0.9300 - val_loss: 0.9646
+Epoch 21/200
+109/109 - 1s - 10ms/step - accuracy: 0.9838 - loss: 0.9192 - val_accuracy: 0.9300 - val_loss: 0.9345
+Epoch 22/200
+109/109 - 1s - 10ms/step - accuracy: 0.9851 - loss: 0.9080 - val_accuracy: 0.9600 - val_loss: 0.9119
+Epoch 23/200
+109/109 - 1s - 10ms/step - accuracy: 0.9891 - loss: 0.8983 - val_accuracy: 0.9600 - val_loss: 0.8847
+Epoch 24/200
+109/109 - 1s - 11ms/step - accuracy: 0.9862 - loss: 0.9036 - val_accuracy: 0.9400 - val_loss: 0.9038
+Epoch 25/200
+109/109 - 1s - 10ms/step - accuracy: 0.9874 - loss: 0.8939 - val_accuracy: 0.9800 - val_loss: 0.8430
+Epoch 26/200
+109/109 - 1s - 10ms/step - accuracy: 0.9905 - loss: 0.8813 - val_accuracy: 0.9700 - val_loss: 0.8779
+Epoch 27/200
+109/109 - 1s - 10ms/step - accuracy: 0.9907 - loss: 0.8801 - val_accuracy: 0.9600 - val_loss: 0.9176
+Epoch 28/200
+109/109 - 1s - 11ms/step - accuracy: 0.9934 - loss: 0.8726 - val_accuracy: 0.9300 - val_loss: 0.9606
+Epoch 29/200
+109/109 - 1s - 12ms/step - accuracy: 0.9828 - loss: 0.8982 - val_accuracy: 0.9600 - val_loss: 0.9259
+Epoch 30/200
+109/109 - 2s - 15ms/step - accuracy: 0.9935 - loss: 0.8695 - val_accuracy: 0.9600 - val_loss: 0.8853
+Epoch 31/200
+109/109 - 2s - 19ms/step - accuracy: 0.9938 - loss: 0.8602 - val_accuracy: 0.9500 - val_loss: 0.8878
+Epoch 32/200
+109/109 - 2s - 19ms/step - accuracy: 0.9945 - loss: 0.8612 - val_accuracy: 0.9400 - val_loss: 0.9804
+Epoch 33/200
+109/109 - 2s - 16ms/step - accuracy: 0.9937 - loss: 0.8614 - val_accuracy: 0.9700 - val_loss: 0.8881
+Epoch 34/200
+109/109 - 2s - 16ms/step - accuracy: 0.9950 - loss: 0.8547 - val_accuracy: 0.9500 - val_loss: 0.8648
+Epoch 35/200
+109/109 - 2s - 14ms/step - accuracy: 0.9933 - loss: 0.8543 - val_accuracy: 0.9600 - val_loss: 0.8453
+Epoch 36/200
+109/109 - 1s - 13ms/step - accuracy: 0.9933 - loss: 0.8583 - val_accuracy: 0.9500 - val_loss: 0.9374
+Epoch 37/200
+109/109 - 1s - 13ms/step - accuracy: 0.9925 - loss: 0.8588 - val_accuracy: 0.9500 - val_loss: 0.9292
+Epoch 38/200
+109/109 - 1s - 13ms/step - accuracy: 0.9961 - loss: 0.8440 - val_accuracy: 0.9800 - val_loss: 0.8620
+Epoch 39/200
+109/109 - 1s - 13ms/step - accuracy: 0.9968 - loss: 0.8373 - val_accuracy: 0.9400 - val_loss: 0.9523
+Epoch 40/200
+109/109 - 1s - 13ms/step - accuracy: 0.9970 - loss: 0.8418 - val_accuracy: 0.9600 - val_loss: 0.9105
+Epoch 41/200
+109/109 - 1s - 13ms/step - accuracy: 0.9935 - loss: 0.8454 - val_accuracy: 0.9600 - val_loss: 0.8925
+Epoch 42/200
+109/109 - 1s - 13ms/step - accuracy: 0.9947 - loss: 0.8470 - val_accuracy: 0.9300 - val_loss: 0.9109
+Epoch 43/200
+109/109 - 1s - 14ms/step - accuracy: 0.9907 - loss: 0.8524 - val_accuracy: 0.9700 - val_loss: 0.8822
+Epoch 43: early stopping
+Restoring model weights from the end of the best epoch: 18.
+  -> T s=2026 k=0: val 0.980 (reeval 0.980) | test top-1 0.540 | epocas 43 (mejor 18) | 58 s (1.31 s/epoca) | 156,402 param
+  reproduccion en 59 s
+{
+ "predicciones_json_identico_byte_a_byte": true,
+ "predicha_y_top3_identicas": true,
+ "max_dif_prob_predicha": 0.0,
+ "max_dif_probabilidades_test": 0.0,
+ "max_dif_probabilidades_val": 0.0,
+ "historial_identico": true,
+ "epocas": [
+  43,
+  43
+ ],
+ "val_top1": [
+  0.9800000190734863,
+  0.9800000190734863
+ ],
+ "test_top1": [
+  0.54,
+  0.54
+ ],
+ "test_f1_macro": [
+  0.5284233327059414,
+  0.5284233327059414
+ ],
+ "coincide": true,
+ "val_loss": [
+  0.8701225519180298,
+  0.8701225519180298
+ ],
+ "tiempo_total_s_reproduccion": 58.5
+}
+[ok] T1 semilla 2026 pliegue 0 reproducido con este script: byte a byte True; historial identico True; epocas [43, 43]; val [0.9800000190734863, 0.9800000190734863]; max |dif| prob. val 0.0e+00, prueba 0.0e+00 -> P30 se reutiliza
+escrito models/pasos_tcn_2026-11-23/verificacion.json

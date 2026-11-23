@@ -225,8 +225,9 @@ no carga.
   listadas en `docs/CONVERSOR_3a_SALIDAS_NO_RESPALDO.csv`. No están verificadas una por una.
 
 **Decisión del autor (8-nov-2026, D-15):** el procedimiento de la tesis es `inventario`; `reglas`
-se reporta como extensión, sin verificar. Queda por informar al director. El prototipo sigue usando
-por defecto el conversor heredado; para usar el procedimiento se pasa `--conversor inventario`.
+se reporta como extensión, sin verificar. Queda por informar al director. Hasta el 22-nov-2026 el
+prototipo usaba por defecto el conversor heredado; desde esa fecha `src/realtime.py` usa `inventario` por
+defecto (decisión del autor) y el heredado se pide con `--conversor heredado`.
 
 ---
 
@@ -427,11 +428,12 @@ será solo descriptiva, con SacreBLEU y su firma, como recomiendan Müller et al
 
 ## 9. Uso en el prototipo
 
-El conversor se elige con una opción de `src/realtime.py`. El valor por defecto no cambió.
+El conversor se elige con una opción de `src/realtime.py`. Desde el 22-nov-2026 el valor por defecto es
+`inventario` (antes era `heredado`; ver `docs/MODELO_TCN_IMPUTACION.md`, sección 7).
 
 ```
-python src/realtime.py --modo-oracion                          # heredado (GrammarMapper), como siempre
-python src/realtime.py --modo-oracion --conversor inventario   # modo estricto: 50 solas + 92 secuencias
+python src/realtime.py --modo-oracion                          # inventario (por defecto): 50 solas + 92 secuencias
+python src/realtime.py --modo-oracion --conversor heredado     # heredado (GrammarMapper), el de antes
 python src/realtime.py --modo-oracion --conversor reglas       # extensión: todas las salidas por reglas
 python src/realtime.py --modo-oracion --conversor inventario --genero-primera f --genero-segunda m
 ```

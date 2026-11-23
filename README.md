@@ -11,10 +11,10 @@ LSC hizo y la dice en voz alta en español:
 ```
 cámara → MediaPipe Holistic (puntos del cuerpo y las manos) → normalización respecto a los hombros
        → imputación de la mano no detectada → 30 pasos × 252 rasgos → red convolucional temporal (TCN)
-       → umbral de confianza → conversión de glosas en un enunciado en español → voz local
+       → umbral de confianza → conversión de glosas en un enunciado en español → voz
 ```
 
-Todo corre en CPU, sin GPU y sin conexión a internet.
+Todo corre en el computador, sin GPU dedicada y sin conexión a internet.
 
 ## Resultados principales
 
@@ -46,6 +46,7 @@ cada experimento; la prueba es descriptiva. El detalle está en `docs/` y el reg
 | `models/` | Resultados de cada experimento (JSON, registros, figuras) y los pesos publicados |
 | `models/tcn_imputacion/modelo.keras` | **Pesos del modelo final** (TCN + imputación, D-14) |
 | `models/canonico_holistic_mascara_manos/modelo_canonico.keras` | Pesos de la red de partida |
+| `models/voz_pregrabada/` | Los 142 enunciados del prototipo, pregrabados (WAV) con su índice |
 | `registros/` | Registros de las sesiones en vivo del autor (tiempos por etapa; sin imágenes) |
 | `docs/` | Informes de cada experimento, protocolo de evaluación, especificación del conversor |
 | `DECISIONES_TESIS.txt` | Registro de decisiones (D-xx) y notas (N-xx) del proyecto |
@@ -60,6 +61,13 @@ python3.12 -m venv ~/venvs/lsc
 source ~/venvs/lsc/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
+```
+
+Opcional, para la voz de respaldo (XTTS-v2), en un entorno aparte:
+
+```bash
+python3.12 -m venv ~/venvs/lsc-voz
+~/venvs/lsc-voz/bin/pip install -r requirements-voz.txt
 ```
 
 El modelo de MediaPipe Holistic (`holistic_landmarker.task`) no se incluye: el extractor lo descarga
@@ -77,12 +85,13 @@ Para reproducir el entrenamiento hay que descargar LSC50 y extraerlo en `data/ra
 
 ## Uso
 
-**Prototipo en vivo con el modelo final:**
+**Prototipo en vivo.** Por defecto usa el modelo final (umbral 0,68), el conversor por inventario,
+1280 × 720 y la voz pregrabada:
 
 ```bash
-python src/realtime.py --model-path models/tcn_imputacion/modelo.keras --ancho 1280 --alto 720
-python src/realtime.py --model-path models/tcn_imputacion/modelo.keras --ancho 1280 --alto 720 \
-       --modo-oracion --conversor inventario      # varias señas por turno → un enunciado
+python src/realtime.py                       # una seña por ventana
+python src/realtime.py --modo-oracion        # varias señas por turno → un enunciado
+python src/realtime.py --python-voz ~/venvs/lsc-voz/bin/python   # con XTTS-v2 como respaldo
 ```
 
 En macOS la cámara debe autorizarse para la aplicación de terminal desde la que se lanza.
@@ -107,10 +116,21 @@ python -m unittest discover -s tests
 python -m pytest tests/test_arquitecturas_2.py
 ```
 
+## Voz
+
+Los 142 enunciados que dice el prototipo en modo inventario están pregrabados en
+`models/voz_pregrabada/` con la voz «Robert - Colombian, Paisa» de ElevenLabs (generados con un plan de
+pago que permite usarlos y distribuirlos) y se reproducen desde el disco. Cualquier otra frase la dice
+XTTS-v2 (hablante «Gilberto Mathias») en un proceso aparte, si se indica `--python-voz`; si no, la voz
+local de macOS. Detalles, comparación de voces y latencias en `docs/VOZ.md`.
+
 ## Licencia
 
 El código se publica bajo la licencia MIT (`LICENSE`). El corpus LSC50 pertenece a sus autores y se
-rige por su propia licencia (CC BY 4.0); este repositorio no lo incluye.
+rige por su propia licencia (CC BY 4.0); este repositorio no lo incluye. Los audios de
+`models/voz_pregrabada/` se generaron con ElevenLabs bajo un plan de pago. El modelo XTTS-v2 se rige por
+la Coqui Public Model License (uso no comercial) y no se incluye: se descarga al instalar
+`requirements-voz.txt`.
 
 ## Cómo citar
 

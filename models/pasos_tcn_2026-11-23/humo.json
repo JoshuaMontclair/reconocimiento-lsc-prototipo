@@ -1,0 +1,14 @@
+{
+ "fecha": "2026-11-22T23:58:33",
+ "nota": "prueba de humo: P60, semilla 2026, pliegue 0, 3 epocas, en una carpeta temporal; cifras no se usan",
+ "input_shape": [
+  60,
+  252
+ ],
+ "n_parametros": 156402,
+ "procedencia_seq_length": 60,
+ "procedencia_mano_ausente": "imputacion (mano_ausente_variantes.regla_imputacion sobre el processed «mascara», antes de remuestrear)",
+ "resultado_seq_length": 60,
+ "brazo": "P60",
+ "s_por_epoca": 3.05
+}

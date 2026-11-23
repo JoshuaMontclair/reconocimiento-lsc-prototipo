@@ -1,0 +1,140 @@
+{
+ "fecha": "2026-11-23T00:17:37",
+ "metodo": "model.predict(verbose=0) con lote de 1, como translator.py, y llamada directa model(x, training=False); 10 llamadas de calentamiento y 100 medidas por modelo; mediana y p90. Solo la red (sin MediaPipe). CPU. Modelos de la semilla 2026 (pliegues 0-2), en orden intercalado P30, P60. Entrada: processed -> imputacion -> L pasos -> add_velocity, mediana de 100 repeticiones por video, 5 videos.",
+ "procesos_de_entrenamiento_activos": [],
+ "entorno": {
+  "fecha": "2026-11-23T00:17:37",
+  "plataforma": "macOS-27.0.1-arm64-arm-64bit",
+  "maquina": "arm64",
+  "python": "3.12.13",
+  "numpy": "2.4.3",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "scikit_learn": "1.8.0",
+  "gpus_visibles": []
+ },
+ "modelos": [
+  {
+   "brazo": "P30",
+   "pasos": 30,
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 13.526749986340292,
+   "ms_predict_lote1_p90": 14.675962494220585,
+   "ms_llamada_directa_mediana": 8.092666495940648,
+   "ms_llamada_directa_p90": 8.849050305434503
+  },
+  {
+   "brazo": "P60",
+   "pasos": 60,
+   "modelo": "models/pasos_tcn_2026-11-23/P60_imputacion_252/semilla_2026/pliegue_0/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 13.151500505045988,
+   "ms_predict_lote1_p90": 14.303504195413554,
+   "ms_llamada_directa_mediana": 8.283291987027042,
+   "ms_llamada_directa_p90": 8.824996091425419
+  },
+  {
+   "brazo": "P30",
+   "pasos": 30,
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 13.269271003082395,
+   "ms_predict_lote1_p90": 14.32559100794606,
+   "ms_llamada_directa_mediana": 8.034020502236672,
+   "ms_llamada_directa_p90": 8.649125590454789
+  },
+  {
+   "brazo": "P60",
+   "pasos": 60,
+   "modelo": "models/pasos_tcn_2026-11-23/P60_imputacion_252/semilla_2026/pliegue_1/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 12.970250012585893,
+   "ms_predict_lote1_p90": 13.864341881708242,
+   "ms_llamada_directa_mediana": 8.126749497023411,
+   "ms_llamada_directa_p90": 8.69281629275065
+  },
+  {
+   "brazo": "P30",
+   "pasos": 30,
+   "modelo": "models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 12.765749997925013,
+   "ms_predict_lote1_p90": 13.498396216891706,
+   "ms_llamada_directa_mediana": 7.720916502876207,
+   "ms_llamada_directa_p90": 8.315833305823617
+  },
+  {
+   "brazo": "P60",
+   "pasos": 60,
+   "modelo": "models/pasos_tcn_2026-11-23/P60_imputacion_252/semilla_2026/pliegue_2/modelo.keras",
+   "n_parametros": 156402,
+   "tamano_archivo_mb": 0.738,
+   "ms_predict_lote1_mediana": 12.919978995341808,
+   "ms_predict_lote1_p90": 13.785042188828811,
+   "ms_llamada_directa_mediana": 8.156708005117252,
+   "ms_llamada_directa_p90": 8.839003797038458
+  }
+ ],
+ "construccion_de_la_entrada": {
+  "P30": {
+   "ms_mediana_de_medianas": 0.28466650110203773,
+   "ms_max_de_medianas": 0.3987920063082129,
+   "ms_por_video": {
+    "0030_0000_0003": 0.3987920063082129,
+    "0000_0000_0000": 0.1628545142011717,
+    "0004_0004_0001": 0.3935624845325947,
+    "0009_0003_0002": 0.27645801310427487,
+    "0014_0002_0003": 0.28466650110203773
+   },
+   "videos": [
+    "0030_0000_0003",
+    "0000_0000_0000",
+    "0004_0004_0001",
+    "0009_0003_0002",
+    "0014_0002_0003"
+   ]
+  },
+  "P60": {
+   "ms_mediana_de_medianas": 0.26658299611881375,
+   "ms_max_de_medianas": 0.38064598629716784,
+   "ms_por_video": {
+    "0030_0000_0003": 0.38064598629716784,
+    "0000_0000_0000": 0.15356250514741987,
+    "0004_0004_0001": 0.3771250048885122,
+    "0009_0003_0002": 0.12085451453458518,
+    "0014_0002_0003": 0.26658299611881375
+   },
+   "videos": [
+    "0030_0000_0003",
+    "0000_0000_0000",
+    "0004_0004_0001",
+    "0009_0003_0002",
+    "0014_0002_0003"
+   ]
+  }
+ },
+ "costo_por_brazo": {
+  "P30": {
+   "ms_red_predict_lote1": 13.187256995782567,
+   "ms_red_llamada_directa": 7.949201167017843,
+   "ms_entrada": 0.28466650110203773,
+   "mb_archivo": 0.738,
+   "n_parametros": 156402,
+   "ms_total": 13.471923496884605
+  },
+  "P60": {
+   "ms_red_predict_lote1": 13.013909837657897,
+   "ms_red_llamada_directa": 8.188916496389234,
+   "ms_entrada": 0.26658299611881375,
+   "mb_archivo": 0.738,
+   "n_parametros": 156402,
+   "ms_total": 13.28049283377671
+  }
+ }
+}

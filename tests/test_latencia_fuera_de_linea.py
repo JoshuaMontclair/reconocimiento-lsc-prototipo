@@ -428,7 +428,12 @@ class TestConfiguracion(unittest.TestCase):
         self.assertEqual(lf.CONFIGURACIONES["final_inventario"]["conversor"], "inventario")
         self.assertEqual(Path(lf.CONFIGURACIONES["final_inventario"]["modelo"]).relative_to(ROOT_DIR).as_posix(),
                          "models/tcn_imputacion/modelo.keras")
-        self.assertEqual(Path(lf.CONFIGURACIONES["heredada_heredado"]["modelo"]), Path(trmod.MODELO_POR_DEFECTO))
+        self.assertEqual(Path(lf.CONFIGURACIONES["heredada_heredado"]["modelo"]), Path(trmod.MODELO_HEREDADO))
+        self.assertEqual(Path(lf.CONFIGURACIONES["heredada_heredado"]["modelo"]).relative_to(ROOT_DIR).as_posix(),
+                         "models/canonico_holistic_mascara_manos/modelo_canonico.keras")
+        # Desde el 22-nov-2026 el defecto de realtime.py es el modelo final, la configuración «final_inventario».
+        self.assertEqual(Path(lf.CONFIGURACIONES["final_inventario"]["modelo"]), Path(trmod.MODELO_POR_DEFECTO))
+        self.assertEqual(lf.CONFIGURACIONES["final_inventario"]["conversor"], trmod.CONVERSOR_POR_DEFECTO)
         self.assertEqual(lf.CONFIGURACIONES["heredada_heredado"]["conversor"], "heredado")
         self.assertEqual(lf.RESOLUCION_EN_VIVO, (1280, 720))
         a = lf.parsear_argumentos([])

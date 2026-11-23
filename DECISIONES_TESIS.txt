@@ -2504,4 +2504,69 @@ PENDIENTE CON EL DIRECTOR
   modelo final sigue en 0,00. Código: src/umbral_anidado_tcn.py; pruebas: tests/test_umbral_anidado_tcn.py
   (19). Suite: 814 pruebas OK.
 
+========================================================================================
+2026-11-22 · N-75 · El prototipo adopta el umbral 0,68 de la validación anidada (N-74)
+========================================================================================
+  Decisión del autor, según la recomendación del criterio de N-74. models/tcn_imputacion/
+  modelo.umbral.json pasa de 0,00 (D-09 sobre validación con señantes vistos, N-65, aprobado en N-66 a)
+  a 0,68 (t_global de la validación anidada por señante). El valor anterior y su procedencia quedan
+  dentro del mismo archivo (clave umbral_d09_validacion_vistos); src/umbral_anidado_tcn.py compara contra
+  esa clave, así que la evaluación de N-74 se reproduce igual. Efecto esperado con personas nuevas
+  (prueba LOSO, estimación por pliegue): rechazo ≈ 31 %, exactitud entre lo que se dice 0,827, 119 señas
+  equivocadas dichas en lugar de 311. Se puede volver a 0,00 con --umbral 0. PENDIENTE: informar al
+  director. Suite: 814 pruebas OK.
+
+========================================================================================
+2026-11-23 · N-76 · 30 frente a 60 pasos con la TCN: se mantienen 30
+========================================================================================
+  El experimento de pasos de N-58 se había hecho con la red de partida; se repitió con el modelo final
+  (TCN + imputación + 252, CONFIG_T sin cambios; campo receptivo 61 pasos). Criterio escrito antes de
+  entrenar (docs/EXPERIMENTO_PASOS_TCN.md §1, 22-nov 23:55; sha256 en models/pasos_tcn_2026-11-23/):
+  validación LOSO con margen máx(σ, 0,01) y 4 de 5 pliegues; desempate por val_loss; si no, 30 por
+  simplicidad. 15 corridas de P60 (5 pliegues × 3 semillas) en 18 min; P30 = T1, reproducido byte a byte.
+  Validación 0,949 (30) frente a 0,953 (60): +0,004, 3 de 5 pliegues → empate; val_loss: 60 menor en 4
+  de 5, pero la reducción (0,010) no supera σ_loss (0,026) → empate; regla 3 → 30 PASOS.
+  Descriptivo: prueba LOSO 0,677 frente a 0,690 (Wilcoxon p = 0,63; McNemar voto 723 frente a 714,
+  p = 0,50; la ventaja de 60 depende de la semilla y viene casi toda del pliegue 1); señante 0000 0,488
+  frente a 0,505. Con la red de partida 60 ganaba +1,6 en 5 de 5; con la TCN la ventaja casi desaparece.
+  Cierra el apartamiento de 60 a 30 pasos que N-58 dejó pendiente. Código: src/experimento_pasos_tcn.py;
+  pruebas: tests/test_experimento_pasos_tcn.py (20).
+
+========================================================================================
+2026-11-23 · N-77 · Prototipo: modelo final por defecto y aviso de señas cortadas («opción B» de N-50)
+========================================================================================
+  Decisión del autor. src/realtime.py carga por defecto el modelo final (models/tcn_imputacion/
+  modelo.keras, umbral 0,68 de N-75), el conversor «inventario» (D-15) y 1280 × 720 (16:9 como el corpus,
+  N-57; es la resolución usada con el modelo final). La red y el conversor heredados siguen disponibles
+  con --model-path y --conversor heredado.
+  Señas cortadas: opción B de N-50. Protocolo de reposo al abrir y al cerrar (la pantalla lo recuerda),
+  abortar con X, y la medida de los bordes como aviso en el JSONL (clave «bordes»: aviso_inicio,
+  aviso_fin, valores medidos) SIN rechazar la seña. src/bordes_ventana.py reutiliza la medida de
+  src/analisis_senas_cortadas.py (velocidad y altura de las muñecas en los primeros y últimos K cuadros)
+  y los umbrales candidatos de models/senas_cortadas_2026-09-22/umbral_bordes_candidato.json. Se calcula
+  después de t5: no cambia L_resp; costo mediano 0,19 ms por ventana (N = 75). Opción --bordes off.
+  Pruebas: tests/test_bordes_ventana.py (25) y ajustes de las del prototipo. Suite: 860 pruebas OK.
+
+========================================================================================
+2026-11-23 · N-78 · Voz del prototipo: 142 enunciados pregrabados y XTTS-v2 en vivo como respaldo
+========================================================================================
+  Decisión del autor tras cuatro rondas de escucha a ciegas (un solo oyente, el autor; mismas 5 frases):
+  (1) 8 voces de macOS + gTTS: solo Mónica sonó natural; (2) Piper y Kokoro + Mónica y Paulina: ninguna
+  convenció; (3) voces «mejoradas» de macOS: descartadas (robóticas); (4) 8 hablantes de XTTS-v2 + Mónica:
+  eligió «Gilberto Mathias». XTTS tarda ≈ 0,4 s por frase en la GPU integrada (≈ 1,1 s en CPU), así que no
+  se usa para lo que el prototipo dice siempre.
+  VOZ PRINCIPAL: los 142 enunciados del modo inventario (50 glosas solas + 92 secuencias) los generó el
+  autor con ElevenLabs, voz «Robert - Colombian, Paisa» (plan de pago que permite usarlos y
+  distribuirlos), y se cortaron con alineación de Whisper (faster-whisper base); 16 dudosos revisados a
+  oído por el autor, 2 cortes rehechos (026, 088). models/voz_pregrabada/: 142 WAV (14 MiB) + indice.json
+  (cobertura 100 %, validado al cargar). Se reproducen desde disco: síntesis 0,09 ms; post-cierre
+  12,8 ms (mediana, fuera de línea).
+  RESPALDO para cualquier otra frase: XTTS-v2 «Gilberto Mathias» en un proceso aparte
+  (src/voz_xtts_servicio.py, --python-voz; 417 ms/frase en MPS, 1.094 ms en CPU, medianas), con
+  salvaguarda contra el balbuceo de XTTS; si no está disponible, la voz local Mónica (antes Paulina).
+  El registro anota tts_fuente (pregrabada / xtts / local). El proyecto no importa torch.
+  Límites: las 4 variantes en femenino (--genero-* f) y el conversor heredado no tienen audio y usan el
+  respaldo. XTTS-v2 tiene licencia CPML (no comercial) y el modelo no se redistribuye. Documento:
+  docs/VOZ.md. Suite: 925 pruebas OK.
+
 (añadir nuevas entradas debajo de esta línea)

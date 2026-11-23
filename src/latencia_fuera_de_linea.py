@@ -62,12 +62,28 @@ predicciones sobre clips del corpus NO son una medida de exactitud (el modelo fi
 partición aleatoria, que incluye parte de estos clips). El extractor fuera de línea no incluye el
 dibujo ni la ventana de OpenCV del bucle en vivo.
 
+VOZ PREGRABADA Y RESPALDO XTTS (23-nov-2026; docs/VOZ.md).
+  --voz pregrabada   el mismo post-cierre y los mismos turnos con src/tts.py en modo «pregrabada» (WAV del índice
+                     models/voz_pregrabada; sin servicio XTTS: lo que no está pregrabado iría a la voz local). Cada
+                     fila guarda la fuente (tts_fuente) y el tiempo del motor (tts_tiempo_sintesis_ns). Con
+                     --configuraciones final_inventario se mide solo la configuración de la tesis, comparable con
+                     la mediana de post_cierre de docs/LATENCIA_4c_MODELO_FINAL.md (15,2 ms con la voz offline).
+  --solo-xtts        mide aparte el respaldo XTTS-v2 con el servicio REAL (src/voz_xtts_servicio.py, lanzado con
+                     --python-voz) en cada --dispositivos (mps, cpu): carga, y por frase el tiempo de prepare()
+                     hasta tener el WAV (lo que vería el prototipo) y el del servidor, sobre FRASES_XTTS frases
+                     que NO están pregrabadas (variantes en femenino, salidas de «reglas» fuera del inventario y
+                     respaldos con lista de glosas), sin cache, --repeticiones veces. No suena nada.
+
 Uso:
     python src/latencia_fuera_de_linea.py      # medición completa → docs/LATENCIA_4c_MODELO_FINAL.json
                                                # (resúmenes) y models/latencia_4c_2026-11-08/crudo.json (filas)
     python src/latencia_fuera_de_linea.py --por-clase 1 --repeticiones 1 --sin-extractor \
         --salida /tmp/x.json --crudo /tmp/x_crudo.json
     python src/latencia_fuera_de_linea.py --solo-registros         # solo caracteriza registros/*.jsonl
+    python src/latencia_fuera_de_linea.py --voz pregrabada --configuraciones final_inventario --sin-extractor \
+        --salida docs/LATENCIA_VOZ_PREGRABADA.json --crudo models/latencia_voz_2026-11-23/crudo.json
+    python src/latencia_fuera_de_linea.py --solo-xtts --python-voz <python con coqui-tts> \
+        --salida docs/LATENCIA_VOZ_XTTS.json
 """
 
 from __future__ import annotations
@@ -105,7 +121,7 @@ SALIDA = ROOT_DIR / "docs" / "LATENCIA_4c_MODELO_FINAL.json"
 CRUDO = ROOT_DIR / "models" / "latencia_4c_2026-11-08" / "crudo.json"    # filas por ensayo
 
 MODELO_FINAL = ROOT_DIR / "models" / "tcn_imputacion" / "modelo.keras"
-MODELO_HEREDADO = Path(trmod.MODELO_POR_DEFECTO)     # ruta por defecto de realtime.py
+MODELO_HEREDADO = Path(trmod.MODELO_HEREDADO)        # red heredada (defecto de realtime.py hasta el 22-nov-2026)
 CONFIGURACIONES = {
     "final_inventario": {"modelo": MODELO_FINAL, "conversor": "inventario"},
     "heredada_heredado": {"modelo": MODELO_HEREDADO, "conversor": "heredado"},
@@ -243,11 +259,91 @@ def silenciar_tts(tts) -> None:
     tts._play_audio = lambda _ruta: True
 
 
-def crear_tts(cache: bool):
+VOCES = ("offline", "pregrabada")
+FRASES_XTTS = 20
+DISPOSITIVOS_XTTS = ("mps", "cpu")
+
+
+def crear_tts(cache: bool, voz: str = "offline"):
+    """TTSModule silenciado. «pregrabada» sin servicio XTTS (python_voz=""): se mide la voz pregrabada sola."""
     from src.tts import TTSModule
-    tts = TTSModule(mode="offline", verbose=False, cache=cache)
+    if voz == "pregrabada":
+        tts = TTSModule(mode="pregrabada", verbose=False, cache=cache, python_voz="")
+    else:
+        tts = TTSModule(mode="offline", verbose=False, cache=cache)
     silenciar_tts(tts)
     return tts
+
+
+def frases_fuera_de_inventario(n: int = FRASES_XTTS, semilla: int = SEMILLA) -> list[dict]:
+    """n frases que el prototipo puede decir y que NO están pregrabadas: las 4 variantes en femenino del
+    inventario, salidas del conversor «reglas» fuera del inventario y respaldos del modo inventario (lista de
+    glosas). Mismo n y semilla → misma lista."""
+    from src.conversor_glosas import ConversorGlosas, conjuntos
+    from src import voz_pregrabada as vp
+    pregrabadas = set(vp.textos_inventario())
+    filas = [{"tipo": "variante_femenino", "frase": t} for v in vp.variantes_de_genero().values() for t in v]
+    filas = list({f["frase"]: f for f in filas}.values())
+    reglas, inv = ConversorGlosas(), ConversorGlosas(estricto=True)
+    cand_reglas, cand_resp = [], []
+    for glosas in conjuntos((2, 3)):
+        e = reglas.explicar(glosas)
+        if not e["respaldo"] and e["frase"] not in pregrabadas:
+            cand_reglas.append({"tipo": "reglas", "frase": e["frase"], "glosas": glosas})
+        r = inv.explicar(glosas)
+        if r["respaldo"]:
+            cand_resp.append({"tipo": "respaldo_inventario", "frase": r["frase"], "glosas": glosas})
+    rng = random.Random(semilla)
+    resto = n - len(filas)
+    filas += rng.sample(cand_reglas, (resto + 1) // 2) + rng.sample(cand_resp, resto // 2)
+    assert not any(f["frase"] in pregrabadas for f in filas)
+    return filas[:n]
+
+
+def medir_xtts(python: str, dispositivos=DISPOSITIVOS_XTTS, n_frases: int = FRASES_XTTS, repeticiones: int = 3,
+               semilla: int = SEMILLA, tope_arranque_seg: float = 300.0) -> dict:
+    """Respaldo XTTS-v2 con el servicio real, por dispositivo: carga y tiempo por frase (sin cache)."""
+    from src.tts import TTSModule
+    frases = frases_fuera_de_inventario(n_frases, semilla)
+    out = {"frases": frases, "dispositivos": {}}
+    for disp in dispositivos:
+        espera = leer_carga()
+        _imprimir(f"XTTS en {disp}: cargando (carga 1 min {espera['1min']})")
+        t0 = time.perf_counter()
+        tts = TTSModule(mode="pregrabada", verbose=False, cache=False, python_voz=python, xtts_dispositivo=disp,
+                        xtts_tope_arranque_seg=tope_arranque_seg)
+        silenciar_tts(tts)
+        listo = tts.esperar_servicio_voz(tope_arranque_seg)
+        res = {"listo": listo, "espera_hasta_listo_s": round(time.perf_counter() - t0, 2),
+               "info_servicio": dict(tts.xtts.info_listo or {}) if tts.xtts else None,
+               "carga_al_empezar": espera, "filas": []}
+        if listo:
+            for rep in range(repeticiones):
+                for f in frases:
+                    tts.prepare(f["frase"])
+                    preparado = bool(tts.esperar_preparado(60.0))
+                    resp = tts.xtts.ultima_respuesta or {}
+                    res["filas"].append({"repeticion": rep + 1, "frase": f["frase"], "preparado": preparado,
+                                         "fuente": tts.ultima_fuente,
+                                         "ms_prepare": (tts.ultima_sintesis_ns or 0) / 1e6 if preparado else None,
+                                         "ms_servidor": resp.get("ms"), "ms_cliente": resp.get("ms_cliente"),
+                                         "duracion_audio_s": resp.get("duracion_s")})
+                    tts.play_prepared_async()            # silenciada: solo borra el archivo
+            filas_x = [r for r in res["filas"] if r["fuente"] == "xtts"]
+            res["fuentes"] = dict(Counter(str(r["fuente"]) for r in res["filas"]))
+            res["ms_prepare"] = resumen_ms([r["ms_prepare"] for r in filas_x])
+            res["ms_servidor"] = resumen_ms([r["ms_servidor"] for r in filas_x])
+            res["duracion_audio_s"] = resumen_ms([r["duracion_audio_s"] for r in filas_x])
+            res["factor_tiempo_real_mediana"] = (round(res["ms_servidor"]["mediana"] / 1000 / res["duracion_audio_s"]["mediana"], 3)
+                                                 if res["ms_servidor"] and res["duracion_audio_s"] else None)
+            res["por_repeticion_mediana_ms_prepare"] = [
+                resumen_ms([r["ms_prepare"] for r in filas_x if r["repeticion"] == k + 1])["mediana"]
+                for k in range(repeticiones)]
+        res["estado_servicio"] = tts.xtts.estado() if tts.xtts else None
+        res["carga_al_terminar"] = leer_carga()
+        tts.cleanup()
+        out["dispositivos"][disp] = res
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -377,6 +473,8 @@ def fila_ensayo(stem: str, reg: dict) -> dict:
         "confianza": reg["confianza"], "enunciado": reg["enunciado"],
         "sintesis_desde_cache": reg.get("tts_sintesis_desde_cache"),
         "sintesis_antes_de_t5": reg.get("tts_sintesis_antes_de_t5"),
+        "fuente": reg.get("tts_fuente"),
+        "tiempo_sintesis_motor": ms(reg.get("tts_tiempo_sintesis_ns")),
         "preprocesamiento": ms(et.get("preprocesamiento")), "inferencia": ms(et.get("inferencia")),
         "conversion": ms(et.get("conversion")), "sintesis": ms(et.get("sintesis")),
         "post_cierre": ms(reg["t5"] - e_n) if (reg.get("t5") is not None and e_n is not None) else None,
@@ -627,8 +725,12 @@ def medir(args) -> dict:
     # Traductores: el modelo se carga UNA vez por configuración.
     extractor = ExtractorPregrabado()
     configs = {}
+    voz = getattr(args, "voz", "offline")
+    elegidas = getattr(args, "configuraciones", None) or list(CONFIGURACIONES)
     for nombre, cfg in CONFIGURACIONES.items():
-        tts_c, tts_s = crear_tts(cache=True), crear_tts(cache=False)
+        if nombre not in elegidas:
+            continue
+        tts_c, tts_s = crear_tts(cache=True, voz=voz), crear_tts(cache=False, voz=voz)
         _imprimir(f"cargando {nombre}")
         tr = crear_traductor(cfg["modelo"], cfg["conversor"], tts_c, extractor)
         tts_c.esperar_precalentado(120)
@@ -638,8 +740,11 @@ def medir(args) -> dict:
                       "conversor": c["cfg"]["conversor"], "umbral": c["tr"].umbral,
                       "umbral_origen": c["tr"].umbral_origen, "mano_ausente": c["tr"].mano_ausente,
                       "representacion": c["tr"].representacion, "n_rasgos": c["tr"].n_rasgos,
-                      "voz": {"nombre": c["tts"]["cache"].voice_name, "ejecutor": c["tts"]["cache"].ejecutor_offline,
-                              "precalentadas": c["tts"]["cache"].precalentadas},
+                      "voz": {"modo": c["tts"]["cache"].mode, "nombre": c["tts"]["cache"].voice_name,
+                              "ejecutor": c["tts"]["cache"].ejecutor_offline,
+                              "precalentadas": c["tts"]["cache"].precalentadas,
+                              "indice": (_rel(c["tts"]["cache"].indice.ruta)
+                                         if getattr(c["tts"]["cache"], "indice", None) is not None else None)},
                       "calentamiento_descartado": [], "control_n65": None,
                       "repeticiones": {cond: [] for cond in CONDICIONES_VOZ}, "turnos": []}
                   for n, c in configs.items()}
@@ -715,6 +820,8 @@ def agregar(datos: dict) -> dict:
             agg[nombre][cond] = {
                 "estados": dict(Counter(f["estado"] for f in filas)),
                 "desde_cache": dict(Counter(str(f["sintesis_desde_cache"]) for f in filas)),
+                "fuentes": dict(Counter(str(f.get("fuente")) for f in filas)),
+                "tiempo_sintesis_motor": resumen_ms([f.get("tiempo_sintesis_motor") for f in filas]),
                 "glosas_distintas_emitidas": len({f["clase"] for f in filas if f["estado"] == "aceptada"}),
                 "N": resumen_ms([f["N"] for f in filas]),
                 "magnitudes": resumir_filas(filas),
@@ -771,6 +878,15 @@ def parsear_argumentos(argv=None):
     p.add_argument("--max-espera-total-min", type=float, default=60.0)
     p.add_argument("--sin-extractor", action="store_true")
     p.add_argument("--solo-registros", action="store_true", help="solo caracteriza registros/*.jsonl (sin medir)")
+    p.add_argument("--voz", choices=VOCES, default="offline",
+                   help="voz del post-cierre y los turnos: offline (la de 4.c) o pregrabada (23-nov-2026)")
+    p.add_argument("--configuraciones", nargs="+", choices=list(CONFIGURACIONES), default=None,
+                   help="medir solo estas configuraciones (default: todas)")
+    p.add_argument("--solo-xtts", action="store_true",
+                   help="solo mide el respaldo XTTS-v2 con el servicio real (necesita --python-voz)")
+    p.add_argument("--python-voz", default=None, help="intérprete con coqui-tts (default $TESIS_PYTHON_VOZ)")
+    p.add_argument("--dispositivos", nargs="+", choices=list(DISPOSITIVOS_XTTS), default=list(DISPOSITIVOS_XTTS))
+    p.add_argument("--frases-xtts", type=int, default=FRASES_XTTS)
     return p.parse_args(argv)
 
 
@@ -787,6 +903,23 @@ def main(argv=None) -> int:
                             "max_espera_total_min": args.max_espera_total_min,
                             "resolucion_en_vivo": RESOLUCION_EN_VIVO, "fps_camara": FPS_CAMARA,
                             "ventana_seg": VENTANA_SEG}}
+    datos["parametros"].update({"voz": args.voz, "configuraciones": args.configuraciones or list(CONFIGURACIONES)})
+    if args.solo_xtts:
+        from src.voz_xtts_servicio import python_voz_desde_entorno
+        python = args.python_voz or python_voz_desde_entorno()
+        if not python:
+            print("ERROR: --solo-xtts necesita --python-voz o TESIS_PYTHON_VOZ")
+            return 2
+        datos["descripcion"] = ("Respaldo XTTS-v2 de la voz del prototipo con el servicio real (src/voz_xtts_servicio.py); "
+                                "ver el docstring de src/latencia_fuera_de_linea.py y docs/VOZ.md")
+        datos["parametros"].update({"dispositivos": args.dispositivos, "frases_xtts": args.frases_xtts})
+        datos["xtts"] = medir_xtts(python, args.dispositivos, args.frases_xtts, args.repeticiones, args.semilla)
+        datos["fin"] = dt.datetime.now().isoformat(timespec="seconds")
+        args.salida.parent.mkdir(parents=True, exist_ok=True)
+        with open(args.salida, "w", encoding="utf-8") as f:
+            json.dump(datos, f, ensure_ascii=False, indent=1)
+        _imprimir(f"escrito {args.salida}")
+        return 0
     datos["registros_en_vivo"] = caracterizar_registros(sorted(REGISTROS.glob("latencia_*.jsonl")))
     if not args.solo_registros:
         datos.update(medir(args))

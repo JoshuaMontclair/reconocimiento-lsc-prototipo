@@ -192,7 +192,7 @@ declarar qué ensayos quedan antes y después del cambio.
 | Rechazo por manos | no se infiere si la proporción de fotogramas sin manos (o sin postura) supera 0,5 | [MET 191-192]; `realtime.py`, argumento `--max-sin-manos`; `translator.py`, `_cerrar_ventana` | valor a confirmar en PD-09 |
 | Síntesis de voz | modo `offline`: `say` de macOS, voz Paulina (es-MX), 150 palabras por minuto; síntesis a archivo **antes** de t5 | [MET 172-179 · §2.2.5]; [REG 459-471 · N-12; REG 1261-1302 · N-34]; `tts.py`, `TTSModule.__init__` (`rate=150`) | voz Paulina es_MX presente; voz a confirmar en PD-29 |
 | Registro | un JSONL por día en la carpeta indicada con `--registro-dir` | `translator.py`, `LSCTranslator.__init__` (`registro_path`); `realtime.py`, argumento `--registro-dir` | — |
-| Resolución de captura | 640 × 480 (valor por defecto del programa) | `realtime.py`, argumentos `--ancho` y `--alto` | a decidir en PD-08 |
+| Resolución de captura | 640 × 480 (valor por defecto del programa cuando se escribió; desde el 22-nov-2026 el defecto es 1280 × 720, 16:9 como el corpus, N-57) | `realtime.py`, argumentos `--ancho` y `--alto` | a decidir en PD-08 |
 | Equipo | Apple M5 Max, 18 núcleos, 48 GB de memoria, macOS 26.6.2, sin GPU en uso | [REG 792-793 · N-21]; requisito mínimo [REC 72-73] | `sysctl`: M5 Max, 18, 51 539 607 552 bytes; `sw_vers` 26.6.2 |
 | Entorno de software | Python 3.12.13, TensorFlow 2.21.0, Keras 3.13.2, NumPy 2.4.3 (entorno de entrenamiento) | `resultados.json` del canónico | se registra el entorno real de cada sesión |
 | Cámara | **no consta en el registro cuál se usó en N-26 y N-32** | [REC 72-73; REC 104-105, 119] | hoy el sistema lista la cámara integrada del portátil y una cámara de continuidad de un teléfono; no había cámara web externa conectada. Ver PD-08 |
@@ -365,7 +365,7 @@ y qué hace el código vigente; el estado que efectivamente ocurra se registra t
 | CL-4 | Postura no detectada | Salir parcialmente del encuadre de modo que no se detecten los hombros | `rechazada_manos` con motivo «pose no detectada» (`translator.py`, `_cerrar_ventana`) | Estado y motivo |
 | CL-5 | Seña fuera del vocabulario [MET 250-251] | Ejecutar señas o gestos que no están entre las 50 glosas (qué señas: PD-17) | No existe un estado específico: el vocabulario es cerrado [MET 29-31]; el resultado es `rechazada_confianza` o `aceptada` con una clase del vocabulario | Gesto ejecutado (descripción) y estado |
 | CL-6a | Secuencia incompleta: abortada | Pulsar X con la ventana abierta | `rechazada_incompleta`, motivo «abortada» (`translator.py`, `_cerrar_ventana`) | Estado |
-| CL-6b | Secuencia sin inicio o fin claros dentro de la ventana [MET 192-193] | Empezar la seña antes de ESPACIO o terminarla después del cierre de la ventana | **El prototipo no lo detecta**: solo descarta por X o por menos de 15 fotogramas, así que infiere (riesgo R6) | Qué parte quedó fuera y estado |
+| CL-6b | Secuencia sin inicio o fin claros dentro de la ventana [MET 192-193] | Empezar la seña antes de ESPACIO o terminarla después del cierre de la ventana | **El prototipo no la descarta**: solo descarta por X o por menos de 15 fotogramas, así que infiere (riesgo R6). Desde el 22-nov-2026 (N-50, opción B) la marca como aviso en el JSONL (`bordes.aviso_inicio`, `bordes.aviso_fin`) sin rechazarla | Qué parte quedó fuera, estado y avisos de borde |
 | CL-6c | Menos fotogramas que el mínimo | No provocable sin alterar el sistema: exige menos de 15 fotogramas en el tope de 5 s | `rechazada_incompleta` (`translator.py`, `_cerrar_ventana`) | Se declara no ejercitado si no ocurre |
 
 ### 5.4 Después de la sesión
@@ -781,10 +781,10 @@ anteproyecto es la de las variantes declaradas, y se reporta por duplicado [MET 
 | R3 | **Pausa del bucle.** Tras cada ventana aceptada el bucle queda detenido mientras se sintetiza; no se ha verificado con cámara si después llegan fotogramas acumulados en ráfaga | Puede alterar la tasa medida antes de la siguiente ventana y, con ventana automática, su N | [REG 1279-1281; REG 1299-1300 · N-34]; `translator.py`, `fps_medida` y `_cerrar_ventana` (reinicio de la medición de la tasa) |
 | R4 | **t0 tras la pulsación.** t0 se sella al leer la tecla, hasta un periodo de bucle después de la pulsación física | W y L_total empiezan algo después de la pulsación; el retardo queda dentro de d (sección 8.2) | [REG 567-568 · N-14] |
 | R5 | **t5 no es el sonido.** El retardo del controlador y del dispositivo de audio no entra en la medición por software | Se caracteriza aparte y no se resta | [MET 326-331; MET 513-517] |
-| R6 | **Secuencias sin inicio o fin claros.** El anteproyecto dice que se descartan; el prototipo solo descarta por X o por menos de 15 fotogramas y no detecta una seña truncada en los bordes de la ventana | Una ejecución truncada se infiere y cuenta como error o acierto; debe declararse y discutirse (CL-6b) | [MET 192-193]; `translator.py`, `_cerrar_ventana` |
+| R6 | **Secuencias sin inicio o fin claros.** El anteproyecto dice que se descartan; el prototipo solo descarta por X o por menos de 15 fotogramas y no detecta una seña truncada en los bordes de la ventana (desde el 22-nov-2026 la marca como aviso en el JSONL, sin descartarla: N-50, opción B) | Una ejecución truncada se infiere y cuenta como error o acierto; debe declararse y discutirse (CL-6b) | [MET 192-193]; `translator.py`, `_cerrar_ventana` |
 | R7 | **Seña fuera del vocabulario sin estado propio** | Solo puede terminar en rechazo por confianza o en aceptación de una clase del vocabulario | [MET 29-31; MET 250-251]; `translator.py`, `_inferir_y_emitir` |
 | R8 | **Carga del equipo.** En la corrida completa de 1.c el costo del extractor subió de ≈11,5 ms a ≈15 ms por fotograma; N-21 atribuye como causa probable la sincronización masiva de Google Drive | El costo por fotograma y la tasa efectiva dependen de la carga; hay que registrarla | [REG 800-808 · N-21] |
-| R9 | **Condiciones distintas de las del corpus**: cámara, resolución (el corpus es 1920 × 1080 a 24 fps; el prototipo captura por defecto 640 × 480), iluminación, fondo, encuadre | Acotan la interpretación del Bloque 1 y deben documentarse | [MET 498-502; ALC 35-41]; [REG 483-485 · N-13]; `realtime.py`, argumentos `--ancho` y `--alto` |
+| R9 | **Condiciones distintas de las del corpus**: cámara, resolución (el corpus es 1920 × 1080 a 24 fps; el prototipo capturaba por defecto 640 × 480 y, desde el 22-nov-2026, 1280 × 720), iluminación, fondo, encuadre | Acotan la interpretación del Bloque 1 y deben documentarse | [MET 498-502; ALC 35-41]; [REG 483-485 · N-13]; `realtime.py`, argumentos `--ancho` y `--alto` |
 | R10 | **Modelo entrenado con los cinco señantes del corpus** (partición aleatoria) y seleccionado por validación | En el Bloque 1 la persona es un sexto señante no visto; la referencia más cercana es el LOSO, cuyo top-1 varía entre 0,460 y 0,685 según el señante excluido | [MET 265-268]; [REG 1171-1181 · N-31]; sección 2.1 |
 | R11 | **Pocas ejecuciones por clase.** 50 señas por r repeticiones, con r limitado por las horas de sesión | Precision, recall y F1 por clase tendrán alta incertidumbre; el percentil 90 con n pequeño depende de muy pocas observaciones | [MET 223-225; REC 142-146] |
 | R12 | **Conversión de glosas en desarrollo** (3.a, meses 3-4) | La etapa de conversión y el enunciado cambian si cambia `grammar_mapper.py` durante los bloques | [CRO 50]; [REG 968-970 · N-26]; PD-25 |
@@ -883,7 +883,9 @@ El anteproyecto: se especifican y se fijan en 4.a; se documentan las diferencias
 ### PD-08. Cámara y resolución de captura
 El anteproyecto prevé una cámara web RGB Full HD y presupuesta una Logitech C920s [REC 72-73; REC 104-105,
 119]. No consta qué cámara usaron N-26 y N-32. El programa captura por defecto a 640 × 480
-(`realtime.py`, argumentos `--ancho` y `--alto`).
+(`realtime.py`, argumentos `--ancho` y `--alto`). *Actualización del 22-nov-2026:* el defecto pasó a
+1280 × 720 por la forma de la imagen (16:9 como el corpus; N-57) y por ser la resolución usada con el modelo
+final; el arranque avisa si la cámara entrega otra forma (`docs/MODELO_TCN_IMPUTACION.md`, sección 7).
 - **A. Cámara web externa Full HD a 1280 × 720 o 1920 × 1080.** *Pro*: coincide con el recurso del
   anteproyecto; más píxeles por mano. *Contra*: más costo de extracción por fotograma; hay que medir la tasa.
 - **B. Cámara integrada del portátil a 640 × 480** (lo usado por defecto). *Pro*: sin montaje; comparable
@@ -984,7 +986,8 @@ Con PD-14 B: definir si cuenta el primer intento, el último o todos.
   conteo de estados, permitido [MET 261-262], pero se acerca a una cifra de error; decidir si se reporta
   como conteo o se omite.
 - **CL-6b**: decidir si se declara como límite del prototipo (R6) o se abre una decisión para implementar el
-  descarte.
+  descarte. *Actualización del 22-nov-2026:* implementada la opción B de N-50 (protocolo de reposo, X y aviso
+  en el JSONL sin rechazar; `docs/MODELO_TCN_IMPUTACION.md`, sección 7.2).
 
 ### PD-18. Caracterización del retardo de audio
 - **Modalidad**: (A) solo audio con dispositivo externo; (B) video de alta velocidad del teclado y del

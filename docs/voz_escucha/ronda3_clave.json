@@ -1,0 +1,38 @@
+{
+ "A": {
+  "voz": "XTTS-v2 Claribel Dervla",
+  "ms_por_frase_mediana": 5814.6
+ },
+ "B": {
+  "voz": "XTTS-v2 Marcos Rudaski",
+  "ms_por_frase_mediana": 3425.8
+ },
+ "C": {
+  "voz": "XTTS-v2 Ana Florence",
+  "ms_por_frase_mediana": 2668.3
+ },
+ "D": {
+  "voz": "XTTS-v2 Sofia Hellen",
+  "ms_por_frase_mediana": 2876.6
+ },
+ "E": {
+  "voz": "XTTS-v2 Gilberto Mathias",
+  "ms_por_frase_mediana": 2013.6
+ },
+ "F": {
+  "voz": "XTTS-v2 Luis Moray",
+  "ms_por_frase_mediana": 697.3
+ },
+ "G": {
+  "voz": "XTTS-v2 Alma María",
+  "ms_por_frase_mediana": 787.4
+ },
+ "H": {
+  "voz": "macOS Mónica (referencia)",
+  "ms_por_frase_mediana": 643.1
+ },
+ "I": {
+  "voz": "XTTS-v2 Dionisio Schuyler",
+  "ms_por_frase_mediana": 901.6
+ }
+}

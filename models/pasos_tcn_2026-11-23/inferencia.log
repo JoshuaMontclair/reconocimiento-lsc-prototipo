@@ -1,0 +1,27 @@
+  P30 models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_0/modelo.keras: 30 x 252 | 156,402 param | 0.738 MB | predict(1) 13.53 ms | model(x) 8.09 ms
+  P60 models/pasos_tcn_2026-11-23/P60_imputacion_252/semilla_2026/pliegue_0/modelo.keras: 60 x 252 | 156,402 param | 0.738 MB | predict(1) 13.15 ms | model(x) 8.28 ms
+  P30 models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_1/modelo.keras: 30 x 252 | 156,402 param | 0.738 MB | predict(1) 13.27 ms | model(x) 8.03 ms
+  P60 models/pasos_tcn_2026-11-23/P60_imputacion_252/semilla_2026/pliegue_1/modelo.keras: 60 x 252 | 156,402 param | 0.738 MB | predict(1) 12.97 ms | model(x) 8.13 ms
+  P30 models/confirmacion_tcn_2026-10-03/T1_imputacion_252/semilla_2026/pliegue_2/modelo.keras: 30 x 252 | 156,402 param | 0.738 MB | predict(1) 12.77 ms | model(x) 7.72 ms
+  P60 models/pasos_tcn_2026-11-23/P60_imputacion_252/semilla_2026/pliegue_2/modelo.keras: 60 x 252 | 156,402 param | 0.738 MB | predict(1) 12.92 ms | model(x) 8.16 ms
+  entrada P30: 0.285 ms (mediana de 5 videos)
+  entrada P60: 0.267 ms (mediana de 5 videos)
+{
+ "P30": {
+  "ms_red_predict_lote1": 13.187256995782567,
+  "ms_red_llamada_directa": 7.949201167017843,
+  "ms_entrada": 0.28466650110203773,
+  "mb_archivo": 0.738,
+  "n_parametros": 156402,
+  "ms_total": 13.471923496884605
+ },
+ "P60": {
+  "ms_red_predict_lote1": 13.013909837657897,
+  "ms_red_llamada_directa": 8.188916496389234,
+  "ms_entrada": 0.26658299611881375,
+  "mb_archivo": 0.738,
+  "n_parametros": 156402,
+  "ms_total": 13.28049283377671
+ }
+}
+escrito models/pasos_tcn_2026-11-23/inferencia.json

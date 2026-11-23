@@ -14,7 +14,8 @@ al método del anteproyecto («a cada glosa o a cada secuencia corta prevista se
 enunciado fijo») y la que se presenta en la tesis como el procedimiento (decisión del autor del
 8-nov-2026, D-15 en DECISIONES_TESIS.txt). `--conversor reglas`
 es una **extensión** cerrada y enumerable que se puede auditar (§9.1, 7.045 salidas listadas), todavía
-sin verificar. El valor por defecto sigue siendo `heredado` (§7).
+sin verificar. El valor por defecto era `heredado` (§7); desde el 22-nov-2026 `src/realtime.py` usa
+`inventario` por defecto (decisión del autor; `docs/MODELO_TCN_IMPUTACION.md`, sección 7).
 
 **De dónde salen las cifras.** Las del conversor heredado vienen de N-42 o se midieron hoy con
 `python`. Las del conversor nuevo (§9.1) se midieron
@@ -1384,7 +1385,7 @@ class ConversorGlosas:
 ### 7.2 Integración en el prototipo (cambios aditivos)
 
 - `src/realtime.py`: nueva opción `--conversor {heredado,reglas,inventario}`, por defecto
-  `heredado`. Con `reglas` se construye `ConversorGlosas()`; con `inventario`,
+  `heredado` (desde el 22-nov-2026, `inventario`: `CONVERSOR_POR_DEFECTO` en translator.py). Con `reglas` se construye `ConversorGlosas()`; con `inventario`,
   `ConversorGlosas(estricto=True)` (`construir_conversor` en translator.py). Se pasa como
   `grammar_mapper=` a `LSCTranslator`; la inyección ya existía (parámetro `grammar_mapper` de
   `LSCTranslator.__init__`). Para las sesiones del protocolo antes de la Actividad B, y para la
@@ -1406,7 +1407,9 @@ class ConversorGlosas:
   `sys.modules` sin forzar el import. Así las comprobaciones de §7.1 (`RuntimeError` si el léxico o
   el inventario no cuadran) solo afectan a quien elige el conversor nuevo: con `heredado`, el
   prototipo arranca aunque el módulo nuevo falle al cargar (lo comprueba una prueba).
-- Lo que no cambia: el valor por defecto (decisión del autor para esta actividad);
+- Lo que no cambia: el valor por defecto (decisión del autor para esta actividad; cambió después, el
+  22-nov-2026, a `inventario` en `realtime.py`, mientras `LSCTranslator` sin conversor inyectado sigue con
+  GrammarMapper);
   `src/grammar_mapper.py`; `tests/test_grammar_mapper.py`; las aserciones de test_tts.py:1567-1573
   (precalentado con el heredado) y de test_prototipo.py:847 y :927 (comparan con
   `GrammarMapper()`).
@@ -1865,7 +1868,7 @@ director):
   fijo), que es el método del anteproyecto (09_metodologia.tex: «a cada glosa o a cada secuencia corta
   prevista se le asociará […] un enunciado fijo»). La vía «reglas» (7.045 salidas enumeradas, 6.965 por
   reglas compositivas) se presenta como extensión cerrada y auditable, sin verificar. Las sesiones del
-  protocolo antes de la Actividad B usarían «inventario». El valor por defecto del prototipo sigue siendo
-  el heredado.
+  protocolo antes de la Actividad B usarían «inventario». El valor por defecto del prototipo siguió siendo
+  el heredado hasta el 22-nov-2026; desde entonces es «inventario».
   ADVERTENCIA: ninguna regla ni enunciado está revisado por el profesor de LSC vinculado (Actividad B pendiente).
 ```

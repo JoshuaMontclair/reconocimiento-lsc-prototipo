@@ -78,7 +78,7 @@ y además se descartan 10 ensayos antes de medir.
 | Nombre | Modelo | Conversor | Umbral (de `<modelo>.umbral.json`) |
 |---|---|---|---|
 | `final_inventario` | `models/tcn_imputacion/modelo.keras` (TCN + imputación + 252) | `inventario` (D-15) | 0,00 |
-| `heredada_heredado` | ruta por defecto de `realtime.py` (`canonico_holistic_mascara_manos`) | heredado (GrammarMapper) | 0,20 |
+| `heredada_heredado` | red heredada (`canonico_holistic_mascara_manos`; era la ruta por defecto de `realtime.py` hasta el 22-nov-2026) | heredado (GrammarMapper) | 0,20 |
 | `final_heredado` | modelo final | heredado | 0,00 |
 
 `final_heredado` es un control: es la configuración del registro del 3-oct y permite separar el efecto del modelo
@@ -318,8 +318,13 @@ configuración que se presenta.
        --registro-dir registros/latencia_4c_AAAA-MM-DD
    ```
 
-   - Umbral (0,00), regla «imputacion» y voz offline: los toma solos de la procedencia y de `modelo.umbral.json`. No
-     se pasa `--umbral` ni `--tts`.
+   - Umbral, regla «imputacion» y voz offline: los toma solos de la procedencia y de `modelo.umbral.json`. No
+     se pasa `--umbral` ni `--tts`. El umbral era 0,00 cuando se escribió este protocolo; desde N-75
+     (22-nov-2026) es 0,68.
+   - Desde el 22-nov-2026, `--model-path models/tcn_imputacion/modelo.keras`, `--ancho 1280 --alto 720` y
+     `--conversor inventario` son los valores por defecto de `realtime.py`; la orden explícita sigue valiendo
+     y deja constancia de la configuración. El registro gana la clave `bordes` (aviso de seña cortada, N-50,
+     opción B): se calcula después de t5 y no cambia ninguna magnitud de esta sección.
    - `--ventana-frames 75` fija N como recomienda PD-09 (N-48). Si el director no lo aprobó, puede omitirse: W
      variará, pero L_resp no depende de N.
    - La carpeta propia evita que el resumen mezcle sesiones (R15 del protocolo 4.a).
