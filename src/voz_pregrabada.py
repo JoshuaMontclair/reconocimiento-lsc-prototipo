@@ -3,20 +3,24 @@ Voz pregrabada del prototipo (decisión del autor del 23-nov-2026; ver docs/VOZ.
 
 QUÉ ES. En modo `--conversor inventario` el prototipo solo puede decir un conjunto cerrado de enunciados: las
 50 glosas solas y las 92 secuencias previstas del inventario (src/conversor_glosas.py, modo estricto). Con los
-géneros por defecto son 142 textos distintos. El autor los generó con ElevenLabs (voz «Robert - Colombian,
-Paisa» de la biblioteca de ElevenLabs) y se cortaron en 142 WAV (44,1 kHz, mono, PCM de 16 bits) que viven en
-models/voz_pregrabada/ junto con su índice (indice.json). src/tts.py, en modo «pregrabada», busca el enunciado
+géneros por defecto son 142 textos distintos; con --genero-primera f o --genero-segunda f aparecen 4 más (las
+variantes en femenino de «bienvenido»), así que la unión de todas las combinaciones de género son 146. El autor
+los generó con ElevenLabs (voz «Robert - Colombian, Paisa» de la biblioteca de ElevenLabs) y se cortaron en 146
+WAV (44,1 kHz, mono, PCM de 16 bits) que viven en models/voz_pregrabada/ junto con su índice (indice.json):
+001-142 con los géneros por defecto y 143-146 con las variantes en femenino. src/tts.py, en modo «pregrabada», busca el enunciado
 EXACTO en el índice y reproduce su WAV; si no está, cae a XTTS-v2 (src/voz_xtts_servicio.py) y, si tampoco hay,
 a la voz local de macOS (Mónica).
 
 QUÉ HAY AQUÍ (solo biblioteca estándar: el proyecto no gana dependencias).
   · enunciados_inventario(): los textos que el conversor en modo inventario puede producir, enumerados DESDE EL
     CÓDIGO (léxico y tabla INVENTARIO), no desde una lista aparte. variantes_de_genero() da los que cambian con
-    --genero-primera f / --genero-segunda f (no están pregrabados: van al respaldo).
+    --genero-primera f / --genero-segunda f; enunciados_pregrabados() / textos_posibles() son la unión (los de
+    géneros por defecto y después las variantes), en el orden de las frases del índice.
   · IndiceVozPregrabada: carga y valida indice.json (textos, sha256 de cada texto y de cada WAV, duración,
     números consecutivos, archivos presentes) y busca por texto exacto (normalizado a NFC, sin más: «Gracias»
     no encuentra «Gracias.»).
-  · cobertura(): qué parte de los enunciados posibles tiene audio.
+  · cobertura(): qué parte de los enunciados posibles tiene audio (comprobar() la mide sobre la unión de todas
+    las combinaciones de género y, aparte, sobre los géneros por defecto).
   · construir_indice(): arma indice.json a partir de la carpeta de WAV y de los archivos de corte y
     verificación (lo usa scripts/voz_pregrabada_cortar.py al regenerar los audios).
 
@@ -56,8 +60,11 @@ FUENTE_ELEVENLABS = {
     "archivos_origen": [
         "ElevenLabs_2026-11-23T05_29_16_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3",
         "ElevenLabs_2026-11-23T05_29_57_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3",
+        "ElevenLabs_2026-11-23T06_23_34_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3",
     ],
-    "formato_origen": "MP3 128 kb/s, 44 100 Hz, mono; dos tomas (frases 1-71 y 72-142) con pausas de 1,5 s",
+    "formato_origen": "MP3 128 kb/s, 44 100 Hz, mono; tres tomas: frases 1-71 y 72-142 con pausas de 1,5 s, y "
+                      "143-146 (variantes en femenino, misma voz y mismos ajustes; el modelo leyó también el número "
+                      "de cada frase, que quedó fuera de los cortes)",
 }
 METODO_CORTE = {
     "herramienta": "faster-whisper, modelo «base» (CPU, int8), idioma es, marcas de tiempo por palabra",
@@ -73,11 +80,15 @@ METODO_CORTE = {
         "esperado; dudosos = similitud < 0,8 o duración por carácter fuera de [0,45 ; 2,2] × la mediana",
         "cortes corregidos a mano (026 y 088): ventana exacta [ini_s, fin_s] con fundido lineal de 10 ms en cada "
         "borde y sin recorte de silencio; tiempos comprobados por correlación con la toma",
+        "variantes en femenino (143-146, toma 3): ventana fija [ini_s, fin_s] elegida con las marcas de Whisper "
+        "para dejar fuera los números leídos, recorte del silencio de los bordes con umbral (máximo − 48 dB), "
+        "80 ms antes y 90 ms después, y fundido lineal de 10 ms en cada borde",
     ],
     "dudosos": 16,
     "revision_a_oido": "el autor escuchó los 16 dudosos: 14 correctos (la transcripción automática falla en "
                        "palabras sueltas) y 2 cortados (026 «Mal.» y 088 «Tú comes.»), cuyos tiempos se "
-                       "corrigieron a mano; el autor aprobó los dos cortes rehechos",
+                       "corrigieron a mano; el autor aprobó los dos cortes rehechos. Las 4 variantes en femenino "
+                       "(143-146) las escuchó todas y las aprobó",
 }
 
 
@@ -133,16 +144,46 @@ def textos_inventario(genero_primera: str | None = None, genero_segunda: str | N
     return [e["texto"] for e in enunciados_inventario(genero_primera, genero_segunda)]
 
 
+COMBINACIONES_DE_GENERO = (("m", "m"), ("m", "f"), ("f", "m"), ("f", "f"))   # (yo, tú); la primera es la de por defecto
+
+
 def variantes_de_genero() -> dict[str, list[str]]:
     """Textos que aparecen con algún género femenino y no con los de por defecto (m, m), por combinación."""
     base = set(textos_inventario())
     variantes = {}
-    for g1 in ("m", "f"):
-        for g2 in ("m", "f"):
-            extra = [t for t in textos_inventario(g1, g2) if t not in base]
-            if extra:
-                variantes[f"yo={g1}, tú={g2}"] = extra
+    for g1, g2 in COMBINACIONES_DE_GENERO[1:]:
+        extra = [t for t in textos_inventario(g1, g2) if t not in base]
+        if extra:
+            variantes[f"yo={g1}, tú={g2}"] = extra
     return variantes
+
+
+def enunciados_variantes() -> list[dict]:
+    """Las variantes de género (textos que no salen con los géneros por defecto), cada una una sola vez, en el
+    orden en que aparecen al recorrer (m, f), (f, m) y (f, f). Cada una: {"texto", "origen", "glosas"}; el origen
+    dice qué género la produce, p. ej. «variante en femenino: tú=f (S-06: hola + bienvenido)»."""
+    base = set(textos_inventario())
+    salida: list[dict] = []
+    vistos: set[str] = set()
+    for g1, g2 in COMBINACIONES_DE_GENERO[1:]:
+        cambio = ", ".join(x for x in (f"yo={g1}" if g1 == "f" else "", f"tú={g2}" if g2 == "f" else "") if x)
+        for e in enunciados_inventario(g1, g2):
+            if e["texto"] not in base and e["texto"] not in vistos:
+                vistos.add(e["texto"])
+                salida.append({"texto": e["texto"], "origen": f"variante en femenino: {cambio} ({e['origen']})",
+                               "glosas": e["glosas"]})
+    return salida
+
+
+def enunciados_pregrabados() -> list[dict]:
+    """Todos los enunciados que el modo inventario puede producir con alguna combinación de géneros, en el orden
+    de las frases del índice: los 142 de los géneros por defecto y después las variantes (143-146)."""
+    return enunciados_inventario() + enunciados_variantes()
+
+
+def textos_posibles() -> list[str]:
+    """Unión de los textos del modo inventario con todas las combinaciones de género (orden del índice)."""
+    return [e["texto"] for e in enunciados_pregrabados()]
 
 
 # ---------------------------------------------------------------------------
@@ -274,10 +315,12 @@ def existe_indice(ruta: str | Path | None = None) -> bool:
     return (ruta / "indice.json").is_file() if ruta.is_dir() else ruta.is_file()
 
 
-def cobertura(indice: IndiceVozPregrabada, textos: list[str]) -> dict:
-    """Qué parte de los textos tiene audio, y qué audios no corresponden a ningún texto."""
+def cobertura(indice: IndiceVozPregrabada, textos: list[str], admitidos: list[str] | None = None) -> dict:
+    """Qué parte de los textos tiene audio, y qué audios no corresponden a ningún texto. `admitidos`: otros
+    textos posibles cuyo audio no cuenta como sobrante (p. ej. las variantes de género al medir la cobertura de
+    los géneros por defecto)."""
     faltan = [t for t in textos if t not in indice]
-    conjunto = {normalizar(t) for t in textos}
+    conjunto = {normalizar(t) for t in list(textos) + list(admitidos or [])}
     sobran = [t for t in indice.textos if t not in conjunto]
     n = len(textos)
     return {"n": n, "cubiertos": n - len(faltan), "porcentaje": round(100.0 * (n - len(faltan)) / n, 2) if n else None,
@@ -291,12 +334,13 @@ def cobertura(indice: IndiceVozPregrabada, textos: list[str]) -> dict:
 def construir_indice(carpeta: Path, verificacion: list[dict] | None = None, cortes: dict | None = None,
                      revisados_a_oido: set[int] | None = None, rehechos: dict[int, dict] | None = None,
                      fuente: dict | None = None, metodo: dict | None = None) -> dict:
-    """indice.json para los WAV NNN.wav de `carpeta`, con los textos enumerados desde el código.
+    """indice.json para los WAV NNN.wav de `carpeta`, con los textos enumerados desde el código (la unión de
+    todas las combinaciones de género: enunciados_pregrabados()).
 
     verificacion: lista [{n, frase, oido, similitud, ...}] de la re-transcripción; cortes: {"k": {parte, ini,
-    fin, corregido_a_mano?}} con k = n − 1; revisados_a_oido: números escuchados por el autor; rehechos:
+    fin, corregido_a_mano?, metodo?}} con k = n − 1; revisados_a_oido: números escuchados por el autor; rehechos:
     {n: {"oido": ..., "nota": ...}} para los cortes corregidos a mano (su verificación es la del corte nuevo)."""
-    enunciados = enunciados_inventario()
+    enunciados = enunciados_pregrabados()
     verif = {int(v["n"]): v for v in (verificacion or [])}
     revisados_a_oido = set(revisados_a_oido or ())
     rehechos = dict(rehechos or {})
@@ -317,6 +361,8 @@ def construir_indice(carpeta: Path, verificacion: list[dict] | None = None, cort
             if c.get("corregido_a_mano"):
                 entrada["corte"]["metodo"] = ("ventana exacta corregida a mano, fundido lineal de 10 ms en cada "
                                               "borde, sin recorte de silencio")
+            elif c.get("metodo"):
+                entrada["corte"]["metodo"] = c["metodo"]
         v = verif.get(n)
         if v is not None:
             if v.get("frase") is not None and normalizar(v["frase"]) != e["texto"]:
@@ -329,13 +375,17 @@ def construir_indice(carpeta: Path, verificacion: list[dict] | None = None, cort
         entrada["corte_rehecho"] = n in rehechos
         frases.append(entrada)
     infos = {(i["canales"], i["frecuencia_hz"], i["bits"]) for i in (info_wav(carpeta / f["archivo"]) for f in frases)}
+    n_por_defecto = len(enunciados) - len(enunciados_variantes())
     return {
         "version": VERSION_INDICE,
         "descripcion": "Enunciados pregrabados del prototipo: los que el conversor de glosas en modo inventario "
-                       "(src/conversor_glosas.py, estricto, géneros por defecto) puede producir. Ver docs/VOZ.md.",
+                       "(src/conversor_glosas.py, estricto) puede producir con cualquier combinación de géneros: "
+                       "primero los de los géneros por defecto y después las variantes en femenino. Ver docs/VOZ.md.",
         "conversor": {"modulo": "src/conversor_glosas.py", "modo": "inventario (estricto=True)",
                       "generos": {"yo": "m", "tú": "m"}, "n_glosas_solas": 50, "n_secuencias": 92,
-                      "n_enunciados": len(frases)},
+                      "n_enunciados": len(frases), "n_generos_por_defecto": n_por_defecto,
+                      "n_variantes_de_genero": len(frases) - n_por_defecto,
+                      "variantes_cubiertas": variantes_de_genero()},
         "audio": {"formato": "WAV PCM", "combinaciones_canales_hz_bits": sorted(list(x) for x in infos),
                   "bytes_total": total},
         "fuente": dict(fuente or FUENTE_ELEVENLABS),
@@ -350,15 +400,27 @@ def construir_indice(carpeta: Path, verificacion: list[dict] | None = None, cort
 # ---------------------------------------------------------------------------
 
 def comprobar(ruta: str | Path | None = None) -> dict:
-    """Valida el índice y mide la cobertura del modo inventario (géneros por defecto y variantes)."""
+    """Valida el índice y mide la cobertura del modo inventario: sobre la unión de los enunciados posibles con
+    todas las combinaciones de género (la que decide) y, aparte, sobre los de los géneros por defecto (sin contar
+    las variantes como sobrantes)."""
     indice = IndiceVozPregrabada.cargar(ruta)
-    base = cobertura(indice, textos_inventario())
+    posibles = textos_posibles()
+    todas = cobertura(indice, posibles)
+    base = cobertura(indice, textos_inventario(), admitidos=posibles)
     variantes = variantes_de_genero()
     total = sum(f.get("bytes") or (indice.carpeta / f["archivo"]).stat().st_size for f in indice.datos["frases"])
-    return {"indice": str(indice.ruta), "enunciados_en_indice": len(indice), "cobertura_generos_por_defecto": base,
+    return {"indice": str(indice.ruta), "enunciados_en_indice": len(indice),
+            "cobertura_todas_las_combinaciones_de_genero": todas, "cobertura_generos_por_defecto": base,
+            "variantes_de_genero_con_audio": {k: [t for t in v if t in indice] for k, v in variantes.items()},
             "variantes_de_genero_sin_audio": {k: [t for t in v if t not in indice] for k, v in variantes.items()},
             "bytes_wav_total": total,
             "duracion_total_s": round(sum(f["duracion_s"] for f in indice.datos["frases"]), 2)}
+
+
+def comprobacion_correcta(r: dict) -> bool:
+    """True si toda combinación de géneros tiene audio y ningún audio sobra."""
+    c = r["cobertura_todas_las_combinaciones_de_genero"]
+    return not c["faltan"] and not c["sobran"] and not r["cobertura_generos_por_defecto"]["faltan"]
 
 
 def main(argv=None) -> int:
@@ -374,18 +436,23 @@ def main(argv=None) -> int:
     if args.json:
         print(json.dumps(r, ensure_ascii=False, indent=1))
     else:
-        c = r["cobertura_generos_por_defecto"]
+        c, b = r["cobertura_todas_las_combinaciones_de_genero"], r["cobertura_generos_por_defecto"]
         print(f"Índice: {r['indice']} ({r['enunciados_en_indice']} enunciados, {r['bytes_wav_total']} bytes de WAV, "
               f"{r['duracion_total_s']} s de audio)")
-        print(f"Cobertura del modo inventario (géneros por defecto): {c['cubiertos']}/{c['n']} ({c['porcentaje']} %)")
+        print(f"Cobertura del modo inventario (todas las combinaciones de género): {c['cubiertos']}/{c['n']} "
+              f"({c['porcentaje']} %)")
+        print(f"  con los géneros por defecto: {b['cubiertos']}/{b['n']} ({b['porcentaje']} %)")
+        for k, v in r["variantes_de_genero_con_audio"].items():
+            if v:
+                print(f"  con {k} además: {', '.join(v)}")
         for t in c["faltan"]:
             print(f"  falta: {t}")
         for t in c["sobran"]:
             print(f"  sobra: {t}")
         for k, v in r["variantes_de_genero_sin_audio"].items():
-            print(f"  sin audio con {k} (van al respaldo): {', '.join(v)}")
-    c = r["cobertura_generos_por_defecto"]
-    return 0 if not c["faltan"] and not c["sobran"] else 1
+            if v:
+                print(f"  sin audio con {k} (van al respaldo): {', '.join(v)}")
+    return 0 if comprobacion_correcta(r) else 1
 
 
 if __name__ == "__main__":

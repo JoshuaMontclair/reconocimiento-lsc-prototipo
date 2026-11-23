@@ -2565,8 +2565,11 @@ PENDIENTE CON EL DIRECTOR
   (src/voz_xtts_servicio.py, --python-voz; 417 ms/frase en MPS, 1.094 ms en CPU, medianas), con
   salvaguarda contra el balbuceo de XTTS; si no está disponible, la voz local Mónica (antes Paulina).
   El registro anota tts_fuente (pregrabada / xtts / local). El proyecto no importa torch.
-  Límites: las 4 variantes en femenino (--genero-* f) y el conversor heredado no tienen audio y usan el
-  respaldo. XTTS-v2 tiene licencia CPML (no comercial) y el modelo no se redistribuye. Documento:
-  docs/VOZ.md. Suite: 925 pruebas OK.
+  Las 4 variantes en femenino (--genero-* f: «Hola, bienvenida.», «Buenos días, bienvenida.», «Tú eres
+  bienvenida.», «Yo me siento bienvenida.») se generaron después con la misma voz (una toma en la que el
+  modelo leyó también los números; cortados con Whisper y aprobados a oído por el autor): 146 WAV
+  (14,6 MiB), cobertura 146/146 con cualquier combinación de géneros. Límite: el conversor heredado
+  escribe sin punto final y casi nunca coincide con un audio; usa el respaldo. XTTS-v2 tiene licencia CPML (no comercial) y el modelo no se redistribuye. Documento:
+  docs/VOZ.md. Suite: 927 pruebas OK.
 
 (añadir nuevas entradas debajo de esta línea)

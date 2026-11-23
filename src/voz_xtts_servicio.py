@@ -2,7 +2,7 @@
 Servicio auxiliar de voz de respaldo con XTTS-v2 (decisión del autor del 23-nov-2026; ver docs/VOZ.md).
 
 POR QUÉ UN PROCESO APARTE. La voz de respaldo para las frases que NO están pregrabadas (respaldo del conversor con
-la lista de glosas, conversor «reglas» o «heredado», variantes en femenino) es XTTS-v2 de Coqui, hablante
+la lista de glosas, conversor «reglas» o «heredado») es XTTS-v2 de Coqui, hablante
 «Gilberto Mathias», idioma "es". XTTS necesita PyTorch y coqui-tts, que el entorno del proyecto NO tiene ni debe
 tener (TensorFlow y MediaPipe ya conviven en él). Por eso XTTS corre en un proceso auxiliar persistente, lanzado
 con OTRO intérprete de Python (un entorno con coqui-tts; ver requirements-voz.txt), que carga el modelo UNA vez y

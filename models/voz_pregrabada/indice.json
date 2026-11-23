@@ -1,6 +1,6 @@
 {
  "version": 1,
- "descripcion": "Enunciados pregrabados del prototipo: los que el conversor de glosas en modo inventario (src/conversor_glosas.py, estricto, géneros por defecto) puede producir. Ver docs/VOZ.md.",
+ "descripcion": "Enunciados pregrabados del prototipo: los que el conversor de glosas en modo inventario (src/conversor_glosas.py, estricto) puede producir con cualquier combinación de géneros: primero los de los géneros por defecto y después las variantes en femenino. Ver docs/VOZ.md.",
  "conversor": {
   "modulo": "src/conversor_glosas.py",
   "modo": "inventario (estricto=True)",
@@ -10,7 +10,25 @@
   },
   "n_glosas_solas": 50,
   "n_secuencias": 92,
-  "n_enunciados": 142
+  "n_enunciados": 146,
+  "n_generos_por_defecto": 142,
+  "n_variantes_de_genero": 4,
+  "variantes_cubiertas": {
+   "yo=m, tú=f": [
+    "Hola, bienvenida.",
+    "Buenos días, bienvenida.",
+    "Tú eres bienvenida."
+   ],
+   "yo=f, tú=m": [
+    "Yo me siento bienvenida."
+   ],
+   "yo=f, tú=f": [
+    "Hola, bienvenida.",
+    "Buenos días, bienvenida.",
+    "Tú eres bienvenida.",
+    "Yo me siento bienvenida."
+   ]
+  }
  },
  "audio": {
   "formato": "WAV PCM",
@@ -21,7 +39,7 @@
     16
    ]
   ],
-  "bytes_total": 14711216
+  "bytes_total": 15342670
  },
  "fuente": {
   "proveedor": "ElevenLabs",
@@ -33,9 +51,10 @@
   "atribucion": "Voz «Robert - Colombian, Paisa» de la biblioteca de ElevenLabs",
   "archivos_origen": [
    "ElevenLabs_2026-11-23T05_29_16_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3",
-   "ElevenLabs_2026-11-23T05_29_57_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3"
+   "ElevenLabs_2026-11-23T05_29_57_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3",
+   "ElevenLabs_2026-11-23T06_23_34_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3"
   ],
-  "formato_origen": "MP3 128 kb/s, 44 100 Hz, mono; dos tomas (frases 1-71 y 72-142) con pausas de 1,5 s"
+  "formato_origen": "MP3 128 kb/s, 44 100 Hz, mono; tres tomas: frases 1-71 y 72-142 con pausas de 1,5 s, y 143-146 (variantes en femenino, misma voz y mismos ajustes; el modelo leyó también el número de cada frase, que quedó fuera de los cortes)"
  },
  "corte": {
   "herramienta": "faster-whisper, modelo «base» (CPU, int8), idioma es, marcas de tiempo por palabra",
@@ -45,12 +64,13 @@
    "corte en el punto medio entre el fin de la última palabra de una frase y el inicio de la primera de la siguiente; si falta una marca, interpolación proporcional a la longitud del texto",
    "recorte del silencio de los bordes: se conserva desde 60 ms antes de la primera ventana de 10 ms que supera (máximo − 40 dB) hasta 70 ms después de la última",
    "verificación: re-transcripción de cada corte con el mismo modelo y similitud de caracteres con el texto esperado; dudosos = similitud < 0,8 o duración por carácter fuera de [0,45 ; 2,2] × la mediana",
-   "cortes corregidos a mano (026 y 088): ventana exacta [ini_s, fin_s] con fundido lineal de 10 ms en cada borde y sin recorte de silencio; tiempos comprobados por correlación con la toma"
+   "cortes corregidos a mano (026 y 088): ventana exacta [ini_s, fin_s] con fundido lineal de 10 ms en cada borde y sin recorte de silencio; tiempos comprobados por correlación con la toma",
+   "variantes en femenino (143-146, toma 3): ventana fija [ini_s, fin_s] elegida con las marcas de Whisper para dejar fuera los números leídos, recorte del silencio de los bordes con umbral (máximo − 48 dB), 80 ms antes y 90 ms después, y fundido lineal de 10 ms en cada borde"
   ],
   "dudosos": 16,
-  "revision_a_oido": "el autor escuchó los 16 dudosos: 14 correctos (la transcripción automática falla en palabras sueltas) y 2 cortados (026 «Mal.» y 088 «Tú comes.»), cuyos tiempos se corrigieron a mano; el autor aprobó los dos cortes rehechos"
+  "revision_a_oido": "el autor escuchó los 16 dudosos: 14 correctos (la transcripción automática falla en palabras sueltas) y 2 cortados (026 «Mal.» y 088 «Tú comes.»), cuyos tiempos se corrigieron a mano; el autor aprobó los dos cortes rehechos. Las 4 variantes en femenino (143-146) las escuchó todas y las aprobó"
  },
- "n_revisados_a_oido": 16,
+ "n_revisados_a_oido": 20,
  "frases": [
   {
    "numero": 1,
@@ -3178,6 +3198,98 @@
     "similitud": 1.0
    },
    "revisado_a_oido": false,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 143,
+   "texto": "Hola, bienvenida.",
+   "sha256_texto": "30d5b1bd827c53b99ab39adf703ce76894f2c86663a9875b911cfdf7a2751fa1",
+   "archivo": "143.wav",
+   "duracion_s": 1.75,
+   "bytes": 154394,
+   "sha256_audio": "eccec54a7f379291b0005b71ca583dafcc3015a741f5595a24f921d2dadd5445",
+   "origen": "variante en femenino: tú=f (S-06: hola + bienvenido)",
+   "corte": {
+    "toma": 3,
+    "ini_s": 1.3,
+    "fin_s": 3.05,
+    "corregido_a_mano": false,
+    "metodo": "ventana fija de la toma 3 elegida con las marcas de Whisper (sin los números leídos), recorte del silencio de los bordes (máximo − 48 dB, 80 ms antes y 90 ms después) y fundido lineal de 10 ms en cada borde"
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Hola, bienvenida.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 144,
+   "texto": "Buenos días, bienvenida.",
+   "sha256_texto": "01ee903708b27969db290c118acb9d2e4402764b71cc63e256e11ea4098e619b",
+   "archivo": "144.wav",
+   "duracion_s": 2.15,
+   "bytes": 189674,
+   "sha256_audio": "e402293ae5f0750d2da181cd4e750c2993ec5a4b14279748b309abd61b0b2c6f",
+   "origen": "variante en femenino: tú=f (S-20: buenos días + bienvenido)",
+   "corte": {
+    "toma": 3,
+    "ini_s": 4.45,
+    "fin_s": 6.6,
+    "corregido_a_mano": false,
+    "metodo": "ventana fija de la toma 3 elegida con las marcas de Whisper (sin los números leídos), recorte del silencio de los bordes (máximo − 48 dB, 80 ms antes y 90 ms después) y fundido lineal de 10 ms en cada borde"
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Buenos días, bienvenida.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 145,
+   "texto": "Tú eres bienvenida.",
+   "sha256_texto": "2e035a9aa5e8a687ded5f61e47e83cf732ace4e5de0c868304d9d0c4dead4a3e",
+   "archivo": "145.wav",
+   "duracion_s": 1.5,
+   "bytes": 132344,
+   "sha256_audio": "e1ac1db08d07c54a8d6fd1ec13e621542306475050503aff694d0f21523fb3a6",
+   "origen": "variante en femenino: tú=f (S-56: tú + bienvenido)",
+   "corte": {
+    "toma": 3,
+    "ini_s": 8.2,
+    "fin_s": 9.7,
+    "corregido_a_mano": false,
+    "metodo": "ventana fija de la toma 3 elegida con las marcas de Whisper (sin los números leídos), recorte del silencio de los bordes (máximo − 48 dB, 80 ms antes y 90 ms después) y fundido lineal de 10 ms en cada borde"
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Tu eres bien venida.",
+    "similitud": 0.973
+   },
+   "revisado_a_oido": true,
+   "corte_rehecho": false
+  },
+  {
+   "numero": 146,
+   "texto": "Yo me siento bienvenida.",
+   "sha256_texto": "2e02e13feebb1c93c10b6b91e4b42e906298b9e8e10fc2cbb049b7566d9f5722",
+   "archivo": "146.wav",
+   "duracion_s": 1.757,
+   "bytes": 155042,
+   "sha256_audio": "12ec31df6a6980bb9e5146a0c52eb9ebb9ebedfae7f426da77b147b204f6a4e5",
+   "origen": "variante en femenino: yo=f (S-84: yo + sentir + bienvenido)",
+   "corte": {
+    "toma": 3,
+    "ini_s": 11.3,
+    "fin_s": 13.087,
+    "corregido_a_mano": false,
+    "metodo": "ventana fija de la toma 3 elegida con las marcas de Whisper (sin los números leídos), recorte del silencio de los bordes (máximo − 48 dB, 80 ms antes y 90 ms después) y fundido lineal de 10 ms en cada borde"
+   },
+   "verificacion_whisper": {
+    "transcripcion": "Yo me siento bienvenida.",
+    "similitud": 1.0
+   },
+   "revisado_a_oido": true,
    "corte_rehecho": false
   }
  ]

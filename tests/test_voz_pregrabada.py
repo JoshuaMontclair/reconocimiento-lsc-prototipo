@@ -3,10 +3,11 @@ Pruebas de la voz pregrabada (decisión del autor del 23-nov-2026; docs/VOZ.md):
 «pregrabada» de src/tts.py, SIN reproducir audio, sin la voz del equipo y sin PyTorch.
 
 Cubren:
-  1. el índice real (models/voz_pregrabada/indice.json): válido, 142 WAV mono de 44,1 kHz con su sha256, la
-     procedencia (ElevenLabs «Robert - Colombian, Paisa»), el método de corte y la revisión a oído;
-  2. la cobertura: los textos del índice son EXACTAMENTE los que el conversor en modo inventario puede producir,
-     enumerados desde el código (100 %), y las variantes en femenino quedan fuera (van al respaldo);
+  1. el índice real (models/voz_pregrabada/indice.json): válido, 146 WAV mono de 44,1 kHz con su sha256, la
+     procedencia (ElevenLabs «Robert - Colombian, Paisa», tres tomas), el método de corte y la revisión a oído;
+  2. la cobertura: los textos del índice son EXACTAMENTE los que el conversor en modo inventario puede producir
+     con cualquier combinación de géneros, enumerados desde el código: 146/146 en la unión y 142/142 con los
+     géneros por defecto; las 4 variantes en femenino (143-146) están pregrabadas y ningún audio sobra;
   3. la validación detecta índices alterados y la búsqueda es exacta;
   4. la cadena de respaldo pregrabada → xtts → local con un servicio XTTS falso (objeto en memoria) y una voz
      local falsa (pyttsx3 y `say` sustituidos), la cache solo de XTTS y que nunca se borra un WAV del índice;
@@ -175,12 +176,16 @@ class TestIndiceReal(unittest.TestCase):
         cls.datos = json.loads(INDICE.read_text(encoding="utf-8"))
         cls.indice = vp.IndiceVozPregrabada.cargar(INDICE)
 
-    def test_indice_valido_con_142_wav_mono_44100(self):
+    def test_indice_valido_con_146_wav_mono_44100(self):
         self.assertEqual(vp.validar_indice(self.datos, INDICE.parent), [])
-        self.assertEqual(len(self.indice), 142)
+        self.assertEqual(len(self.indice), 146)
         frases = self.datos["frases"]
-        self.assertEqual([f["numero"] for f in frases], list(range(1, 143)))
-        self.assertEqual([f["archivo"] for f in frases], [f"{n:03d}.wav" for n in range(1, 143)])
+        self.assertEqual([f["numero"] for f in frases], list(range(1, 147)))
+        self.assertEqual([f["archivo"] for f in frases], [f"{n:03d}.wav" for n in range(1, 147)])
+        conv = self.datos["conversor"]
+        self.assertEqual((conv["n_enunciados"], conv["n_generos_por_defecto"], conv["n_variantes_de_genero"]),
+                         (146, 142, 4))
+        self.assertEqual(conv["variantes_cubiertas"], vp.variantes_de_genero())
         total = 0
         for f in frases:
             info = vp.info_wav(INDICE.parent / f["archivo"])
@@ -201,10 +206,14 @@ class TestIndiceReal(unittest.TestCase):
         self.assertEqual(fuente["fecha"], "2026-11-23")
         self.assertIn("el autor", fuente["generado_por"])
         self.assertIn("Robert - Colombian, Paisa", fuente["atribucion"])
+        self.assertEqual(len(fuente["archivos_origen"]), 3)
+        self.assertTrue(all("Robert - Colombian, Paisa_pvc_s50_sim75_v4" in a for a in fuente["archivos_origen"]))
         self.assertIn("faster-whisper", self.datos["corte"]["herramienta"])
+        self.assertEqual(self.datos["corte"]["dudosos"], 16)
         revisados = [f["numero"] for f in self.datos["frases"] if f["revisado_a_oido"]]
-        self.assertEqual(revisados, [5, 15, 16, 17, 20, 23, 26, 35, 40, 41, 87, 88, 93, 98, 107, 110])
-        self.assertEqual(self.datos["n_revisados_a_oido"], 16)
+        self.assertEqual(revisados, [5, 15, 16, 17, 20, 23, 26, 35, 40, 41, 87, 88, 93, 98, 107, 110,
+                                     143, 144, 145, 146])
+        self.assertEqual(self.datos["n_revisados_a_oido"], 20)
         rehechos = [f["numero"] for f in self.datos["frases"] if f["corte_rehecho"]]
         self.assertEqual(rehechos, [26, 88])
         for n in (26, 88):
@@ -213,6 +222,28 @@ class TestIndiceReal(unittest.TestCase):
             self.assertIn("rehecho", f["verificacion_whisper"]["nota"])
         # Todos tienen su verificación automática.
         self.assertTrue(all("verificacion_whisper" in f for f in self.datos["frases"]))
+
+    def test_variantes_en_femenino_de_la_toma_3(self):
+        frases = self.datos["frases"]
+        self.assertEqual([f["corte"]["toma"] for f in frases].count(3), 4)
+        esperado = {143: ("Hola, bienvenida.", "tú=f", (1.30, 3.05)),
+                    144: ("Buenos días, bienvenida.", "tú=f", (4.45, 6.60)),
+                    145: ("Tú eres bienvenida.", "tú=f", (8.20, 9.70)),
+                    146: ("Yo me siento bienvenida.", "yo=f", (11.30, 13.087))}
+        for n, (texto, genero, ventana) in esperado.items():
+            with self.subTest(n=n):
+                f = frases[n - 1]
+                self.assertEqual(f["texto"], texto)
+                self.assertTrue(f["origen"].startswith(f"variante en femenino: {genero} (S-"), f["origen"])
+                self.assertEqual(f["corte"]["toma"], 3)
+                self.assertEqual((f["corte"]["ini_s"], f["corte"]["fin_s"]), ventana)
+                self.assertFalse(f["corte"]["corregido_a_mano"])
+                self.assertIn("48 dB", f["corte"]["metodo"])
+                self.assertTrue(f["revisado_a_oido"])
+                self.assertFalse(f["corte_rehecho"])
+                self.assertGreaterEqual(f["verificacion_whisper"]["similitud"], 0.8)
+                # El corte no arrastra los números que leyó el modelo («ciento cuarenta y …»).
+                self.assertNotIn("ciento", f["verificacion_whisper"]["transcripcion"].lower())
 
     def test_sin_rutas_de_la_maquina_en_el_indice(self):
         texto = INDICE.read_text(encoding="utf-8")
@@ -236,27 +267,92 @@ class TestCobertura(unittest.TestCase):
 
     def test_cobertura_del_100_por_ciento_y_en_el_mismo_orden(self):
         indice = vp.IndiceVozPregrabada.cargar(INDICE)
-        c = vp.cobertura(indice, vp.textos_inventario())
+        # Unión de todas las combinaciones de género: 146/146, ninguno sobrante.
+        union = set()
+        for g1 in ("m", "f"):
+            for g2 in ("m", "f"):
+                union |= set(vp.textos_inventario(g1, g2))
+        self.assertEqual(len(union), 146)
+        self.assertEqual(set(vp.textos_posibles()), union)
+        c = vp.cobertura(indice, vp.textos_posibles())
         self.assertEqual((c["n"], c["cubiertos"], c["porcentaje"], c["faltan"], c["sobran"]),
+                         (146, 146, 100.0, [], []))
+        self.assertEqual(indice.textos, vp.textos_posibles())
+        # Géneros por defecto: 142/142 en las frases 1-142; las variantes no cuentan como sobrantes.
+        b = vp.cobertura(indice, vp.textos_inventario(), admitidos=vp.textos_posibles())
+        self.assertEqual((b["n"], b["cubiertos"], b["porcentaje"], b["faltan"], b["sobran"]),
                          (142, 142, 100.0, [], []))
-        self.assertEqual(indice.textos, vp.textos_inventario())
+        self.assertEqual(indice.textos[:142], vp.textos_inventario())
+        # Sin `admitidos`, lo que no es de los géneros por defecto sí aparece como sobrante (son las 4 variantes).
+        self.assertEqual(set(vp.cobertura(indice, vp.textos_inventario())["sobran"]), VARIANTES_FEMENINO)
+        # Cada combinación de géneros, por separado, también queda cubierta.
+        for g1 in ("m", "f"):
+            for g2 in ("m", "f"):
+                with self.subTest(yo=g1, tu=g2):
+                    self.assertEqual(vp.cobertura(indice, vp.textos_inventario(g1, g2))["faltan"], [])
         # Con géneros explícitos «m» la salida es la misma.
         self.assertEqual(vp.textos_inventario("m", "m"), vp.textos_inventario())
 
-    def test_variantes_en_femenino_no_estan_pregrabadas(self):
+    def test_variantes_en_femenino_estan_pregrabadas(self):
         indice = vp.IndiceVozPregrabada.cargar(INDICE)
         variantes = vp.variantes_de_genero()
         todas = set().union(*map(set, variantes.values()))
         self.assertEqual(todas, VARIANTES_FEMENINO)
-        self.assertFalse(any(t in indice for t in todas))
+        self.assertTrue(all(t in indice for t in todas))
         self.assertEqual(set(variantes["yo=f, tú=m"]), {"Yo me siento bienvenida."})
+        self.assertEqual(set(variantes["yo=m, tú=f"]), VARIANTES_FEMENINO - {"Yo me siento bienvenida."})
+        self.assertEqual([e["texto"] for e in vp.enunciados_variantes()],
+                         ["Hola, bienvenida.", "Buenos días, bienvenida.", "Tú eres bienvenida.",
+                          "Yo me siento bienvenida."])
+        self.assertEqual([indice.buscar(t).name for t in vp.textos_posibles()[142:]],
+                         ["143.wav", "144.wav", "145.wav", "146.wav"])
+        # Las variantes no están entre los enunciados de los géneros por defecto.
+        self.assertFalse(todas & set(vp.textos_inventario()))
 
     def test_cli_comprobar(self):
         r = vp.comprobar(INDICE)
-        self.assertEqual(r["cobertura_generos_por_defecto"]["porcentaje"], 100.0)
+        t, b = r["cobertura_todas_las_combinaciones_de_genero"], r["cobertura_generos_por_defecto"]
+        self.assertEqual((t["n"], t["cubiertos"], t["faltan"], t["sobran"]), (146, 146, [], []))
+        self.assertEqual((b["n"], b["cubiertos"], b["faltan"], b["sobran"]), (142, 142, [], []))
+        self.assertEqual(r["enunciados_en_indice"], 146)
+        self.assertTrue(all(not v for v in r["variantes_de_genero_sin_audio"].values()))
+        self.assertEqual(set().union(*map(set, r["variantes_de_genero_con_audio"].values())), VARIANTES_FEMENINO)
+        self.assertTrue(vp.comprobacion_correcta(r))
         with contextlib.redirect_stdout(io.StringIO()) as salida:
             self.assertEqual(vp.main(["--indice", str(INDICE)]), 0)
+        self.assertIn("146/146", salida.getvalue())
         self.assertIn("142/142", salida.getvalue())
+        self.assertNotIn("sobra:", salida.getvalue())
+        self.assertNotIn("sin audio", salida.getvalue())
+
+    def test_cli_falla_si_falta_una_variante_o_sobra_un_audio(self):
+        # Copia del índice real sin la frase 146 («Yo me siento bienvenida.»): la cobertura de la unión baja y
+        # comprobar() lo dice aunque la de los géneros por defecto siga en 142/142.
+        tmp = Path(tempfile.mkdtemp(prefix="lsc_voz_cob_"))
+        self.addCleanup(shutil.rmtree, tmp, ignore_errors=True)
+        datos = json.loads(INDICE.read_text(encoding="utf-8"))
+        for f in datos["frases"]:
+            shutil.copy(INDICE.parent / f["archivo"], tmp / f["archivo"])
+        sin_146 = dict(datos, frases=datos["frases"][:-1])
+        (tmp / "indice.json").write_text(json.dumps(sin_146, ensure_ascii=False), encoding="utf-8")
+        r = vp.comprobar(tmp / "indice.json")
+        self.assertEqual(r["cobertura_todas_las_combinaciones_de_genero"]["faltan"], ["Yo me siento bienvenida."])
+        self.assertEqual(r["cobertura_generos_por_defecto"]["cubiertos"], 142)
+        self.assertEqual(r["variantes_de_genero_sin_audio"]["yo=f, tú=m"], ["Yo me siento bienvenida."])
+        self.assertFalse(vp.comprobacion_correcta(r))
+        with contextlib.redirect_stdout(io.StringIO()) as salida:
+            self.assertEqual(vp.main(["--indice", str(tmp / "indice.json")]), 1)
+        self.assertIn("145/146", salida.getvalue())
+        # Un audio de un texto que el conversor no puede producir sí es sobrante.
+        extra = dict(datos["frases"][0], numero=147, texto="Hola, tía.", sha256_texto=vp.sha256_texto("Hola, tía."),
+                     archivo="147.wav")
+        shutil.copy(INDICE.parent / "001.wav", tmp / "147.wav")
+        con_extra = dict(datos, frases=datos["frases"] + [extra])
+        (tmp / "indice.json").write_text(json.dumps(con_extra, ensure_ascii=False), encoding="utf-8")
+        r = vp.comprobar(tmp / "indice.json")
+        self.assertEqual(r["cobertura_todas_las_combinaciones_de_genero"]["sobran"], ["Hola, tía."])
+        self.assertEqual(r["cobertura_generos_por_defecto"]["sobran"], ["Hola, tía."])
+        self.assertFalse(vp.comprobacion_correcta(r))
 
 
 # ---------------------------------------------------------------------------
@@ -732,9 +828,10 @@ class TestLatenciaVoz(DoblesVozLocal, unittest.TestCase):
         self.assertEqual(frases, self.lat.frases_fuera_de_inventario(), "misma semilla, misma lista")
         indice = vp.IndiceVozPregrabada.cargar(INDICE)
         self.assertFalse(any(f["frase"] in indice for f in frases))
-        self.assertEqual({f["frase"] for f in frases if f["tipo"] == "variante_femenino"}, VARIANTES_FEMENINO)
+        # Las variantes en femenino ya están pregrabadas: no entran en la medición del respaldo.
+        self.assertFalse({f["frase"] for f in frases} & VARIANTES_FEMENINO)
         tipos = [f["tipo"] for f in frases]
-        self.assertEqual((tipos.count("reglas"), tipos.count("respaldo_inventario")), (8, 8))
+        self.assertEqual((tipos.count("reglas"), tipos.count("respaldo_inventario")), (10, 10))
         self.assertEqual(len({f["frase"] for f in frases}), 20)
 
     def test_crear_tts_pregrabada_sin_servicio_y_silenciada(self):

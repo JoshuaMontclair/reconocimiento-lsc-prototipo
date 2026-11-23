@@ -44,11 +44,11 @@ Predeterminados (decisión del autor del 22-nov-2026, a partir de D-14 y D-15):
   · captura: 1280 × 720 (16:9, la forma del corpus; N-57: con 4:3 la y normalizada queda × 0,75). Si la
     cámara entrega otra forma, se avisa por consola al arrancar.
   · voz (decisión del autor del 23-nov-2026; docs/VOZ.md): «pregrabada» si existe
-    models/voz_pregrabada/indice.json (los 142 enunciados del modo inventario, ElevenLabs «Robert - Colombian,
-    Paisa»). Una frase que no esté pregrabada va a XTTS-v2 («Gilberto Mathias») si se dio --python-voz o
-    TESIS_PYTHON_VOZ y el servicio está listo, y si no a la voz local Mónica. Sin índice: «offline» (Mónica),
-    con aviso. Cada registro dice qué se usó (tts_fuente: pregrabada / xtts / local) y cuánto tardó el motor
-    en tener el audio (tts_tiempo_sintesis_ns). El servicio XTTS se lanza antes de cargar el modelo y se le
+    models/voz_pregrabada/indice.json (los 146 enunciados del modo inventario, con cualquier combinación de
+    géneros, ElevenLabs «Robert - Colombian, Paisa»). Una frase que no esté pregrabada va a XTTS-v2 («Gilberto
+    Mathias») si se dio --python-voz o TESIS_PYTHON_VOZ y el servicio está listo, y si no a la voz local Mónica.
+    Sin índice: «offline» (Mónica), con aviso. Cada registro dice qué se usó (tts_fuente: pregrabada / xtts /
+    local) y cuánto tardó el motor en tener el audio (tts_tiempo_sintesis_ns). El servicio XTTS se lanza antes de cargar el modelo y se le
     espera como mucho --xtts-espera-seg antes de abrir la cámara; si falla, la sesión sigue con Mónica.
 
 Conversor de glosas (--conversor, actividad 3.a): «inventario» (por defecto) es src/conversor_glosas.py en
@@ -409,7 +409,7 @@ def crear_parser() -> argparse.ArgumentParser:
     parser.add_argument("--modo-oracion", action="store_true",
                         help="acumular glosas por ventana y convertir/sintetizar con ENTER")
     # Voz (decisión del autor del 23-nov-2026; docs/VOZ.md). Por defecto «pregrabada» si existe el índice
-    # models/voz_pregrabada/indice.json (142 enunciados del modo inventario, ElevenLabs) con respaldo XTTS-v2
+    # models/voz_pregrabada/indice.json (146 enunciados del modo inventario, ElevenLabs) con respaldo XTTS-v2
     # (si se da --python-voz o TESIS_PYTHON_VOZ) y, al final, la voz local Mónica; sin índice, «offline» (Mónica).
     parser.add_argument("--tts", choices=list(TTS_MODOS_PROTOTIPO), default=None,
                         help="motor de voz: pregrabada (default si existe el indice de voz; WAV pregrabados y "

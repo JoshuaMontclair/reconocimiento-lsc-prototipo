@@ -1,9 +1,10 @@
 """
-Regenera los WAV de la voz pregrabada a partir de las dos tomas de ElevenLabs (docs/VOZ.md, «Cómo regenerarlos»).
+Regenera los WAV de la voz pregrabada a partir de las tres tomas de ElevenLabs (docs/VOZ.md, «Cómo regenerarlos»).
 
 Se ejecuta con un intérprete que tenga faster-whisper, soundfile y numpy (el entorno de voz; ver la sección opcional
 de requirements-voz.txt) y en macOS (usa afconvert para decodificar el MP3 y remuestrear). Los textos NO se leen de
-una lista aparte: salen de src/voz_pregrabada.py (enunciados_inventario), es decir, del conversor en modo inventario.
+una lista aparte: salen de src/voz_pregrabada.py (enunciados_pregrabados), es decir, del conversor en modo inventario:
+las frases 1-142 son las de los géneros por defecto (tomas 1 y 2) y las 143-146 las variantes en femenino (toma 3).
 
 Pasos (los mismos con que se cortaron los audios el 23-nov-2026):
   1. MP3 → WAV PCM 16 bits a 44,1 kHz (para cortar) y a 16 kHz (para Whisper), con afconvert.
@@ -16,13 +17,18 @@ Pasos (los mismos con que se cortaron los audios el 23-nov-2026):
   4. Recorte del silencio de los bordes: desde 60 ms antes de la primera ventana de 10 ms por encima de
      (máximo − 40 dB) hasta 70 ms después de la última. Los cortes corregidos a mano NO se recortan: son la ventana
      exacta con un fundido lineal de 10 ms en cada borde (así se rehicieron 026 y 088 el 23-nov-2026).
+  4b. Toma 3 (variantes en femenino, 143-146). El modelo leyó también el número de cada frase («ciento cuarenta y
+     tres, hola, bienvenida, …»), así que no se alinea: cada frase sale de una ventana fija (VENTANAS_TOMA_3, elegida
+     con las marcas de Whisper para dejar fuera los números) con el audio en float64, el inicio y el fin truncados a
+     la muestra, recorte del silencio de los bordes con umbral (máximo − 48 dB) desde 80 ms antes hasta 90 ms
+     después y fundido lineal de 10 ms en cada borde. Así se cortaron el 23-nov-2026 y el autor los aprobó a oído.
   5. Verificación: cada corte se re-transcribe; dudosos = similitud < 0,8 o duración por carácter fuera de
-     [0,45 ; 2,2] × la mediana. Se listan para escucharlos.
+     [0,45 ; 2,2] × la mediana (la de las tomas 1 y 2). Se listan para escucharlos.
   6. indice.json con construir_indice (sha256 de texto y audio, duración, procedencia, revisión a oído).
 
 Uso:
-    <python del entorno de voz> scripts/voz_pregrabada_cortar.py --mp3 toma1.mp3 toma2.mp3 --salida <carpeta> \\
-        --correcciones models/voz_pregrabada/indice.json
+    <python del entorno de voz> scripts/voz_pregrabada_cortar.py --mp3 toma1.mp3 toma2.mp3 toma3.mp3 \\
+        --salida <carpeta> --correcciones models/voz_pregrabada/indice.json
 Después: escuchar los dudosos, corregir a mano los cortes que hagan falta (editando «ini_s»/«fin_s» y
 «corregido_a_mano» en el indice.json generado, y volviendo a correr con --correcciones apuntando a él), copiar
 la carpeta a models/voz_pregrabada/ y comprobar con `python src/voz_pregrabada.py`.
@@ -47,6 +53,18 @@ sys.path.insert(0, str(RAIZ))
 from src import voz_pregrabada as vp  # noqa: E402
 
 FRASES_TOMA_1 = 71          # la toma 1 tiene las frases 1-71 y la toma 2 las 72-142
+# Toma 3: variantes en femenino (143-146). Ventana [ini, fin] en segundos sobre el WAV de 44,1 kHz de la toma
+# (fin None = hasta el final). Elegidas con las marcas de Whisper para dejar fuera los números que leyó el modelo.
+VENTANAS_TOMA_3 = {
+    "Hola, bienvenida.": (1.30, 3.05),
+    "Buenos días, bienvenida.": (4.45, 6.60),
+    "Tú eres bienvenida.": (8.20, 9.70),
+    "Yo me siento bienvenida.": (11.30, None),
+}
+UMBRAL_DB_TOMA_3, ANTES_MS_TOMA_3, DESPUES_MS_TOMA_3 = 48, 80, 90
+METODO_TOMA_3 = ("ventana fija de la toma 3 elegida con las marcas de Whisper (sin los números leídos), recorte del "
+                 "silencio de los bordes (máximo − 48 dB, 80 ms antes y 90 ms después) y fundido lineal de 10 ms en "
+                 "cada borde")
 
 
 def _sin_tildes(t: str) -> str:
@@ -105,17 +123,19 @@ def alinear(modelo, wav16: Path, frases: list[str], primera: int, dur_s: float) 
             for i, k in enumerate(ks)}
 
 
-def recortar_silencio(seg, sr: int):
+def recortar_silencio(seg, sr: int, umbral_db: float = 40, antes_ms: int = 60, despues_ms: int = 70):
+    """Conserva desde `antes_ms` antes de la primera ventana de 10 ms por encima de (máximo − umbral_db) hasta
+    `despues_ms` después de la última (en ventanas de 10 ms)."""
     import numpy as np
     hop = int(0.01 * sr)
     n = len(seg) // hop
     db = 20 * np.log10(np.sqrt(np.mean(seg[:n * hop].reshape(n, hop) ** 2, axis=1)) + 1e-9)
-    v = np.where(db > db.max() - 40)[0]
-    return seg[max(0, (v[0] - 6) * hop):min(len(seg), (v[-1] + 7) * hop)]
+    v = np.where(db > db.max() - umbral_db)[0]
+    return seg[max(0, (v[0] - antes_ms // 10) * hop):min(len(seg), (v[-1] + despues_ms // 10) * hop)]
 
 
 def fundido(seg, sr: int, ms: float = 10.0):
-    """Fundido lineal de entrada y de salida (cortes corregidos a mano)."""
+    """Fundido lineal de entrada y de salida (cortes corregidos a mano y toma 3)."""
     import numpy as np
     seg = seg.copy()
     n = min(int(ms / 1000 * sr), len(seg) // 2)
@@ -135,7 +155,8 @@ def correcciones_desde(ruta: Path | None) -> dict[int, dict]:
 
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description="Corta las tomas de ElevenLabs en los WAV de la voz pregrabada")
-    p.add_argument("--mp3", nargs=2, required=True, type=Path, help="toma 1 (frases 1-71) y toma 2 (72-142)")
+    p.add_argument("--mp3", nargs=3, required=True, type=Path,
+                   help="toma 1 (frases 1-71), toma 2 (72-142) y toma 3 (143-146, variantes en femenino)")
     p.add_argument("--salida", required=True, type=Path)
     p.add_argument("--correcciones", type=Path, default=None,
                    help="indice.json del que tomar los cortes corregidos a mano (y la lista de revisados a oído)")
@@ -146,8 +167,11 @@ def main(argv=None) -> int:
     import soundfile as sf
     from faster_whisper import WhisperModel
 
-    frases = vp.textos_inventario()
-    tomas = [(1, frases[:FRASES_TOMA_1], 0), (2, frases[FRASES_TOMA_1:], FRASES_TOMA_1)]
+    por_defecto = vp.textos_inventario()
+    frases = vp.textos_posibles()                       # 1-142 (géneros por defecto) + 143-146 (variantes)
+    if set(frases[len(por_defecto):]) != set(VENTANAS_TOMA_3):
+        raise SystemExit("las variantes de género del conversor no son las de VENTANAS_TOMA_3: hay que generarlas")
+    tomas = [(1, por_defecto[:FRASES_TOMA_1], 0), (2, por_defecto[FRASES_TOMA_1:], FRASES_TOMA_1)]
     args.salida.mkdir(parents=True, exist_ok=True)
     trabajo = Path(tempfile.mkdtemp(prefix="voz_cortes_"))
     modelo = WhisperModel(args.modelo_whisper, device="cpu", compute_type="int8")
@@ -161,6 +185,14 @@ def main(argv=None) -> int:
         audio[toma] = (a, sr)
         for k, c in alinear(modelo, wav16, textos, primera, len(a) / sr).items():
             cortes[k] = {"parte": toma, **c}
+    wav3 = trabajo / "toma3.wav"
+    afconvert(args.mp3[2], wav3)
+    a3, sr3 = sf.read(str(wav3), dtype="float64")       # float64: como se cortaron el 23-nov-2026
+    audio[3] = (a3, sr3)
+    for k in range(len(por_defecto), len(frases)):
+        ini, fin = VENTANAS_TOMA_3[frases[k]]
+        cortes[k] = {"parte": 3, "ini": ini, "fin": round(len(a3) / sr3, 3) if fin is None else fin,
+                     "hasta_el_final": fin is None, "metodo": METODO_TOMA_3}
     for n, c in correcciones_desde(args.correcciones).items():
         cortes[n - 1].update({"parte": c["toma"], "ini": c["ini"], "fin": c["fin"], "corregido_a_mano": True})
 
@@ -170,9 +202,16 @@ def main(argv=None) -> int:
         a, sr = audio[c["parte"]]
         if c.get("corregido_a_mano"):            # tiempos a mano: al número de muestra más cercano
             ventana = a[int(round(c["ini"] * sr)):int(round(c["fin"] * sr))]
-        else:                                     # automáticos: truncados, como en el corte original
+        elif c.get("hasta_el_final"):
+            ventana = a[int(c["ini"] * sr):]
+        else:                                     # automáticos y toma 3: truncados, como en el corte original
             ventana = a[int(c["ini"] * sr):int(c["fin"] * sr)]
-        seg = fundido(ventana, sr) if c.get("corregido_a_mano") else recortar_silencio(ventana, sr)
+        if c.get("corregido_a_mano"):
+            seg = fundido(ventana, sr)
+        elif c["parte"] == 3:
+            seg = fundido(recortar_silencio(ventana, sr, UMBRAL_DB_TOMA_3, ANTES_MS_TOMA_3, DESPUES_MS_TOMA_3), sr)
+        else:
+            seg = recortar_silencio(ventana, sr)
         destino = args.salida / f"{k + 1:03d}.wav"
         sf.write(str(destino), seg, sr, subtype="PCM_16")
         afconvert(destino, trabajo / "v16.wav", 16000)
@@ -182,7 +221,7 @@ def main(argv=None) -> int:
                              "similitud": round(difflib.SequenceMatcher(a=norm_frase(frases[k]), b=norm_frase(oido)).ratio(), 3),
                              "dur_s": round(len(seg) / sr, 2),
                              "seg_por_caracter": round(len(seg) / sr / max(1, len(frases[k])), 3)})
-    med = statistics.median(v["seg_por_caracter"] for v in verificacion)
+    med = statistics.median(v["seg_por_caracter"] for v in verificacion[:len(por_defecto)])   # tomas 1 y 2
     dudosos = [v for v in verificacion if v["similitud"] < 0.8 or v["seg_por_caracter"] > 2.2 * med
                or v["seg_por_caracter"] < 0.45 * med]
     (args.salida / "cortes.json").write_text(json.dumps({str(k): v for k, v in cortes.items()}, ensure_ascii=False,

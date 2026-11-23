@@ -71,8 +71,10 @@ VOZ PREGRABADA Y RESPALDO XTTS (23-nov-2026; docs/VOZ.md).
   --solo-xtts        mide aparte el respaldo XTTS-v2 con el servicio REAL (src/voz_xtts_servicio.py, lanzado con
                      --python-voz) en cada --dispositivos (mps, cpu): carga, y por frase el tiempo de prepare()
                      hasta tener el WAV (lo que vería el prototipo) y el del servidor, sobre FRASES_XTTS frases
-                     que NO están pregrabadas (variantes en femenino, salidas de «reglas» fuera del inventario y
-                     respaldos con lista de glosas), sin cache, --repeticiones veces. No suena nada.
+                     que NO están pregrabadas (salidas de «reglas» fuera del inventario y respaldos con lista de
+                     glosas), sin cache, --repeticiones veces. No suena nada. (La medición del 23-nov-2026,
+                     docs/LATENCIA_VOZ_XTTS.json, incluyó además las 4 variantes en femenino, que entonces no
+                     tenían audio; ahora están pregrabadas y ya no entran.)
 
 Uso:
     python src/latencia_fuera_de_linea.py      # medición completa → docs/LATENCIA_4c_MODELO_FINAL.json
@@ -276,14 +278,15 @@ def crear_tts(cache: bool, voz: str = "offline"):
 
 
 def frases_fuera_de_inventario(n: int = FRASES_XTTS, semilla: int = SEMILLA) -> list[dict]:
-    """n frases que el prototipo puede decir y que NO están pregrabadas: las 4 variantes en femenino del
-    inventario, salidas del conversor «reglas» fuera del inventario y respaldos del modo inventario (lista de
-    glosas). Mismo n y semilla → misma lista."""
+    """n frases que el prototipo puede decir y que NO están pregrabadas: salidas del conversor «reglas» fuera del
+    inventario y respaldos del modo inventario (lista de glosas), mitad y mitad. Mismo n y semilla → misma lista.
+    Pregrabados están todos los enunciados del modo inventario con cualquier combinación de géneros
+    (vp.textos_posibles()). La medición de docs/LATENCIA_VOZ_XTTS.json se hizo antes de que las 4 variantes en
+    femenino tuvieran audio y las incluye (con 8 + 8 de las otras dos clases); su lista está en ese JSON."""
     from src.conversor_glosas import ConversorGlosas, conjuntos
     from src import voz_pregrabada as vp
-    pregrabadas = set(vp.textos_inventario())
-    filas = [{"tipo": "variante_femenino", "frase": t} for v in vp.variantes_de_genero().values() for t in v]
-    filas = list({f["frase"]: f for f in filas}.values())
+    pregrabadas = set(vp.textos_posibles())
+    filas: list[dict] = []
     reglas, inv = ConversorGlosas(), ConversorGlosas(estricto=True)
     cand_reglas, cand_resp = [], []
     for glosas in conjuntos((2, 3)):

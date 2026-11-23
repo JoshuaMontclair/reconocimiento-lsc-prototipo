@@ -46,7 +46,7 @@ cada experimento; la prueba es descriptiva. El detalle está en `docs/` y el reg
 | `models/` | Resultados de cada experimento (JSON, registros, figuras) y los pesos publicados |
 | `models/tcn_imputacion/modelo.keras` | **Pesos del modelo final** (TCN + imputación, D-14) |
 | `models/canonico_holistic_mascara_manos/modelo_canonico.keras` | Pesos de la red de partida |
-| `models/voz_pregrabada/` | Los 142 enunciados del prototipo, pregrabados (WAV) con su índice |
+| `models/voz_pregrabada/` | Los 146 enunciados del prototipo (142 + 4 variantes en femenino), pregrabados (WAV) con su índice |
 | `registros/` | Registros de las sesiones en vivo del autor (tiempos por etapa; sin imágenes) |
 | `docs/` | Informes de cada experimento, protocolo de evaluación, especificación del conversor |
 | `DECISIONES_TESIS.txt` | Registro de decisiones (D-xx) y notas (N-xx) del proyecto |
@@ -118,7 +118,7 @@ python -m pytest tests/test_arquitecturas_2.py
 
 ## Voz
 
-Los 142 enunciados que dice el prototipo en modo inventario están pregrabados en
+Los 146 enunciados que puede decir el prototipo en modo inventario (con cualquier género gramatical) están pregrabados en
 `models/voz_pregrabada/` con la voz «Robert - Colombian, Paisa» de ElevenLabs (generados con un plan de
 pago que permite usarlos y distribuirlos) y se reproducen desde el disco. Cualquier otra frase la dice
 XTTS-v2 (hablante «Gilberto Mathias») en un proceso aparte, si se indica `--python-voz`; si no, la voz

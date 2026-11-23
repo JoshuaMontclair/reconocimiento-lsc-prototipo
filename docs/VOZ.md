@@ -5,21 +5,23 @@ Fecha: 23 de noviembre de 2026. Equipo: MacBook Pro M5 Max, 18 núcleos, 48 GB, 
 **Decisión del autor (23-nov-2026).**
 
 1. **Voz principal: audios pregrabados.** En modo `--conversor inventario` el prototipo solo puede decir 142 enunciados
-   fijos. Los 142 se generaron con ElevenLabs (voz «Robert - Colombian, Paisa») y se reproducen tal cual.
+   fijos con los géneros por defecto, y 4 más (las variantes en femenino) con `--genero-primera f` o
+   `--genero-segunda f`. Los 146 se generaron con ElevenLabs (voz «Robert - Colombian, Paisa») y se reproducen tal
+   cual.
 2. **Voz de respaldo: XTTS-v2**, hablante «Gilberto Mathias», idioma `es`, en vivo. Se usa para cualquier frase que
    no esté pregrabada.
 3. **Último respaldo: la voz local de macOS «Mónica».** Hasta ahora la voz offline era Paulina.
 
 | Archivo | Qué contiene |
 |---|---|
-| `models/voz_pregrabada/001.wav` … `142.wav` | los 142 enunciados (WAV PCM 16 bits, mono, 44,1 kHz) |
+| `models/voz_pregrabada/001.wav` … `146.wav` | los 146 enunciados (WAV PCM 16 bits, mono, 44,1 kHz): 001-142 con los géneros por defecto y 143-146 con las variantes en femenino |
 | `models/voz_pregrabada/indice.json` | índice: texto exacto, sha256 del texto y del audio, duración, origen, corte, verificación y revisión a oído |
 | `src/voz_pregrabada.py` | enumeración de los enunciados desde el conversor, carga y validación del índice, búsqueda exacta, cobertura |
 | `src/voz_xtts_servicio.py` | servicio XTTS-v2 en un proceso aparte (servidor) y su cliente |
 | `src/tts.py` | modo `pregrabada` y voz local Mónica |
 | `src/realtime.py`, `src/translator.py` | predeterminados del prototipo; `tts_fuente` y `tts_tiempo_sintesis_ns` en el JSONL |
 | `src/latencia_fuera_de_linea.py` | opciones `--voz pregrabada` y `--solo-xtts` |
-| `scripts/voz_pregrabada_cortar.py` | regenera los 142 WAV y el índice a partir de las dos tomas de ElevenLabs |
+| `scripts/voz_pregrabada_cortar.py` | regenera los 146 WAV y el índice a partir de las tres tomas de ElevenLabs |
 | `requirements-voz.txt` | entorno aparte del servicio XTTS (coqui-tts, torch, transformers…) |
 | `docs/voz_escucha/ronda{1,2,3}_clave.json` | clave de cada ronda de escucha a ciegas (letra → voz) y tiempo de síntesis medido |
 | `docs/LATENCIA_VOZ_PREGRABADA.json`, `models/latencia_voz_2026-11-23/` | latencia fuera de línea con la voz pregrabada y el control con Mónica |
@@ -61,12 +63,13 @@ interviene. La consola del prototipo añade `voz <fuente>` a la línea de cada e
 | Conversor | Glosas solas pregrabadas | Secuencias del inventario pregrabadas | El resto va a |
 |---|---:|---:|---|
 | `inventario` (por defecto), géneros por defecto | 50 / 50 | 92 / 92 | (el respaldo con lista de glosas) XTTS → Mónica |
-| `inventario` con `--genero-primera f` o `--genero-segunda f` | 50 / 50 | 88-91 / 92 | XTTS → Mónica |
+| `inventario` con `--genero-primera f` o `--genero-segunda f` | 50 / 50 | 92 / 92 | (el respaldo con lista de glosas) XTTS → Mónica |
 | `reglas` | 50 / 50 | 92 / 92 | XTTS → Mónica (frases fuera del inventario) |
 | `heredado` (GrammarMapper) | 7 / 50 | 14 / 92 | XTTS → Mónica |
 
-- **Variantes en femenino.** Hay 4 sin audio: «Hola, bienvenida.», «Buenos días, bienvenida.», «Tú eres
-  bienvenida.» y «Yo me siento bienvenida.».
+- **Variantes en femenino.** Las 4 frases que solo aparecen con algún género femenino también están pregrabadas
+  (143-146, sección 3.2): «Hola, bienvenida.», «Buenos días, bienvenida.» y «Tú eres bienvenida.» (con
+  `--genero-segunda f`) y «Yo me siento bienvenida.» (con `--genero-primera f`).
 - **Conversor heredado.** GrammarMapper escribe sin punto final («Gracias»), así que casi nada coincide con el
   índice.
 
@@ -221,39 +224,59 @@ archivo de clave ni tiempos.
 Los tiempos de XTTS de esta ronda incluyen el arranque en frío de cada hablante. Con el servicio ya cargado, Gilberto
 Mathias tarda ~0,4 s por frase en MPS y ~1,1 s en CPU (sección 4.2).
 
-**Voz final de los enunciados fijos: ElevenLabs.** Para los 142 enunciados que el prototipo puede decir en modo
-inventario, el autor generó los audios con ElevenLabs, voz **«Robert - Colombian, Paisa»** de la biblioteca de
-ElevenLabs (sección 3). XTTS-v2 con Gilberto Mathias queda como respaldo para lo demás, y Mónica como último
-recurso.
+**Voz final de los enunciados fijos: ElevenLabs.** Para los 146 enunciados que el prototipo puede decir en modo
+inventario (142 con los géneros por defecto y 4 variantes en femenino), el autor generó los audios con
+ElevenLabs, voz **«Robert - Colombian, Paisa»** de la biblioteca de ElevenLabs (sección 3). XTTS-v2 con Gilberto
+Mathias queda como respaldo para lo demás, y Mónica como último recurso.
 
 ---
 
-## 3. Los 142 audios pregrabados
+## 3. Los 146 audios pregrabados
 
 ### 3.1 Qué enunciados
 
-Son los que produce `ConversorGlosas(estricto=True)` (`src/conversor_glosas.py`, versión 3a-2) con los géneros por
-defecto:
+Son los que produce `ConversorGlosas(estricto=True)` (`src/conversor_glosas.py`, versión 3a-2) con cualquier
+combinación de géneros (`yo` y `tú`, masculino o femenino):
 
-- las 50 glosas solas, en orden de id;
-- las 92 secuencias de `INVENTARIO`, en su orden.
+- 001-050: las 50 glosas solas con los géneros por defecto, en orden de id;
+- 051-142: las 92 secuencias de `INVENTARIO` con los géneros por defecto, en su orden;
+- 143-146: las 4 variantes en femenino, los únicos textos que cambian con otro género:
 
-Son 142 textos distintos. `src/voz_pregrabada.py` los **enumera desde el código**. Las pruebas comprueban tres cosas:
+| N | Texto | Género que la produce | Secuencia |
+|---|---|---|---|
+| 143 | «Hola, bienvenida.» | `tú=f` | S-06: hola + bienvenido |
+| 144 | «Buenos días, bienvenida.» | `tú=f` | S-20: buenos días + bienvenido |
+| 145 | «Tú eres bienvenida.» | `tú=f` | S-56: tú + bienvenido |
+| 146 | «Yo me siento bienvenida.» | `yo=f` | S-84: yo + sentir + bienvenido |
+
+Son 146 textos distintos: la unión de las cuatro combinaciones de género. `src/voz_pregrabada.py` los **enumera desde
+el código** (`enunciados_pregrabados()`; `variantes_de_genero()` da las variantes por combinación). Las pruebas
+comprueban:
 
 - coinciden uno a uno, y en el mismo orden, con los textos del índice;
-- la cobertura es del **100 %** (142/142, ninguno sobrante);
-- las únicas variantes posibles sin audio son las 4 en femenino de la sección 1.1.
+- la cobertura es del **100 %** sobre la unión (**146/146**, ninguno sobrante) y con los géneros por defecto
+  (**142/142**: las variantes no cuentan como sobrantes);
+- cada combinación de géneros por separado queda cubierta, y las 4 variantes en femenino están pregrabadas.
+
+`python src/voz_pregrabada.py` informa las dos cifras y sale con error si falta algún enunciado de cualquier
+combinación o si sobra un audio que el conversor no puede producir.
 
 El número N de cada archivo es la fila N de la lista que se entregó para generar las voces.
 
 ### 3.2 Generación (el autor, 23-nov-2026)
 
 - **Voz.** ElevenLabs, «Robert - Colombian, Paisa».
-- **Tomas.** Dos, exportadas como MP3 de 128 kb/s, 44.100 Hz y mono:
+- **Tomas.** Tres, exportadas como MP3 de 128 kb/s, 44.100 Hz y mono:
   - frases 1-71: `ElevenLabs_2026-11-23T05_29_16_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3`, 68,5 s;
-  - frases 72-142: `ElevenLabs_2026-11-23T05_29_57_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3`, 102,1 s.
-- **Texto de entrada.** Las frases separadas por `<break time="1.5s" />`.
-- **Ajustes.** Los de la cuenta del autor; el nombre del archivo exportado los resume (`pvc_s50_sim75_v4`).
+  - frases 72-142: `ElevenLabs_2026-11-23T05_29_57_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3`, 102,1 s;
+  - frases 143-146 (variantes en femenino): `ElevenLabs_2026-11-23T06_23_34_Robert - Colombian, Paisa_pvc_s50_sim75_v4.mp3`,
+    13,1 s.
+- **Texto de entrada.** En las dos primeras tomas, las frases separadas por `<break time="1.5s" />`. En la tercera,
+  las 4 variantes con su número de fila delante.
+- **Ajustes.** Los de la cuenta del autor, los mismos en las tres tomas; el nombre del archivo exportado los resume
+  (`pvc_s50_sim75_v4`).
+- **La tercera toma leyó los números.** El modelo dijo también el número de cada fila: «ciento cuarenta y tres, hola,
+  bienvenida, ciento cuarenta y cuatro, …». Los números quedaron fuera de los cortes (sección 3.3, paso 7).
 
 ### 3.3 Corte con alineación de Whisper
 
@@ -276,12 +299,29 @@ El número N de cada archivo es la fila N de la lista que se entregó para gener
      22,08 s de la toma 1; 088: 22,95-23,98 s de la toma 2), con un fundido lineal de 10 ms en cada borde y sin
      recorte de silencio. El autor los aprobó.
    - La re-transcripción de los cortes nuevos dio «MAL» y «¡Tú comis!».
+7. **Variantes en femenino (toma 3, 143-146).** Como el modelo leyó los números, esta toma no se alinea con el texto
+   esperado. Con las marcas de tiempo por palabra de Whisper sobre la toma se eligió una ventana fija por frase que
+   deja fuera los números (segundos del WAV de 44,1 kHz; inicio y fin truncados a la muestra):
+
+   | N | Ventana | Duración del corte | Re-transcripción (similitud) |
+   |---|---|---:|---|
+   | 143 | 1,30-3,05 s | 1,75 s | «Hola, bienvenida.» (1,0) |
+   | 144 | 4,45-6,60 s | 2,15 s | «Buenos días, bienvenida.» (1,0) |
+   | 145 | 8,20-9,70 s | 1,50 s | «Tu eres bien venida.» (0,973) |
+   | 146 | 11,30 s-final (13,087 s) | 1,76 s | «Yo me siento bienvenida.» (1,0) |
+
+   - Cada ventana se recorta en silencio con un umbral más bajo que el del paso 4: se conserva desde 80 ms antes de la
+     primera ventana de 10 ms que supera (máximo − 48 dB) hasta 90 ms después de la última. Luego lleva un fundido
+     lineal de 10 ms en cada borde, como los cortes rehechos 026 y 088.
+   - Ninguna re-transcripción contiene los números, y ninguna sale dudosa.
+   - **El autor escuchó los 4 cortes y los aprobó.**
 
 **El índice lo registra.** Para cada frase, `indice.json` guarda el corte (toma, inicio, fin y si se corrigió a mano),
 la transcripción de verificación y su similitud, y además:
 
-- `revisado_a_oido`: `true` en los 16 dudosos;
-- `corte_rehecho`: `true` en 026 y 088.
+- `revisado_a_oido`: `true` en los 16 dudosos y en las 4 variantes en femenino (20 en total);
+- `corte_rehecho`: `true` en 026 y 088;
+- en 143-146, `corte.toma` = 3 y `corte.metodo` describe la ventana fija con recorte de silencio y fundido.
 
 Los otros 126 tienen solo la verificación automática.
 
@@ -289,22 +329,25 @@ Los otros 126 tienen solo la verificación automática.
 
 - **Contenido de `indice.json`.** Para cada frase guarda:
   - `numero`, `texto` exacto (NFC), `sha256_texto`, `archivo` y `duracion_s`;
-  - `bytes`, `sha256_audio` y `origen` (p. ej. «seña sola: gracias» o «S-08: ¿dónde? + hermano + vivir»);
+  - `bytes`, `sha256_audio` y `origen` (p. ej. «seña sola: gracias», «S-08: ¿dónde? + hermano + vivir» o
+    «variante en femenino: tú=f (S-06: hola + bienvenido)»);
   - `corte`, `verificacion_whisper`, `revisado_a_oido` y `corte_rehecho`.
-- **Procedencia, una vez para todo el índice.** Proveedor, voz, autor, fecha, licencia, atribución, archivos de
-  origen y método de corte.
+- **Cabecera, una vez para todo el índice.** Proveedor, voz, autor, fecha, licencia, atribución, los tres archivos
+  de origen y el método de corte; además, en `conversor`, el número de enunciados (146), cuántos son de los géneros
+  por defecto (142) y cuántos variantes (4), y las variantes cubiertas por combinación de géneros.
 - **Validación al cargar.** Números consecutivos, sha256 del texto y del audio, archivo presente, WAV mono legible,
   duración coincidente y textos sin repetir. Un índice alterado no se carga, y el prototipo pasa a `offline` con
   aviso.
-- **Tamaño.** **14.711.216 bytes de WAV (14,0 MiB)**, 166,7 s de audio. Duración por frase: de 0,34 s a 2,4 s.
-  `indice.json` ocupa 88 KB más.
+- **Tamaño.** **15.342.670 bytes de WAV (14,6 MiB)**, 173,9 s de audio (las 4 variantes suman 631.454 bytes y
+  7,2 s). Duración por frase: de 0,34 s a 2,4 s. `indice.json` ocupa 93 KB más.
 
 ### 3.5 Cómo regenerarlos
 
-`scripts/voz_pregrabada_cortar.py` repite todo el proceso de la sección 3.3 a partir de las dos tomas:
+`scripts/voz_pregrabada_cortar.py` repite todo el proceso de la sección 3.3 a partir de las tres tomas:
 
-- toma los textos del conversor;
+- toma los textos del conversor (los 142 de los géneros por defecto y las 4 variantes);
 - aplica los cortes corregidos a mano que encuentre en el índice anterior;
+- corta 143-146 de la tercera toma con las ventanas fijas del paso 7 (`VENTANAS_TOMA_3` en el script);
 - escribe los WAV, `cortes.json`, `verificacion.json` e `indice.json`;
 - lista los dudosos para escucharlos.
 
@@ -313,7 +356,7 @@ Se ejecuta con un entorno que tenga faster-whisper, soundfile y numpy (la secci�
 
 ```bash
 <python con faster-whisper> scripts/voz_pregrabada_cortar.py \
-    --mp3 "ElevenLabs_..._05_29_16_....mp3" "ElevenLabs_..._05_29_57_....mp3" \
+    --mp3 "ElevenLabs_..._05_29_16_....mp3" "ElevenLabs_..._05_29_57_....mp3" "ElevenLabs_..._06_23_34_....mp3" \
     --salida <carpeta nueva> --correcciones models/voz_pregrabada/indice.json
 python src/voz_pregrabada.py --indice <carpeta nueva>/indice.json     # validar y medir cobertura
 ```
@@ -321,6 +364,12 @@ python src/voz_pregrabada.py --indice <carpeta nueva>/indice.json     # validar 
 **Comprobado el 23-nov-2026.** Regenerados en una carpeta aparte, los **142 WAV salieron idénticos byte a byte** a los
 del repositorio (mismo sha256). Además, el `indice.json` del repositorio es exactamente el que arma
 `construir_indice` con la verificación original.
+
+**Comprobado de nuevo con las variantes (23-nov-2026).** Con las tres tomas, en una carpeta fuera del repositorio,
+los **146 WAV salieron idénticos byte a byte** a los del repositorio, también 143-146. La cabecera del índice
+regenerado es idéntica y cada frase coincide en texto, audio, duración, origen y corte. Solo cambian, por lo que
+se explica abajo, algunas re-transcripciones de Whisper (009, 030, 073 y 107) y la nota «aprobado por el autor» de
+026 y 088, que se añadió a mano después de la escucha.
 
 **Whisper no es del todo determinista.** Al regenerar, la re-transcripción de «Juicioso.» (030) dio «¡Güecioso!»
 (similitud 0,75) y la marcó como dudosa; en el corte original había dado «cuícioso.» (0,875). Por eso el script **no**
@@ -391,10 +440,13 @@ python src/latencia_fuera_de_linea.py --solo-xtts --python-voz <python con coqui
     --salida docs/LATENCIA_VOZ_XTTS.json
 ```
 
-- **Frases.** 20 que el prototipo puede decir y que **no** están pregrabadas, elegidas con la semilla 2026:
-  - las 4 variantes en femenino;
+- **Frases.** 20 que el prototipo puede decir y que **no** estaban pregrabadas al medir, elegidas con la semilla
+  2026 (la lista está en el JSON):
+  - las 4 variantes en femenino, que entonces no tenían audio (desde el 23-nov-2026 están pregrabadas, 143-146);
   - 8 salidas del conversor `reglas` fuera del inventario (p. ej. «¿Por qué trabajan ustedes?»);
   - 8 respaldos del modo inventario con lista de glosas (p. ej. «hola, nunca, tú»).
+- **Al repetirla hoy.** `frases_fuera_de_inventario` ya no incluye las variantes, porque saldrían de la voz
+  pregrabada y no de XTTS: elige 10 salidas de `reglas` y 10 respaldos con la misma semilla.
 - **Repeticiones.** 3, sin cache, a través de `TTSModule(mode="pregrabada")`: lo mismo que vería el prototipo.
 - **Medidas.** El tiempo de `prepare()` hasta tener el WAV y el tiempo del servidor. No sonó nada.
 - **Carga.** La carga de 1 min fue 1,3-2,2.
@@ -438,7 +490,7 @@ aislado.
 
 - **Audios pregrabados (ElevenLabs).**
   - Se generaron con un **plan de pago de ElevenLabs que permite su uso y distribución**.
-  - Por eso los 142 WAV y su índice **se incluyen en los dos repositorios**: este privado y el público.
+  - Por eso los 146 WAV y su índice **se incluyen en los dos repositorios**: este privado y el público.
   - **Atribución:** voz «Robert - Colombian, Paisa» de la biblioteca de ElevenLabs. Va en `indice.json` (`fuente`) y
     aquí.
 - **XTTS-v2 (Coqui).**
@@ -461,10 +513,13 @@ aislado.
 - **Evaluación.** Hubo **un solo oyente**, el autor, que además conoce las frases. Ninguna persona sorda ni ningún
   oyente ajeno al proyecto ha evaluado las voces. Las rondas no dejaron calificaciones numéricas.
 - **Verificación de los cortes.** La verificación automática es Whisper «base», que se equivoca en palabras sueltas.
-  Solo los 16 dudosos se escucharon uno a uno.
-- **Cobertura.** Es del 100 % con los géneros por defecto. Con `--genero-primera f` o `--genero-segunda f`, 1 a 4
-  enunciados no están pregrabados y suenan con otra voz (XTTS o Mónica). Lo mismo pasa con el conversor heredado,
-  con el que la mayoría de las frases no están pregrabadas.
+  Solo se escucharon uno a uno los 16 dudosos y las 4 variantes en femenino.
+- **Cobertura.** Es del 100 % en modo inventario con cualquier combinación de géneros (146/146). Con el conversor
+  heredado la mayoría de las frases no están pregrabadas y suenan con otra voz (XTTS o Mónica); con `reglas`, las
+  frases fuera del inventario.
+- **Tres tomas.** Las variantes en femenino salieron de otra toma, generada después con la misma voz y los mismos
+  ajustes. El autor las escuchó y las aprobó, pero no se midió si su timbre o su volumen difieren de los de las dos
+  primeras tomas.
 - **Mezcla de voces.** Dentro de una sesión pueden sonar hasta tres voces distintas: Robert, Gilberto Mathias y
   Mónica. El JSONL dice cuál sonó en cada ensayo.
 - **XTTS.**
