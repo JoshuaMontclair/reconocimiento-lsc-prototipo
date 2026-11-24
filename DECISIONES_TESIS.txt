@@ -432,6 +432,8 @@ PENDIENTE CON EL DIRECTOR
 ========================================================================================
 2026-09-14 · N-11 · Prototipo: ventana fija por tecla, estados de error e instrumentación
 ========================================================================================
+  CORRECCIÓN (23-nov-2026, N-83): las cifras de duración de esta entrada (2,57/2,58/3,29 s; 47 %) salen
+  de las filas de los CSV publicados, no de los videos; ver N-83.
   src/translator.py y src/realtime.py reescritos; nuevos src/latencia_resumen.py y
   tests/test_prototipo.py (24 pruebas sin cámara: PASAN, verificado por mí; grep de imwrite/VideoWriter
   = 0 en ambos archivos, conforme a §1.5). Revisor automático pendiente.
@@ -2469,6 +2471,7 @@ PENDIENTE CON EL DIRECTOR
   las secciones del cap. 1, 5 y 6 que lo mencionaban (se quitaron sus 3 marcas \pendiente) y en el
   README del repositorio público. PENDIENTE: informar al director y, si la facultad lo exige, el
   trámite de cambio de título.
+  REVOCADA el 23-nov-2026 por N-79: se vuelve al título del anteproyecto aprobado.
 
 ========================================================================================
 2026-11-22 · N-73 · Sin sesión con la persona señante vinculada: Actividades A, B y Bloque 1 no se hacen
@@ -2571,5 +2574,98 @@ PENDIENTE CON EL DIRECTOR
   (14,6 MiB), cobertura 146/146 con cualquier combinación de géneros. Límite: el conversor heredado
   escribe sin punto final y casi nunca coincide con un audio; usa el respaldo. XTTS-v2 tiene licencia CPML (no comercial) y el modelo no se redistribuye. Documento:
   docs/VOZ.md. Suite: 927 pruebas OK.
+
+========================================================================================
+2026-11-23 · N-79 · Se mantiene el título del anteproyecto aprobado (revoca N-72); director con título MSc
+========================================================================================
+  Indicación del director (audios del 23-nov-2026): el título, el objetivo general y los objetivos
+  específicos aprobados en el anteproyecto no se cambian «porque sí»; un cambio así exige revisión por
+  la junta y no procede. El cambio de LSTM a TCN se declara como salvedad, clara en el documento y en la
+  sustentación, reconociendo que se decidió durante el desarrollo; el tema va a conclusiones.
+  Aplicado: \titulotesis vuelve a «... basado en MediaPipe Holistic y redes LSTM, bajo condiciones
+  controladas» (main.tex); Sección 1 (sec:intro_cambio) pasa a «Salvedad: la red final es una TCN» y
+  dice que título y objetivos no se modifican y que la red de partida con LSTM se implementó y evaluó
+  como referencia; mismos ajustes en cap. 5 (Alcance) y cap. 6 (OE2, Matices). README del repositorio
+  público corregido en local (sin publicar). El director pidió figurar con su máximo título:
+  «Felipe Palta, MSc» (\director en main.tex y README público).
+
+========================================================================================
+2026-11-23 · N-80 · Sesión en vivo del autor con la configuración que se entrega (latencia, Bloque 2)
+========================================================================================
+  Configuración: modelo final (TCN + imputación), umbral 0,68, conversor inventario, voz pregrabada,
+  1280 × 720 pedido, --bordes aviso, cámara del MacBook Pro (--camera 1: el índice 0 era el iPhone por
+  Continuity). Registro: registros/sesion_final_2026-11-23/latencia_2026-11-23.jsonl (3 sesiones; sin
+  imágenes). El autor imitó 6 señas del corpus (buenos días, buenas noches, familia, todos, feliz,
+  juicioso; las de mayor recall LOSO con el modelo final) mirando los videos de referencia de LSC50 en
+  una ventana aparte; no se anotó la seña pedida por ventana, así que no hay exactitud.
+  Modo aislado: 87 ventanas, 64 aceptadas con audio, 23 rechazadas por confianza (26 %).
+    L_resp: media 31,9 ms, DE 1,9, mediana 32,1, p90 33,6, 27,2-38,0 (n = 64).
+    L_total: media 2.578,6 ms, DE 176,7, mediana 2.518,3, p90 2.702,0. W mediana 2.487,6 (n = 87).
+    Medianas por etapa (87 ventanas): extractor 11,75 ms/cuadro (6.525 cuadros, ninguno > 33,3 ms),
+    preproc 0,73, inferencia 19,17; conversión 0,06 + síntesis 0,15 (aceptadas).
+    12 de 87 ventanas por debajo de 28 cuadros/s (mín. 20,6; W hasta 3,66 s); causa probable: los videos
+    de referencia reproduciéndose a la vez. L_resp en ellas: 33,1 frente a 32,0 ms de mediana.
+  Modo oración: 13 turnos de 2-3 señas, los 13 con el enunciado previsto (5 frases del inventario,
+  también con el orden invertido); conversión 0,1 ms y síntesis 0,2 ms (medianas).
+  Resumen: docs/LATENCIA_SESION_FINAL_2026-11-23.json (src/latencia_resumen.py, toda la carpeta).
+  Aplicado en la tesis: Tabla tab:c5_latencia (columna «Final 23-nov» en vivo), lectura de la Sección
+  5 latencia, resumen (es/en), caps. 3, 4b y 6; se retira el último \pendiente del cap. 5. Queda como
+  límite declarado: el retardo del dispositivo de audio no se midió.
+  Las ventanas 79 y 80 (18:56) se registraron después del primer resumen (85/62); las cifras se
+  recalcularon con el registro completo (87/64): mediana y p90 de L_resp no cambian.
+  Corrección de pantalla en src/realtime.py: el texto se pasa a ASCII antes de cv2.putText (la fuente
+  Hershey mostraba «d??as»).
+
+========================================================================================
+2026-11-23 · N-81 · Recorte de longitud aplicado (PROPUESTA_RECORTE.md, salvo filas 18 y 25)
+========================================================================================
+  Decisión del autor. Cuerpo (cap. 1-6) de 176 a 161 páginas (de 190 en la propuesta del 22-nov); PDF de
+  268 a 260 páginas. Lo que sale del cuerpo pasa a los Anexos A, C, F y G (archivos capitulos/mov_*.tex)
+  o se elimina cuando repetía una tabla o figura que se conserva; ninguna cifra se pierde. Sin cambios:
+  título, objetivos, Sección 1 «Salvedad», tabla de RE, tablas principales del cap. 5 y la latencia.
+  Filas 18 (tablas resumen por fase, pedido N-60) y 25 (cuadros «En palabras simples») quedan para
+  consultarlas con el director. Figuras c5_latencia y c4b_linea_tiempo_ensayo rehechas con la sesión del
+  23-nov (N-80). Respaldo: Tesis/Respaldos/Documento_Tesis_2026-11-23_antes_de_recorte.tar.gz; historial
+  local en Documento_Tesis/.git (sin remoto).
+
+========================================================================================
+2026-11-23 · N-82 · Actividad 4.e cerrada: condición del señante excluido, medida sobre los puntos
+========================================================================================
+  El corpus no publica la condición de cada persona: el artículo da a nivel de grupo dos criterios que no
+  coinciden (2 sordos y 3 oyentes; 3 nativos y 2 no nativos), todos fluidos en LSC y mayores de 18, sin
+  decir qué identificador es cuál; IMU/INFO/Volunteer_1..5.txt da estatura y medidas de brazo sin
+  identificador. No se atribuye a ningún pliegue una condición auditiva, lingüística o física.
+  Se reporta la condición medida (src/caracterizar_senantes.py → docs/CARACTERIZACION_SENANTES.{json,md};
+  997 videos válidos; mediana [RIC]): duración, ancho de hombros en la imagen, velocidad de la muñeca
+  activa, cuadros sin cada mano, videos con dos manos en movimiento, mano de los videos de una mano y
+  distancias entre trayectorias de muñecas (a las otras cuatro personas y entre repeticiones propias).
+  Lo que distingue a 0000 (el pliegue más difícil): sus trayectorias son las más alejadas de las otras
+  cuatro (0,98 anchos de hombro frente a 0,58-0,80) y sus repeticiones varían el doble (0,37 frente a
+  0,16-0,20); tamaño, duración, velocidad y pérdida de manos no ordenan los pliegues. 0001 hace con la
+  derecha el 94,8 % de sus señas de una mano (las otras cuatro, con la izquierda). Con cinco personas no
+  se afirma ninguna relación. Tesis: sec:c5_condicion, tab:c5_condicion_senante,
+  fig:c5_condicion_senante; RE6 y figura c6_estado con 4.e «hecho».
+
+========================================================================================
+2026-11-23 · N-83 · Correcciones de una revisión completa del documento; ventana de 2,5 s medida
+========================================================================================
+  Duración: las cifras de N-11 (media 2,57 s, mediana 2,58 s, p90 3,29 s, 47 % <= 2,5 s) salían de las
+  filas de los CSV publicados (data/processed/lengths.npy / 24), con menos filas que fotogramas en 749 de
+  1.000 muestras. Videos COLOR_BODY (997, 24 fps): mediana 2,79 s, p90 3,38 s, 29,1 % <= 2,5 s. La seña
+  sin reposos: mediana 1,46 s, p90 2,08 s, 96,5 % <= 2,5 s; reposo inicial 0,33 s y final 0,92 s.
+  Simulación de la ventana (src/simular_ventana_25.py → docs/SIMULACION_VENTANA_25.{json,md}; 15 modelos
+  LOSO del modelo final; el video completo reproduce las probabilidades guardadas): primeros 2,5 s top-1
+  0,679 frente a 0,677; con 1 s de retraso al empezar 0,650 (peor en 5 de 5 pliegues); 3,5 s con reposo
+  al final 0,658. Tesis: 04b «Ventana fija» reescrita; fila nueva en tab:c5_amenazas; ayudas de
+  src/realtime.py y src/translator.py corregidas.
+  Otras correcciones: «la prueba se abre una sola vez» → «la prueba nunca decide» (se reportó en cada
+  experimento); dirección del paso de Adam; TCN de Bai et al. causal y la del trabajo centrada; «8
+  ensayos» → 64; 3,6 → 3,7 (0000); semilla 2026 rotulada en tab:c5_umbral; «dos sordas y tres oyentes»
+  retirado (el corpus no lo asigna); glosario: XTTS-v2 usa la GPU integrada; «se publicarán» →
+  «se publicaron»; integración: 3.c hecha, 3.a y 3.b en parte; 927 pruebas = 907 pasan + 20 omitidas.
+  Tabla tab:c1_cambios: filas nuevas de voz (ElevenLabs en línea; XTTS-v2 en GPU integrada) y comité de
+  ética (no se radicó: no hubo sesiones con participantes). Bibliografía en una sola lista IEEE numerada,
+  sin notas de verificación impresas; LSA64 citada. Figuras 4.4, 4.10 y 5.3 con texto >= 6,5 pt; matriz
+  de confusión vectorial (scripts_figuras/c5_matriz_confusion.py).
 
 (añadir nuevas entradas debajo de esta línea)

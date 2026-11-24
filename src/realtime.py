@@ -401,8 +401,8 @@ def crear_parser() -> argparse.ArgumentParser:
     parser.add_argument("--ventana-frames", type=int, default=0,
                         help="N fotogramas que cierran la ventana; 0 = round(ventana-seg x tasa medida) (default 0)")
     parser.add_argument("--ventana-seg", type=float, default=2.5,
-                        help="duracion objetivo de la ventana en s (default 2.5: clips de LSC50 media 2.57 s, "
-                             "mediana 2.58 s, p90 3.29 s; 47%% de los clips <= 2.5 s, 79%% <= 3.0 s)")
+                        help="duracion objetivo de la ventana en s (default 2.5: videos de LSC50 mediana 2.79 s; "
+                             "la sena sin reposos, mediana 1.46 s, 96.5%% <= 2.5 s)")
     parser.add_argument("--ventana-max-seg", type=float, default=None,
                         help="tope de seguridad: cierra por tiempo aunque falten fotogramas (default 2 x ventana-seg)")
     parser.add_argument("--min-frames", type=int, default=15,

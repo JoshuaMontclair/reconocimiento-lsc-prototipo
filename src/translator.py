@@ -536,10 +536,11 @@ class LSCTranslator:
             ventana_frames: N fotogramas que cierran la ventana. 0 → automático:
                 round(ventana_seg × tasa medida del bucle) al abrir la ventana.
             ventana_seg: duración objetivo de la ventana (s). Por defecto 2,5 s: la
-                duración de los clips COMPLETOS de LSC50 (data/processed/lengths.npy, 1000
-                muestras a 24 fps, con reposo al inicio y al final) es media 61,7 fotogramas
-                = 2,57 s, mediana 62 = 2,58 s, p90 79 = 3,29 s, máximo 134 = 5,58 s; el 47 %
-                de los clips dura ≤ 2,5 s y el 79 % ≤ 3,0 s. La ventana se remuestrea a 30
+                los 997 videos COLOR_BODY de LSC50 (24 fps, con reposo al inicio y al final)
+                duran mediana 2,79 s, p90 3,38 s (29,1 % ≤ 2,5 s); la seña sin los reposos
+                dura mediana 1,46 s, p90 2,08 s (96,5 % ≤ 2,5 s). docs/SIMULACION_VENTANA_25.md
+                (las cifras anteriores, 2,57/2,58 s y 47 %, salían de las filas de los CSV
+                publicados, que tienen menos filas que fotogramas el video). La ventana se remuestrea a 30
                 pasos igual que el clip completo en el entrenamiento, así que su duración
                 debe ser comparable a la del clip. --ventana-seg 3.0 es la alternativa
                 natural a ensayar en el Bloque 2; el valor efectivo W se reporta siempre.

@@ -30,7 +30,7 @@ Corpus público LSC50: 997 videos válidos de 5 señantes.
 | LOSO: top-3 | 84,7 % | 76,4 % |
 | LOSO: F1 macro | 0,647 | 0,544 |
 | Partición aleatoria, señantes vistos: top-1 | 94 % | 88 % |
-| Latencia de respuesta en vivo (mediana) | 32,5 ms después de cerrar la ventana de 2,5 s | ≈ 36 ms |
+| Latencia de respuesta en vivo (mediana) | 32,1 ms después de cerrar la ventana de 2,5 s (p90 33,6 ms; 64 ensayos) | ≈ 36 ms |
 
 LOSO deja fuera a un señante en cada uno de los 5 pliegues. Las cifras son la media de 3 semillas por
 pliegue. Todas las decisiones de modelo se tomaron solo con la validación, con criterios fijados antes de
