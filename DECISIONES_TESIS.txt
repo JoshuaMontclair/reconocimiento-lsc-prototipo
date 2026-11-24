@@ -2668,4 +2668,32 @@ PENDIENTE CON EL DIRECTOR
   sin notas de verificación impresas; LSA64 citada. Figuras 4.4, 4.10 y 5.3 con texto >= 6,5 pt; matriz
   de confusión vectorial (scripts_figuras/c5_matriz_confusion.py).
 
+========================================================================================
+2026-11-23 · N-84 · Segundo recorte del documento: 269 → 240 páginas
+========================================================================================
+  Decisión del autor. Cuerpo de unas 170 a 153 páginas y anexos de 61 a 50. Cap. 3 sin resultados del
+  proyecto (remite a los caps. 4 y 5) y sin lo que repetía del cap. 2; cap. 4 sin lo que el cap. 5 y los
+  anexos ya reportan; caps. 5 y 6 sin prosa que repite tablas; Anexo D con dos tablas comparativas en
+  lugar de 12 fichas; Anexo G compacto. Sin cambios: título, objetivos, salvedad, tablas principales del
+  cap. 5, tabla de RE, cifras. Bibliografía: C. K. Chow; ciudades de 10 congresos verificadas; «s. f.» en
+  fuentes web sin fecha; enlace de MediaPipe Holistic actualizado (el original ya no existe). Figura
+  c6_recorrido sin códigos internos. Historial en Documento_Tesis/.git.
+
+========================================================================================
+2026-11-23 · N-85 · Cadena integrada evaluada sobre los 997 videos del corpus (sin personas)
+========================================================================================
+  src/evaluacion_punta_a_punta.py → docs/EVALUACION_PUNTA_A_PUNTA.{json,md} y
+  models/evaluacion_punta_a_punta_2026-11-23/crudo.json (solo puntos y predicciones; ningún cuadro a disco).
+  Cadena del prototipo sin cambios (LandmarkExtractor, ventanas de LSCTranslator, _preprocesar, predict,
+  umbral 0,68, conversor inventario, búsqueda en el índice de voz pregrabada sin reproducir); cuadros
+  reducidos en memoria a 1280×720 (INTER_AREA); cada video con los 3 modelos LOSO que no vieron a su señante.
+  Top-1: 0,673 con el clip completo y 0,677 con la ventana de 2,5 s (60 cuadros a 24 fps), frente a 0,677
+  fuera de línea; por pliegue 0,475/0,606/0,722/0,763/0,798. Concordancia de clase con fuera de línea
+  95,8 % (32 ganados, 44 perdidos; p = 0,21). Sin reducir el cuadro (1920×1080) los puntos y las
+  predicciones coinciden en el 100 %: la cadena es equivalente y la diferencia viene de la reducción.
+  Extractor a 1280×720: mediana 10,0 ms por cuadro. 2.005 ventanas aceptadas, todas con enunciado grabado.
+  Modelo desplegado, 100 videos de prueba aleatoria: 0,960 frente a 0,940 (3 ganados, 1 perdido; ruido).
+  No sustituye el Bloque 1 (mismas personas, cámara y luz del corpus). Tesis: tab:c5_punta_a_punta (§5.5)
+  y OE4 (cap. 6). Evaluación pedida por una revisión completa del documento (N-83).
+
 (añadir nuevas entradas debajo de esta línea)

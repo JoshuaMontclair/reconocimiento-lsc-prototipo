@@ -104,7 +104,8 @@ En macOS la cámara debe autorizarse para la aplicación de terminal desde la qu
 ```bash
 python src/reextract_lsc50.py                  # puntos característicos de los 1.000 videos
 python src/preprocess_lsc50.py --landmarks data/extracted/LSC50_holistic \
-       --salida data/processed_holistic_mascara_rostro
+       --salida data/processed_holistic_mascara_rostro \
+       --mano-ausente mascara --rostro cejas_labios
 python src/train_loso.py --dry-run             # comprueba datos y particiones
 python src/experimento_factorial_tcn.py entrenar --semillas 2026   # evaluación LOSO de la TCN
 python src/train_final_tcn.py                  # modelo final sobre la partición aleatoria

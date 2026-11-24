@@ -581,7 +581,7 @@ class ConversorGlosas:
                 valor por defecto para poder distinguir el «m» por defecto del «m» explícito, que
                 según R-17 no se registra.
             genero_segunda: ídem para quien escucha (TÚ).
-            estricto: True → modo estricto (§7.1, paso F): solo dan frase las glosas solas y las 85
+            estricto: True → modo estricto (§7.1, paso F): solo dan frase las glosas solas y las 92
                 secuencias del inventario; cualquier otra frase pasa a respaldo «fuera_de_inventario».
 
         Raises:
