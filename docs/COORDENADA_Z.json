@@ -1,0 +1,41 @@
+{
+ "fecha": "2026-11-23T22:58:43",
+ "script": "src/coordenada_z.py",
+ "fuente": "data/processed_holistic_mascara_rostro",
+ "z_cruda_muneca": {
+  "archivos_por_mano": 50,
+  "n": 6713,
+  "mediana_abs": 6.444965805485481e-08,
+  "max_abs": 2.396328966369765e-07
+ },
+ "manos": {
+  "izquierda": {
+   "cuadros": 63012,
+   "z_muneca_normalizada": {
+    "mediana": 0.8783367872238159,
+    "p10": 0.35179417431354526,
+    "p90": 1.2434468626976014,
+    "de": 0.35811007663502814
+   },
+   "z_forma_abs_mediana": 0.07545308768749237,
+   "varianza_media_columnas_z": 0.13775461935408212,
+   "varianza_media_forma_z": 0.0032956892831246995,
+   "frac_varianza_z_del_desplazamiento_comun": 0.9760756532261651,
+   "varianza_media_columnas_xy": 0.6065490295574725
+  },
+  "derecha": {
+   "cuadros": 65267,
+   "z_muneca_normalizada": {
+    "mediana": 0.8814347386360168,
+    "p10": 0.34426217079162597,
+    "p90": 1.2398692131042481,
+    "de": 0.35919336897704285
+   },
+   "z_forma_abs_mediana": 0.07049742341041565,
+   "varianza_media_columnas_z": 0.13295170990119592,
+   "varianza_media_forma_z": 0.0025677711367676887,
+   "frac_varianza_z_del_desplazamiento_comun": 0.9806864376646532,
+   "varianza_media_columnas_xy": 0.45624404593433815
+  }
+ }
+}
